@@ -34,9 +34,9 @@ export default function LandingPage() {
               </h1>
             </div>
             <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto text-gray-600 dark:text-gray-300 leading-relaxed">
-                InfraUX te permite diseñar, crear y gestionar tu infraestructura en GCP, AWS y Azure mediante diagramas intuitivos.
-                Transforma tus ideas en código IaC listo para producción.
+            <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto text-gray-600 dark:text-gray-300 leading-relaxed">
+              <span className="text-gray-900 dark:text-gray-100">Infra</span><span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">UX</span> te permite diseñar, crear y gestionar tu infraestructura en GCP, AWS y Azure mediante diagramas intuitivos.
+              Transforma tus ideas en código IaC listo para producción.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-bounce-in" style={{ animationDelay: '0.4s' }}>
@@ -88,5 +88,3 @@ export default function LandingPage() {
     </div>
   );
 }
-
-

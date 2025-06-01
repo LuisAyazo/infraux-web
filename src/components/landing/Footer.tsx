@@ -141,7 +141,7 @@ export default function Footer() {
         </div>
         <div className="mt-12 border-t border-white/10 pt-8 animate-fade-in-up" style={{ animationDelay: '2s' }}>
           <p className="text-xs leading-5 text-gray-400 text-center">
-            &copy; {new Date().getFullYear()} InfraUX Technologies. Todos los derechos reservados.
+            &copy; {new Date().getFullYear()} <span className="text-gray-700 dark:text-gray-300 font-semibold">Infra</span><span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent font-semibold">UX</span> Technologies. Todos los derechos reservados.
           </p>
         </div>
       </div>

@@ -94,7 +94,7 @@ export default function Testimonials() {
             </span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Descubre cómo InfraUX está ayudando a equipos como el tuyo a innovar más rápido y con mayor confianza.
+            Descubre cómo <span className="text-gray-900 dark:text-gray-100">Infra</span><span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">UX</span> está ayudando a equipos como el tuyo a innovar más rápido y con mayor confianza.
           </p>
         </div>
 
@@ -156,7 +156,7 @@ export default function Testimonials() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
             <span className="text-lg font-semibold text-gray-700 dark:text-gray-300">
-              Únete a <span className="text-electric-purple-600 dark:text-electric-purple-400 font-bold">cientos de equipos</span> que ya confían en InfraUX
+              Únete a <span className="text-electric-purple-600 dark:text-electric-purple-400 font-bold">cientos de equipos</span> que ya confían en <span className="text-gray-900 dark:text-gray-100">Infra</span><span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">UX</span>
             </span>
           </div>
         </div>

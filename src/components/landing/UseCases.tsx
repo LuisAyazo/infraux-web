@@ -51,7 +51,7 @@ export default function UseCases() {
             Casos de Uso <span className="bg-gradient-to-r from-emerald-green-600 to-electric-purple-600 bg-clip-text text-transparent">Clave</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            InfraUX potencia a diversos equipos y escenarios para lograr una gestión de infraestructura más eficiente y visual.
+            <span className="text-gray-900 dark:text-gray-100">Infra</span><span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">UX</span> potencia a diversos equipos y escenarios para lograr una gestión de infraestructura más eficiente y visual.
           </p>
         </div>
 

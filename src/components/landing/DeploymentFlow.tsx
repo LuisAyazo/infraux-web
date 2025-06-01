@@ -13,7 +13,7 @@ const steps = [
   },
   {
     name: '2. Traducción a IaC',
-    description: 'InfraUX convierte automáticamente tu diagrama en código IaC optimizado (Terraform, Pulumi, etc.), listo para ser versionado y reutilizado.',
+    description: '<span class="text-gray-900 dark:text-gray-100">Infra</span><span class="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">UX</span> convierte automáticamente tu diagrama en código IaC optimizado (Terraform, Pulumi, etc.), listo para ser versionado y reutilizado.',
     icon: DocumentTextIcon,
     color: 'text-emerald-green-500',
     bgColor: 'bg-emerald-green-500/10',
@@ -29,7 +29,7 @@ const steps = [
   },
   {
     name: '4. Despliegue Automatizado',
-    description: 'Integra InfraUX con tus pipelines de CI/CD para desplegar tu infraestructura directamente a GCP, AWS o Azure con un solo clic o comando.',
+    description: 'Integra <span class="text-gray-900 dark:text-gray-100">Infra</span><span class="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">UX</span> con tus pipelines de CI/CD para desplegar tu infraestructura directamente a GCP, AWS o Azure con un solo clic o comando.',
     icon: ArrowPathIcon,
     color: 'text-yellow-500',
     bgColor: 'bg-yellow-500/10',
@@ -75,7 +75,7 @@ export default function DeploymentFlow() {
                   </span>
                 </div>
                 <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">{step.name.substring(3)}</h3> {/* Remove number from title */}
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{step.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed" dangerouslySetInnerHTML={{ __html: step.description }}></p>
               </div>
             ))}
           </div>

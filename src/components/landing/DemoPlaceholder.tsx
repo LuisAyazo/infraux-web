@@ -13,10 +13,10 @@ export default function DemoPlaceholder() {
       <div className="relative max-w-6xl mx-auto text-center">
         <div className="animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Ve <span className="bg-gradient-to-r from-electric-purple-600 to-electric-purple-700 bg-clip-text text-transparent">Infra</span><span className="bg-gradient-to-r from-emerald-green-600 to-emerald-green-700 bg-clip-text text-transparent">UX</span> en Acción
+            Ve <span className="text-gray-900 dark:text-gray-100">Infra</span><span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">UX</span> en Acción
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto">
-            Descubre cómo InfraUX simplifica la creación de infraestructura cloud a través de una interfaz visual intuitiva
+            Descubre cómo <span className="text-gray-900 dark:text-gray-100">Infra</span><span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">UX</span> simplifica la creación de infraestructura cloud a través de una interfaz visual intuitiva
           </p>
         </div>
         

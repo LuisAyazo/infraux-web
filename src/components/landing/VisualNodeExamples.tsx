@@ -6,8 +6,7 @@ import { CpuChipIcon, CircleStackIcon, WifiIcon, ServerStackIcon, CogIcon } from
 const nodeExamples = [
 	{
 		name: 'Compute (VM)',
-		description:
-			'Representa máquinas virtuales, instancias de cómputo y nodos de Kubernetes. Configura CPU, RAM, SO y almacenamiento.',
+		description: 'Descripción breve del componente de cómputo.',
 		icon: CpuChipIcon,
 		gradient: 'from-cloud-blue-500 to-cloud-blue-600',
 		bgGradient: 'from-cloud-blue-500/10 to-cloud-blue-600/20',
@@ -15,8 +14,7 @@ const nodeExamples = [
 	},
 	{
 		name: 'Base de Datos',
-		description:
-			'Nodos para servicios de bases de datos relacionales (SQL) y NoSQL. Define tipo de motor, capacidad y replicación.',
+		description: 'Descripción breve del componente de base de datos.',
 		icon: CircleStackIcon,
 		gradient: 'from-emerald-green-500 to-emerald-green-600',
 		bgGradient: 'from-emerald-green-500/10 to-emerald-green-600/20',
@@ -24,8 +22,7 @@ const nodeExamples = [
 	},
 	{
 		name: 'Redes (VPC)',
-		description:
-			'Visualiza y configura Virtual Private Clouds (VPCs), subredes, gateways, tablas de ruteo y firewalls.',
+		description: 'Descripción breve del componente de redes.',
 		icon: WifiIcon,
 		gradient: 'from-electric-purple-500 to-electric-purple-600',
 		bgGradient: 'from-electric-purple-500/10 to-electric-purple-600/20',
@@ -33,8 +30,7 @@ const nodeExamples = [
 	},
 	{
 		name: 'Servicios Gestionados',
-		description:
-			'Nodos para Cloud Functions, Load Balancers, colas de mensajes, almacenamiento de objetos y más servicios PaaS.',
+		description: 'Descripción breve de los servicios gestionados.',
 		icon: ServerStackIcon,
 		gradient: 'from-amber-500 to-orange-500',
 		bgGradient: 'from-amber-500/10 to-orange-500/20',
@@ -212,51 +208,6 @@ export default function VisualNodeExamples() {
 						Arrastra, suelta y conecta nodos que representan tus recursos cloud.
 						Cada nodo es configurable y se traduce automáticamente a IaC.
 					</p>
-				</div>
-
-				<div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-					{nodeExamples.map((node, index) => (
-						<div
-							key={node.name}
-							className={`group card p-8 opacity-0 animate-slide-up-delay-${index + 1} hover:scale-105 transition-all duration-300 relative overflow-hidden`}
-						>
-							{/* Background decoration */}
-							<div
-								className={`absolute inset-0 bg-gradient-to-br ${node.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-							></div>
-
-							<div className="relative z-10">
-								<div
-									className={`p-6 rounded-2xl bg-gradient-to-br ${node.bgGradient} mb-6 group-hover:scale-110 transition-transform duration-300 inline-block`}
-								>
-									<node.icon
-										className={`w-12 h-12 bg-gradient-to-r ${node.gradient} text-transparent`}
-										style={{
-											WebkitBackgroundClip: 'text',
-											backgroundClip: 'text',
-											filter: 'drop-shadow(0 0 8px rgba(255,255,255,0.3))',
-										}}
-										aria-hidden="true"
-									/>
-								</div>
-
-								<h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100 group-hover:text-electric-purple-600 dark:group-hover:text-electric-purple-400 transition-colors">
-									{node.name}
-								</h3>
-
-								<p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-grow">
-									{node.description}
-								</p>
-
-								<button
-									className={`btn btn-outline w-full group-hover:bg-gradient-to-r ${node.hoverGradient} group-hover:text-white group-hover:border-transparent transition-all duration-300`}
-								>
-									<CogIcon className="w-4 h-4 mr-2" />
-									Configurar
-								</button>
-							</div>
-						</div>
-					))}
 				</div>
 
 				{/* Interactive demo section - Mejorado */}

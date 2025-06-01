@@ -24,10 +24,10 @@ export default function TrustedCompanies() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in-up">
           <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Más de <span className="text-electric-purple-600 dark:text-electric-purple-400">500+ empresas</span> confían en InfraUX
+            Más de <span className="text-electric-purple-600 dark:text-electric-purple-400">500+ empresas</span> confían en <span className="text-gray-900 dark:text-gray-100">Infra</span><span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">UX</span>
           </h3>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Desde startups hasta empresas Fortune 500, organizaciones de todos los tamaños utilizan InfraUX para acelerar su transformación digital en la nube
+            Desde startups hasta empresas Fortune 500, organizaciones de todos los tamaños utilizan <span className="text-gray-900 dark:text-gray-100">Infra</span><span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">UX</span> para acelerar su transformación digital en la nube
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-electric-purple-500 to-emerald-green-500 mx-auto rounded-full mt-6"></div>
         </div>

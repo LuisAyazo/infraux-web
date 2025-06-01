@@ -45,16 +45,16 @@ export default function WhatIsInfraUX() {
         <div className="text-center mb-16 opacity-0 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
             ¿Qué es{' '}
-            <span className="bg-gradient-to-r from-electric-purple-600 to-electric-purple-700 bg-clip-text text-transparent">
+            <span className="text-gray-900 dark:text-gray-100">
               Infra
             </span>
-            <span className="bg-gradient-to-r from-emerald-green-600 to-emerald-green-700 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">
               UX
             </span>
             ?
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed opacity-0 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            InfraUX es la <span className="font-bold text-electric-purple-600 dark:text-electric-purple-400">herramienta líder del mercado</span> para desplegar infraestructura cloud con un solo click. 
+            <span className="text-gray-900 dark:text-gray-100">Infra</span><span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">UX</span> es la <span className="font-bold text-electric-purple-600 dark:text-electric-purple-400">herramienta líder del mercado</span> para desplegar infraestructura cloud con un solo click. 
             Simplifica la creación, el despliegue y la gestión de infraestructura en cualquier nube a través de una potente interfaz visual.
           </p>
           <div className="mt-8 flex justify-center animate-bounce-in" style={{ animationDelay: '0.3s' }}>

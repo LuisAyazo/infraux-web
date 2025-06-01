@@ -36,7 +36,7 @@ export default function Header() {
           <Link href="/" className="-m-1.5 p-1.5 group">
             <span className="sr-only">InfraUX</span>
             <div className="h-8 w-auto text-2xl font-bold group-hover:scale-110 transition-all duration-300">
-              <span className="bg-gradient-to-r from-electric-purple-600 via-electric-purple-500 to-electric-purple-700 bg-clip-text text-transparent">
+              <span className="text-gray-900 dark:text-gray-100">
                 Infra
               </span>
               <span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">
@@ -97,10 +97,10 @@ export default function Header() {
               <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
                 <span className="sr-only">InfraUX</span>
                 <div className="h-8 w-auto text-2xl font-bold">
-                  <span className="bg-gradient-to-r from-electric-purple-600 to-electric-purple-700 bg-clip-text text-transparent">
+                  <span className="text-gray-900 dark:text-gray-100">
                     Infra
                   </span>
-                  <span className="bg-gradient-to-r from-emerald-green-600 to-emerald-green-700 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">
                     UX
                   </span>
                 </div>
