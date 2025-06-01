@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: white;
+    color: rgb(15 23 42);
+    line-height: 1.6;
+  }
+
+  .dark body {
+    background-color: rgb(15 23 42);
+    color: rgb(248 250 252);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  h1 { 
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+  }
+
+  h2 { 
+    font-size: clamp(2rem, 4vw, 3.5rem); 
+  }
+  
+  h3 { 
+    font-size: clamp(1.5rem, 3vw, 2.5rem); 
+  }
+  
+  h4 { 
+    font-size: clamp(1.25rem, 2vw, 1.75rem); 
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgb(248 250 252);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, rgb(59 130 246), rgb(147 51 234));
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, rgb(37 99 235), rgb(126 34 206));
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgb(196 181 253);
+    color: rgb(88 28 135);
+  }
+  
+  .dark ::selection {
+    background: rgb(107 33 168);
+    color: rgb(196 181 253);
+  }
+}
+
+@layer utilities {
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, rgb(59 130 246), rgb(147 51 234));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-emerald {
+    background: linear-gradient(135deg, rgb(16 185 129), rgb(59 130 246));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass morphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .dark .glass {
+    background: rgba(15, 23, 42, 0.1);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+  }
+}
