@@ -58,7 +58,7 @@ export default function Header() {
         </div>
         
         <div className="hidden lg:flex lg:gap-x-8">
-          {navigation.map((item, index) => (
+          {navigation.map((item) => (
             <Link 
               key={item.name} 
               href={item.href} 
@@ -71,20 +71,20 @@ export default function Header() {
         </div>
         
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-6 ml-8">
-          <Link 
-            href="/login" 
+          <a 
+            href="https://app.infraux.com/login" 
             className="inline-flex items-center gap-2 text-sm font-semibold leading-6 text-gray-700 dark:text-gray-300 hover:text-electric-purple-600 dark:hover:text-electric-purple-400 transition-all duration-300 px-6 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-electric-purple-500/50 hover:bg-electric-purple-50 dark:hover:bg-electric-purple-900/20 backdrop-blur-sm group shadow-sm hover:shadow-md"
           >
             <UserIcon className="h-4 w-4 group-hover:scale-110 transition-transform" />
             Iniciar Sesión
-          </Link>
-          <Link 
-            href="/register" 
+          </a>
+          <a 
+            href="https://app.infraux.com/register" 
             className="inline-flex items-center gap-2 bg-gradient-to-r from-electric-purple-600 to-electric-purple-700 hover:from-electric-purple-700 hover:to-electric-purple-800 text-white px-6 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-electric-purple-500/30 backdrop-blur-sm group border border-electric-purple-500/20"
           >
             Registro Gratis
             <ArrowRightIcon className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          </a>
         </div>
       </nav>
 
@@ -130,22 +130,20 @@ export default function Header() {
                   ))}
                 </div>
                 <div className="py-6 space-y-4 animate-fade-in-up">
-                  <Link
-                    href="/login"
-                    onClick={() => setMobileMenuOpen(false)}
+                  <a
+                    href="https://app.infraux.com/login"
                     className="flex items-center gap-2 -mx-3 rounded-xl px-4 py-3 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 hover:border-electric-purple-500/50 hover:bg-electric-purple-50 dark:hover:bg-electric-purple-900/20 transition-all duration-300 backdrop-blur-sm"
                   >
                     <UserIcon className="h-5 w-5" />
                     Iniciar Sesión
-                  </Link>
-                  <Link
-                    href="/register"
-                    onClick={() => setMobileMenuOpen(false)}
+                  </a>
+                  <a
+                    href="https://app.infraux.com/register"
                     className="flex items-center gap-2 bg-gradient-to-r from-electric-purple-600 to-electric-purple-700 text-white rounded-xl px-4 py-3 text-base font-semibold leading-7 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-electric-purple-500/20 backdrop-blur-sm"
                   >
                     Registro Gratis
                     <ArrowRightIcon className="h-5 w-5" />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>

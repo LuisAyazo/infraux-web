@@ -73,12 +73,12 @@ export default function LandingPage() {
         </section>
         
         <WhatIsInfraUX />
-        <TrustedCompanies />
         <DemoPlaceholder />
         <VisualNodeExamples />
         <DeploymentFlow />
         <UseCases />
         <Pricing />
+        <TrustedCompanies />
         <Testimonials />
       </main>
       <Footer />

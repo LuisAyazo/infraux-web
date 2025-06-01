@@ -77,6 +77,7 @@ const config: Config = {
         'scale-pulse': 'scale-pulse 2s ease-in-out infinite',
         'slide-left': 'slide-left 30s linear infinite',
         'slide-right': 'slide-right 35s linear infinite',
+        'slide-smooth': 'slide-smooth 60s linear infinite',
       },
       keyframes: {
         'fade-in': {
@@ -131,6 +132,10 @@ const config: Config = {
         'slide-right': {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(0%)' },
+        },
+        'slide-smooth': {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
         },
       },
       backgroundImage: {
