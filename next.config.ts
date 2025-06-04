@@ -1,7 +1,128 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Enhanced SEO and Performance Configuration
+  
+  // Experimental features for better performance
+  experimental: {
+    optimizePackageImports: ['@heroicons/react'],
+  },
+
+  // Compress responses for better loading speeds
+  compress: true,
+
+  // Generate ETags for better caching
+  generateEtags: true,
+
+  // Power by header removal for security
+  poweredByHeader: false,
+
+  // Images optimization
+  images: {
+    formats: ['image/webp', 'image/avif'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 31536000, // 1 year
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
+
+  // Headers for better SEO and security
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          // Security headers
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+          // Performance headers
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
+          // Cache headers for static assets
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/robots.txt',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400', // 24 hours
+          },
+        ],
+      },
+      {
+        source: '/sitemap.xml',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=43200', // 12 hours
+          },
+        ],
+      },
+    ];
+  },
+
+  // Redirects for SEO (if needed)
+  async redirects() {
+    return [
+      // Example: redirect old URLs to new ones
+      // {
+      //   source: '/old-path',
+      //   destination: '/new-path',
+      //   permanent: true, // 301 redirect
+      // },
+    ];
+  },
+
+  // Rewrites for clean URLs (if needed)
+  async rewrites() {
+    return [
+      // Example: rewrite for cleaner URLs
+      // {
+      //   source: '/blog/:slug',
+      //   destination: '/blog/post/:slug',
+      // },
+    ];
+  },
+
+  // Bundle analyzer (for production optimization)
+  env: {
+    CUSTOM_KEY: process.env.NODE_ENV,
+  },
+
+  // Webpack configuration for better performance
+  webpack: (config, { dev, isServer }) => {
+    // Production optimizations
+    if (!dev && !isServer) {
+      config.optimization.splitChunks.cacheGroups = {
+        ...config.optimization.splitChunks.cacheGroups,
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          priority: 10,
+          chunks: 'all',
+        },
+      };
+    }
+    return config;
+  },
 };
 
 export default nextConfig;

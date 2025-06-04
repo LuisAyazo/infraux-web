@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.infraux.com/sitemap.xml
+
+# Crawl-delay for bots (optional)
+Crawl-delay: 1
+
+# Block specific paths (if needed)
+# Disallow: /admin/
+# Disallow: /api/
+
+# Block specific search engines (if needed)
+# User-agent: BadBot
+# Disallow: /
