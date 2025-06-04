@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 
 // Google Analytics
@@ -10,7 +10,7 @@ declare global {
   }
 }
 
-export function Analytics() {
+function AnalyticsInner() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
@@ -93,6 +93,15 @@ export function Analytics() {
   }, [pathname, searchParams])
 
   return null
+}
+
+// Main Analytics component wrapped in Suspense
+export function Analytics() {
+  return (
+    <Suspense fallback={null}>
+      <AnalyticsInner />
+    </Suspense>
+  )
 }
 
 // Hook for tracking custom events
