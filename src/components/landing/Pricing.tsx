@@ -1,8 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link' // Importar Link
-import { CheckIcon, XMarkIcon, StarIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
+// StarIcon se mueve a PlanCard y ComparisonTable
+import PlanCard from './PlanCard' 
+import ComparisonTable from './ComparisonTable' // Importar el nuevo componente
 
 // Exportar plansData para que pueda ser usado en otros lugares, como SettingsPage
 export const plansData = [
@@ -11,22 +13,23 @@ export const plansData = [
     id: 'starter',
     price: { monthly: 0, yearly: 0 },
     description: 'Ideal para individuos y pequeños proyectos de prueba.',
-    badge: 'Gratis para Siempre',
+    badge: '🟢 Gratis',
+    emoji: '🟢',
     features: [
       { name: '1 Usuario', included: true },
-      { name: '1 Proyecto/Compañía', included: true },
+      { name: '1 Proyecto / Compañía', included: true },
       { name: 'Hasta 3 diagramas en total', included: true },
       { name: '1 Ambiente (ej. Sandbox)', included: true },
       { name: 'Hasta 20 recursos en total', included: true },
-      { name: 'Soporte AWS, GCP, Azure (limitado por recursos)', included: true },
+      { name: 'Soporte limitado para AWS, GCP y Azure', included: true },
       { name: 'Exportar a Terraform', included: true },
       { name: 'Deploy directo (limitado: 5 recursos/deploy, 2 deploys/mes)', included: true },
-      { name: 'Despliegue Universal Esencial (Docker, Cloud Run, ECS) con límites del plan', included: true },
+      { name: 'Despliegue Universal básico (Docker, Cloud Run, ECS)', included: true },
       { name: 'Plantillas básicas', included: true },
       { name: 'Versionado básico (últimas 3 versiones)', included: true },
       { name: 'Soporte por comunidad', included: true },
-      { name: 'Importación de infraestructura', included: false },
       { name: 'Colaboración en equipo', included: false },
+      { name: 'Importación de infraestructura', included: false },
       { name: 'Análisis de costos', included: false },
     ],
     cta: 'Empezar Gratis',
@@ -36,79 +39,94 @@ export const plansData = [
   {
     name: 'Professional',
     id: 'professional',
-    price: { monthly: 29, yearly: 290 }, // Precio ajustado
+    price: { monthly: 49, yearly: 490 },
     description: 'Para profesionales y equipos pequeños que necesitan más capacidad y control.',
-    badge: 'Ideal para Crecer',
+    badge: '🔵 Professional',
+    emoji: '🔵',
+    originalPrice: 29,
     features: [
       { name: 'Hasta 3 Usuarios', included: true },
-      { name: 'Hasta 5 Proyectos/Compañías', included: true },
+      { name: 'Hasta 5 Proyectos / Compañías', included: true },
       { name: 'Hasta 10 diagramas por proyecto', included: true },
       { name: 'Hasta 3 Ambientes por proyecto (Dev, Staging, Prod)', included: true },
       { name: 'Hasta 200 recursos en total', included: true },
       { name: 'Soporte completo AWS, GCP, Azure', included: true },
-      { name: 'Exportar a Terraform, CloudFormation', included: true },
+      { name: 'Exportar a Terraform y CloudFormation', included: true },
       { name: 'Deploy directo ilimitado', included: true },
-      { name: 'Despliegue Universal (ECS, Cloud Run, Fargate, Docker) y más', included: true },
-      { name: 'Importación básica de IaC (hasta 20 recursos)', included: true },
+      { name: 'Despliegue Universal (ECS, Cloud Run, Fargate, Docker)', included: true },
+            { name: 'Importación básica de IaC (hasta 50 recursos)', included: true },
       { name: 'Plantillas Premium', included: true },
       { name: 'Colaboración básica (comentarios en diagramas)', included: true },
       { name: 'Versionado estándar (historial de 30 días)', included: true },
       { name: 'Análisis de costos estimado', included: true },
       { name: 'Soporte por Email (respuesta en 24h)', included: true },
+      { name: 'Roles/Permisos', included: false },
+      { name: 'Promoción entre ambientes', included: false },
+      { name: 'CI/CD', included: false },
+      { name: 'Integraciones corporativas', included: false },
     ],
-    cta: 'Prueba Gratuita de 14 Días',
-    popular: true, // Hacer este más popular que el "Team" inicial
+    cta: 'Prueba Gratuita 14 Días',
+    popular: true,
     savings: 'Ahorra 2 meses',
   },
   {
     name: 'Team',
     id: 'team',
-    price: { monthly: 79, yearly: 790 }, // Precio ajustado
+    price: { monthly: 149, yearly: 1490 },
     description: 'Colaboración avanzada y herramientas potentes para equipos en crecimiento.',
-    badge: 'Mejor Valor', // Cambiado de "Más popular"
+    badge: '🟣 Team',
+    emoji: '🟣',
+    originalPrice: 79,
     features: [
       { name: 'Hasta 10 Usuarios (ampliable)', included: true },
-      { name: 'Proyectos/Compañías ilimitados', included: true },
+      { name: 'Proyectos y compañías ilimitados', included: true },
       { name: 'Diagramas ilimitados', included: true },
       { name: 'Ambientes ilimitados por proyecto', included: true },
       { name: 'Hasta 1000 recursos en total', included: true },
-      { name: 'Soporte completo AWS, GCP, Azure', included: true },
+      { name: 'Soporte completo multi-cloud', included: true },
       { name: 'Exportar a Terraform, CloudFormation, Pulumi', included: true },
       { name: 'Deploy directo con flujos de aprobación', included: true },
-      { name: 'Despliegue Universal Avanzado (Kubernetes, Functions, Jobs, ECS, Cloud Run, Fargate) y más', included: true },
+      { name: 'Despliegue Universal Avanzado (Kubernetes, Functions, Jobs, ECS, Cloud Run, Fargate)', included: true },
       { name: 'Importación completa de infraestructura', included: true },
-      { name: 'Promoción entre ambientes (manual y semi-auto)', included: true },
-      { name: 'Plantillas Premium y personalizadas por equipo', included: true },
+      { name: 'Promoción entre ambientes (manual y semi-automática)', included: true },
+      { name: 'Plantillas Premium y personalizadas', included: true },
       { name: 'Colaboración avanzada (roles y permisos)', included: true },
       { name: 'Versionado avanzado (historial completo, etiquetas)', included: true },
-      { name: 'Análisis de costos avanzado con alertas', included: true },
-      { name: 'Integración CI/CD (Webhooks, GitHub/GitLab básico)', included: true },
-      { name: 'Soporte Prioritario (Email 8h, Chat)', included: true },
+      { name: 'Análisis de costos con alertas', included: true },
+      { name: 'Integración básica CI/CD (webhooks, GitHub/GitLab)', included: true },
+      { name: 'Soporte prioritario (email 8h, chat)', included: true },
     ],
-    cta: 'Prueba Gratuita de 14 Días',
-    popular: false, 
+    cta: 'Prueba Gratuita 14 Días',
+    popular: false,
     savings: 'Ahorra 2 meses',
   },
   {
     name: 'Enterprise',
     id: 'enterprise',
-    price: { monthly: null, yearly: null }, // Custom pricing
-    description: 'Soluciones a medida para grandes organizaciones con requisitos complejos.',
-    badge: 'Máximo Control',
+    price: { monthly: null, yearly: null },
+    description: 'Máximo control, escalabilidad y soporte personalizado para organizaciones exigentes.',
+    badge: '🟠 Enterprise',
+    emoji: '🟠',
+    customPrice: 'desde $499', // Modificado aquí
     features: [
-      { name: 'Todo en el plan Team, y además:', included: true },
-      { name: 'Usuarios y recursos personalizados/ilimitados', included: true },
-      { name: 'Soporte para nubes privadas y on-premise', included: true },
-      { name: 'Despliegue Universal Completo y Personalizado (Todas las plataformas soportadas, flujos avanzados)', included: true },
-      { name: 'Exportación a formatos IaC personalizados', included: true },
-      { name: 'Pipelines de deploy y promoción personalizados', included: true },
-      { name: 'Importación masiva asistida con mapeo automático', included: true },
-      { name: 'Seguridad Avanzada (SSO, SAML, RBAC detallado)', included: true },
-      { name: 'Logs de auditoría exhaustivos', included: true },
-      { name: 'Optimización de costos y consultoría', included: true },
-      { name: 'Integración CI/CD avanzada y personalizada', included: true },
-      { name: 'Soporte Dedicado 24/7 con CSM y SLAs', included: true },
-      { name: 'Capacitación y onboarding personalizado para equipos', included: true },
+      { name: 'Usuarios, proyectos y ambientes ilimitados', included: true },
+      { name: 'Recursos y diagramas ilimitados', included: true },
+      { name: 'Soporte extendido para multi-cloud e híbridos', included: true },
+      { name: 'Exportar: Terraform, CloudFormation, Pulumi, YAML personalizado', included: true },
+      { name: 'Deploy directo con validaciones, aprobación, rollback, GitOps', included: true },
+      { name: 'Despliegue Universal Full (Kubernetes, Docker, ECS, Cloud Run, Fargate, Azure Functions, Google Cloud Jobs...)', included: true },
+      { name: 'Importación masiva de IaC (multi-archivo, multi-cloud)', included: true },
+      { name: 'Promoción inteligente entre ambientes (con dependencias y workflows)', included: true },
+      { name: 'Plantillas personalizadas por equipo o industria', included: true },
+      { name: 'Versionado profesional con comparaciones y rollback', included: true },
+      { name: 'Colaboración enterprise (roles, permisos, auditoría)', included: true },
+      { name: 'Análisis de costos avanzado (visualizaciones, alertas, simulaciones)', included: true },
+      { name: 'CI/CD personalizada (GitHub, GitLab, Bitbucket, pipelines externos)', included: true },
+      { name: 'Integraciones empresariales (SSO, SAML, OAuth corporativo)', included: true },
+      { name: 'Soporte 24/7 con SLA', included: true },
+      { name: 'Canal privado (Slack, manager dedicado)', included: true },
+      { name: 'Capacitación, onboarding y migración asistida', included: true },
+      { name: 'Acceso a roadmap y features exclusivos', included: true },
     ],
     cta: 'Contactar Ventas',
     popular: false,
@@ -118,6 +136,30 @@ export const plansData = [
 
 export default function Pricing() {
   const [isYearly, setIsYearly] = useState(false)
+  const [showComparison, setShowComparison] = useState(false)
+
+  const comparisonFeatures = [
+    { name: 'Usuarios', starter: '1', professional: 'Hasta 3', team: 'Hasta 10 (ampliable)', enterprise: 'Ilimitados' },
+    { name: 'Proyectos / Compañías', starter: '1', professional: 'Hasta 5', team: 'Ilimitados', enterprise: 'Ilimitados' },
+    { name: 'Diagramas por proyecto', starter: 'Hasta 3 (total)', professional: 'Hasta 10', team: 'Ilimitados', enterprise: 'Ilimitados' },
+    { name: 'Ambientes por proyecto', starter: '1', professional: 'Hasta 3', team: 'Ilimitados', enterprise: 'Ilimitados' },
+    { name: 'Recursos totales', starter: 'Hasta 20', professional: 'Hasta 200', team: 'Hasta 1000', enterprise: 'Ilimitados' },
+    { name: 'Nubes soportadas', starter: 'AWS, GCP, Azure (limitado)', professional: 'AWS, GCP, Azure (completo)', team: 'Full Multi-cloud', enterprise: 'Multi-cloud + Híbrido' },
+    { name: 'Exportar a IaC', starter: 'Terraform', professional: 'Terraform, CloudFormation', team: '+ Pulumi', enterprise: '+ YAML personalizado' },
+    { name: 'Deploy directo', starter: 'Limitado (5 rec/deploy, 2x mes)', professional: 'Ilimitado', team: 'Con aprobación', enterprise: '+ Validaciones, GitOps' },
+    { name: 'Despliegue Universal', starter: 'Docker, Cloud Run, ECS (limitado)', professional: 'ECS, Fargate, Docker', team: 'Kubernetes, Functions, Jobs, etc.', enterprise: 'Todo full incluyendo híbridos' },
+    { name: 'Importar Infraestructura / IaC', starter: '❌', professional: 'Básica (hasta 50 recursos)', team: 'Completa', enterprise: 'Masiva (multi-cloud)' },
+    { name: 'Promoción entre ambientes', starter: '❌', professional: '❌', team: 'Manual/Semi-auto', enterprise: 'Inteligente (con workflows)' },
+    { name: 'Plantillas', starter: 'Básicas', professional: 'Premium', team: 'Premium + Custom', enterprise: 'Personalizadas x equipo/industria' },
+    { name: 'Versionado', starter: 'Básico (últimas 3)', professional: 'Estándar (30 días)', team: 'Avanzado', enterprise: 'Profesional (historial completo)' },
+    { name: 'Colaboración en equipo', starter: '❌', professional: 'Comentarios básicos', team: 'Roles/Permisos', enterprise: 'Roles avanzados, auditoría' },
+    { name: 'Análisis de costos', starter: '❌', professional: 'Estimado', team: 'Con alertas', enterprise: 'Visualizaciones + simulaciones' },
+    { name: 'CI/CD', starter: '❌', professional: '❌', team: 'Webhooks, GitHub/GitLab', enterprise: 'Integraciones completas CI/CD' },
+    { name: 'Integraciones Empresariales (SSO, SAML, etc.)', starter: '❌', professional: '❌', team: '❌', enterprise: '✅' },
+    { name: 'Soporte', starter: 'Comunidad', professional: 'Email (24h)', team: 'Prioritario (8h, chat)', enterprise: 'Dedicado 24/7, SLA, Slack privado' },
+    { name: 'Capacitación & Onboarding', starter: '❌', professional: '❌', team: '❌', enterprise: 'Personalizado' },
+    { name: 'Acceso a roadmap & features exclusivos', starter: '❌', professional: '❌', team: '❌', enterprise: '✅' },
+  ]
 
   return (
     <section id="pricing" className="py-24 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
@@ -139,7 +181,7 @@ export default function Pricing() {
           </p>
         </div>
 
-        <div className="mt-16 flex justify-center animate-slide-up">
+        <div className="mt-16 flex flex-col sm:flex-row justify-center items-center gap-6">
           <div className="relative bg-gray-100 dark:bg-gray-800 p-1 rounded-xl border border-gray-200 dark:border-gray-700">
             <button
               type="button"
@@ -150,7 +192,7 @@ export default function Pricing() {
               }`}
               onClick={() => setIsYearly(false)}
             >
-              Facturación Mensual
+              Mensual
             </button>
             <button
               type="button"
@@ -161,109 +203,40 @@ export default function Pricing() {
               }`}
               onClick={() => setIsYearly(true)}
             >
-              Facturación Anual
+              Anual
+              <span className="ml-1.5 inline-flex items-center rounded-full bg-emerald-green-100 dark:bg-emerald-green-900/40 px-2 py-0.5 text-xs font-medium text-emerald-green-700 dark:text-emerald-green-300">
+                Ahorra 2 meses
+              </span>
             </button>
           </div>
-          {isYearly && (
-            <div className="ml-6 inline-flex items-center rounded-full bg-gradient-to-r from-emerald-green-100 to-emerald-green-200 dark:from-emerald-green-900/30 dark:to-emerald-green-800/30 px-4 py-2 text-sm font-semibold text-emerald-green-700 dark:text-emerald-green-300 animate-bounce-in shadow-lg">
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-              </svg>
-              <span>Ahorra ~16%</span> {/* Ajustado el ahorro */}
-            </div>
-          )}
+          
+          <div className="flex gap-3">
+            <button
+              onClick={() => setShowComparison(!showComparison)}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-electric-purple-100 dark:bg-electric-purple-900/30 text-electric-purple-700 dark:text-electric-purple-300 hover:bg-electric-purple-200 dark:hover:bg-electric-purple-900/50 rounded-lg text-sm font-medium transition-all duration-300 border border-electric-purple-300 dark:border-electric-purple-700 hover:scale-105"
+            >
+              {showComparison ? '📊 Ocultar' : '📊 Ver'} Comparativa
+            </button>
+            
+            <Link
+              href="/comparacion"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-green-600 hover:bg-emerald-green-700 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              🔍 Comparativa Completa
+            </Link>
+          </div>
         </div>
 
         <div className="isolate mx-auto mt-16 grid max-w-sm grid-cols-1 gap-y-8 sm:mt-20 sm:max-w-2xl sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4 lg:gap-x-6 xl:gap-x-8">
           {plansData.map((plan, planIdx) => (
-            <div
-              key={plan.id}
-              className={`group relative rounded-3xl p-6 xl:p-8 ring-1 transition-all duration-500 hover:scale-[1.03] animate-slide-up ${
-                plan.popular
-                  ? 'bg-gradient-to-br from-electric-purple-50 to-emerald-green-50 dark:from-electric-purple-900/30 dark:to-emerald-green-900/30 ring-2 ring-electric-purple-500 dark:ring-electric-purple-600 shadow-2xl hover:shadow-electric-purple-500/30 scale-[1.03]'
-                  : 'bg-white dark:bg-gray-800/80 backdrop-blur-sm ring-gray-200 dark:ring-gray-700 hover:ring-electric-purple-400 dark:hover:ring-electric-purple-500 shadow-xl hover:shadow-2xl'
-              }`}
-              style={{ animationDelay: `${planIdx * 100}ms` }}
-            >
-              {plan.popular && (
-                <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-auto min-w-[120px] whitespace-nowrap rounded-full bg-gradient-to-r from-electric-purple-600 to-emerald-green-600 px-4 py-2 text-xs font-semibold text-white text-center animate-bounce-in shadow-lg">
-                  <StarIcon className="inline h-4 w-4 mr-1.5 -mt-0.5" />
-                  {plan.badge}
-                </div>
-              )}
-              
-              {!plan.popular && plan.badge && (
-                 <div className={`absolute -top-4 left-1/2 -translate-x-1/2 w-auto min-w-[120px] whitespace-nowrap rounded-full px-4 py-1.5 text-xs font-semibold text-white text-center shadow-md ${plan.id === 'starter' ? 'bg-gray-500' : 'bg-gradient-to-r from-gray-600 to-gray-700'}`}>
-                  {plan.badge}
-                </div>
-              )}
-
-              <div className="flex items-center justify-between gap-x-2 mt-4">
-                <h3
-                  className={`text-xl xl:text-2xl font-bold leading-7 xl:leading-8 ${
-                    plan.popular
-                      ? 'text-electric-purple-600 dark:text-electric-purple-400'
-                      : 'text-gray-900 dark:text-white'
-                  }`}
-                >
-                  {plan.name}
-                </h3>
-                {plan.savings && isYearly && plan.price.monthly !== null && (
-                  <span className="inline-flex items-center rounded-full bg-emerald-green-100 dark:bg-emerald-green-900/40 px-2.5 py-1 text-xs font-medium text-emerald-green-700 dark:text-emerald-green-300">
-                    {plan.savings}
-                  </span>
-                )}
-              </div>
-              <p className="mt-3 xl:mt-4 text-sm leading-6 text-gray-600 dark:text-gray-400 h-12">{plan.description}</p>
-              <div className="mt-4 xl:mt-6 flex items-baseline gap-x-1">
-                <span className="text-4xl xl:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  {plan.price.monthly === 0 ? 'Gratis' : 
-                   plan.price.monthly === null ? 'Custom' : 
-                   `$${isYearly ? plan.price.yearly : plan.price.monthly}`}
-                </span>
-                {plan.price.monthly !== 0 && plan.price.monthly !== null && (
-                  <div className="flex flex-col">
-                    <span className="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">
-                      {isYearly ? '/año' : '/mes'}
-                    </span>
-                    {isYearly && plan.price.monthly && plan.price.yearly && (plan.price.monthly * 12 > plan.price.yearly) && (
-                      <span className="text-xs text-gray-500 dark:text-gray-500 line-through">
-                        ${plan.price.monthly * 12}/año
-                      </span>
-                    )}
-                  </div>
-                )}
-              </div>
-              
-              <button
-                className={`mt-6 xl:mt-8 block w-full rounded-md px-3 py-2.5 text-center text-sm font-semibold leading-6 transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900 ${
-                  plan.popular
-                    ? 'bg-gradient-to-r from-electric-purple-600 to-emerald-green-500 text-white shadow-lg hover:shadow-xl hover:from-electric-purple-700 hover:to-emerald-green-600 focus:ring-electric-purple-500'
-                    : plan.id === 'starter' 
-                    ? 'bg-gray-600 text-white hover:bg-gray-700 shadow-md hover:shadow-lg focus:ring-gray-500'
-                    : 'bg-electric-purple-600 text-white hover:bg-electric-purple-700 shadow-md hover:shadow-lg focus:ring-electric-purple-500'
-                }`}
-              >
-                {plan.cta}
-              </button>
-
-              <ul role="list" className="mt-6 xl:mt-8 space-y-3 text-sm leading-6 text-gray-600 dark:text-gray-300">
-                {plan.features.map((feature) => (
-                  <li key={feature.name} className="flex gap-x-3 items-start">
-                    {feature.included ? (
-                      <CheckIcon className="h-6 w-5 flex-none text-emerald-green-600 dark:text-emerald-green-400 mt-0.5" aria-hidden="true" />
-                    ) : (
-                      <XMarkIcon className="h-6 w-5 flex-none text-gray-400 dark:text-gray-500 mt-0.5" aria-hidden="true" />
-                    )}
-                    <span className={feature.included ? 'dark:text-gray-300' : 'text-gray-400 dark:text-gray-500'}>
-                      {feature.name}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <PlanCard key={plan.id} plan={plan} isYearly={isYearly} planIdx={planIdx} />
           ))}
         </div>
+
+        {/* Comparison Table */}
+        {showComparison && (
+          <ComparisonTable plansData={plansData} comparisonFeatures={comparisonFeatures} />
+        )}
 
         <div className="mt-20 text-center animate-fade-in-up">
           <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
