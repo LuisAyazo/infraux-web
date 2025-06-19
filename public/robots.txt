@@ -1,74 +1,9 @@
-# robots.txt for InfraUX
-# https://www.infraux.com
-
+# *
 User-agent: *
 Allow: /
-Disallow: /api/
-Disallow: /admin/
-Disallow: /_next/
-Disallow: /static/
-Disallow: /*.json$
-Disallow: /*?*
-Allow: /sitemap.xml
-Allow: /*.js$
-Allow: /*.css$
 
-# Sitemap location
-Sitemap: https://www.infraux.com/sitemap.xml
+# Host
+Host: https://infraux.com
 
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
-
-# Specific rules for major search engines
-User-agent: Googlebot
-Allow: /
-Disallow: /api/
-Disallow: /admin/
-Crawl-delay: 0
-
-User-agent: Bingbot
-Allow: /
-Disallow: /api/
-Disallow: /admin/
-Crawl-delay: 1
-
-User-agent: Slurp
-Allow: /
-Disallow: /api/
-Disallow: /admin/
-Crawl-delay: 1
-
-User-agent: DuckDuckBot
-Allow: /
-Disallow: /api/
-Disallow: /admin/
-Crawl-delay: 1
-
-# Block bad bots
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
-User-agent: DotBot
-Disallow: /
-
-User-agent: MJ12bot
-Disallow: /
-
-# Allow social media crawlers
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-User-agent: WhatsApp
-Allow: /
-
-User-agent: Slackbot
-Allow: /
+# Sitemaps
+Sitemap: https://infraux.com/sitemap.xml

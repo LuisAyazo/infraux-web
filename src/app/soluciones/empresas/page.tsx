@@ -214,35 +214,6 @@ export default function EmpresasPage() {
                   Solicitar demo empresarial
                 </Link>
                 <Link
-                  href="/recursos/caso-estudio-enterprise"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
-                >
-                  Leer caso de estudio
-                </Link>
-              </div>
-              
-              <div className="mt-8 flex items-center justify-center gap-8 text-sm text-slate-600 dark:text-slate-400">
-                <div className="flex items-center gap-2">
-                  <ClockIcon className="h-5 w-5" />
-                  <span>Respuesta en 15 min</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <GlobeAltIcon className="h-5 w-5" />
-                  <span>Cobertura global</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CpuChipIcon className="h-5 w-5" />
-                  <span>Tecnología de punta</span>
-                </div>
-              </div>
-            </div>
-          </section>
-        </main>
-        
-        <FooterNew />
-      </div>
-    )
-  }
                   href="/recursos/whitepaper-enterprise"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
                 >
@@ -622,3 +593,17 @@ export default function EmpresasPage() {
                 <ArrowRightIcon className="h-5 w-5" />
               </Link>
               <Link
+                href="/recursos/caso-estudio-enterprise"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
+              >
+                Ver casos de éxito
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
+      
+      <FooterNew />
+    </div>
+  )
+}
