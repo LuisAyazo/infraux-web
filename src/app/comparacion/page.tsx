@@ -1,273 +1,490 @@
-'use client'
-
+import { Metadata } from 'next'
+import HeaderNew from '@/components/landing/HeaderNew'
+import FooterNew from '@/components/landing/FooterNew'
 import Link from 'next/link'
-import { CheckIcon, XMarkIcon, StarIcon, ArrowLeftIcon } from '@heroicons/react/24/outline'
-import { plansData } from '@/components/landing/Pricing'
+import { 
+  CheckIcon, 
+  XMarkIcon,
+  ArrowRightIcon,
+  SparklesIcon,
+  ChartBarIcon,
+  CodeBracketIcon,
+  CurrencyDollarIcon,
+  UserGroupIcon,
+  ShieldCheckIcon,
+  CloudIcon,
+  CubeIcon,
+  CommandLineIcon,
+  ClockIcon,
+  DocumentTextIcon,
+  PuzzlePieceIcon,
+  GlobeAltIcon,
+  BoltIcon,
+  BeakerIcon,
+  ChatBubbleLeftRightIcon,
+  StarIcon
+} from '@heroicons/react/24/outline'
 
-const comparisonFeatures = [
-  { name: 'Usuarios', starter: '1', professional: 'Hasta 3', team: 'Hasta 10 (ampliable)', enterprise: 'Ilimitados' },
-  { name: 'Proyectos / Compañías', starter: '1', professional: 'Hasta 5', team: 'Ilimitados', enterprise: 'Ilimitados' },
-  { name: 'Diagramas por proyecto', starter: 'Hasta 3 (total)', professional: 'Hasta 10', team: 'Ilimitados', enterprise: 'Ilimitados' },
-  { name: 'Ambientes por proyecto', starter: '1', professional: 'Hasta 3', team: 'Ilimitados', enterprise: 'Ilimitados' },
-  { name: 'Recursos totales', starter: 'Hasta 20', professional: 'Hasta 200', team: 'Hasta 1000', enterprise: 'Ilimitados' },
-  { name: 'Nubes soportadas', starter: 'AWS, GCP, Azure (limitado)', professional: 'AWS, GCP, Azure (completo)', team: 'Full Multi-cloud', enterprise: 'Multi-cloud + Híbrido' },
-  { name: 'Exportar a IaC', starter: 'Terraform', professional: 'Terraform, CloudFormation', team: '+ Pulumi', enterprise: '+ YAML personalizado' },
-  { name: 'Deploy directo', starter: 'Limitado (5 rec/deploy, 2x mes)', professional: 'Ilimitado', team: 'Con aprobación', enterprise: '+ Validaciones, GitOps' },
-  { name: 'Despliegue Universal', starter: 'Docker, Cloud Run, ECS (limitado)', professional: 'ECS, Fargate, Docker', team: 'Kubernetes, Functions, Jobs, etc.', enterprise: 'Todo full incluyendo híbridos' },
-  { name: 'Importar Infraestructura / IaC', starter: '❌', professional: 'Básica (hasta 50 recursos)', team: 'Completa', enterprise: 'Masiva (multi-cloud)' },
-  { name: 'Promoción entre ambientes', starter: '❌', professional: '❌', team: 'Manual/Semi-auto', enterprise: 'Inteligente (con workflows)' },
-  { name: 'Plantillas', starter: 'Básicas', professional: 'Premium', team: 'Premium + Custom', enterprise: 'Personalizadas x equipo/industria' },
-  { name: 'Versionado', starter: 'Básico (últimas 3)', professional: 'Estándar (30 días)', team: 'Avanzado', enterprise: 'Profesional (historial completo)' },
-  { name: 'Colaboración en equipo', starter: '❌', professional: 'Comentarios básicos', team: 'Roles/Permisos', enterprise: 'Roles avanzados, auditoría' },
-  { name: 'Análisis de costos', starter: '❌', professional: 'Estimado', team: 'Con alertas', enterprise: 'Visualizaciones + simulaciones' },
-  { name: 'CI/CD', starter: '❌', professional: '❌', team: 'Webhooks, GitHub/GitLab', enterprise: 'Integraciones completas CI/CD' },
-  { name: 'Integraciones Empresariales (SSO, SAML, etc.)', starter: '❌', professional: '❌', team: '❌', enterprise: '✅' },
-  { name: 'Soporte', starter: 'Comunidad', professional: 'Email (24h)', team: 'Prioritario (8h, chat)', enterprise: 'Dedicado 24/7, SLA, Slack privado' },
-  { name: 'Capacitación & Onboarding', starter: '❌', professional: '❌', team: '❌', enterprise: 'Personalizado' },
-  { name: 'Acceso a roadmap & features exclusivos', starter: '❌', professional: '❌', team: '❌', enterprise: '✅' },
+export const metadata: Metadata = {
+  title: 'InfraUX vs Terraform, Pulumi, AWS CDK | Comparación Detallada',
+  description: 'Compara InfraUX con Terraform, Pulumi, AWS CDK y otras herramientas IaC. Descubre por qué InfraUX es la mejor opción para gestionar tu infraestructura cloud visualmente.',
+  keywords: ['InfraUX vs Terraform', 'InfraUX vs Pulumi', 'InfraUX vs AWS CDK', 'comparación IaC', 'infraestructura como código', 'herramientas DevOps'],
+  openGraph: {
+    title: 'InfraUX vs Terraform, Pulumi, AWS CDK - Comparación',
+    description: 'Descubre las ventajas de InfraUX sobre otras herramientas de infraestructura como código.',
+    url: 'https://infraux.com/comparacion',
+    siteName: 'InfraUX',
+    locale: 'es_ES',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'InfraUX vs Terraform, Pulumi, AWS CDK',
+    description: 'La comparación definitiva de herramientas IaC',
+  },
+  alternates: {
+    canonical: 'https://infraux.com/comparacion',
+    languages: {
+      'es': 'https://infraux.com/comparacion',
+      'en': 'https://infraux.com/comparison'
+    }
+  },
+}
+
+const competitors = [
+  {
+    name: 'Terraform',
+    logo: '🔧',
+    description: 'Herramienta IaC declarativa de HashiCorp',
+    pros: [
+      'Amplia adopción en la industria',
+      'Gran ecosistema de providers',
+      'Soporte multi-cloud maduro',
+      'Comunidad activa'
+    ],
+    cons: [
+      'Curva de aprendizaje pronunciada',
+      'Requiere conocimiento de HCL',
+      'Sin interfaz visual',
+      'Debugging complejo',
+      'Estado compartido problemático'
+    ]
+  },
+  {
+    name: 'Pulumi',
+    logo: '🎯',
+    description: 'IaC con lenguajes de programación',
+    pros: [
+      'Usa lenguajes conocidos',
+      'Buena integración con CI/CD',
+      'Tipado fuerte',
+      'Flexibilidad programática'
+    ],
+    cons: [
+      'Menos providers que Terraform',
+      'Requiere habilidades de programación',
+      'Sin visualización',
+      'Más complejo para no-developers',
+      'Licencia costosa para equipos'
+    ]
+  },
+  {
+    name: 'AWS CDK',
+    logo: '☁️',
+    description: 'Framework de AWS para IaC',
+    pros: [
+      'Integración nativa con AWS',
+      'Abstracciones de alto nivel',
+      'Soporte oficial de AWS',
+      'Buena documentación'
+    ],
+    cons: [
+      'Solo para AWS',
+      'Requiere programación',
+      'Sin interfaz visual',
+      'Curva de aprendizaje',
+      'Lock-in con AWS'
+    ]
+  },
+  {
+    name: 'CloudFormation',
+    logo: '📋',
+    description: 'Servicio nativo de AWS',
+    pros: [
+      'Nativo de AWS',
+      'Sin costo adicional',
+      'Integración completa',
+      'Rollback automático'
+    ],
+    cons: [
+      'Solo AWS',
+      'YAML/JSON verboso',
+      'Difícil de debuggear',
+      'Sin visualización nativa',
+      'Limitado a recursos AWS'
+    ]
+  }
 ]
 
-export default function ComparisonPage() {
-  return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-electric-purple-600 to-emerald-green-600 text-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-          <Link 
-            href="/#pricing" 
-            className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
-          >
-            <ArrowLeftIcon className="h-5 w-5" />
-            Volver a Precios
-          </Link>
-          <h1 className="text-4xl font-bold mb-4">Comparativa Detallada de Planes</h1>
-          <p className="text-xl text-white/90 max-w-3xl">
-            Compara todas las características de nuestros planes para encontrar el que mejor se adapte a tus necesidades.
-          </p>
-        </div>
-      </div>
+const comparisonFeatures = [
+  {
+    category: 'Experiencia de Usuario',
+    features: [
+      { name: 'Interfaz visual drag & drop', infraux: true, terraform: false, pulumi: false, awscdk: false, cloudformation: false },
+      { name: 'Sin necesidad de código', infraux: true, terraform: false, pulumi: false, awscdk: false, cloudformation: false },
+      { name: 'Vista previa en tiempo real', infraux: true, terraform: false, pulumi: false, awscdk: false, cloudformation: false },
+      { name: 'Colaboración en tiempo real', infraux: true, terraform: false, pulumi: false, awscdk: false, cloudformation: false },
+      { name: 'Onboarding < 5 minutos', infraux: true, terraform: false, pulumi: false, awscdk: false, cloudformation: false }
+    ]
+  },
+  {
+    category: 'Capacidades Técnicas',
+    features: [
+      { name: 'Multi-cloud (AWS, GCP, Azure)', infraux: true, terraform: true, pulumi: true, awscdk: false, cloudformation: false },
+      { name: 'Generación automática de IaC', infraux: true, terraform: false, pulumi: false, awscdk: false, cloudformation: false },
+      { name: 'Import de infraestructura existente', infraux: true, terraform: true, pulumi: true, awscdk: 'partial', cloudformation: 'partial' },
+      { name: 'Gestión de estado integrada', infraux: true, terraform: 'manual', pulumi: true, awscdk: true, cloudformation: true },
+      { name: 'Validación en tiempo real', infraux: true, terraform: 'cli', pulumi: 'cli', awscdk: 'cli', cloudformation: false }
+    ]
+  },
+  {
+    category: 'Productividad',
+    features: [
+      { name: 'Templates predefinidos', infraux: '100+', terraform: 'community', pulumi: 'limited', awscdk: 'patterns', cloudformation: 'samples' },
+      { name: 'Análisis de costos integrado', infraux: true, terraform: false, pulumi: false, awscdk: false, cloudformation: false },
+      { name: 'Documentación automática', infraux: true, terraform: false, pulumi: false, awscdk: false, cloudformation: false },
+      { name: 'Rollback visual', infraux: true, terraform: 'manual', pulumi: 'manual', awscdk: 'manual', cloudformation: true },
+      { name: 'Marketplace de componentes', infraux: true, terraform: 'registry', pulumi: false, awscdk: false, cloudformation: false }
+    ]
+  },
+  {
+    category: 'Colaboración y Enterprise',
+    features: [
+      { name: 'Control de acceso granular', infraux: true, terraform: 'cloud', pulumi: 'cloud', awscdk: 'iam', cloudformation: 'iam' },
+      { name: 'Audit logs completos', infraux: true, terraform: 'cloud', pulumi: 'cloud', awscdk: 'cloudtrail', cloudformation: 'cloudtrail' },
+      { name: 'SSO/SAML', infraux: true, terraform: 'cloud', pulumi: 'cloud', awscdk: 'iam', cloudformation: 'iam' },
+      { name: 'Ambientes múltiples', infraux: true, terraform: 'workspaces', pulumi: 'stacks', awscdk: 'stacks', cloudformation: 'stacks' },
+      { name: 'Compliance (SOC2, HIPAA)', infraux: true, terraform: 'cloud', pulumi: 'cloud', awscdk: 'aws', cloudformation: 'aws' }
+    ]
+  }
+]
 
-      {/* Plans Overview */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {plansData.map((plan) => (
-            <div
-              key={plan.id}
-              className={`relative rounded-2xl p-6 border-2 transition-all duration-300 hover:scale-105 ${
-                plan.popular
-                  ? 'border-electric-purple-500 bg-gradient-to-br from-electric-purple-50 to-emerald-green-50 dark:from-electric-purple-900/30 dark:to-emerald-green-900/30 shadow-lg'
-                  : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/80 hover:border-electric-purple-400'
-              }`}
-            >
-              {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-electric-purple-600 to-emerald-green-600 text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
-                    <StarIcon className="h-4 w-4" />
-                    Más Popular
-                  </div>
-                </div>
-              )}
+function FeatureValue({ value }: { value: boolean | string }) {
+  if (typeof value === 'boolean') {
+    return value ? (
+      <CheckIcon className="h-5 w-5 text-green-600 dark:text-green-400" />
+    ) : (
+      <XMarkIcon className="h-5 w-5 text-slate-300 dark:text-slate-600" />
+    )
+  }
+  
+  if (value === 'partial') {
+    return <span className="text-sm text-amber-600 dark:text-amber-400">Parcial</span>
+  }
+  
+  if (value === 'manual' || value === 'cli') {
+    return <span className="text-sm text-slate-500 dark:text-slate-400">{value}</span>
+  }
+  
+  if (value === 'cloud' || value === 'iam' || value === 'aws' || value === 'cloudtrail') {
+    return <span className="text-sm text-blue-600 dark:text-blue-400">{value}</span>
+  }
+  
+  return <span className="text-sm text-slate-700 dark:text-slate-300">{value}</span>
+}
+
+export default function ComparacionPage() {
+  return (
+    <div className="flex flex-col min-h-screen bg-white dark:bg-slate-900">
+      <HeaderNew />
+      
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="relative py-20 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800" />
+          <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-800 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+          
+          <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div className="text-center max-w-3xl mx-auto">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 mb-6">
+                <ChartBarIcon className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
+                <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">
+                  Comparación honesta y transparente
+                </span>
+              </div>
               
-              <div className="text-center">
-                <div className="text-3xl mb-2">{plan.emoji}</div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{plan.name}</h3>
-                <div className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  {plan.price.monthly === 0 ? 'Gratis' : 
-                   plan.price.monthly === null ? plan.customPrice || 'Custom' : 
-                   `$${plan.price.monthly}/mes`}
-                </div>
-                <button
-                  className={`w-full px-4 py-2 rounded-lg font-semibold transition-all ${
-                    plan.popular
-                      ? 'bg-gradient-to-r from-electric-purple-600 to-emerald-green-500 text-white hover:shadow-lg'
-                      : 'bg-electric-purple-600 text-white hover:bg-electric-purple-700'
-                  }`}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
+                InfraUX vs
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+                  Herramientas tradicionales IaC
+                </span>
+              </h1>
+              
+              <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
+                Descubre por qué miles de equipos están migrando a InfraUX para gestionar
+                su infraestructura cloud de forma visual, colaborativa y eficiente
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/register"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
                 >
-                  {plan.cta}
-                </button>
+                  Prueba InfraUX gratis
+                  <ArrowRightIcon className="h-5 w-5" />
+                </Link>
+                <Link
+                  href="/demos"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
+                >
+                  Ver demos en vivo
+                </Link>
               </div>
             </div>
-          ))}
-        </div>
-
-        {/* Detailed Comparison Table */}
-        <div className="bg-white dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
-          <div className="px-6 py-4 bg-gradient-to-r from-electric-purple-500 to-emerald-green-500">
-            <h2 className="text-2xl font-bold text-white text-center">Comparativa Detallada de Características</h2>
           </div>
-          
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="bg-gray-50 dark:bg-gray-700/50">
-                <tr>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900 dark:text-white min-w-[250px] sticky left-0 bg-gray-50 dark:bg-gray-700/50 z-10">
-                    Características
-                  </th>
-                  {plansData.map((plan) => (
-                    <th
-                      key={plan.id}
-                      className={`px-6 py-4 text-center text-sm font-semibold min-w-[200px] ${
-                        plan.popular
-                          ? 'text-electric-purple-600 dark:text-electric-purple-400 bg-electric-purple-50 dark:bg-electric-purple-900/20'
-                          : 'text-gray-900 dark:text-white'
-                      }`}
-                    >
-                      <div className="flex flex-col items-center gap-2">
-                        <span className="text-2xl">{plan.emoji}</span>
-                        <span className="font-bold">{plan.name}</span>
-                        <div className="text-lg font-bold">
-                          {plan.price.monthly === 0 ? 'Gratis' : 
-                           plan.price.monthly === null ? plan.customPrice || 'Custom' : 
-                           `$${plan.price.monthly}/mes`}
-                        </div>
-                        {plan.popular && (
-                          <div className="flex items-center gap-1 text-electric-purple-500">
-                            <StarIcon className="h-4 w-4" />
-                            <span className="text-xs">Más Popular</span>
-                          </div>
-                        )}
-                      </div>
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                {comparisonFeatures.map((feature, idx) => (
-                  <tr
-                    key={feature.name}
-                    className={`${
-                      idx % 2 === 0 ? 'bg-white dark:bg-gray-800/50' : 'bg-gray-50 dark:bg-gray-700/30'
-                    } hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors`}
-                  >
-                    <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white sticky left-0 bg-inherit z-10">
-                      {feature.name}
-                    </td>
-                    <td className="px-6 py-4 text-sm text-center">
-                      <div className={`${feature.starter === '❌' ? 'text-red-500' : 'text-gray-600 dark:text-gray-300'}`}>
-                        {feature.starter === '❌' ? (
-                          <XMarkIcon className="h-5 w-5 mx-auto" />
-                        ) : feature.starter === '✅' ? (
-                          <CheckIcon className="h-5 w-5 mx-auto text-emerald-500" />
-                        ) : (
-                          feature.starter
-                        )}
-                      </div>
-                    </td>
-                    <td className={`px-6 py-4 text-sm text-center ${
-                      plansData[1].popular ? 'bg-electric-purple-50/50 dark:bg-electric-purple-900/10' : ''
-                    }`}>
-                      <div className={`${feature.professional === '❌' ? 'text-red-500' : 'text-gray-600 dark:text-gray-300'}`}>
-                        {feature.professional === '❌' ? (
-                          <XMarkIcon className="h-5 w-5 mx-auto" />
-                        ) : feature.professional === '✅' ? (
-                          <CheckIcon className="h-5 w-5 mx-auto text-emerald-500" />
-                        ) : (
-                          feature.professional
-                        )}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 text-sm text-center">
-                      <div className={`${feature.team === '❌' ? 'text-red-500' : 'text-gray-600 dark:text-gray-300'}`}>
-                        {feature.team === '❌' ? (
-                          <XMarkIcon className="h-5 w-5 mx-auto" />
-                        ) : feature.team === '✅' ? (
-                          <CheckIcon className="h-5 w-5 mx-auto text-emerald-500" />
-                        ) : (
-                          feature.team
-                        )}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 text-sm text-center">
-                      <div className={`${feature.enterprise === '❌' ? 'text-red-500' : 'text-gray-600 dark:text-gray-300'}`}>
-                        {feature.enterprise === '❌' ? (
-                          <XMarkIcon className="h-5 w-5 mx-auto" />
-                        ) : feature.enterprise === '✅' ? (
-                          <CheckIcon className="h-5 w-5 mx-auto text-emerald-500" />
-                        ) : (
-                          feature.enterprise
-                        )}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+        </section>
 
-          {/* CTA Footer */}
-          <div className="px-6 py-8 bg-gray-50 dark:bg-gray-700/30">
-            <div className="text-center mb-6">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                ¿Listo para empezar?
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                Elige el plan que mejor se adapte a tus necesidades
-              </p>
+        {/* Key Differentiators */}
+        <section className="py-20 bg-slate-50 dark:bg-slate-800/30">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-white mb-12">
+              ¿Por qué InfraUX es diferente?
+            </h2>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow">
+                <div className="h-12 w-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mb-6">
+                  <CubeIcon className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
+                  100% Visual
+                </h3>
+                <p className="text-slate-600 dark:text-slate-400">
+                  Diseña tu infraestructura con drag & drop. No necesitas aprender HCL, YAML o lenguajes de programación.
+                  InfraUX genera el código por ti.
+                </p>
+              </div>
+              
+              <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow">
+                <div className="h-12 w-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-6">
+                  <BoltIcon className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
+                  10x más rápido
+                </h3>
+                <p className="text-slate-600 dark:text-slate-400">
+                  Crea y despliega infraestructura en minutos, no horas. Con templates predefinidos y validación en tiempo real.
+                </p>
+              </div>
+              
+              <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow">
+                <div className="h-12 w-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-6">
+                  <UserGroupIcon className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
+                  Colaboración real
+                </h3>
+                <p className="text-slate-600 dark:text-slate-400">
+                  Trabaja con tu equipo en tiempo real. Ve los cambios instantáneamente, comenta y revisa sin conflictos de merge.
+                </p>
+              </div>
             </div>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              {plansData.map((plan) => (
-                <button
-                  key={plan.id}
-                  className={`px-8 py-3 rounded-lg text-sm font-semibold transition-all duration-300 hover:scale-105 ${
-                    plan.popular
-                      ? 'bg-gradient-to-r from-electric-purple-600 to-emerald-green-500 text-white shadow-lg hover:shadow-xl'
-                      : plan.id === 'starter'
-                      ? 'bg-gray-600 text-white hover:bg-gray-700'
-                      : 'bg-electric-purple-600 text-white hover:bg-electric-purple-700'
-                  }`}
-                >
-                  {plan.cta}
-                </button>
+          </div>
+        </section>
+
+        {/* Competitors Overview */}
+        <section className="py-20">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-white mb-4">
+              Comparación con herramientas populares
+            </h2>
+            <p className="text-center text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto">
+              Respetamos a todas estas herramientas y las usamos internamente. 
+              InfraUX no las reemplaza, las complementa con una capa visual.
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              {competitors.map((competitor) => (
+                <div key={competitor.name} className="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700">
+                  <div className="flex items-start gap-4 mb-6">
+                    <span className="text-4xl">{competitor.logo}</span>
+                    <div>
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+                        {competitor.name}
+                      </h3>
+                      <p className="text-slate-600 dark:text-slate-400">
+                        {competitor.description}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+                        <CheckIcon className="h-5 w-5" />
+                        Ventajas
+                      </h4>
+                      <ul className="space-y-2">
+                        {competitor.pros.map((pro, index) => (
+                          <li key={index} className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2">
+                            <span className="text-green-600 dark:text-green-400 mt-0.5">•</span>
+                            {pro}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+                        <XMarkIcon className="h-5 w-5" />
+                        Desventajas
+                      </h4>
+                      <ul className="space-y-2">
+                        {competitor.cons.map((con, index) => (
+                          <li key={index} className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2">
+                            <span className="text-red-600 dark:text-red-400 mt-0.5">•</span>
+                            {con}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Additional Info */}
-        <div className="mt-12 grid md:grid-cols-2 gap-8">
-          <div className="bg-white dark:bg-gray-800/80 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-              <svg className="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              Garantías Incluidas
-            </h3>
-            <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-              <li>✅ Prueba gratuita de 14 días en todos los planes</li>
-              <li>✅ Cancela en cualquier momento sin compromiso</li>
-              <li>✅ Migración gratuita entre planes</li>
-              <li>✅ Soporte técnico incluido en todos los planes</li>
-              <li>✅ Actualizaciones automáticas sin costo adicional</li>
-            </ul>
+        {/* Detailed Comparison Table */}
+        <section className="py-20 bg-slate-50 dark:bg-slate-800/30">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-white mb-12">
+              Comparación detallada de características
+            </h2>
+            
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b-2 border-slate-200 dark:border-slate-700">
+                    <th className="text-left py-4 px-6 text-sm font-semibold text-slate-900 dark:text-white">
+                      Característica
+                    </th>
+                    <th className="text-center py-4 px-6 min-w-[120px]">
+                      <div className="text-sm font-semibold text-slate-900 dark:text-white">InfraUX</div>
+                      <div className="text-xs text-indigo-600 dark:text-indigo-400">Recomendado</div>
+                    </th>
+                    <th className="text-center py-4 px-6 min-w-[120px]">
+                      <div className="text-sm font-semibold text-slate-900 dark:text-white">Terraform</div>
+                    </th>
+                    <th className="text-center py-4 px-6 min-w-[120px]">
+                      <div className="text-sm font-semibold text-slate-900 dark:text-white">Pulumi</div>
+                    </th>
+                    <th className="text-center py-4 px-6 min-w-[120px]">
+                      <div className="text-sm font-semibold text-slate-900 dark:text-white">AWS CDK</div>
+                    </th>
+                    <th className="text-center py-4 px-6 min-w-[120px]">
+                      <div className="text-sm font-semibold text-slate-900 dark:text-white">CloudFormation</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonFeatures.map((category) => (
+                    <>
+                      <tr key={category.category} className="bg-slate-100 dark:bg-slate-800">
+                        <td colSpan={6} className="py-3 px-6 text-sm font-semibold text-slate-700 dark:text-slate-300">
+                          {category.category}
+                        </td>
+                      </tr>
+                      {category.features.map((feature) => (
+                        <tr key={feature.name} className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                          <td className="py-4 px-6 text-sm text-slate-700 dark:text-slate-300">
+                            {feature.name}
+                          </td>
+                          <td className="text-center py-4 px-6">
+                            <FeatureValue value={feature.infraux} />
+                          </td>
+                          <td className="text-center py-4 px-6">
+                            <FeatureValue value={feature.terraform} />
+                          </td>
+                          <td className="text-center py-4 px-6">
+                            <FeatureValue value={feature.pulumi} />
+                          </td>
+                          <td className="text-center py-4 px-6">
+                            <FeatureValue value={feature.awscdk} />
+                          </td>
+                          <td className="text-center py-4 px-6">
+                            <FeatureValue value={feature.cloudformation} />
+                          </td>
+                        </tr>
+                      ))}
+                    </>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
+        </section>
 
-          <div className="bg-white dark:bg-gray-800/80 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-              <svg className="w-6 h-6 text-electric-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              ¿Tienes preguntas?
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Nuestro equipo está aquí para ayudarte a elegir el plan perfecto para tu organización.
+        {/* Migration Path */}
+        <section className="py-20">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-3xl p-12 text-white text-center">
+              <h2 className="text-3xl font-bold mb-4">
+                ¿Ya usas Terraform, Pulumi o CDK?
+              </h2>
+              <p className="text-xl text-indigo-100 mb-8 max-w-3xl mx-auto">
+                InfraUX importa tu infraestructura existente y genera código compatible.
+                No necesitas migrar, puedes usar ambas herramientas juntas.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/register"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-indigo-600 font-semibold rounded-full hover:bg-indigo-50 transition-colors"
+                >
+                  Importar mi infraestructura
+                  <ArrowRightIcon className="h-5 w-5" />
+                </Link>
+                <Link
+                  href="/docs/migration"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-indigo-700 text-white font-semibold rounded-full hover:bg-indigo-800 transition-colors"
+                >
+                  Ver guía de migración
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20 bg-slate-50 dark:bg-slate-800/30">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+              Únete a la revolución visual de la infraestructura
+            </h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
+              Miles de equipos ya confían en InfraUX para gestionar su infraestructura de forma más eficiente
             </p>
-            <div className="space-y-2">
-              <Link 
-                href="/contact" 
-                className="block w-full text-center px-4 py-2 bg-electric-purple-600 text-white rounded-lg hover:bg-electric-purple-700 transition-colors"
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/register"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
               >
-                Contáctanos
+                Empezar prueba gratuita
+                <ArrowRightIcon className="h-5 w-5" />
               </Link>
-              <Link 
-                href="/#faq" 
-                className="block w-full text-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              <Link
+                href="/contacto"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
               >
-                Ver FAQ
+                Solicitar demo personalizada
               </Link>
             </div>
           </div>
-        </div>
-      </div>
-    </main>
+        </section>
+      </main>
+      
+      <FooterNew />
+    </div>
   )
 }

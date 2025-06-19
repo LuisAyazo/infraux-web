@@ -37,33 +37,29 @@ export default function PlanCard({ plan, isYearly, planIdx }: PlanCardProps) {
   return (
     <div
       key={plan.id}
-      className={`group relative rounded-3xl p-6 xl:p-8 ring-1 transition-all duration-500 hover:scale-[1.03] animate-slide-up ${
+      className={`group relative rounded-3xl p-6 xl:p-8 ring-1 transition-all duration-300 hover:scale-[1.03] animate-slide-up ${
         plan.popular
-          ? 'bg-gradient-to-br from-electric-purple-50 to-emerald-green-50 dark:from-electric-purple-900/30 dark:to-emerald-green-900/30 ring-2 ring-electric-purple-500 dark:ring-electric-purple-600 shadow-2xl hover:shadow-electric-purple-500/30 scale-[1.03]'
-          : 'bg-white dark:bg-gray-800/80 backdrop-blur-sm ring-gray-200 dark:ring-gray-700 hover:ring-electric-purple-400 dark:hover:ring-electric-purple-500 shadow-xl hover:shadow-2xl'
+          ? 'bg-electric-purple-50 dark:bg-slate-800 ring-2 ring-electric-purple-500 dark:ring-electric-purple-600 shadow-2xl hover:shadow-electric-purple-500/30 scale-[1.03]' // Fondo sólido para popular, mantiene anillo y sombra
+          : 'bg-white dark:bg-gray-800/80 backdrop-blur-sm ring-gray-200 dark:ring-gray-700 hover:ring-gray-300 dark:hover:ring-gray-600 shadow-xl hover:shadow-2xl' // Hover ring más sutil para no populares
       }`}
       style={{ animationDelay: `${planIdx * 100}ms` }}
     >
       {plan.popular && (
-        <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-auto min-w-[120px] whitespace-nowrap rounded-full bg-gradient-to-r from-electric-purple-600 to-emerald-green-600 px-4 py-2 text-xs font-semibold text-white text-center animate-bounce-in shadow-lg">
+        <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-auto min-w-[120px] whitespace-nowrap rounded-full bg-electric-purple-600 px-4 py-2 text-xs font-semibold text-white text-center animate-bounce-in shadow-lg"> {/* Badge popular con color sólido */}
           <StarIcon className="inline h-4 w-4 mr-1.5 -mt-0.5" />
-          {plan.badge || 'Popular'} {/* Fallback por si badge no está definido en un plan popular */}
+          {plan.badge || 'Popular'}
         </div>
       )}
       
       {!plan.popular && plan.badge && (
-          <div className={`absolute -top-4 left-1/2 -translate-x-1/2 w-auto min-w-[120px] whitespace-nowrap rounded-full px-4 py-1.5 text-xs font-semibold text-white text-center shadow-md ${plan.id === 'starter' ? 'bg-gray-500' : 'bg-gradient-to-r from-gray-600 to-gray-700'}`}>
+          <div className={`absolute -top-4 left-1/2 -translate-x-1/2 w-auto min-w-[120px] whitespace-nowrap rounded-full px-4 py-1.5 text-xs font-semibold text-white text-center shadow-md ${plan.id === 'starter' ? 'bg-gray-500' : 'bg-gray-600'}`}> {/* Badge no popular con color sólido gris */}
           {plan.badge}
         </div>
       )}
 
       <div className="flex items-center justify-between gap-x-2 mt-4">
         <h3
-          className={`text-xl xl:text-2xl font-bold leading-7 xl:leading-8 ${
-            plan.popular
-              ? 'text-electric-purple-600 dark:text-electric-purple-400'
-              : 'text-gray-900 dark:text-white'
-          }`}
+          className={`text-xl xl:text-2xl font-bold leading-7 xl:leading-8 text-gray-900 dark:text-white`} // Título del plan siempre neutro
         >
           {plan.name}
         </h3>
@@ -100,10 +96,10 @@ export default function PlanCard({ plan, isYearly, planIdx }: PlanCardProps) {
         // Por ahora, lo mantenemos como button. Si plan.ctaLink existe, podríamos usarlo.
         className={`mt-6 xl:mt-8 block w-full rounded-md px-3 py-2.5 text-center text-sm font-semibold leading-6 transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900 ${
           plan.popular
-            ? 'bg-gradient-to-r from-electric-purple-600 to-emerald-green-500 text-white shadow-lg hover:shadow-xl hover:from-electric-purple-700 hover:to-emerald-green-600 focus:ring-electric-purple-500'
+            ? 'bg-electric-purple-600 hover:bg-electric-purple-700 text-white shadow-lg hover:shadow-xl focus:ring-electric-purple-500' // CTA popular con color sólido
             : plan.id === 'starter' 
-            ? 'bg-gray-600 text-white hover:bg-gray-700 shadow-md hover:shadow-lg focus:ring-gray-500'
-            : 'bg-electric-purple-600 text-white hover:bg-electric-purple-700 shadow-md hover:shadow-lg focus:ring-electric-purple-500'
+            ? 'bg-gray-500 hover:bg-gray-600 text-white shadow-md hover:shadow-lg focus:ring-gray-500' // CTA starter ligeramente más claro
+            : 'bg-electric-purple-500 hover:bg-electric-purple-600 text-white shadow-md hover:shadow-lg focus:ring-electric-purple-500' // Otros CTAs no populares con un tono de púrpura ligeramente menos intenso que el popular
         }`}
       >
         {plan.cta}

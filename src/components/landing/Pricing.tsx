@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import React, { useState } from 'react' // Añadido React
 import Link from 'next/link'
 // StarIcon se mueve a PlanCard y ComparisonTable
 import PlanCard from './PlanCard' 
@@ -170,7 +170,7 @@ export default function Pricing() {
 
       <div className="max-w-8xl mx-auto px-6 lg:px-8 relative">
         <div className="mx-auto max-w-4xl text-center animate-fade-in-up">
-          <h2 className="text-base font-semibold leading-7 text-electric-purple-600 dark:text-electric-purple-400">
+          <h2 className="text-base font-semibold leading-7 text-gray-800 dark:text-white"> {/* Título a color neutro */}
             Precios
           </h2>
           <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
@@ -181,7 +181,10 @@ export default function Pricing() {
           </p>
         </div>
 
-        <div className="mt-16 flex flex-col sm:flex-row justify-center items-center gap-6">
+        <div 
+          className="mt-16 flex flex-col sm:flex-row justify-center items-center gap-6 animate-fade-in-up"
+          style={{ animationDelay: '100ms' }} // Añadido animación y delay
+        >
           <div className="relative bg-gray-100 dark:bg-gray-800 p-1 rounded-xl border border-gray-200 dark:border-gray-700">
             <button
               type="button"
@@ -213,14 +216,14 @@ export default function Pricing() {
           <div className="flex gap-3">
             <button
               onClick={() => setShowComparison(!showComparison)}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-electric-purple-100 dark:bg-electric-purple-900/30 text-electric-purple-700 dark:text-electric-purple-300 hover:bg-electric-purple-200 dark:hover:bg-electric-purple-900/50 rounded-lg text-sm font-medium transition-all duration-300 border border-electric-purple-300 dark:border-electric-purple-700 hover:scale-105"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-gray-700 dark:text-gray-300 border border-gray-400 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700/60 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105" // Estilo Outline/Secundario a gris
             >
               {showComparison ? '📊 Ocultar' : '📊 Ver'} Comparativa
             </button>
             
             <Link
               href="/comparacion"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-green-600 hover:bg-emerald-green-700 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-electric-purple-600 hover:bg-electric-purple-700 text-white rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl" // Estilo Primario (mantenido púrpura)
             >
               🔍 Comparativa Completa
             </Link>
@@ -241,22 +244,25 @@ export default function Pricing() {
         <div className="mt-20 text-center animate-fade-in-up">
           <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
             ¿Necesitas algo más?{' '}
-            <Link href="/contact" className="font-semibold text-electric-purple-600 dark:text-electric-purple-400 hover:text-electric-purple-700 dark:hover:text-electric-purple-300 transition-colors">
+            <Link href="/contact" className="font-semibold text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"> {/* Enlace a gris/blanco */}
               Contáctanos
             </Link>{' '}
             para soluciones Enterprise a medida.
           </p>
         </div>
 
-        <div className="mt-16 grid md:grid-cols-3 gap-8">
+        <div 
+          className="mt-16 grid md:grid-cols-3 gap-8 animate-fade-in-up"
+          style={{ animationDelay: '300ms' }} // Añadido animación y delay
+        >
           {[
-            { title: 'Sin Compromiso', description: 'Cancela en cualquier momento. Sin contratos anuales obligatorios.', icon: <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>, gradient: 'from-electric-purple-500 to-emerald-green-500' },
-            { title: 'Escalabilidad Flexible', description: 'Ajusta tu plan según tus necesidades crezcan o cambien.', icon: <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>, gradient: 'from-emerald-green-500 to-cloud-blue-500' },
-            { title: 'Soporte Experto', description: 'Equipo de expertos disponible para ayudarte a tener éxito.', icon: <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 11-9.75 9.75 9.75 9.75 0 019.75-9.75zm0 0c.621 0 1.23.047 1.829.138.6.09 1.176.227 1.725.414L12 2.25z" /></svg>, gradient: 'from-cloud-blue-500 to-electric-purple-500' },
+            { title: 'Sin Compromiso', description: 'Cancela en cualquier momento. Sin contratos anuales obligatorios.', icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>, iconColor: 'text-electric-purple-600 dark:text-electric-purple-400', animationClass: 'animate-fade-in-delay-1' }, // Mantenido púrpura
+            { title: 'Escalabilidad Flexible', description: 'Ajusta tu plan según tus necesidades crezcan o cambien.', icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>, iconColor: 'text-gray-700 dark:text-gray-300', animationClass: 'animate-fade-in-delay-2' }, // Cambiado a gris
+            { title: 'Soporte Experto', description: 'Equipo de expertos disponible para ayudarte a tener éxito.', icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 11-9.75 9.75 9.75 9.75 0 019.75-9.75zm0 0c.621 0 1.23.047 1.829.138.6.09 1.176.227 1.725.414L12 2.25z" /></svg>, iconColor: 'text-gray-700 dark:text-gray-300', animationClass: 'animate-fade-in-delay-3' },
           ].map((item, idx) => (
-            <div key={idx} className="text-center p-6 bg-white dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
-              <div className={`w-12 h-12 bg-gradient-to-r ${item.gradient} rounded-lg flex items-center justify-center mx-auto mb-4`}>
-                {item.icon}
+            <div key={idx} className={`text-center p-6 bg-white dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 ${item.animationClass}`}>
+              <div className={`w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center mx-auto mb-4`}> {/* Contenedor de icono neutro */}
+                {React.cloneElement(item.icon, { className: `w-6 h-6 ${item.iconColor}` })} {/* Icono con color específico */}
               </div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{item.title}</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm">{item.description}</p>

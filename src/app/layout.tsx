@@ -180,7 +180,7 @@ export default function RootLayout({
         
         {/* Additional SEO Meta Tags */}
         <meta name="geo.region" content="CO" />
-        <meta name="geo.placename" content="Bogotá" />
+        <meta name="geo.placename" content="Cartagena" />
         <meta name="ICBM" content="4.7110,-74.0721" />
         
         {/* Preconnect to external domains for performance */}

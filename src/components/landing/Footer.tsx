@@ -22,10 +22,10 @@ const LinkedInIcon = ({ className, ...props }: { className?: string; [key: strin
 
 const footerNavigation = {
   solutions: [
-    { name: 'Diseño Visual', href: '#what-is-infraux' },
-    { name: 'Generación IaC', href: '#flow' },
-    { name: 'Multi-Cloud', href: '#what-is-infraux' },
-    { name: 'Colaboración', href: '#use-cases' },
+    { name: 'Qué es InfraUX', href: '/que-es-infraux' },
+    { name: 'Demo', href: '/demo' },
+    { name: 'Casos de Uso', href: '/casos-de-uso' },
+    { name: 'Precios', href: '/precios' },
   ],
   support: [
     { name: 'Documentación', href: '#' },
@@ -66,16 +66,16 @@ export default function Footer() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1 animate-fade-in-up">
             <div className="h-10 w-auto text-3xl font-bold">
-              <span className="bg-gradient-to-r from-electric-purple-400 to-electric-purple-600 bg-clip-text text-transparent">Infra</span><span className="bg-gradient-to-r from-emerald-green-400 to-emerald-green-600 bg-clip-text text-transparent">UX</span>
+              <span className="text-electric-purple-400">Infra</span><span className="text-emerald-green-400">UX</span> {/* Logo con colores sólidos */}
             </div>
             <p className="text-gray-400 text-base animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
               Transformando la complejidad de la nube en simplicidad visual.
             </p>
             <div className="flex space-x-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               {footerNavigation.social.map((item) => (
-                <a key={item.name} href={item.href} className="text-gray-400 hover:text-electric-purple-400 transition-all duration-300 transform hover:scale-110 group">
+                <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-200 transition-all duration-300 transform hover:scale-110 group"> {/* Hover a gris claro */}
                   <span className="sr-only">{item.name}</span>
-                  <item.icon aria-hidden="true" className="w-6 h-6 group-hover:animate-pulse" />
+                  <item.icon aria-hidden="true" className="w-6 h-6 transition-transform duration-300 group-hover:scale-125" />
                 </a>
               ))}
             </div>
@@ -87,9 +87,9 @@ export default function Footer() {
                 <ul role="list" className="space-y-4">
                   {footerNavigation.solutions.map((item, index) => (
                     <li key={item.name} className="animate-fade-in-up" style={{ animationDelay: `${0.4 + index * 0.1}s` }}>
-                      <a href={item.href} className="text-sm leading-6 hover:text-electric-purple-400 transition-colors duration-300 relative group">
+                      <a href={item.href} className="text-sm leading-6 hover:text-white transition-colors duration-300 relative group"> {/* Hover a blanco */}
                         {item.name}
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-electric-purple-400 group-hover:w-full transition-all duration-300"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-500 group-hover:w-full transition-all duration-300"></span> {/* Subrayado a gris */}
                       </a>
                     </li>
                   ))}
@@ -100,9 +100,9 @@ export default function Footer() {
                 <ul role="list" className="space-y-4">
                   {footerNavigation.support.map((item, index) => (
                     <li key={item.name} className="animate-fade-in-up" style={{ animationDelay: `${0.8 + index * 0.1}s` }}>
-                      <a href={item.href} className="text-sm leading-6 hover:text-emerald-green-400 transition-colors duration-300 relative group">
+                      <a href={item.href} className="text-sm leading-6 hover:text-white transition-colors duration-300 relative group"> {/* Hover a blanco */}
                         {item.name}
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-green-400 group-hover:w-full transition-all duration-300"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-500 group-hover:w-full transition-all duration-300"></span> {/* Subrayado a gris */}
                       </a>
                     </li>
                   ))}
@@ -115,9 +115,9 @@ export default function Footer() {
                 <ul role="list" className="space-y-4">
                   {footerNavigation.company.map((item, index) => (
                     <li key={item.name} className="animate-fade-in-up" style={{ animationDelay: `${1.2 + index * 0.1}s` }}>
-                      <a href={item.href} className="text-sm leading-6 hover:text-cloud-blue-400 transition-colors duration-300 relative group">
+                      <a href={item.href} className="text-sm leading-6 hover:text-white transition-colors duration-300 relative group"> {/* Hover a blanco */}
                         {item.name}
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cloud-blue-400 group-hover:w-full transition-all duration-300"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-500 group-hover:w-full transition-all duration-300"></span> {/* Subrayado a gris */}
                       </a>
                     </li>
                   ))}
@@ -128,9 +128,9 @@ export default function Footer() {
                 <ul role="list" className="space-y-4">
                   {footerNavigation.legal.map((item, index) => (
                     <li key={item.name} className="animate-fade-in-up" style={{ animationDelay: `${1.6 + index * 0.1}s` }}>
-                      <a href={item.href} className="text-sm leading-6 hover:text-gray-300 transition-colors duration-300 relative group">
+                      <a href={item.href} className="text-sm leading-6 hover:text-white transition-colors duration-300 relative group"> {/* Hover a blanco */}
                         {item.name}
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-300 group-hover:w-full transition-all duration-300"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-500 group-hover:w-full transition-all duration-300"></span> {/* Subrayado a gris */}
                       </a>
                     </li>
                   ))}
@@ -141,7 +141,7 @@ export default function Footer() {
         </div>
         <div className="mt-12 border-t border-white/10 pt-8 animate-fade-in-up" style={{ animationDelay: '2s' }}>
           <p className="text-xs leading-5 text-gray-400 text-center">
-            &copy; {new Date().getFullYear()} <span className="text-gray-700 dark:text-gray-300 font-semibold">Infra</span><span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent font-semibold">UX</span> Technologies. Todos los derechos reservados.
+            &copy; {new Date().getFullYear()} <span className="text-gray-300 font-semibold">Infra</span><span className="text-emerald-green-400 font-semibold">UX</span> Technologies. Todos los derechos reservados. {/* Copyright con colores sólidos */}
           </p>
         </div>
       </div>

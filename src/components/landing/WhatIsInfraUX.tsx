@@ -44,22 +44,22 @@ export default function WhatIsInfraUX() {
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-16 opacity-0 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            ¿Qué es{' '}
-            <span className="text-gray-900 dark:text-gray-100">
+            ¿Qué es?{' '}
+            <span className="text-electric-purple-600 dark:text-electric-purple-400"> {/* Modificado */}
               Infra
             </span>
-            <span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">
+            <span className="text-emerald-green-600 dark:text-emerald-green-400"> {/* Modificado */}
               UX
             </span>
             ?
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed opacity-0 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <span className="text-gray-900 dark:text-gray-100">Infra</span><span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">UX</span> es la <span className="font-bold text-electric-purple-600 dark:text-electric-purple-400">herramienta líder del mercado</span> para desplegar infraestructura cloud con un solo click. 
+            <span className="text-electric-purple-600 dark:text-electric-purple-400">Infra</span><span className="text-emerald-green-600 dark:text-emerald-green-400">UX</span> es la <span className="font-bold text-gray-800 dark:text-white">herramienta líder del mercado</span> para desplegar infraestructura cloud con un solo click. {/* Texto destacado a neutro */}
             Simplifica la creación, el despliegue y la gestión de infraestructura en cualquier nube a través de una potente interfaz visual.
           </p>
           <div className="mt-8 flex justify-center animate-bounce-in" style={{ animationDelay: '0.3s' }}>
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-electric-purple-500/10 to-emerald-green-500/10 rounded-full border border-electric-purple-200 dark:border-electric-purple-800 hover:scale-105 transition-transform duration-300">
-              <svg className="w-6 h-6 text-electric-purple-600 animate-pulse-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-gray-100 dark:bg-gray-700/60 rounded-full border border-gray-300 dark:border-gray-600 hover:scale-105 transition-transform duration-300"> {/* Pill a gris */}
+              <svg className="w-6 h-6 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"> {/* Icono de Pill a gris */}
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
               <span className="text-lg font-semibold text-gray-700 dark:text-gray-300">Deploy con un click • Pre-Deploy • Post-Deploy</span>
@@ -71,16 +71,12 @@ export default function WhatIsInfraUX() {
           {features.map((feature, index) => (
             <div 
               key={feature.name} 
-              className={`group card p-8 animate-slide-up-delay-${index + 1} hover:scale-105 transition-all duration-500 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:border-electric-purple-300 dark:hover:border-electric-purple-600`}
+              className={`group card p-8 animate-slide-up-delay-${index + 1} hover:scale-105 transition-all duration-500 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:border-gray-400 dark:hover:border-gray-500`} // Hover de borde a gris
             >
-              <div className={`mb-6 p-4 rounded-2xl bg-gradient-to-br ${feature.bgGradient} group-hover:scale-110 transition-transform duration-300 animate-float`} style={{ animationDelay: `${index * 0.5}s` }}>
-                <feature.icon className={`w-12 h-12 bg-gradient-to-r ${feature.gradient} text-transparent`} style={{
-                  WebkitBackgroundClip: 'text',
-                  backgroundClip: 'text',
-                  filter: 'drop-shadow(0 0 8px rgba(255,255,255,0.3))'
-                }} aria-hidden="true" />
+              <div className={`mb-6 p-4 rounded-2xl bg-gray-100 dark:bg-gray-700 group-hover:scale-110 transition-transform duration-300`} style={{ animationDelay: `${index * 0.1}s` }}> {/* Contenedor de icono a gris */}
+                <feature.icon className={`w-12 h-12 text-gray-700 dark:text-gray-300`} aria-hidden="true" /> {/* Icono a gris */}
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100 group-hover:text-electric-purple-600 dark:group-hover:text-electric-purple-400 transition-colors duration-300">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300"> {/* Hover de título a gris/blanco */}
                 {feature.name}
               </h3>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300">
@@ -92,13 +88,13 @@ export default function WhatIsInfraUX() {
         
         {/* Call to action */}
         <div className="text-center mt-16 animate-fade-in-up" style={{ animationDelay: '1s' }}>
-          <div className="inline-flex items-center gap-4 p-6 bg-gradient-to-r from-electric-purple-500/10 via-cloud-blue-500/10 to-emerald-green-500/10 rounded-2xl backdrop-blur-sm border border-white/20 dark:border-gray-700/20 hover:scale-105 transition-all duration-300 group cursor-pointer">
-            <div className="w-12 h-12 bg-gradient-to-r from-electric-purple-500 to-emerald-green-500 rounded-full flex items-center justify-center animate-pulse-glow">
+          <div className="inline-flex items-center gap-4 p-6 bg-gray-100 dark:bg-gray-700/60 rounded-2xl backdrop-blur-sm border border-gray-300 dark:border-gray-600 hover:scale-105 transition-all duration-300 group cursor-pointer"> {/* CTA a gris */}
+            <div className="w-12 h-12 bg-gray-600 dark:bg-gray-500 rounded-full flex items-center justify-center"> {/* Círculo de icono a gris */}
               <svg className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <span className="text-lg font-semibold text-gray-700 dark:text-gray-300 group-hover:text-electric-purple-600 dark:group-hover:text-electric-purple-400 transition-colors duration-300">
+            <span className="text-lg font-semibold text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300"> {/* Hover de texto a gris/blanco */}
               Transforma tu forma de pensar la infraestructura
             </span>
           </div>

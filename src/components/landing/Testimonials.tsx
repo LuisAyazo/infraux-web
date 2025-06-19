@@ -89,12 +89,12 @@ export default function Testimonials() {
         <div className="text-center mb-20 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Lo que dicen nuestros{' '}
-            <span className="bg-gradient-to-r from-electric-purple-600 to-emerald-green-600 bg-clip-text text-transparent">
+            <span className="text-gray-800 dark:text-white"> {/* Título a neutro */}
               usuarios
             </span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Descubre cómo <span className="text-gray-900 dark:text-gray-100">Infra</span><span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">UX</span> está ayudando a equipos como el tuyo a innovar más rápido y con mayor confianza.
+            Descubre cómo <span className="text-electric-purple-600 dark:text-electric-purple-400">Infra</span><span className="text-emerald-green-600 dark:text-emerald-green-400">UX</span> está ayudando a equipos como el tuyo a innovar más rápido y con mayor confianza. {/* Logo a colores sólidos */}
           </p>
         </div>
 
@@ -130,7 +130,7 @@ export default function Testimonials() {
 
                 {/* Author */}
                 <div className="flex items-center">
-                  <div className={`relative w-14 h-14 rounded-full bg-gradient-to-r ${testimonial.bgColor} flex items-center justify-center mr-4 shadow-lg`}>
+                  <div className={`relative w-14 h-14 rounded-full bg-gray-500 flex items-center justify-center mr-4 shadow-lg`}> {/* Avatar a gris */}
                     <span className="text-xl font-bold text-white">
                       {testimonial.initial}
                     </span>
@@ -151,12 +151,12 @@ export default function Testimonials() {
 
         {/* Call to action */}
         <div className="text-center mt-20 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-          <div className="inline-flex items-center gap-4 p-8 bg-gradient-to-r from-electric-purple-500/10 via-cloud-blue-500/10 to-emerald-green-500/10 rounded-2xl backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 shadow-lg hover:shadow-xl transition-all duration-300 group">
-            <svg className="w-8 h-8 text-electric-purple-600 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="inline-flex items-center gap-4 p-8 bg-gray-100 dark:bg-gray-700/60 rounded-2xl backdrop-blur-sm border border-gray-300 dark:border-gray-600 shadow-lg hover:shadow-xl transition-all duration-300 group"> {/* CTA a gris */}
+            <svg className="w-8 h-8 text-gray-600 dark:text-gray-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"> {/* Icono a gris */}
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
             <span className="text-lg font-semibold text-gray-700 dark:text-gray-300">
-              Únete a <span className="text-electric-purple-600 dark:text-electric-purple-400 font-bold">cientos de equipos</span> que ya confían en <span className="text-gray-900 dark:text-gray-100">Infra</span><span className="bg-gradient-to-r from-emerald-green-600 via-emerald-green-500 to-emerald-green-700 bg-clip-text text-transparent">UX</span>
+              Únete a <span className="text-gray-700 dark:text-gray-300 font-bold">cientos de equipos</span> que ya confían en <span className="text-electric-purple-600 dark:text-electric-purple-400">Infra</span><span className="text-emerald-green-600 dark:text-emerald-green-400">UX</span> {/* Texto destacado a gris */}
             </span>
           </div>
         </div>

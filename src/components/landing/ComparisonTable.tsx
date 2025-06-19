@@ -30,7 +30,7 @@ export default function ComparisonTable({ plansData, comparisonFeatures }: Compa
   return (
     <div className="mt-16 animate-fade-in-up">
       <div className="bg-white dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
-        <div className="px-6 py-4 bg-gradient-to-r from-electric-purple-500 to-emerald-green-500">
+        <div className="px-6 py-4 bg-gray-700 dark:bg-gray-800"> {/* Encabezado a gris oscuro */}
           <h3 className="text-xl font-bold text-white text-center">Comparativa Detallada de Planes</h3>
         </div>
         <div className="overflow-x-auto">
@@ -45,7 +45,7 @@ export default function ComparisonTable({ plansData, comparisonFeatures }: Compa
                     key={plan.id}
                     className={`px-4 py-3 text-center text-sm font-semibold min-w-[150px] ${
                       plan.popular
-                        ? 'text-electric-purple-600 dark:text-electric-purple-400 bg-electric-purple-50 dark:bg-electric-purple-900/20'
+                        ? 'text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-700' // Texto de cabecera popular a neutro
                         : 'text-gray-900 dark:text-white'
                     }`}
                   >
@@ -53,7 +53,7 @@ export default function ComparisonTable({ plansData, comparisonFeatures }: Compa
                       <span className="text-lg">{plan.emoji}</span>
                       <span>{plan.name}</span>
                       {plan.popular && (
-                        <StarIcon className="h-4 w-4 text-electric-purple-500" />
+                        <StarIcon className="h-4 w-4 text-yellow-400" /> /* Estrella a color amarillo */
                       )}
                     </div>
                   </th>
@@ -74,7 +74,8 @@ export default function ComparisonTable({ plansData, comparisonFeatures }: Compa
                   <td className="px-4 py-3 text-sm text-center text-gray-600 dark:text-gray-300">
                     {feature.starter}
                   </td>
-                  <td className="px-4 py-3 text-sm text-center text-gray-600 dark:text-gray-300 bg-electric-purple-50/50 dark:bg-electric-purple-900/10">
+                  {/* Se elimina el fondo especial para la celda del plan professional para consistencia */}
+                  <td className="px-4 py-3 text-sm text-center text-gray-600 dark:text-gray-300">
                     {feature.professional}
                   </td>
                   <td className="px-4 py-3 text-sm text-center text-gray-600 dark:text-gray-300">
@@ -97,10 +98,10 @@ export default function ComparisonTable({ plansData, comparisonFeatures }: Compa
                 // Si el CTA debe ser diferente o llevar a una acción específica, esto podría necesitar ajuste.
                 className={`px-6 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
                   plan.popular
-                    ? 'bg-gradient-to-r from-electric-purple-600 to-emerald-green-500 text-white shadow-lg hover:shadow-xl'
+                    ? 'bg-electric-purple-600 hover:bg-electric-purple-700 text-white shadow-lg hover:shadow-xl' // Botón popular con color sólido
                     : plan.id === 'starter' 
-                    ? 'bg-gray-600 text-white hover:bg-gray-700'
-                    : 'bg-electric-purple-600 text-white hover:bg-electric-purple-700'
+                    ? 'bg-gray-500 hover:bg-gray-600 text-white' // Botón starter ligeramente más claro
+                    : 'bg-electric-purple-500 hover:bg-electric-purple-600 text-white' // Otros botones no populares con un tono de púrpura ligeramente menos intenso
                 }`}
               >
                 {plan.cta || 'Seleccionar Plan'}

@@ -8,6 +8,17 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['@heroicons/react'],
   },
 
+  // Turbopack configuration (now stable)
+  turbopack: {
+    // Configuración mínima de Turbopack para evitar warnings
+    // Turbopack maneja automáticamente la optimización de chunks
+    // No requiere configuración explícita como Webpack
+    resolveAlias: {
+      // Fix para styled-jsx con Turbopack
+      'styled-jsx': 'styled-jsx/dist/index.js',
+    },
+  },
+
   // Compress responses for better loading speeds
   compress: true,
 
@@ -108,21 +119,23 @@ const nextConfig: NextConfig = {
   },
 
   // Webpack configuration for better performance
-  webpack: (config, { dev, isServer }) => {
-    // Production optimizations
-    if (!dev && !isServer) {
-      config.optimization.splitChunks.cacheGroups = {
-        ...config.optimization.splitChunks.cacheGroups,
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          priority: 10,
-          chunks: 'all',
-        },
-      };
-    }
-    return config;
-  },
+  // NOTA: Comentado temporalmente mientras se usa Turbopack
+  // Turbopack maneja automáticamente las optimizaciones de chunks
+  // webpack: (config, { dev, isServer }) => {
+  //   // Production optimizations
+  //   if (!dev && !isServer) {
+  //     config.optimization.splitChunks.cacheGroups = {
+  //       ...config.optimization.splitChunks.cacheGroups,
+  //       vendor: {
+  //         test: /[\\/]node_modules[\\/]/,
+  //         name: 'vendors',
+  //         priority: 10,
+  //         chunks: 'all',
+  //       },
+  //     };
+  //   }
+  //   return config;
+  // },
 };
 
 export default nextConfig;
