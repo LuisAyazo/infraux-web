@@ -32,6 +32,20 @@ import {
   FireIcon,
   PuzzlePieceIcon
 } from '@heroicons/react/24/outline';
+import {
+  FaAws,
+  FaGoogle,
+  FaGithub,
+  FaGitlab,
+  FaSlack,
+  FaDocker,
+  FaMicrosoft
+} from 'react-icons/fa';
+import {
+  SiTerraform,
+  SiKubernetes,
+  SiPulumi
+} from 'react-icons/si';
 
 // Hero Section mejorada con diseño premium
 function HeroSection() {
@@ -71,7 +85,7 @@ function HeroSection() {
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
       
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-20">
         <div className="relative text-center max-w-6xl mx-auto">
           {/* Premium Badge */}
           <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-premium mb-10 animate-fade-in">
@@ -81,68 +95,81 @@ function HeroSection() {
             </span>
           </div>
 
-          {/* Main Title with premium typography */}
+          {/* Main Title with premium typography - Mejorado para móviles */}
           <h1 className="animate-fade-in-up">
-            <span className="block text-5xl sm:text-6xl lg:text-7xl font-black mb-4">
+            <span className="block text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-3 sm:mb-4">
               {language === 'es' ? 'La infraestructura cloud' : 'Cloud infrastructure'}
             </span>
-            <span className="block text-4xl sm:text-5xl lg:text-6xl font-black gradient-text-premium">
+            <span className="block text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black gradient-text-premium">
               {language === 'es' ? 'visual y colaborativa' : 'visual and collaborative'}
             </span>
           </h1>
 
-          {/* Enhanced Subtitle */}
-          <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mt-8 mb-14 max-w-3xl mx-auto leading-relaxed font-medium animate-fade-in-up animation-delay-200">
+          {/* Enhanced Subtitle - Mejorado para móviles */}
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mt-6 sm:mt-8 mb-10 sm:mb-14 max-w-3xl mx-auto leading-relaxed font-medium animate-fade-in-up animation-delay-200 px-4 sm:px-0">
             {language === 'es'
               ? <>Diseña, despliega y gestiona tu infraestructura en AWS, GCP y Azure con una interfaz visual intuitiva. <span className="text-emerald-600 dark:text-emerald-400 font-bold">Sin YAML, sin complejidad.</span></>
               : <>Design, deploy and manage your infrastructure on AWS, GCP and Azure with an intuitive visual interface. <span className="text-emerald-600 dark:text-emerald-400 font-bold">No YAML, no complexity.</span></>
             }
           </p>
 
-          {/* Premium CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-20 animate-fade-in-up animation-delay-400">
+          {/* Premium CTA Buttons - Mejorado para móviles */}
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center items-center mb-16 sm:mb-20 animate-fade-in-up animation-delay-400">
             <Link
               href="https://app.infraux.com/register"
-              className="group relative inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-bold text-lg rounded-2xl shadow-premium hover:shadow-premium-lg transform hover:scale-105 transition-all duration-300 btn-premium"
+              className="group relative inline-flex items-center gap-3 px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-bold text-base sm:text-lg rounded-2xl shadow-premium hover:shadow-premium-lg transform hover:scale-105 transition-all duration-300 btn-premium w-full sm:w-auto"
               onClick={() => trackButtonClick('hero_start_free', { location: 'hero' })}
             >
               <span className="relative z-10">{language === 'es' ? 'Empieza gratis' : 'Start free'}</span>
-              <ArrowRightIcon className="relative z-10 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+              <ArrowRightIcon className="relative z-10 h-5 sm:h-6 w-5 sm:w-6 group-hover:translate-x-1 transition-transform" />
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300" />
             </Link>
             <Link
               href="/demo"
-              className="group inline-flex items-center gap-3 px-10 py-5 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-lg rounded-2xl border-2 border-slate-200 dark:border-slate-800 shadow-lg hover:shadow-xl hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all duration-300"
+              className="group inline-flex items-center gap-3 px-6 sm:px-10 py-4 sm:py-5 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-base sm:text-lg rounded-2xl border-2 border-slate-200 dark:border-slate-800 shadow-lg hover:shadow-xl hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all duration-300 w-full sm:w-auto"
               onClick={() => trackButtonClick('hero_view_demo', { location: 'hero' })}
             >
-              <PlayIcon className="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
+              <PlayIcon className="h-5 sm:h-6 w-5 sm:w-6 text-emerald-600 dark:text-emerald-400" />
               {language === 'es' ? 'Ver demo interactiva' : 'View interactive demo'}
             </Link>
           </div>
 
-          {/* Trust indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-8 mb-16 text-sm text-slate-500 dark:text-slate-400 animate-fade-in animation-delay-600">
+          {/* Trust indicators - Mejorado para móviles */}
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 mb-12 sm:mb-16 text-xs sm:text-sm text-slate-500 dark:text-slate-400 animate-fade-in animation-delay-600">
             <div className="flex items-center gap-2">
-              <ShieldCheckIcon className="h-5 w-5 text-emerald-500" />
+              <ShieldCheckIcon className="h-4 sm:h-5 w-4 sm:w-5 text-emerald-500" />
               <span className="font-medium">{language === 'es' ? 'SOC2 Certificado' : 'SOC2 Certified'}</span>
             </div>
             <div className="flex items-center gap-2">
-              <UserGroupIcon className="h-5 w-5 text-emerald-500" />
-              <span className="font-medium">{language === 'es' ? '+5,000 equipos activos' : '+5,000 active teams'}</span>
+              <UserGroupIcon className="h-4 sm:h-5 w-4 sm:w-5 text-emerald-500" />
+              <span className="font-medium">{language === 'es' ? '+5,000 equipos' : '+5,000 teams'}</span>
             </div>
             <div className="flex items-center gap-2">
-              <GlobeAltIcon className="h-5 w-5 text-emerald-500" />
+              <GlobeAltIcon className="h-4 sm:h-5 w-4 sm:w-5 text-emerald-500" />
               <span className="font-medium">{language === 'es' ? '150+ países' : '150+ countries'}</span>
             </div>
           </div>
 
-          {/* Zenix Mascot - temporarily commented until image is available */}
-          <div className="hidden xl:block absolute top-32 -right-40 opacity-0 animate-fade-in animation-delay-800 z-20">
+          {/* Zenix Mascot - Versión móvil */}
+          <div className="xl:hidden flex justify-center mb-8 animate-fade-in animation-delay-800">
             <Image
               src="/images/zenix-hero.png"
               alt="ZeniX, la mascota de InfraUX, saludando"
-              width={280}
-              height={329}
+              width={120}
+              height={141}
+              style={{ width: 'auto', height: 'auto' }}
+              priority
+              className="drop-shadow-xl"
+            />
+          </div>
+          
+          {/* Zenix Mascot - Versión desktop */}
+          <div className="hidden xl:block absolute top-20 -right-20 2xl:-right-40 animate-fade-in animation-delay-800 z-20">
+            <Image
+              src="/images/zenix-hero.png"
+              alt="ZeniX, la mascota de InfraUX, saludando"
+              width={220}
+              height={259}
               style={{ width: 'auto', height: 'auto' }}
               priority
               className="drop-shadow-2xl"
@@ -171,33 +198,33 @@ function HeroSection() {
                 </div>
               </div>
               
-              {/* Demo Content */}
-              <div className="relative h-[450px] bg-gradient-to-br from-slate-50/50 to-white/30 dark:from-slate-900/50 dark:to-black/30 backdrop-blur-sm">
+              {/* Demo Content - Mejorado para móviles */}
+              <div className="relative h-[300px] sm:h-[450px] bg-gradient-to-br from-slate-50/50 to-white/30 dark:from-slate-900/50 dark:to-black/30 backdrop-blur-sm">
                 <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" />
                 
-                <div className="relative h-full flex items-center justify-center p-12">
+                <div className="relative h-full flex items-center justify-center p-6 sm:p-12">
                   <div className="text-center transform transition-all duration-500">
                     {isMounted ? (
                       <>
-                        <div className={`inline-flex p-6 rounded-2xl bg-gradient-to-br ${demos[activeDemo].color} shadow-xl mb-8 transform transition-all duration-500`}>
-                          {React.createElement(demos[activeDemo].icon, { className: "h-20 w-20 text-white" })}
+                        <div className={`inline-flex p-4 sm:p-6 rounded-2xl bg-gradient-to-br ${demos[activeDemo].color} shadow-xl mb-4 sm:mb-8 transform transition-all duration-500`}>
+                          {React.createElement(demos[activeDemo].icon, { className: "h-12 sm:h-20 w-12 sm:w-20 text-white" })}
                         </div>
-                        <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">
+                        <h3 className="text-xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 sm:mb-3">
                           {demos[activeDemo].title}
                         </h3>
-                        <p className="text-lg text-slate-600 dark:text-slate-400 font-medium">
+                        <p className="text-sm sm:text-lg text-slate-600 dark:text-slate-400 font-medium">
                           {demos[activeDemo].description}
                         </p>
                       </>
                     ) : (
                       <>
-                        <div className={`inline-flex p-6 rounded-2xl bg-gradient-to-br ${demos[0].color} shadow-xl mb-8`}>
-                          {React.createElement(demos[0].icon, { className: "h-20 w-20 text-white" })}
+                        <div className={`inline-flex p-4 sm:p-6 rounded-2xl bg-gradient-to-br ${demos[0].color} shadow-xl mb-4 sm:mb-8`}>
+                          {React.createElement(demos[0].icon, { className: "h-12 sm:h-20 w-12 sm:w-20 text-white" })}
                         </div>
-                        <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">
+                        <h3 className="text-xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2 sm:mb-3">
                           {demos[0].title}
                         </h3>
-                        <p className="text-lg text-slate-600 dark:text-slate-400 font-medium">
+                        <p className="text-sm sm:text-lg text-slate-600 dark:text-slate-400 font-medium">
                           {demos[0].description}
                         </p>
                       </>
@@ -306,7 +333,7 @@ function MetricsSection() {
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.02]" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
           {metrics.map((metric, index) => (
             <div
               key={metric.label}
@@ -314,22 +341,22 @@ function MetricsSection() {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Icon with gradient background */}
-              <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${metric.gradient} shadow-lg mb-4 group-hover:shadow-xl transition-shadow`}>
-                {React.createElement(metric.icon, { className: "h-8 w-8 text-white" })}
+              <div className={`inline-flex p-3 sm:p-4 rounded-2xl bg-gradient-to-br ${metric.gradient} shadow-lg mb-3 sm:mb-4 group-hover:shadow-xl transition-shadow`}>
+                {React.createElement(metric.icon, { className: "h-6 sm:h-8 w-6 sm:w-8 text-white" })}
               </div>
               
               {/* Metric value with gradient text */}
-              <div className={`text-5xl sm:text-6xl font-black bg-gradient-to-br ${metric.gradient} bg-clip-text text-transparent mb-2`}>
+              <div className={`text-3xl sm:text-5xl md:text-6xl font-black bg-gradient-to-br ${metric.gradient} bg-clip-text text-transparent mb-1 sm:mb-2`}>
                 {metric.value}
               </div>
               
               {/* Label */}
-              <div className="text-lg font-bold text-slate-900 dark:text-white mb-1">
+              <div className="text-sm sm:text-lg font-bold text-slate-900 dark:text-white mb-1">
                 {metric.label}
               </div>
               
               {/* Description */}
-              <div className="text-sm font-medium text-slate-600 dark:text-slate-400">
+              <div className="text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400">
                 {metric.description}
               </div>
             </div>
@@ -740,56 +767,69 @@ function IntegrationsSection() {
   const integrations = [
     {
       name: 'AWS',
-      logo: '🔶',
-      description: 'EC2, S3, Lambda, RDS',
-      gradient: 'from-orange-400 to-yellow-500'
+      logo: FaAws,
+      description: language === 'es' ? 'EC2, S3, Lambda, RDS' : 'EC2, S3, Lambda, RDS',
+      gradient: 'from-orange-400 to-yellow-500',
+      color: '#FF9900'
     },
     {
       name: 'Google Cloud',
-      logo: '🔷',
-      description: 'Compute, Storage, BigQuery',
-      gradient: 'from-blue-400 to-blue-600'
+      logo: FaGoogle,
+      description: language === 'es' ? 'Compute, Storage, BigQuery' : 'Compute, Storage, BigQuery',
+      gradient: 'from-blue-400 to-blue-600',
+      color: '#4285F4'
     },
     {
       name: 'Azure',
-      logo: '🔵',
-      description: 'VMs, Blob, Functions',
-      gradient: 'from-blue-500 to-indigo-600'
+      logo: FaMicrosoft,
+      description: language === 'es' ? 'VMs, Blob, Functions' : 'VMs, Blob, Functions',
+      gradient: 'from-blue-500 to-indigo-600',
+      color: '#0078D4'
     },
     {
       name: 'Terraform',
-      logo: '💜',
-      description: 'HCL generation',
-      gradient: 'from-purple-500 to-purple-700'
+      logo: SiTerraform,
+      description: language === 'es' ? 'Generación HCL' : 'HCL generation',
+      gradient: 'from-purple-500 to-purple-700',
+      color: '#7B42BC'
     },
     {
       name: 'GitHub',
-      logo: '⚫',
-      description: 'Actions, Repos',
-      gradient: 'from-gray-600 to-gray-800'
+      logo: FaGithub,
+      description: language === 'es' ? 'Actions, Repositorios' : 'Actions, Repos',
+      gradient: 'from-gray-600 to-gray-800',
+      color: '#181717'
     },
     {
       name: 'GitLab',
-      logo: '🟠',
-      description: 'CI/CD, Registry',
-      gradient: 'from-orange-500 to-red-600'
+      logo: FaGitlab,
+      description: language === 'es' ? 'CI/CD, Registro' : 'CI/CD, Registry',
+      gradient: 'from-orange-500 to-red-600',
+      color: '#FC6D26'
     },
     {
       name: 'Slack',
-      logo: '🟣',
-      description: 'Notifications',
-      gradient: 'from-purple-400 to-pink-500'
+      logo: FaSlack,
+      description: language === 'es' ? 'Notificaciones' : 'Notifications',
+      gradient: 'from-purple-400 to-pink-500',
+      color: '#4A154B'
     },
     {
-      name: 'Datadog',
-      logo: '🟪',
-      description: 'Monitoring',
-      gradient: 'from-purple-600 to-indigo-600'
+      name: 'Pulumi',
+      logo: SiPulumi,
+      description: language === 'es' ? 'IaC moderno' : 'Modern IaC',
+      gradient: 'from-purple-600 to-pink-600',
+      color: '#8A3391'
     }
   ];
 
   const upcomingIntegrations = [
-    'Kubernetes', 'Docker', 'Jenkins', 'CircleCI', 'Prometheus', 'Grafana'
+    { name: 'Kubernetes', icon: SiKubernetes },
+    { name: 'Docker', icon: FaDocker },
+    { name: 'Jenkins', icon: null },
+    { name: 'CircleCI', icon: null },
+    { name: 'Prometheus', icon: null },
+    { name: 'Grafana', icon: null }
   ];
 
   return (
@@ -818,27 +858,30 @@ function IntegrationsSection() {
           </p>
         </div>
 
-        {/* Main integrations grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
+        {/* Main integrations grid - Mejorado para móviles */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto mb-12 sm:mb-16">
           {integrations.map((integration, index) => (
             <div
               key={integration.name}
               className="group relative hover-lift-premium"
               style={{ animationDelay: `${index * 50}ms` }}
             >
-              <div className="relative h-full bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 overflow-hidden">
+              <div className="relative h-full bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-800 overflow-hidden">
                 {/* Gradient overlay on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${integration.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
                 
                 {/* Content */}
                 <div className="relative z-10 text-center">
-                  <div className="text-5xl mb-3 transform group-hover:scale-110 transition-transform duration-300">
-                    {integration.logo}
+                  <div className="mb-2 sm:mb-3 transform group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                    {React.createElement(integration.logo, {
+                      className: "h-10 sm:h-12 w-10 sm:w-12",
+                      style: { color: integration.color }
+                    })}
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
+                  <h3 className="text-sm sm:text-lg font-bold text-slate-900 dark:text-white mb-1">
                     {integration.name}
                   </h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
                     {integration.description}
                   </p>
                 </div>
@@ -858,12 +901,13 @@ function IntegrationsSection() {
             {language === 'es' ? 'Próximamente' : 'Coming soon'}
           </p>
           <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
-            {upcomingIntegrations.map((name) => (
+            {upcomingIntegrations.map((item) => (
               <span
-                key={name}
-                className="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full text-sm font-medium border border-slate-200 dark:border-slate-700"
+                key={item.name}
+                className="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full text-sm font-medium border border-slate-200 dark:border-slate-700 flex items-center gap-2"
               >
-                {name}
+                {item.icon && React.createElement(item.icon, { className: "h-4 w-4" })}
+                {item.name}
               </span>
             ))}
           </div>

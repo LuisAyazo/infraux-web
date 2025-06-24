@@ -139,9 +139,9 @@ export default function HeaderNew() {
 
   return (
     <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-700/50' 
-        : 'bg-transparent'
+      isScrolled
+        ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-700 shadow-sm'
+        : 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/20 dark:border-slate-700/20'
     }`}>
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Global">
         <div className="flex h-16 items-center justify-between">
