@@ -1,11 +1,20 @@
 /** @type {import('next-sitemap').IConfig} */
+
+const siteUrl = process.env.SITE_URL || 'https://infraux.com';
+
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://infraux.com',
+  siteUrl,
   generateRobotsTxt: true,
-  generateIndexSitemap: false,
-  changefreq: 'weekly',
-  priority: 0.7,
-  sitemapSize: 5000,
+  generateIndexSitemap: true, // Esto es clave para generar el sitemap-index.xml
+  // Excluimos las rutas de las APIs de sitemaps para que no aparezcan en el sitemap
+  exclude: [
+    '/server-sitemap.xml',
+    '/sitemap-producto.xml',
+    '/sitemap-soluciones.xml',
+    '/sitemap-recursos.xml',
+    '/sitemap-principal.xml',
+    '/sitemap-blog.xml'
+  ],
   robotsTxtOptions: {
     policies: [
       {
@@ -13,17 +22,13 @@ module.exports = {
         allow: '/',
       },
     ],
+    // Sitemaps individuales para cada sección del menú
     additionalSitemaps: [
-      'https://infraux.com/sitemap.xml',
+      `${siteUrl}/sitemap-principal.xml`,
+      `${siteUrl}/sitemap-producto.xml`,
+      `${siteUrl}/sitemap-soluciones.xml`,
+      `${siteUrl}/sitemap-recursos.xml`,
+      `${siteUrl}/sitemap-blog.xml`,
     ],
   },
-  // Páginas adicionales que queremos incluir específicamente
-  additionalPaths: async (config) => [
-    await config.transform(config, '/que-es-infraux'),
-    await config.transform(config, '/casos-de-uso'),
-    await config.transform(config, '/demo'),
-    await config.transform(config, '/precios'),
-    await config.transform(config, '/comparacion'),
-    await config.transform(config, '/testimonios'),
-  ],
-}
+};

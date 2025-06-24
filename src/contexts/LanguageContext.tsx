@@ -14,50 +14,7 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 // Mapeo completo de rutas entre idiomas
-const routeTranslations: { [key: string]: { es: string; en: string } } = {
-  '/': { es: '/', en: '/' },
-  '/precios': { es: '/precios', en: '/pricing' },
-  '/pricing': { es: '/precios', en: '/pricing' },
-  '/documentacion': { es: '/documentacion', en: '/documentation' },
-  '/documentation': { es: '/documentacion', en: '/documentation' },
-  '/blog': { es: '/blog', en: '/blog' },
-  '/contacto': { es: '/contacto', en: '/contact' },
-  '/contact': { es: '/contacto', en: '/contact' },
-  '/demo': { es: '/demo', en: '/demo' },
-  '/casos-de-uso': { es: '/casos-de-uso', en: '/use-cases' },
-  '/use-cases': { es: '/casos-de-uso', en: '/use-cases' },
-  '/empresa': { es: '/empresa', en: '/company' },
-  '/company': { es: '/empresa', en: '/company' },
-  '/recursos': { es: '/recursos', en: '/resources' },
-  '/resources': { es: '/recursos', en: '/resources' },
-  '/comparacion': { es: '/comparacion', en: '/comparison' },
-  '/comparison': { es: '/comparacion', en: '/comparison' },
-  '/testimonios': { es: '/testimonios', en: '/testimonials' },
-  '/testimonials': { es: '/testimonios', en: '/testimonials' },
-  '/comunidad': { es: '/comunidad', en: '/community' },
-  '/community': { es: '/comunidad', en: '/community' },
-  '/changelog': { es: '/changelog', en: '/changelog' },
-  
-  // Páginas de producto
-  '/producto/editor': { es: '/producto/editor', en: '/product/editor' },
-  '/product/editor': { es: '/producto/editor', en: '/product/editor' },
-  '/producto/iac': { es: '/producto/iac', en: '/product/iac' },
-  '/product/iac': { es: '/producto/iac', en: '/product/iac' },
-  '/producto/deployment': { es: '/producto/deployment', en: '/product/deployment' },
-  '/product/deployment': { es: '/producto/deployment', en: '/product/deployment' },
-  '/producto/colaboracion': { es: '/producto/colaboracion', en: '/product/collaboration' },
-  '/product/collaboration': { es: '/producto/colaboracion', en: '/product/collaboration' },
-  
-  // Páginas de soluciones
-  '/soluciones/startups': { es: '/soluciones/startups', en: '/solutions/startups' },
-  '/solutions/startups': { es: '/soluciones/startups', en: '/solutions/startups' },
-  '/soluciones/empresas': { es: '/soluciones/empresas', en: '/solutions/enterprises' },
-  '/solutions/enterprises': { es: '/soluciones/empresas', en: '/solutions/enterprises' },
-  '/soluciones/devops': { es: '/soluciones/devops', en: '/solutions/devops' },
-  '/solutions/devops': { es: '/soluciones/devops', en: '/solutions/devops' },
-  '/soluciones/multi-cloud': { es: '/soluciones/multi-cloud', en: '/solutions/multi-cloud' },
-  '/solutions/multi-cloud': { es: '/soluciones/multi-cloud', en: '/solutions/multi-cloud' },
-}
+import { routeTranslations } from '@/lib/route-translations';
 
 // Traducciones de UI
 const translations: { [key: string]: { es: string; en: string } } = {

@@ -7,3 +7,8 @@ Host: https://infraux.com
 
 # Sitemaps
 Sitemap: https://infraux.com/sitemap.xml
+Sitemap: https://infraux.com/sitemap-principal.xml
+Sitemap: https://infraux.com/sitemap-producto.xml
+Sitemap: https://infraux.com/sitemap-soluciones.xml
+Sitemap: https://infraux.com/sitemap-recursos.xml
+Sitemap: https://infraux.com/sitemap-blog.xml
