@@ -171,54 +171,65 @@ const pricingTiers = [
 
 export default function StartupsPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-slate-900">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-black">
       <HeaderNew />
       
       <main className="flex-grow pt-16">
         {/* Hero Section */}
-        <section className="relative py-20 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-emerald-900/20" />
-          <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-800 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+        <section className="relative py-24 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-teal-50 dark:from-black dark:via-black dark:to-emerald-950/20" />
+          
+          {/* Grid Pattern */}
+          <div className="absolute inset-0">
+            <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" className="text-slate-200 dark:text-slate-800" opacity="0.3" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+          </div>
           
           <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="text-center max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 mb-6">
-                <RocketLaunchIcon className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-                <span className="text-sm font-medium text-emerald-700 dark:text-emerald-300">
-                  Para Startups
+            <div className="text-center max-w-4xl mx-auto">
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-premium border border-slate-200 dark:border-slate-800 mb-8 fade-in">
+                <RocketLaunchIcon className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+                <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                  Solución para Startups
                 </span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white mb-8 tracking-tight fade-in-up" style={{ animationDelay: '0.1s' }}>
                 La infraestructura que
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-600">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 mt-2">
                   crece con tu startup
                 </span>
               </h1>
               
-              <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
+              <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mb-10 font-medium leading-relaxed fade-in-up" style={{ animationDelay: '0.2s' }}>
                 Empieza gratis, escala sin límites. InfraUX se adapta a cada etapa 
                 de tu startup, desde el MVP hasta el unicornio.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in-up" style={{ animationDelay: '0.3s' }}>
                 <Link
                   href="/register"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-emerald-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                  className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-full shadow-premium hover:shadow-premium-lg transform hover:scale-105 transition-all duration-300"
                 >
-                  <SparklesIcon className="h-5 w-5" />
+                  <SparklesIcon className="h-6 w-6" />
                   Empezar gratis ahora
                 </Link>
                 <Link
                   href="#pricing"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
+                  className="inline-flex items-center gap-2 px-10 py-5 glass-premium text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-800 hover-lift-premium transition-all duration-300"
                 >
                   Ver planes
-                  <ArrowRightIcon className="h-5 w-5" />
+                  <ArrowRightIcon className="h-6 w-6" />
                 </Link>
               </div>
               
-              <p className="mt-4 text-sm text-slate-600 dark:text-slate-400">
+              <p className="mt-6 text-sm text-slate-600 dark:text-slate-400 fade-in-up" style={{ animationDelay: '0.4s' }}>
                 Sin tarjeta de crédito • Setup en 2 minutos • Cancela cuando quieras
               </p>
             </div>
@@ -226,33 +237,37 @@ export default function StartupsPage() {
         </section>
 
         {/* Benefits Grid */}
-        <section className="py-20 bg-slate-50 dark:bg-slate-800/30">
+        <section className="py-24 bg-gradient-to-b from-white to-slate-50 dark:from-black dark:to-slate-950/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-black text-slate-900 dark:text-white mb-6 fade-in">
                 Diseñado para startups ambiciosas
               </h2>
-              <p className="text-xl text-slate-600 dark:text-slate-400">
+              <p className="text-xl text-slate-600 dark:text-slate-400 font-medium fade-in-up" style={{ animationDelay: '0.1s' }}>
                 Todo lo que necesitas para moverte rápido sin sacrificar calidad
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {startupBenefits.map((benefit) => {
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {startupBenefits.map((benefit, index) => {
                 const Icon = benefit.icon;
                 return (
-                  <div key={benefit.title} className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                    <div className="h-12 w-12 bg-gradient-to-br from-indigo-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4">
-                      <Icon className="h-6 w-6 text-white" />
+                  <div 
+                    key={benefit.title} 
+                    className="glass-premium rounded-3xl p-8 border border-slate-200 dark:border-slate-800 hover-lift-premium transition-all duration-300 fade-in-up"
+                    style={{ animationDelay: `${0.1 + index * 0.1}s` }}
+                  >
+                    <div className="h-14 w-14 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                      <Icon className="h-7 w-7 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
                       {benefit.title}
                     </h3>
-                    <p className="text-slate-600 dark:text-slate-400 mb-3">
+                    <p className="text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
                       {benefit.description}
                     </p>
-                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
-                      <CheckCircleIcon className="h-4 w-4" />
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+                      <CheckCircleIcon className="h-5 w-5" />
                       {benefit.highlight}
                     </span>
                   </div>
@@ -263,35 +278,39 @@ export default function StartupsPage() {
         </section>
 
         {/* Features Section */}
-        <section className="py-20">
+        <section className="py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-black text-slate-900 dark:text-white mb-6 fade-in">
                 Todo incluido desde el día 1
               </h2>
-              <p className="text-xl text-slate-600 dark:text-slate-400">
+              <p className="text-xl text-slate-600 dark:text-slate-400 font-medium fade-in-up" style={{ animationDelay: '0.1s' }}>
                 No pierdas tiempo configurando, enfócate en tu producto
               </p>
             </div>
             
             <div className="grid lg:grid-cols-3 gap-8">
-              {startupFeatures.map((category) => {
+              {startupFeatures.map((category, index) => {
                 const Icon = category.icon;
                 return (
-                  <div key={category.category} className="bg-gradient-to-br from-slate-50 to-white dark:from-slate-800 dark:to-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-700">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="h-10 w-10 bg-gradient-to-br from-indigo-500 to-emerald-500 rounded-lg flex items-center justify-center">
-                        <Icon className="h-5 w-5 text-white" />
+                  <div 
+                    key={category.category} 
+                    className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-black rounded-3xl p-10 border border-slate-200 dark:border-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 fade-in-up"
+                    style={{ animationDelay: `${0.1 + index * 0.1}s` }}
+                  >
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="h-12 w-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center shadow-lg">
+                        <Icon className="h-6 w-6 text-white" />
                       </div>
-                      <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
                         {category.category}
                       </h3>
                     </div>
-                    <ul className="space-y-3">
+                    <ul className="space-y-4">
                       {category.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-2">
-                          <CheckCircleIcon className="h-5 w-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
-                          <span className="text-slate-700 dark:text-slate-300">{feature}</span>
+                        <li key={feature} className="flex items-start gap-3">
+                          <CheckCircleIcon className="h-6 w-6 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
+                          <span className="text-slate-700 dark:text-slate-300 leading-relaxed">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -303,46 +322,50 @@ export default function StartupsPage() {
         </section>
 
         {/* Success Stories */}
-        <section className="py-20 bg-gradient-to-br from-indigo-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+        <section className="py-24 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950/50 dark:to-black">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-black text-slate-900 dark:text-white mb-6 fade-in">
                 Startups que confían en InfraUX
               </h2>
-              <p className="text-xl text-slate-600 dark:text-slate-400">
+              <p className="text-xl text-slate-600 dark:text-slate-400 font-medium fade-in-up" style={{ animationDelay: '0.1s' }}>
                 Historias reales de crecimiento acelerado
               </p>
             </div>
             
             <div className="grid lg:grid-cols-3 gap-8">
-              {successStories.map((story) => (
-                <div key={story.company} className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="text-4xl">{story.logo}</div>
+              {successStories.map((story, index) => (
+                <div 
+                  key={story.company} 
+                  className="glass-premium rounded-3xl p-10 border border-slate-200 dark:border-slate-800 hover-lift-premium transition-all duration-300 fade-in-up"
+                  style={{ animationDelay: `${0.1 + index * 0.1}s` }}
+                >
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="text-5xl">{story.logo}</div>
                     <div>
-                      <h3 className="font-bold text-slate-900 dark:text-white">
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white">
                         {story.company}
                       </h3>
-                      <div className="flex items-center gap-2 text-sm">
-                        <span className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
+                      <div className="flex items-center gap-2 mt-1">
+                        <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
                           {story.metric}
                         </span>
-                        <span className="text-slate-600 dark:text-slate-400">
+                        <span className="text-slate-600 dark:text-slate-400 font-medium">
                           {story.achievement}
                         </span>
                       </div>
                     </div>
                   </div>
                   
-                  <blockquote className="text-slate-700 dark:text-slate-300 mb-4">
+                  <blockquote className="text-lg text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
                     "{story.quote}"
                   </blockquote>
                   
-                  <div className="text-sm">
+                  <div className="border-t border-slate-200 dark:border-slate-800 pt-6">
                     <p className="font-semibold text-slate-900 dark:text-white">
                       {story.author}
                     </p>
-                    <p className="text-slate-600 dark:text-slate-400">
+                    <p className="text-sm text-slate-600 dark:text-slate-400">
                       {story.role}
                     </p>
                   </div>
@@ -353,65 +376,66 @@ export default function StartupsPage() {
         </section>
 
         {/* Pricing Section */}
-        <section id="pricing" className="py-20">
+        <section id="pricing" className="py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-black text-slate-900 dark:text-white mb-6 fade-in">
                 Precios que crecen contigo
               </h2>
-              <p className="text-xl text-slate-600 dark:text-slate-400">
+              <p className="text-xl text-slate-600 dark:text-slate-400 font-medium fade-in-up" style={{ animationDelay: '0.1s' }}>
                 Empieza gratis, escala cuando lo necesites
               </p>
             </div>
             
             <div className="grid lg:grid-cols-3 gap-8">
-              {pricingTiers.map((tier) => (
+              {pricingTiers.map((tier, index) => (
                 <div
                   key={tier.name}
-                  className={`relative rounded-2xl p-8 ${
+                  className={`relative rounded-3xl p-10 transition-all duration-300 fade-in-up ${
                     tier.highlighted
-                      ? 'bg-gradient-to-br from-indigo-600 to-emerald-600 text-white shadow-2xl scale-105'
-                      : 'bg-white dark:bg-slate-800 shadow-lg'
+                      ? 'bg-gradient-to-br from-emerald-600 to-teal-600 text-white shadow-premium-lg scale-105'
+                      : 'glass-premium border border-slate-200 dark:border-slate-800 hover-lift-premium'
                   }`}
+                  style={{ animationDelay: `${0.1 + index * 0.1}s` }}
                 >
                   {tier.highlighted && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <span className="bg-emerald-500 text-white text-sm font-semibold px-4 py-1 rounded-full">
+                    <div className="absolute -top-5 left-1/2 transform -translate-x-1/2">
+                      <span className="bg-gradient-to-r from-yellow-400 to-orange-400 text-black text-sm font-bold px-6 py-2 rounded-full shadow-lg">
                         Más popular
                       </span>
                     </div>
                   )}
                   
-                  <div className="text-center mb-6">
-                    <h3 className={`text-2xl font-bold mb-2 ${
+                  <div className="text-center mb-8">
+                    <h3 className={`text-2xl font-bold mb-3 ${
                       tier.highlighted ? 'text-white' : 'text-slate-900 dark:text-white'
                     }`}>
                       {tier.name}
                     </h3>
-                    <div className="flex items-baseline justify-center gap-1">
-                      <span className={`text-4xl font-bold ${
+                    <div className="flex items-baseline justify-center gap-2 mb-4">
+                      <span className={`text-5xl font-black ${
                         tier.highlighted ? 'text-white' : 'text-slate-900 dark:text-white'
                       }`}>
                         {tier.price}
                       </span>
                       {tier.price !== '$0' && (
-                        <span className={tier.highlighted ? 'text-indigo-100' : 'text-slate-600 dark:text-slate-400'}>
+                        <span className={tier.highlighted ? 'text-emerald-100' : 'text-slate-600 dark:text-slate-400'}>
                           /mes
                         </span>
                       )}
                     </div>
-                    <p className={`mt-2 ${
-                      tier.highlighted ? 'text-indigo-100' : 'text-slate-600 dark:text-slate-400'
+                    <p className={`${
+                      tier.highlighted ? 'text-emerald-100' : 'text-slate-600 dark:text-slate-400'
                     }`}>
                       {tier.description}
                     </p>
                   </div>
                   
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-4 mb-10">
                     {tier.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2">
-                        <CheckCircleIcon className={`h-5 w-5 flex-shrink-0 ${
-                          tier.highlighted ? 'text-emerald-300' : 'text-emerald-600 dark:text-emerald-400'
+                      <li key={feature} className="flex items-start gap-3">
+                        <CheckCircleIcon className={`h-6 w-6 flex-shrink-0 ${
+                          tier.highlighted ? 'text-emerald-200' : 'text-emerald-600 dark:text-emerald-400'
                         }`} />
                         <span className={tier.highlighted ? 'text-white' : 'text-slate-700 dark:text-slate-300'}>
                           {feature}
@@ -422,10 +446,10 @@ export default function StartupsPage() {
                   
                   <Link
                     href="/register"
-                    className={`block text-center py-3 px-6 rounded-full font-semibold transition-all ${
+                    className={`block text-center py-4 px-8 rounded-full font-semibold transition-all ${
                       tier.highlighted
-                        ? 'bg-white text-indigo-600 hover:bg-indigo-50'
-                        : 'bg-gradient-to-r from-indigo-600 to-emerald-600 text-white hover:shadow-lg'
+                        ? 'bg-white text-emerald-600 hover:bg-emerald-50'
+                        : 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white hover:shadow-lg'
                     }`}
                   >
                     {tier.cta}
@@ -434,10 +458,10 @@ export default function StartupsPage() {
               ))}
             </div>
             
-            <div className="mt-12 text-center">
+            <div className="mt-12 text-center fade-in-up" style={{ animationDelay: '0.5s' }}>
               <p className="text-slate-600 dark:text-slate-400">
                 ¿Necesitas algo especial? {' '}
-                <Link href="/contacto" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">
+                <Link href="/contacto" className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">
                   Hablemos
                 </Link>
               </p>
@@ -446,71 +470,74 @@ export default function StartupsPage() {
         </section>
 
         {/* Startup Program */}
-        <section className="py-20">
+        <section className="py-24 bg-gradient-to-b from-white to-slate-50 dark:from-black dark:to-slate-950/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="bg-gradient-to-r from-indigo-600 to-emerald-600 rounded-3xl p-12 text-white text-center">
-              <BeakerIcon className="h-16 w-16 mx-auto mb-6 text-white/80" />
-              <h2 className="text-3xl font-bold mb-4">
-                Programa InfraUX para Startups
-              </h2>
-              <p className="text-xl text-indigo-100 mb-8 max-w-3xl mx-auto">
-                Si tu startup tiene menos de 2 años y has levantado menos de $2M, 
-                califica para nuestro programa especial con hasta $10,000 en créditos.
-              </p>
-              
-              <div className="grid md:grid-cols-3 gap-6 mb-8 max-w-4xl mx-auto">
-                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
-                  <div className="text-3xl font-bold mb-2">$10k</div>
-                  <p className="text-indigo-100">en créditos</p>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 blur-3xl" />
+              <div className="relative bg-gradient-to-r from-emerald-600 to-teal-600 rounded-3xl p-16 text-white text-center shadow-premium-lg">
+                <BeakerIcon className="h-20 w-20 mx-auto mb-8 text-white/90" />
+                <h2 className="text-4xl lg:text-5xl font-black mb-6">
+                  Programa InfraUX para Startups
+                </h2>
+                <p className="text-xl text-emerald-50 mb-10 max-w-3xl mx-auto font-medium leading-relaxed">
+                  Si tu startup tiene menos de 2 años y has levantado menos de $2M, 
+                  califica para nuestro programa especial con hasta $10,000 en créditos.
+                </p>
+                
+                <div className="grid md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6">
+                    <div className="text-4xl font-black mb-2">$10k</div>
+                    <p className="text-emerald-100 font-medium">en créditos</p>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6">
+                    <div className="text-4xl font-black mb-2">6 meses</div>
+                    <p className="text-emerald-100 font-medium">de soporte premium</p>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6">
+                    <div className="text-4xl font-black mb-2">1-on-1</div>
+                    <p className="text-emerald-100 font-medium">mentoría técnica</p>
+                  </div>
                 </div>
-                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
-                  <div className="text-3xl font-bold mb-2">6 meses</div>
-                  <p className="text-indigo-100">de soporte premium</p>
-                </div>
-                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
-                  <div className="text-3xl font-bold mb-2">1-on-1</div>
-                  <p className="text-indigo-100">mentoría técnica</p>
-                </div>
+                
+                <Link
+                  href="/startup-program"
+                  className="inline-flex items-center gap-2 px-10 py-5 bg-white text-emerald-600 font-semibold rounded-full hover:bg-emerald-50 transition-colors shadow-lg"
+                >
+                  Aplicar al programa
+                  <ArrowRightIcon className="h-6 w-6" />
+                </Link>
               </div>
-              
-              <Link
-                href="/startup-program"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-indigo-600 font-semibold rounded-full hover:bg-indigo-50 transition-colors"
-              >
-                Aplicar al programa
-                <ArrowRightIcon className="h-5 w-5" />
-              </Link>
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-20">
+        <section className="py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-4xl lg:text-5xl font-black text-slate-900 dark:text-white mb-6 fade-in">
               Tu infraestructura no debería frenar tu crecimiento
             </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
+            <p className="text-xl text-slate-600 dark:text-slate-400 mb-10 font-medium fade-in-up" style={{ animationDelay: '0.1s' }}>
               Únete a cientos de startups que están construyendo el futuro con InfraUX
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in-up" style={{ animationDelay: '0.2s' }}>
               <Link
                 href="/register"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-emerald-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-full shadow-premium hover:shadow-premium-lg transform hover:scale-105 transition-all duration-300"
               >
                 Empezar gratis
-                <ArrowRightIcon className="h-5 w-5" />
+                <ArrowRightIcon className="h-6 w-6" />
               </Link>
               <Link
                 href="/demos/startup-setup"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
+                className="inline-flex items-center gap-2 px-10 py-5 glass-premium text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-800 hover-lift-premium transition-all duration-300"
               >
                 Ver demo de 5 min
               </Link>
             </div>
             
-            <div className="mt-8 flex items-center justify-center gap-8 text-sm text-slate-600 dark:text-slate-400">
+            <div className="mt-10 flex items-center justify-center gap-8 text-sm text-slate-600 dark:text-slate-400 fade-in-up" style={{ animationDelay: '0.3s' }}>
               <div className="flex items-center gap-2">
                 <ClockIcon className="h-5 w-5" />
                 <span>Setup en 2 minutos</span>

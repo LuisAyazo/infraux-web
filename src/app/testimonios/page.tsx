@@ -3,7 +3,7 @@ import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
 import Link from 'next/link'
 import Image from 'next/image'
-import {
+import { 
   StarIcon,
   ArrowRightIcon,
   SparklesIcon,
@@ -20,11 +20,11 @@ import { StarIcon as StarSolid } from '@heroicons/react/24/solid'
 
 export const metadata: Metadata = {
   title: 'Testimonios | Lo que dicen nuestros clientes sobre InfraUX',
-  description: 'Descubre cómo InfraUX está transformando la forma en que equipos de todo el mundo gestionan su infraestructura cloud. Lee casos de éxito reales.',
-  keywords: ['testimonios InfraUX', 'casos de éxito', 'opiniones clientes', 'reviews InfraUX', 'experiencias usuarios'],
+  description: 'Descubre cómo InfraUX está transformando la forma en que equipos de todo el mundo gestionan su infraestructura cloud. Lee historias de éxito reales.',
+  keywords: ['testimonios InfraUX', 'historias de éxito', 'reseñas de clientes', 'opiniones InfraUX', 'experiencias de usuarios'],
   openGraph: {
-    title: 'Testimonios - Clientes satisfechos con InfraUX',
-    description: 'Lee las experiencias de equipos que han transformado su gestión de infraestructura con InfraUX.',
+    title: 'Testimonios - Clientes satisfechos de InfraUX',
+    description: 'Lee experiencias de equipos que han transformado su gestión de infraestructura con InfraUX.',
     url: 'https://infraux.com/testimonios',
     siteName: 'InfraUX',
     locale: 'es_ES',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Testimonios - InfraUX',
-    description: 'Casos de éxito de equipos usando InfraUX',
+    description: 'Historias de éxito de equipos usando InfraUX',
   },
   alternates: {
     canonical: 'https://infraux.com/testimonios',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 const testimonials = [
   {
     id: 1,
-    content: "InfraUX transformó completamente nuestra forma de trabajar. Pasamos de 3 semanas a 3 días para configurar nuevos ambientes. La visualización nos ayuda a entender mejor nuestra arquitectura y a detectar problemas antes de que ocurran.",
+    content: "InfraUX transformó completamente nuestra forma de trabajar. Pasamos de 3 semanas a 3 días para configurar nuevos entornos. La visualización nos ayuda a entender mejor nuestra arquitectura y detectar problemas antes de que ocurran.",
     author: {
       name: "Carlos Mendoza",
       role: "DevOps Lead",
@@ -55,9 +55,9 @@ const testimonials = [
       image: "/testimonials/carlos.jpg"
     },
     metrics: {
-      timeReduction: "85%",
-      costSavings: "40%",
-      teamProductivity: "3x"
+      reduccionTiempo: "85%",
+      ahorroCostos: "40%",
+      productividadEquipo: "3x"
     },
     industry: "FinTech",
     companySize: "50-100",
@@ -74,9 +74,9 @@ const testimonials = [
       image: "/testimonials/ana.jpg"
     },
     metrics: {
-      costReduction: "35%",
-      deploymentSpeed: "5x",
-      errorReduction: "90%"
+      reduccionCostos: "35%",
+      velocidadDespliegue: "5x",
+      reduccionErrores: "90%"
     },
     industry: "E-commerce",
     companySize: "100-500",
@@ -85,7 +85,7 @@ const testimonials = [
   },
   {
     id: 3,
-    content: "La colaboración en tiempo real cambió todo. Ahora nuestros equipos en México, Colombia y Argentina trabajan en la misma infraestructura sin conflictos. Es como Google Docs pero para infraestructura cloud.",
+    content: "La colaboración en tiempo real cambió todo. Ahora nuestros equipos en México, Colombia y Argentina trabajan sobre la misma infraestructura sin conflictos. Es como Google Docs pero para infraestructura cloud.",
     author: {
       name: "Miguel Torres",
       role: "Platform Engineer",
@@ -93,11 +93,11 @@ const testimonials = [
       image: "/testimonials/miguel.jpg"
     },
     metrics: {
-      collaborationImprovement: "100%",
-      deploymentErrors: "-80%",
-      timeToMarket: "2x faster"
+      mejoraColaboracion: "100%",
+      erroresDespliegue: "-80%",
+      tiempoMercado: "2x más rápido"
     },
-    industry: "Logistics",
+    industry: "Logística",
     companySize: "500-1000",
     rating: 5,
     featured: false
@@ -112,9 +112,9 @@ const testimonials = [
       image: "/testimonials/laura.jpg"
     },
     metrics: {
-      adoptionTime: "1 semana",
-      teamParticipation: "+200%",
-      documentationTime: "-95%"
+      tiempoAdopcion: "1 semana",
+      participacionEquipo: "+200%",
+      tiempoDocumentacion: "-95%"
     },
     industry: "HealthTech",
     companySize: "100-500",
@@ -131,9 +131,9 @@ const testimonials = [
       image: "/testimonials/roberto.jpg"
     },
     metrics: {
-      supportResponseTime: "< 30 min",
-      featureRequests: "3 implementadas",
-      uptime: "99.99%"
+      tiempoRespuestaSoporte: "< 30 min",
+      solicitudesImplementadas: "3 features",
+      disponibilidad: "99.99%"
     },
     industry: "Media",
     companySize: "50-100",
@@ -142,7 +142,7 @@ const testimonials = [
   },
   {
     id: 6,
-    content: "Empezamos con el plan gratuito para probar. En 2 días ya estábamos convencidos. La curva de aprendizaje es mínima y el ROI fue evidente desde el primer mes. Mejor inversión del año.",
+    content: "Empezamos con el plan gratuito para probarlo. En 2 días estábamos convencidos. La curva de aprendizaje es mínima y el ROI fue evidente desde el primer mes. La mejor inversión del año.",
     author: {
       name: "Sofia Chen",
       role: "Engineering Manager",
@@ -151,8 +151,8 @@ const testimonials = [
     },
     metrics: {
       roi: "300% en 6 meses",
-      learningCurve: "2 días",
-      infrastructureCost: "-45%"
+      curvaAprendizaje: "2 días",
+      costoInfraestructura: "-45%"
     },
     industry: "AI/ML",
     companySize: "10-50",
@@ -169,50 +169,61 @@ const stats = [
 ]
 
 const industries = [
-  "FinTech", "E-commerce", "HealthTech", "EdTech", "Logistics", 
+  "FinTech", "E-commerce", "HealthTech", "EdTech", "Logística", 
   "Media", "Gaming", "SaaS", "Enterprise", "Startups"
 ]
 
 export default function TestimoniosPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-slate-900">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-black">
       <HeaderNew />
       
-      <main className="flex-grow">
+      <main className="flex-grow pt-16">
         {/* Hero Section */}
-        <section className="relative py-20 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800" />
-          <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-800 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+        <section className="relative py-24 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-teal-50 dark:from-black dark:via-black dark:to-emerald-950/20" />
+          
+          {/* Grid Pattern */}
+          <div className="absolute inset-0">
+            <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" className="text-slate-200 dark:text-slate-800" opacity="0.3" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+          </div>
           
           <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="text-center max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 mb-6">
-                <StarIcon className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
-                <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">
-                  Casos de éxito reales
+            <div className="text-center max-w-4xl mx-auto">
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-premium border border-slate-200 dark:border-slate-800 mb-8 fade-in">
+                <StarIcon className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+                <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                  Historias de éxito reales
                 </span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white mb-8 tracking-tight fade-in-up" style={{ animationDelay: '0.1s' }}>
                 Equipos que confían en
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
-                  InfraUX todos los días
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 mt-2">
+                  InfraUX cada día
                 </span>
               </h1>
               
-              <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
+              <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mb-10 font-medium leading-relaxed fade-in-up" style={{ animationDelay: '0.2s' }}>
                 Descubre cómo empresas de todos los tamaños están transformando
                 su gestión de infraestructura cloud con InfraUX
               </p>
               
-              <div className="flex items-center justify-center gap-8 mb-8">
+              <div className="flex items-center justify-center gap-8 mb-8 fade-in-up" style={{ animationDelay: '0.3s' }}>
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
                     <StarSolid key={i} className="h-6 w-6 text-yellow-400" />
                   ))}
                 </div>
                 <div className="text-lg font-semibold text-slate-900 dark:text-white">
-                  4.9/5 basado en 500+ reviews
+                  4.9/5 basado en 500+ reseñas
                 </div>
               </div>
             </div>
@@ -220,18 +231,18 @@ export default function TestimoniosPage() {
         </section>
 
         {/* Stats Section */}
-        <section className="py-12 bg-slate-50 dark:bg-slate-800/30">
+        <section className="py-16 bg-gradient-to-b from-white to-slate-50 dark:from-black dark:to-slate-950/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {stats.map((stat) => {
+              {stats.map((stat, index) => {
                 const Icon = stat.icon;
                 return (
-                  <div key={stat.label} className="text-center">
-                    <Icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400 mx-auto mb-3" />
-                    <div className="text-3xl font-bold text-slate-900 dark:text-white mb-1">
+                  <div key={stat.label} className="text-center fade-in-up" style={{ animationDelay: `${0.1 + index * 0.1}s` }}>
+                    <Icon className="h-10 w-10 text-emerald-600 dark:text-emerald-400 mx-auto mb-4" />
+                    <div className="text-4xl font-black text-slate-900 dark:text-white mb-2">
                       {stat.value}
                     </div>
-                    <div className="text-sm text-slate-600 dark:text-slate-400">
+                    <div className="text-sm text-slate-600 dark:text-slate-400 font-medium">
                       {stat.label}
                     </div>
                   </div>
@@ -242,27 +253,27 @@ export default function TestimoniosPage() {
         </section>
 
         {/* Featured Testimonials */}
-        <section className="py-20">
+        <section className="py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-white mb-12">
+            <h2 className="text-4xl lg:text-5xl font-black text-center text-slate-900 dark:text-white mb-16 fade-in">
               Testimonios destacados
             </h2>
             
             <div className="grid md:grid-cols-2 gap-8 mb-16">
-              {testimonials.filter(t => t.featured).map((testimonial) => (
-                <div key={testimonial.id} className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="flex items-center gap-1 mb-4">
+              {testimonials.filter(t => t.featured).map((testimonial, index) => (
+                <div key={testimonial.id} className="glass-premium rounded-3xl p-10 border border-slate-200 dark:border-slate-800 hover-lift-premium transition-all duration-300 fade-in-up" style={{ animationDelay: `${0.1 + index * 0.1}s` }}>
+                  <div className="flex items-center gap-1 mb-6">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <StarSolid key={i} className="h-5 w-5 text-yellow-400" />
                     ))}
                   </div>
                   
-                  <blockquote className="text-lg text-slate-700 dark:text-slate-300 mb-6">
+                  <blockquote className="text-lg text-slate-700 dark:text-slate-300 mb-8 leading-relaxed">
                     "{testimonial.content}"
                   </blockquote>
                   
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="h-12 w-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full" />
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="h-14 w-14 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full shadow-lg" />
                     <div>
                       <div className="font-semibold text-slate-900 dark:text-white">
                         {testimonial.author.name}
@@ -273,10 +284,10 @@ export default function TestimoniosPage() {
                     </div>
                   </div>
                   
-                  <div className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200 dark:border-slate-700">
+                  <div className="grid grid-cols-3 gap-4 pt-8 border-t border-slate-200 dark:border-slate-800">
                     {Object.entries(testimonial.metrics).map(([key, value]) => (
                       <div key={key} className="text-center">
-                        <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+                        <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
                           {value}
                         </div>
                         <div className="text-xs text-slate-600 dark:text-slate-400 capitalize">
@@ -286,11 +297,11 @@ export default function TestimoniosPage() {
                     ))}
                   </div>
                   
-                  <div className="flex items-center gap-2 mt-6">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200">
+                  <div className="flex items-center gap-2 mt-8">
+                    <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200">
                       {testimonial.industry}
                     </span>
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200">
+                    <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">
                       {testimonial.companySize} empleados
                     </span>
                   </div>
@@ -301,27 +312,27 @@ export default function TestimoniosPage() {
         </section>
 
         {/* All Testimonials Grid */}
-        <section className="py-20 bg-slate-50 dark:bg-slate-800/30">
+        <section className="py-24 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950/50 dark:to-black">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-white mb-12">
+            <h2 className="text-4xl lg:text-5xl font-black text-center text-slate-900 dark:text-white mb-16 fade-in">
               Más testimonios de clientes satisfechos
             </h2>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {testimonials.filter(t => !t.featured).map((testimonial) => (
-                <div key={testimonial.id} className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm hover:shadow-lg transition-shadow">
-                  <div className="flex items-center gap-1 mb-3">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {testimonials.filter(t => !t.featured).map((testimonial, index) => (
+                <div key={testimonial.id} className="glass-premium rounded-2xl p-8 border border-slate-200 dark:border-slate-800 hover-lift-premium transition-all duration-300 fade-in-up" style={{ animationDelay: `${0.1 + index * 0.1}s` }}>
+                  <div className="flex items-center gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <StarSolid key={i} className="h-4 w-4 text-yellow-400" />
                     ))}
                   </div>
                   
-                  <blockquote className="text-slate-700 dark:text-slate-300 mb-4">
+                  <blockquote className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
                     "{testimonial.content}"
                   </blockquote>
                   
                   <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full" />
+                    <div className="h-10 w-10 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full" />
                     <div>
                       <div className="font-medium text-slate-900 dark:text-white text-sm">
                         {testimonial.author.name}
@@ -332,8 +343,8 @@ export default function TestimoniosPage() {
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-2 mt-4">
-                    <span className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200">
+                  <div className="flex items-center gap-2 mt-6">
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200">
                       {testimonial.industry}
                     </span>
                   </div>
@@ -344,21 +355,21 @@ export default function TestimoniosPage() {
         </section>
 
         {/* Industries Section */}
-        <section className="py-20">
+        <section className="py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-black text-slate-900 dark:text-white mb-6 fade-in">
                 Confianza en todas las industrias
               </h2>
-              <p className="text-xl text-slate-600 dark:text-slate-400">
+              <p className="text-xl text-slate-600 dark:text-slate-400 font-medium fade-in-up" style={{ animationDelay: '0.1s' }}>
                 InfraUX es la elección de empresas líderes en diversos sectores
               </p>
             </div>
             
             <div className="flex flex-wrap justify-center gap-4">
-              {industries.map((industry) => (
-                <div key={industry} className="inline-flex items-center gap-2 px-6 py-3 bg-white dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 shadow-sm">
-                  <GlobeAltIcon className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
+              {industries.map((industry, index) => (
+                <div key={industry} className="inline-flex items-center gap-2 px-6 py-3 glass-premium rounded-full border border-slate-200 dark:border-slate-800 fade-in-up" style={{ animationDelay: `${0.1 + index * 0.05}s` }}>
+                  <GlobeAltIcon className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
                   <span className="font-medium text-slate-900 dark:text-white">{industry}</span>
                 </div>
               ))}
@@ -367,44 +378,49 @@ export default function TestimoniosPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-br from-indigo-600 to-purple-600">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Únete a miles de equipos satisfechos
-            </h2>
-            <p className="text-xl text-indigo-100 mb-8">
-              Comienza tu prueba gratuita hoy y descubre por qué tantas empresas
-              confían en InfraUX para su infraestructura cloud
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/register"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-indigo-600 font-semibold rounded-full hover:bg-indigo-50 transition-colors shadow-lg"
-              >
-                Empezar prueba gratuita
-                <ArrowRightIcon className="h-5 w-5" />
-              </Link>
-              <Link
-                href="/casos-de-uso"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-indigo-700 text-white font-semibold rounded-full hover:bg-indigo-800 transition-colors"
-              >
-                Ver casos de uso
-              </Link>
-            </div>
-            
-            <div className="mt-8 flex items-center justify-center gap-8 text-white/80">
-              <div className="flex items-center gap-2">
-                <CheckCircleIcon className="h-5 w-5" />
-                <span>Sin tarjeta de crédito</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <ClockIcon className="h-5 w-5" />
-                <span>Setup en 5 minutos</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <RocketLaunchIcon className="h-5 w-5" />
-                <span>Soporte 24/7</span>
+        <section className="py-24 bg-gradient-to-b from-white to-slate-50 dark:from-black dark:to-slate-950/50">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 blur-3xl" />
+              <div className="relative bg-gradient-to-br from-emerald-600 to-teal-600 rounded-3xl p-16 text-center text-white shadow-premium-lg">
+                <h2 className="text-4xl lg:text-5xl font-black mb-6">
+                  Únete a miles de equipos satisfechos
+                </h2>
+                <p className="text-xl text-emerald-50 mb-10 font-medium max-w-2xl mx-auto">
+                  Comienza tu prueba gratuita hoy y descubre por qué tantas empresas
+                  confían en InfraUX para su infraestructura cloud
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link
+                    href="/registro"
+                    className="inline-flex items-center gap-2 px-10 py-5 bg-white text-emerald-600 font-semibold rounded-full hover:bg-emerald-50 transition-colors shadow-lg"
+                  >
+                    Comenzar prueba gratuita
+                    <ArrowRightIcon className="h-6 w-6" />
+                  </Link>
+                  <Link
+                    href="/casos-de-uso"
+                    className="inline-flex items-center gap-2 px-10 py-5 bg-emerald-700 text-white font-semibold rounded-full hover:bg-emerald-800 transition-colors"
+                  >
+                    Ver casos de uso
+                  </Link>
+                </div>
+                
+                <div className="mt-10 flex items-center justify-center gap-8 text-white/90">
+                  <div className="flex items-center gap-2">
+                    <CheckCircleIcon className="h-5 w-5" />
+                    <span>Sin tarjeta de crédito</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <ClockIcon className="h-5 w-5" />
+                    <span>Configuración en 5 minutos</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <RocketLaunchIcon className="h-5 w-5" />
+                    <span>Soporte 24/7</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

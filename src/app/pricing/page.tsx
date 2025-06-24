@@ -3,6 +3,7 @@
 import HeaderNew from '@/components/landing/HeaderNew';
 import FooterNew from '@/components/landing/FooterNew';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import React from 'react';
 import { 
@@ -155,43 +156,6 @@ const plans = [
     badge: 'MOST POPULAR'
   },
   {
-    name: 'Business',
-    price: 99,
-    period: '/user/month',
-    description: 'For companies with advanced needs',
-    icon: BuildingOfficeIcon,
-    features: {
-      'Active projects': { value: 'Unlimited', included: true },
-      'Users': { value: 'Unlimited', included: true },
-      'Diagrams per project': { value: 'Unlimited', included: true },
-      'Export diagrams': { value: 'All + API', included: true },
-      'Templates': { value: 'Private marketplace', included: true },
-      'Version history': { value: 'Unlimited + archive', included: true },
-      'Collaboration': { value: 'Advanced', included: true },
-      'Environments': { value: 'Unlimited', included: true },
-      'Integrations': { value: 'All + custom', included: true },
-      'API': { value: 'Complete + GraphQL', included: true },
-      'Support': { value: '24/7 with SLA', included: true, tooltip: 'Guaranteed response time < 4 hours' },
-      'Backup': { value: 'Continuous + geo-redundant', included: true }
-    } as Record<string, FeatureValue>,
-    additionalFeatures: [
-      { name: 'SSO/SAML', tooltip: 'Single sign-on with your identity provider' },
-      { name: 'Advanced audit logs', tooltip: 'Detailed logging of all actions' },
-      { name: 'Custom security policies' },
-      { name: 'Dedicated account manager' },
-      { name: 'Quarterly architecture review' },
-      { name: 'Multi-region' }
-    ],
-    highlights: [
-      'SSO/SAML included',
-      'Account manager',
-      'Guaranteed SLA'
-    ],
-    cta: 'Try 30 days free',
-    ctaLink: '/register?plan=business',
-    featured: false
-  },
-  {
     name: 'Enterprise',
     price: 'Custom',
     period: '',
@@ -205,13 +169,19 @@ const plans = [
       'Templates': { value: 'Custom development', included: true },
       'Version history': { value: 'Custom policies', included: true },
       'Collaboration': { value: 'Enterprise', included: true },
-      'Environments': { value: 'Custom configuration', included: true },
-      'Integrations': { value: 'Dedicated API', included: true },
+      'Environments': { value: 'Unlimited', included: true },
+      'Integrations': { value: 'All + custom', included: true },
       'API': { value: 'Dedicated + SDK', included: true },
       'Support': { value: 'Dedicated 24/7', included: true },
       'Backup': { value: 'Custom + DR', included: true, tooltip: 'Disaster Recovery with custom RTO/RPO' }
     } as Record<string, FeatureValue>,
     additionalFeatures: [
+      { name: 'SSO/SAML', tooltip: 'Single sign-on with your identity provider' },
+      { name: 'Advanced audit logs', tooltip: 'Detailed logging of all actions' },
+      { name: 'Custom security policies' },
+      { name: 'Dedicated account manager' },
+      { name: 'Quarterly architecture review' },
+      { name: 'Multi-region' },
       { name: '99.99% SLA', tooltip: 'Less than 4.38 minutes downtime per month' },
       { name: 'Custom training' },
       { name: 'Exclusive feature development' },
@@ -223,7 +193,7 @@ const plans = [
     ],
     highlights: [
       '99.99% SLA',
-      'Exclusive features',
+      'SSO/SAML included',
       'Dedicated support'
     ],
     cta: 'Contact sales',
@@ -349,146 +319,254 @@ export default function PricingPage() {
                     -20%
                   </span>
                 </button>
+            </div>
+
+            {/* Plans Grid - Premium Design */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
+                {plans.map((plan, index) => {
+                  const Icon = plan.icon;
+                  return (
+                    <div
+                      key={plan.name}
+                      className={`group relative transform transition-all duration-500 hover:scale-105 ${
+                        plan.featured ? 'lg:scale-110 z-20' : ''
+                      }`}
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
+                      <div className={`relative h-full flex flex-col rounded-3xl overflow-hidden ${
+                        plan.featured
+                          ? 'bg-gradient-to-b from-emerald-600 to-emerald-700 text-white shadow-premium-lg'
+                          : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-premium hover:shadow-premium-lg'
+                      }`}>
+                        {/* Featured badge */}
+                        {plan.badge && (
+                          <div className="absolute -top-1 left-1/2 -translate-x-1/2 z-10">
+                            <span className="inline-flex items-center gap-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-slate-900 text-sm font-black px-5 py-2 rounded-full shadow-lg">
+                              <StarIcon className="h-4 w-4" />
+                              {plan.badge}
+                            </span>
+                          </div>
+                        )}
+                        
+                        {/* Gradient overlay for non-featured plans */}
+                        {!plan.featured && (
+                          <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-transparent dark:from-slate-800/50 dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        )}
+                        
+                        <div className="relative z-10 flex-grow flex flex-col p-8">
+                          {/* Plan Header */}
+                          <div className="text-center mb-8">
+                            <div className={`inline-flex p-4 rounded-2xl mb-4 ${
+                              plan.featured
+                                ? 'bg-white/20 backdrop-blur-sm'
+                                : 'bg-gradient-to-br from-emerald-500 to-teal-500 shadow-lg'
+                            }`}>
+                              <Icon className={`h-10 w-10 ${
+                                plan.featured ? 'text-white' : 'text-white'
+                              }`} />
+                            </div>
+                            
+                            <h3 className={`text-2xl font-bold mb-2 ${
+                              plan.featured ? 'text-white' : 'text-slate-900 dark:text-white'
+                            }`}>
+                              {plan.name}
+                            </h3>
+                            
+                            {/* Price */}
+                            <div className="mb-4">
+                              <span className={`text-5xl font-black ${
+                                plan.featured ? 'text-white' : 'text-slate-900 dark:text-white'
+                              }`}>
+                                {getPrice(plan)}
+                              </span>
+                              {getPeriod(plan) && (
+                                <span className={`text-sm font-medium ml-2 ${
+                                  plan.featured ? 'text-emerald-100' : 'text-slate-600 dark:text-slate-400'
+                                }`}>
+                                  {getPeriod(plan)}
+                                </span>
+                              )}
+                            </div>
+                            
+                            <p className={`text-base ${
+                              plan.featured ? 'text-emerald-100' : 'text-slate-600 dark:text-slate-400'
+                            }`}>
+                              {plan.description}
+                            </p>
+                          </div>
+
+                          {/* Features List */}
+                          <div className="space-y-4 mb-8 flex-grow">
+                            {plan.highlights.map((highlight, idx) => (
+                              <div key={idx} className="flex items-start gap-3">
+                                <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ${
+                                  plan.featured
+                                    ? 'bg-white/20'
+                                    : 'bg-emerald-100 dark:bg-emerald-900/30'
+                                }`}>
+                                  <CheckIcon className={`h-3 w-3 ${
+                                    plan.featured ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'
+                                  }`} />
+                                </div>
+                                <span className={`text-sm font-medium ${
+                                  plan.featured ? 'text-emerald-50' : 'text-slate-700 dark:text-slate-300'
+                                }`}>
+                                  {highlight}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* CTA Button */}
+                          <div className="mt-auto">
+                            <Link
+                              href={plan.ctaLink}
+                              className={`block w-full text-center py-4 px-6 rounded-2xl font-bold text-base transition-all duration-300 transform hover:scale-105 ${
+                                plan.featured
+                                  ? 'bg-white text-emerald-600 hover:bg-emerald-50 shadow-lg'
+                                  : 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white hover:from-emerald-700 hover:to-emerald-600 shadow-lg hover:shadow-xl'
+                              }`}
+                            >
+                              {plan.cta}
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Plans Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 lg:gap-6 mb-24">
-              {plans.map((plan) => {
-                const Icon = plan.icon;
-                return (
-                  <div
-                    key={plan.name}
-                    className={`relative flex flex-col rounded-2xl p-4 lg:p-5 xl:p-6 transition-all duration-300 ${
-                      plan.featured
-                        ? 'bg-gradient-to-b from-indigo-600 to-purple-600 text-white shadow-2xl scale-105 z-10'
-                        : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl'
-                    }`}
-                  >
-                    {plan.badge && (
-                      <div className="absolute -top-5 left-1/2 -translate-x-1/2">
-                        <span className="inline-flex items-center gap-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-slate-900 text-sm font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow-lg">
-                          <StarIcon className="h-4 w-4" />
-                          {plan.badge}
-                        </span>
-                      </div>
-                    )}
-                    
-                    <div className="flex-grow flex flex-col">
-                      {/* Plan Header */}
-                      <div className="text-center mb-4">
-                        <Icon className={`h-8 w-8 lg:h-10 lg:w-10 mx-auto mb-3 ${
-                          plan.featured ? 'text-white' : 'text-indigo-600 dark:text-indigo-400'
-                        }`} />
-                        <h3 className={`text-lg lg:text-xl font-bold mb-2 ${
-                          plan.featured ? 'text-white' : 'text-slate-900 dark:text-white'
-                        }`}>
-                          {plan.name}
-                        </h3>
-                        <div className="flex items-baseline justify-center gap-1 mb-3">
-                          <span className={`text-2xl lg:text-3xl xl:text-4xl font-bold ${
-                            plan.featured ? 'text-white' : 'text-slate-900 dark:text-white'
-                          }`}>
-                            {getPrice(plan)}
-                          </span>
-                          {getPeriod(plan) && (
-                            <span className={`text-sm ${
-                              plan.featured ? 'text-indigo-100' : 'text-slate-600 dark:text-slate-400'
-                            }`}>
-                              {getPeriod(plan)}
-                            </span>
-                          )}
-                        </div>
-                        <p className={`text-sm h-12 ${
-                          plan.featured ? 'text-indigo-100' : 'text-slate-600 dark:text-slate-400'
-                        }`}>
-                          {plan.description}
-                        </p>
-                      </div>
-
-                      {/* CTA Button */}
-                      <div className="mt-auto pt-4">
-                        <Link
-                          href={plan.ctaLink}
-                          className={`block w-full text-center py-2.5 px-4 rounded-xl font-semibold transition-all duration-200 text-sm ${
-                            plan.featured
-                              ? 'bg-white text-indigo-600 hover:bg-indigo-50 shadow-lg'
-                              : 'bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-lg'
-                          }`}
-                        >
-                          {plan.cta}
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* FAQs */}
-            <div className="max-w-4xl mx-auto mb-24">
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">
-                Frequently asked questions
-              </h2>
+            {/* FAQs - Premium Design */}
+            <div className="max-w-4xl mx-auto mb-32">
+              <div className="text-center mb-16">
+                <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-premium mb-8">
+                  <QuestionMarkCircleIcon className="h-5 w-5 text-emerald-500" />
+                  <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">
+                    Preguntas frecuentes
+                  </span>
+                </div>
+                
+                <h2 className="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white">
+                  ¿Tienes preguntas? Tenemos respuestas
+                </h2>
+              </div>
               
               <div className="space-y-4">
                 {faqs.map((faq, index) => (
                   <div
                     key={index}
-                    className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden"
+                    className="group bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-lg transition-all duration-300"
                   >
                     <button
                       onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
-                      className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
+                      className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
                     >
-                      <span className="font-medium text-slate-900 dark:text-white pr-8">{faq.question}</span>
-                      {expandedFaq === index ? (
-                        <ChevronUpIcon className="h-5 w-5 text-slate-500 flex-shrink-0" />
-                      ) : (
-                        <ChevronDownIcon className="h-5 w-5 text-slate-500 flex-shrink-0" />
-                      )}
-                    </button>
-                    {expandedFaq === index && (
-                      <div className="px-6 pb-5">
-                        <p className="text-slate-600 dark:text-slate-400">{faq.answer}</p>
+                      <span className="font-bold text-lg text-slate-900 dark:text-white pr-8">
+                        {faq.question}
+                      </span>
+                      <div className={`flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center transition-transform duration-300 ${
+                        expandedFaq === index ? 'rotate-180' : ''
+                      }`}>
+                        <ChevronDownIcon className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
                       </div>
-                    )}
+                    </button>
+                    
+                    <div className={`overflow-hidden transition-all duration-500 ${
+                      expandedFaq === index ? 'max-h-96' : 'max-h-0'
+                    }`}>
+                      <div className="px-8 pb-6">
+                        <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
+              
+              {/* Additional help */}
+              <div className="mt-12 text-center p-8 bg-slate-50 dark:bg-slate-800/50 rounded-2xl">
+                <p className="text-slate-600 dark:text-slate-400 mb-4">
+                  ¿No encuentras lo que buscas?
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link
+                    href="/documentacion"
+                    className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold hover:text-emerald-700 dark:hover:text-emerald-300"
+                  >
+                    <DocumentTextIcon className="h-5 w-5" />
+                    Ver documentación
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold hover:text-emerald-700 dark:hover:text-emerald-300"
+                  >
+                    <ChatBubbleLeftRightIcon className="h-5 w-5" />
+                    Contactar soporte
+                  </Link>
+                </div>
+              </div>
             </div>
 
-            {/* CTA */}
-            <div className="text-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 mb-8">
-                <SparklesIcon className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
-                <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">
-                  30-day money-back guarantee
-                </span>
-              </div>
+            {/* CTA - Premium Design */}
+            <div className="relative py-20 px-8 lg:px-16 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 rounded-3xl overflow-hidden">
+              {/* Background decoration */}
+              <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-emerald-400/20 to-teal-400/20 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl" />
               
-              <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
-                Ready to transform your infrastructure?
-              </h2>
-              <p className="text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto">
-                Join thousands of teams already trusting InfraUX to manage their cloud infrastructure visually
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link
-                  href="/register"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
-                >
-                  Start free trial
-                  <ArrowRightIcon className="h-5 w-5" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
-                >
-                  <QuestionMarkCircleIcon className="h-5 w-5" />
-                  Talk to sales
-                </Link>
+              <div className="relative z-10 text-center">
+                <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-premium mb-8">
+                  <ShieldCheckIcon className="h-5 w-5 text-emerald-500" />
+                  <span className="text-sm font-bold text-slate-700 dark:text-slate-200">
+                    Garantía de devolución de 30 días
+                  </span>
+                </div>
+                
+                <h2 className="text-5xl sm:text-6xl font-black text-slate-900 dark:text-white mb-6">
+                  ¿Listo para transformar
+                  <span className="block gradient-text-emerald">tu infraestructura?</span>
+                </h2>
+                
+                <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mb-12 max-w-4xl mx-auto font-medium">
+                  Únete a miles de equipos que ya confían en InfraUX para gestionar
+                  su infraestructura cloud de forma visual
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-12">
+                  <Link
+                    href="/register"
+                    className="group relative inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-bold text-lg rounded-2xl shadow-premium hover:shadow-premium-lg transform hover:scale-105 transition-all duration-300"
+                  >
+                    <span className="relative z-10">Comenzar prueba gratis</span>
+                    <ArrowRightIcon className="relative z-10 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                  
+                  <Link
+                    href="/contact"
+                    className="group inline-flex items-center gap-3 px-10 py-5 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-lg rounded-2xl border-2 border-slate-200 dark:border-slate-800 shadow-lg hover:shadow-xl hover:border-emerald-500/50 transition-all duration-300"
+                  >
+                    <ChatBubbleLeftRightIcon className="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
+                    Hablar con ventas
+                  </Link>
+                </div>
+                
+                {/* Trust badges */}
+                <div className="flex flex-wrap justify-center items-center gap-6 text-sm">
+                  <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+                    <CheckIcon className="h-5 w-5 text-emerald-500" />
+                    <span className="font-medium">Sin tarjeta de crédito</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+                    <CheckIcon className="h-5 w-5 text-emerald-500" />
+                    <span className="font-medium">Cancela cuando quieras</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+                    <CheckIcon className="h-5 w-5 text-emerald-500" />
+                    <span className="font-medium">Soporte 24/7</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

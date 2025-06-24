@@ -125,32 +125,32 @@ module "vpc" {
 
 export default function IaCPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-slate-900">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-black">
       <HeaderNew />
       
-      <main className="flex-grow pt-16">
-        {/* Hero Section */}
-        <section className="relative py-20 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-emerald-900/20" />
-          <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-800 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+      <main className="flex-grow">
+        {/* Hero Section - Premium Style */}
+        <section className="relative py-24 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-emerald-50/20 dark:from-black dark:via-slate-950 dark:to-emerald-950/10" />
+          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
           
           <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 mb-6">
-                <CodeBracketIcon className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-                <span className="text-sm font-medium text-emerald-700 dark:text-emerald-300">
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-premium mb-8 animate-fade-in">
+                <CodeBracketIcon className="h-5 w-5 text-emerald-500" />
+                <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">
                   Infrastructure as Code
                 </span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white mb-6 animate-fade-in-up">
                 Del diseño visual al
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-600">
+                <span className="block gradient-text-emerald">
                   código de producción
                 </span>
               </h1>
               
-              <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
+              <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mb-8 font-medium animate-fade-in-up animation-delay-200">
                 Genera automáticamente código Terraform, CloudFormation o Pulumi 
                 desde tu diseño visual. IaC profesional sin escribir una línea.
               </p>
@@ -158,32 +158,32 @@ export default function IaCPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/register"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-emerald-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                  className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-lg rounded-2xl shadow-premium hover:shadow-premium-lg transform hover:scale-[1.02] transition-all duration-300 animate-fade-in-up animation-delay-300"
                 >
-                  <SparklesIcon className="h-5 w-5" />
+                  <SparklesIcon className="h-6 w-6" />
                   Generar código ahora
                 </Link>
                 <Link
                   href="/demos/code-generation"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
+                  className="inline-flex items-center gap-3 px-10 py-5 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-lg rounded-2xl border-2 border-slate-200 dark:border-slate-700 shadow-premium hover:shadow-premium-lg hover-lift-premium transition-all duration-300 animate-fade-in-up animation-delay-400"
                 >
                   Ver demo
-                  <ArrowRightIcon className="h-5 w-5" />
+                  <ArrowRightIcon className="h-6 w-6" />
                 </Link>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Code Example Section */}
-        <section className="py-20 bg-slate-50 dark:bg-slate-800/30">
+        {/* Code Example Section - Premium Style */}
+        <section className="py-24 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-black">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">
+                <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-6">
                   Código profesional, generado automáticamente
                 </h2>
-                <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
+                <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 font-medium">
                   InfraUX genera código siguiendo las mejores prácticas de la industria. 
                   Modular, documentado y listo para producción.
                 </p>
@@ -202,9 +202,9 @@ export default function IaCPage() {
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <CheckCircleIcon className="h-6 w-6 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                    <CheckCircleIcon className="h-6 w-6 text-emerald-500 flex-shrink-0" />
                     <div>
-                      <h3 className="font-semibold text-slate-900 dark:text-white">
+                      <h3 className="font-bold text-lg text-slate-900 dark:text-white">
                         Parametrización inteligente
                       </h3>
                       <p className="text-slate-600 dark:text-slate-400">
@@ -228,8 +228,8 @@ export default function IaCPage() {
               </div>
               
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-emerald-600 rounded-3xl blur-3xl opacity-20" />
-                <div className="relative bg-slate-900 rounded-3xl shadow-2xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 blur-3xl" />
+                <div className="relative bg-slate-900 rounded-3xl shadow-premium-lg overflow-hidden border border-slate-800">
                   <div className="flex items-center gap-2 px-6 py-4 bg-slate-800 border-b border-slate-700">
                     <div className="flex gap-2">
                       <div className="w-3 h-3 rounded-full bg-red-500" />
@@ -247,23 +247,23 @@ export default function IaCPage() {
           </div>
         </section>
 
-        {/* Supported Formats */}
-        <section className="py-20">
+        {/* Supported Formats - Premium Style */}
+        <section className="py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6">
                 Genera código en tu formato preferido
               </h2>
-              <p className="text-xl text-slate-600 dark:text-slate-400">
+              <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 font-medium">
                 Compatible con las herramientas IaC más populares
               </p>
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {supportedFormats.map((format) => (
-                <div key={format.name} className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="text-4xl mb-4">{format.icon}</div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                <div key={format.name} className="group bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-premium hover:shadow-premium-lg hover-lift-premium transition-all duration-300 border border-slate-200 dark:border-slate-800">
+                  <div className="text-5xl mb-6">{format.icon}</div>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
                     {format.name}
                   </h3>
                   <p className="text-slate-600 dark:text-slate-400 mb-4">
@@ -271,8 +271,8 @@ export default function IaCPage() {
                   </p>
                   <ul className="space-y-2">
                     {format.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-                        <CheckCircleIcon className="h-4 w-4 text-emerald-500" />
+                      <li key={feature} className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+                        <CheckCircleIcon className="h-5 w-5 text-emerald-500" />
                         {feature}
                       </li>
                     ))}
@@ -283,32 +283,42 @@ export default function IaCPage() {
           </div>
         </section>
 
-        {/* Features Grid */}
-        <section className="py-20 bg-gradient-to-br from-indigo-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+        {/* Features Grid - Premium Style */}
+        <section className="py-24 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-black">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6">
                 Más que un generador de código
               </h2>
-              <p className="text-xl text-slate-600 dark:text-slate-400">
+              <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 font-medium">
                 Herramientas avanzadas para equipos profesionales
               </p>
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {codeFeatures.map((feature) => {
+              {codeFeatures.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
-                  <div key={feature.title} className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                    <div className={`h-12 w-12 bg-gradient-to-br ${feature.color} rounded-xl flex items-center justify-center mb-6`}>
-                      <Icon className="h-6 w-6 text-white" />
+                  <div
+                    key={feature.title}
+                    className="group relative hover-lift-premium animate-fade-in-up"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="h-full bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      
+                      <div className="relative z-10">
+                        <div className={`inline-flex p-3 bg-gradient-to-br ${feature.color} rounded-2xl shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                          <Icon className="h-8 w-8 text-white" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
+                          {feature.title}
+                        </h3>
+                        <p className="text-slate-600 dark:text-slate-400">
+                          {feature.description}
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
-                      {feature.title}
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
-                      {feature.description}
-                    </p>
                   </div>
                 );
               })}
@@ -316,92 +326,97 @@ export default function IaCPage() {
           </div>
         </section>
 
-        {/* Workflow Section */}
-        <section className="py-20">
+        {/* Workflow Section - Premium Style */}
+        <section className="py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="bg-gradient-to-r from-indigo-600 to-emerald-600 rounded-3xl p-12 text-white">
-              <div className="max-w-4xl mx-auto text-center">
-                <CpuChipIcon className="h-16 w-16 mx-auto mb-6 text-white/80" />
-                <h2 className="text-3xl font-bold mb-4">
-                  Workflow completo de IaC
-                </h2>
-                <p className="text-xl text-indigo-100 mb-8">
-                  Desde el diseño hasta el deployment, todo integrado
-                </p>
-                
-                <div className="grid md:grid-cols-3 gap-8 mb-8">
-                  <div className="text-center">
-                    <div className="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                      <span className="text-2xl font-bold">1</span>
+            <div className="relative">
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 blur-3xl" />
+              
+              <div className="relative bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl p-16 text-white shadow-premium-lg">
+                <div className="max-w-4xl mx-auto text-center">
+                  <CpuChipIcon className="h-20 w-20 mx-auto mb-8 text-white/90" />
+                  <h2 className="text-4xl font-bold mb-6">
+                    Workflow completo de IaC
+                  </h2>
+                  <p className="text-xl lg:text-2xl text-emerald-50 mb-10 font-medium">
+                    Desde el diseño hasta el deployment, todo integrado
+                  </p>
+                  
+                  <div className="grid md:grid-cols-3 gap-8 mb-8">
+                    <div className="text-center">
+                      <div className="bg-white/20 backdrop-blur-sm rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <span className="text-3xl font-bold">1</span>
+                      </div>
+                      <h3 className="text-xl font-bold mb-2">Diseña visualmente</h3>
+                      <p className="text-emerald-50">
+                        Crea tu arquitectura con drag & drop
+                      </p>
                     </div>
-                    <h3 className="font-semibold mb-2">Diseña visualmente</h3>
-                    <p className="text-indigo-100">
-                      Crea tu arquitectura con drag & drop
-                    </p>
+                    
+                    <div className="text-center">
+                      <div className="bg-white/20 backdrop-blur-sm rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <span className="text-3xl font-bold">2</span>
+                      </div>
+                      <h3 className="text-xl font-bold mb-2">Genera código</h3>
+                      <p className="text-emerald-50">
+                        Exporta a Terraform, CloudFormation, etc.
+                      </p>
+                    </div>
+                    
+                    <div className="text-center">
+                      <div className="bg-white/20 backdrop-blur-sm rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <span className="text-3xl font-bold">3</span>
+                      </div>
+                      <h3 className="text-xl font-bold mb-2">Despliega</h3>
+                      <p className="text-emerald-50">
+                        Deploy directo o integra con tu CI/CD
+                      </p>
+                    </div>
                   </div>
                   
-                  <div className="text-center">
-                    <div className="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                      <span className="text-2xl font-bold">2</span>
-                    </div>
-                    <h3 className="font-semibold mb-2">Genera código</h3>
-                    <p className="text-indigo-100">
-                      Exporta a Terraform, CloudFormation, etc.
-                    </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Link
+                      href="/producto/deployment"
+                      className="inline-flex items-center gap-3 px-10 py-5 bg-white text-emerald-600 font-bold text-lg rounded-2xl hover:bg-emerald-50 shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300"
+                    >
+                      Ver deployment
+                      <ArrowRightIcon className="h-6 w-6" />
+                    </Link>
+                    <Link
+                      href="/producto/colaboracion"
+                      className="inline-flex items-center gap-3 px-10 py-5 bg-emerald-600 text-white font-bold text-lg rounded-2xl hover:bg-emerald-700 shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300"
+                    >
+                      Ver colaboración
+                    </Link>
                   </div>
-                  
-                  <div className="text-center">
-                    <div className="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                      <span className="text-2xl font-bold">3</span>
-                    </div>
-                    <h3 className="font-semibold mb-2">Despliega</h3>
-                    <p className="text-indigo-100">
-                      Deploy directo o integra con tu CI/CD
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link
-                    href="/producto/deployment"
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-white text-indigo-600 font-semibold rounded-full hover:bg-indigo-50 transition-colors"
-                  >
-                    Ver deployment
-                    <ArrowRightIcon className="h-5 w-5" />
-                  </Link>
-                  <Link
-                    href="/producto/colaboracion"
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-indigo-700 text-white font-semibold rounded-full hover:bg-indigo-800 transition-colors"
-                  >
-                    Ver colaboración
-                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20">
+        {/* CTA Section - Premium Style */}
+        <section className="py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6 animate-fade-in">
               Genera código profesional en segundos
             </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
+            <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mb-10 font-medium animate-fade-in-up">
               Acelera tu desarrollo de infraestructura 10x
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/register"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-emerald-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-lg rounded-2xl shadow-premium hover:shadow-premium-lg transform hover:scale-[1.02] transition-all duration-300 animate-fade-in-up animation-delay-200"
               >
                 Probar gratis
-                <ArrowRightIcon className="h-5 w-5" />
+                <ArrowRightIcon className="h-6 w-6" />
               </Link>
               <Link
                 href="/demos/code-generation"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-lg rounded-2xl border-2 border-slate-200 dark:border-slate-700 shadow-premium hover:shadow-premium-lg hover-lift-premium transition-all duration-300 animate-fade-in-up animation-delay-300"
               >
                 Ver ejemplos de código
               </Link>

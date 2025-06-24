@@ -10,7 +10,7 @@ const navigation = [
   { name: 'Precios', href: '/precios' },
   { name: 'Demo', href: '/demo' },
   { name: 'Blog', href: '/blog' },
-  { name: 'Docs', href: '/docs' },
+  { name: 'Docs', href: '/documentacion' },
 ]
 
 // Un logo SVG simple para InfraUX - puedes reemplazarlo con tu propio SVG

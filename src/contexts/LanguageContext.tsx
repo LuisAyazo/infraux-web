@@ -1,0 +1,193 @@
+'use client'
+
+import React, { createContext, useContext, useState, useEffect } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
+
+type Language = 'es' | 'en'
+
+interface LanguageContextType {
+  language: Language
+  setLanguage: (lang: Language) => void
+  t: (key: string) => string
+}
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
+
+// Mapeo completo de rutas entre idiomas
+const routeTranslations: { [key: string]: { es: string; en: string } } = {
+  '/': { es: '/', en: '/' },
+  '/precios': { es: '/precios', en: '/pricing' },
+  '/pricing': { es: '/precios', en: '/pricing' },
+  '/documentacion': { es: '/documentacion', en: '/documentation' },
+  '/documentation': { es: '/documentacion', en: '/documentation' },
+  '/blog': { es: '/blog', en: '/blog' },
+  '/contacto': { es: '/contacto', en: '/contact' },
+  '/contact': { es: '/contacto', en: '/contact' },
+  '/demo': { es: '/demo', en: '/demo' },
+  '/casos-de-uso': { es: '/casos-de-uso', en: '/use-cases' },
+  '/use-cases': { es: '/casos-de-uso', en: '/use-cases' },
+  '/empresa': { es: '/empresa', en: '/company' },
+  '/company': { es: '/empresa', en: '/company' },
+  '/recursos': { es: '/recursos', en: '/resources' },
+  '/resources': { es: '/recursos', en: '/resources' },
+  '/comparacion': { es: '/comparacion', en: '/comparison' },
+  '/comparison': { es: '/comparacion', en: '/comparison' },
+  '/testimonios': { es: '/testimonios', en: '/testimonials' },
+  '/testimonials': { es: '/testimonios', en: '/testimonials' },
+  '/comunidad': { es: '/comunidad', en: '/community' },
+  '/community': { es: '/comunidad', en: '/community' },
+  '/changelog': { es: '/changelog', en: '/changelog' },
+  
+  // Páginas de producto
+  '/producto/editor': { es: '/producto/editor', en: '/product/editor' },
+  '/product/editor': { es: '/producto/editor', en: '/product/editor' },
+  '/producto/iac': { es: '/producto/iac', en: '/product/iac' },
+  '/product/iac': { es: '/producto/iac', en: '/product/iac' },
+  '/producto/deployment': { es: '/producto/deployment', en: '/product/deployment' },
+  '/product/deployment': { es: '/producto/deployment', en: '/product/deployment' },
+  '/producto/colaboracion': { es: '/producto/colaboracion', en: '/product/collaboration' },
+  '/product/collaboration': { es: '/producto/colaboracion', en: '/product/collaboration' },
+  
+  // Páginas de soluciones
+  '/soluciones/startups': { es: '/soluciones/startups', en: '/solutions/startups' },
+  '/solutions/startups': { es: '/soluciones/startups', en: '/solutions/startups' },
+  '/soluciones/empresas': { es: '/soluciones/empresas', en: '/solutions/enterprises' },
+  '/solutions/enterprises': { es: '/soluciones/empresas', en: '/solutions/enterprises' },
+  '/soluciones/devops': { es: '/soluciones/devops', en: '/solutions/devops' },
+  '/solutions/devops': { es: '/soluciones/devops', en: '/solutions/devops' },
+  '/soluciones/multi-cloud': { es: '/soluciones/multi-cloud', en: '/solutions/multi-cloud' },
+  '/solutions/multi-cloud': { es: '/soluciones/multi-cloud', en: '/solutions/multi-cloud' },
+}
+
+// Traducciones de UI
+const translations: { [key: string]: { es: string; en: string } } = {
+  // Header
+  'nav.producto': { es: 'Producto', en: 'Product' },
+  'nav.soluciones': { es: 'Soluciones', en: 'Solutions' },
+  'nav.recursos': { es: 'Recursos', en: 'Resources' },
+  'nav.precios': { es: 'Precios', en: 'Pricing' },
+  'nav.empresa': { es: 'Empresa', en: 'Company' },
+  'nav.iniciar_sesion': { es: 'Iniciar Sesión', en: 'Sign In' },
+  'nav.prueba_gratis': { es: 'Prueba Gratis', en: 'Try Free' },
+  
+  // Producto submenu
+  'nav.editor_visual': { es: 'Editor Visual', en: 'Visual Editor' },
+  'nav.editor_visual_desc': { es: 'Diseña infraestructura sin código', en: 'Design infrastructure without code' },
+  'nav.generacion_iac': { es: 'Generación IaC', en: 'IaC Generation' },
+  'nav.generacion_iac_desc': { es: 'Terraform, Pulumi, CloudFormation', en: 'Terraform, Pulumi, CloudFormation' },
+  'nav.deployment': { es: 'Deployment', en: 'Deployment' },
+  'nav.deployment_desc': { es: 'CI/CD visual y automatizado', en: 'Visual and automated CI/CD' },
+  'nav.colaboracion': { es: 'Colaboración', en: 'Collaboration' },
+  'nav.colaboracion_desc': { es: 'Trabaja en equipo en tiempo real', en: 'Work as a team in real time' },
+  
+  // Soluciones submenu
+  'nav.para_startups': { es: 'Para Startups', en: 'For Startups' },
+  'nav.para_startups_desc': { es: 'Escala rápido sin deuda técnica', en: 'Scale fast without technical debt' },
+  'nav.para_empresas': { es: 'Para Empresas', en: 'For Enterprises' },
+  'nav.para_empresas_desc': { es: 'Gobierna tu infraestructura', en: 'Govern your infrastructure' },
+  'nav.para_devops': { es: 'Para DevOps', en: 'For DevOps' },
+  'nav.para_devops_desc': { es: 'Automatiza todo tu workflow', en: 'Automate your entire workflow' },
+  'nav.multi_cloud': { es: 'Multi-Cloud', en: 'Multi-Cloud' },
+  'nav.multi_cloud_desc': { es: 'AWS, GCP y Azure unificados', en: 'AWS, GCP and Azure unified' },
+  
+  // Recursos submenu
+  'nav.documentacion': { es: 'Documentación', en: 'Documentation' },
+  'nav.documentacion_desc': { es: 'Guías y referencias completas', en: 'Complete guides and references' },
+  'nav.blog': { es: 'Blog', en: 'Blog' },
+  'nav.blog_desc': { es: 'Últimas noticias y tutoriales', en: 'Latest news and tutorials' },
+  'nav.comunidad': { es: 'Comunidad', en: 'Community' },
+  'nav.comunidad_desc': { es: 'Únete a miles de usuarios', en: 'Join thousands of users' },
+  'nav.changelog': { es: 'Changelog', en: 'Changelog' },
+  'nav.changelog_desc': { es: 'Nuevas funcionalidades', en: 'New features' },
+}
+
+export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname()
+  const router = useRouter()
+  
+  // Detectar idioma inicial basado en localStorage o ruta
+  const [language, setLanguageState] = useState<Language>(() => {
+    // Primero intentar obtener de localStorage
+    if (typeof window !== 'undefined') {
+      const savedLang = localStorage.getItem('infraux-language') as Language
+      if (savedLang && (savedLang === 'es' || savedLang === 'en')) {
+        return savedLang
+      }
+    }
+    
+    // Si no hay localStorage, detectar por la ruta
+    const englishRoutes = ['/pricing', '/documentation', '/contact', '/use-cases', '/company', '/resources', '/comparison', '/testimonials']
+    const isEnglishRoute = englishRoutes.some(route => pathname?.startsWith(route))
+    return isEnglishRoute ? 'en' : 'es'
+  })
+  
+  // Función para cambiar idioma
+  const setLanguage = (newLang: Language) => {
+    if (newLang === language) return
+    
+    // Guardar en localStorage
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('infraux-language', newLang)
+    }
+    
+    // Actualizar estado
+    setLanguageState(newLang)
+    
+    // Navegar a la ruta traducida
+    if (pathname && routeTranslations[pathname]) {
+      const newRoute = routeTranslations[pathname][newLang]
+      if (newRoute && newRoute !== pathname) {
+        router.push(newRoute)
+      }
+    }
+  }
+  
+  // Función de traducción
+  const t = (key: string): string => {
+    return translations[key]?.[language] || key
+  }
+  
+  // Sincronizar idioma con la ruta actual
+  useEffect(() => {
+    if (!pathname) return
+    
+    // Detectar idioma por la ruta actual
+    const englishRoutes = ['/pricing', '/documentation', '/contact', '/use-cases', '/company', '/resources', '/comparison', '/testimonials', '/product', '/solutions']
+    const isEnglishRoute = englishRoutes.some(route => pathname.startsWith(route))
+    const routeLang = isEnglishRoute ? 'en' : 'es'
+    
+    // Si el idioma de la ruta no coincide con el estado, actualizar
+    if (routeLang !== language) {
+      setLanguageState(routeLang)
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('infraux-language', routeLang)
+      }
+    }
+  }, [pathname, language])
+  
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  )
+}
+
+export function useLanguage() {
+  const context = useContext(LanguageContext)
+  if (context === undefined) {
+    throw new Error('useLanguage must be used within a LanguageProvider')
+  }
+  return context
+}
+
+// Hook para obtener la ruta traducida
+export function useTranslatedRoute(path: string, targetLang?: Language) {
+  const { language } = useLanguage()
+  const lang = targetLang || language
+  
+  if (routeTranslations[path]) {
+    return routeTranslations[path][lang]
+  }
+  
+  return path
+}

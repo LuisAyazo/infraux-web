@@ -85,32 +85,32 @@ const editorCapabilities = [
 
 export default function EditorPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-slate-900">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-black">
       <HeaderNew />
       
-      <main className="flex-grow pt-16">
-        {/* Hero Section */}
-        <section className="relative py-20 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-emerald-900/20" />
-          <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-800 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+      <main className="flex-grow">
+        {/* Hero Section - Premium Style */}
+        <section className="relative py-24 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-emerald-50/20 dark:from-black dark:via-slate-950 dark:to-emerald-950/10" />
+          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
           
           <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 mb-6">
-                <SparklesIcon className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-                <span className="text-sm font-medium text-emerald-700 dark:text-emerald-300">
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-premium mb-8 animate-fade-in">
+                <SparklesIcon className="h-5 w-5 text-emerald-500" />
+                <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">
                   Editor Visual
                 </span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white mb-6 animate-fade-in-up">
                 Diseña infraestructura
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-600">
+                <span className="block gradient-text-emerald">
                   sin escribir código
                 </span>
               </h1>
               
-              <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
+              <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mb-8 font-medium animate-fade-in-up animation-delay-200">
                 El editor visual más poderoso para crear y gestionar tu infraestructura cloud. 
                 Arrastra, conecta y despliega. Así de simple.
               </p>
@@ -118,80 +118,95 @@ export default function EditorPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/demos/visual-builder"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-emerald-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                  className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-lg rounded-2xl shadow-premium hover:shadow-premium-lg transform hover:scale-[1.02] transition-all duration-300 animate-fade-in-up animation-delay-300"
                 >
-                  <PlayIcon className="h-5 w-5" />
+                  <PlayIcon className="h-6 w-6" />
                   Ver demo en vivo
                 </Link>
                 <Link
                   href="/register"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
+                  className="inline-flex items-center gap-3 px-10 py-5 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-lg rounded-2xl border-2 border-slate-200 dark:border-slate-700 shadow-premium hover:shadow-premium-lg hover-lift-premium transition-all duration-300 animate-fade-in-up animation-delay-400"
                 >
                   Probar gratis
-                  <ArrowRightIcon className="h-5 w-5" />
+                  <ArrowRightIcon className="h-6 w-6" />
                 </Link>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Visual Demo Section */}
-        <section className="py-20 bg-slate-50 dark:bg-slate-800/30">
+        {/* Visual Demo Section - Premium Style */}
+        <section className="py-24 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-black">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden">
-              <div className="bg-gradient-to-r from-indigo-600 to-emerald-600 p-1">
-                <div className="bg-white dark:bg-slate-800 rounded-t-3xl p-4">
-                  <div className="flex items-center gap-2">
-                    <div className="flex gap-2">
-                      <div className="w-3 h-3 rounded-full bg-red-500" />
-                      <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                      <div className="w-3 h-3 rounded-full bg-green-500" />
-                    </div>
-                    <div className="flex-1 text-center text-sm text-slate-600 dark:text-slate-400">
-                      <span className="font-bold text-slate-900 dark:text-white">Infra</span>
-                      <span className="font-bold text-emerald-500">UX</span>
-                      <span className="text-slate-600 dark:text-slate-400"> - Editor Visual</span>
+            <div className="relative">
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 blur-3xl" />
+              
+              <div className="relative bg-white dark:bg-slate-900 rounded-3xl shadow-premium-lg overflow-hidden border border-slate-200 dark:border-slate-800">
+                <div className="bg-gradient-to-r from-emerald-500 to-teal-500 p-1">
+                  <div className="bg-white dark:bg-slate-900 rounded-t-3xl p-4">
+                    <div className="flex items-center gap-2">
+                      <div className="flex gap-2">
+                        <div className="w-3 h-3 rounded-full bg-red-500" />
+                        <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                        <div className="w-3 h-3 rounded-full bg-green-500" />
+                      </div>
+                      <div className="flex-1 text-center text-sm text-slate-600 dark:text-slate-400">
+                        <span className="font-black text-slate-900 dark:text-white">Infra</span>
+                        <span className="font-black text-emerald-500">UX</span>
+                        <span className="text-slate-600 dark:text-slate-400 font-medium"> - Editor Visual</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              
-              <div className="aspect-video bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center">
-                <div className="text-center">
-                  <CubeIcon className="h-24 w-24 text-slate-300 dark:text-slate-600 mx-auto mb-4" />
-                  <p className="text-slate-600 dark:text-slate-400">Demo interactiva del editor</p>
+                
+                <div className="aspect-video bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 flex items-center justify-center">
+                  <div className="text-center">
+                    <CubeIcon className="h-32 w-32 text-slate-300 dark:text-slate-600 mx-auto mb-6" />
+                    <p className="text-lg text-slate-600 dark:text-slate-400 font-medium">Demo interactiva del editor</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Features Grid */}
-        <section className="py-20">
+        {/* Features Grid - Premium Style */}
+        <section className="py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6">
                 Todo lo que necesitas para diseñar
               </h2>
-              <p className="text-xl text-slate-600 dark:text-slate-400">
+              <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 font-medium">
                 Herramientas profesionales con la simplicidad que mereces
               </p>
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map((feature) => {
+              {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
-                  <div key={feature.title} className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                    <div className={`h-12 w-12 bg-gradient-to-br ${feature.color} rounded-xl flex items-center justify-center mb-6`}>
-                      <Icon className="h-6 w-6 text-white" />
+                  <div
+                    key={feature.title}
+                    className="group relative hover-lift-premium animate-fade-in-up"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="h-full bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      
+                      <div className="relative z-10">
+                        <div className={`inline-flex p-3 bg-gradient-to-br ${feature.color} rounded-2xl shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                          <Icon className="h-8 w-8 text-white" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
+                          {feature.title}
+                        </h3>
+                        <p className="text-slate-600 dark:text-slate-400">
+                          {feature.description}
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
-                      {feature.title}
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
-                      {feature.description}
-                    </p>
                   </div>
                 );
               })}
@@ -199,15 +214,15 @@ export default function EditorPage() {
           </div>
         </section>
 
-        {/* Capabilities List */}
-        <section className="py-20 bg-gradient-to-br from-indigo-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+        {/* Capabilities List - Premium Style */}
+        <section className="py-24 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-black">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">
+                <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-6">
                   Un editor que piensa como tú
                 </h2>
-                <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
+                <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 font-medium">
                   Diseñado por ingenieros para ingenieros. Cada detalle está pensado 
                   para hacer tu trabajo más eficiente y placentero.
                 </p>
@@ -215,18 +230,18 @@ export default function EditorPage() {
                 <ul className="space-y-4">
                   {editorCapabilities.map((capability) => (
                     <li key={capability} className="flex items-start gap-3">
-                      <CheckCircleIcon className="h-6 w-6 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
-                      <span className="text-slate-700 dark:text-slate-300">{capability}</span>
+                      <CheckCircleIcon className="h-6 w-6 text-emerald-500 flex-shrink-0" />
+                      <span className="text-lg text-slate-700 dark:text-slate-300">{capability}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-emerald-600 rounded-3xl blur-3xl opacity-20" />
-                <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl p-8">
-                  <div className="aspect-square bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-800 rounded-2xl flex items-center justify-center">
-                    <CommandLineIcon className="h-32 w-32 text-slate-300 dark:text-slate-600" />
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 blur-3xl" />
+                <div className="relative bg-white dark:bg-slate-900 rounded-3xl shadow-premium-lg p-10 border border-slate-200 dark:border-slate-800">
+                  <div className="aspect-square bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 rounded-2xl flex items-center justify-center">
+                    <CommandLineIcon className="h-40 w-40 text-slate-300 dark:text-slate-600" />
                   </div>
                 </div>
               </div>
@@ -234,58 +249,63 @@ export default function EditorPage() {
           </div>
         </section>
 
-        {/* Integration Section */}
-        <section className="py-20">
+        {/* Integration Section - Premium Style */}
+        <section className="py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="bg-gradient-to-r from-indigo-600 to-emerald-600 rounded-3xl p-12 text-white text-center">
-              <ShieldCheckIcon className="h-16 w-16 mx-auto mb-6 text-white/80" />
-              <h2 className="text-3xl font-bold mb-4">
-                Integración perfecta con tu workflow
-              </h2>
-              <p className="text-xl text-indigo-100 mb-8 max-w-3xl mx-auto">
-                El editor se integra con tus herramientas favoritas. 
-                Exporta a Terraform, conecta con Git, despliega con un clic.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/producto/iac"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-indigo-600 font-semibold rounded-full hover:bg-indigo-50 transition-colors"
-                >
-                  Ver generación de código
-                  <ArrowRightIcon className="h-5 w-5" />
-                </Link>
-                <Link
-                  href="/producto/deployment"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-indigo-700 text-white font-semibold rounded-full hover:bg-indigo-800 transition-colors"
-                >
-                  Ver deployment
-                </Link>
+            <div className="relative">
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 blur-3xl" />
+              
+              <div className="relative bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl p-16 text-white text-center shadow-premium-lg">
+                <ShieldCheckIcon className="h-20 w-20 mx-auto mb-8 text-white/90" />
+                <h2 className="text-4xl font-bold mb-6">
+                  Integración perfecta con tu workflow
+                </h2>
+                <p className="text-xl lg:text-2xl text-emerald-50 mb-10 max-w-3xl mx-auto font-medium">
+                  El editor se integra con tus herramientas favoritas.
+                  Exporta a Terraform, conecta con Git, despliega con un clic.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link
+                    href="/producto/iac"
+                    className="inline-flex items-center gap-3 px-10 py-5 bg-white text-emerald-600 font-bold text-lg rounded-2xl hover:bg-emerald-50 shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300"
+                  >
+                    Ver generación de código
+                    <ArrowRightIcon className="h-6 w-6" />
+                  </Link>
+                  <Link
+                    href="/producto/deployment"
+                    className="inline-flex items-center gap-3 px-10 py-5 bg-emerald-600 text-white font-bold text-lg rounded-2xl hover:bg-emerald-700 shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300"
+                  >
+                    Ver deployment
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20">
+        {/* CTA Section - Premium Style */}
+        <section className="py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6 animate-fade-in">
               Empieza a diseñar visualmente hoy
             </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
+            <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mb-10 font-medium animate-fade-in-up">
               Únete a miles de equipos que ya diseñan su infraestructura de forma visual
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/register"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-emerald-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-lg rounded-2xl shadow-premium hover:shadow-premium-lg transform hover:scale-[1.02] transition-all duration-300 animate-fade-in-up animation-delay-200"
               >
                 Comenzar gratis
-                <ArrowRightIcon className="h-5 w-5" />
+                <ArrowRightIcon className="h-6 w-6" />
               </Link>
               <Link
                 href="/contacto"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-lg rounded-2xl border-2 border-slate-200 dark:border-slate-700 shadow-premium hover:shadow-premium-lg hover-lift-premium transition-all duration-300 animate-fade-in-up animation-delay-300"
               >
                 Solicitar demo
               </Link>

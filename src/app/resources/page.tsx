@@ -267,50 +267,61 @@ const blogPosts = [
 
 export default function ResourcesPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-slate-900">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-black">
       <HeaderNew />
       
-      <main className="flex-grow">
+      <main className="flex-grow pt-16">
         {/* Hero Section */}
-        <section className="relative py-20 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800" />
-          <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-800 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+        <section className="relative py-24 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-teal-50 dark:from-black dark:via-black dark:to-emerald-950/20" />
+          
+          {/* Grid Pattern */}
+          <div className="absolute inset-0">
+            <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" className="text-slate-200 dark:text-slate-800" opacity="0.3" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+          </div>
           
           <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="text-center max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 mb-6">
-                <SparklesIcon className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
-                <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">
+            <div className="text-center max-w-4xl mx-auto">
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-premium border border-slate-200 dark:border-slate-800 mb-8 fade-in">
+                <SparklesIcon className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+                <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
                   Learning center
                 </span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white mb-8 tracking-tight fade-in-up" style={{ animationDelay: '0.1s' }}>
                 Resources to master
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 mt-2">
                   visual infrastructure
                 </span>
               </h1>
               
-              <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
+              <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mb-10 font-medium leading-relaxed fade-in-up" style={{ animationDelay: '0.2s' }}>
                 Everything you need to learn, implement and optimize
                 your cloud infrastructure with InfraUX
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in-up" style={{ animationDelay: '0.3s' }}>
                 <Link
-                  href="/docs"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                  href="/documentation"
+                  className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-full shadow-premium hover:shadow-premium-lg transform hover:scale-105 transition-all duration-300"
                 >
-                  <BookOpenIcon className="h-5 w-5" />
+                  <BookOpenIcon className="h-6 w-6" />
                   Explore documentation
                 </Link>
                 <Link
                   href="#featured"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
+                  className="inline-flex items-center gap-2 px-10 py-5 glass-premium text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-800 hover-lift-premium transition-all duration-300"
                 >
                   View featured resources
-                  <ArrowRightIcon className="h-5 w-5" />
+                  <ArrowRightIcon className="h-6 w-6" />
                 </Link>
               </div>
             </div>
@@ -318,71 +329,72 @@ export default function ResourcesPage() {
         </section>
 
         {/* Featured Resources */}
-        <section id="featured" className="py-20 bg-slate-50 dark:bg-slate-800/30">
+        <section id="featured" className="py-24 bg-gradient-to-b from-white to-slate-50 dark:from-black dark:to-slate-950/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-white mb-12">
+            <h2 className="text-4xl lg:text-5xl font-black text-center text-slate-900 dark:text-white mb-16 fade-in">
               Featured resources
             </h2>
             
             <div className="grid md:grid-cols-2 gap-8">
-              {featuredResources.map((resource) => (
+              {featuredResources.map((resource, index) => (
                 <Link
                   key={resource.title}
                   href={resource.link}
-                  className="group relative bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="group relative glass-premium rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 hover-lift-premium transition-all duration-300 fade-in-up"
+                  style={{ animationDelay: `${0.1 + index * 0.1}s` }}
                 >
                   {resource.badge && (
-                    <div className="absolute top-4 right-4 z-10">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-indigo-500 to-purple-500 text-white">
+                    <div className="absolute top-6 right-6 z-10">
+                      <span className="inline-flex items-center px-4 py-2 rounded-full text-xs font-bold bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg">
                         {resource.badge}
                       </span>
                     </div>
                   )}
                   
-                  <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/20 dark:to-purple-900/20">
-                    <div className="flex items-center justify-center">
-                      <AcademicCapIcon className="h-24 w-24 text-indigo-300 dark:text-indigo-700" />
+                  <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/20 dark:to-teal-900/20">
+                    <div className="flex items-center justify-center p-16">
+                      <AcademicCapIcon className="h-32 w-32 text-emerald-300 dark:text-emerald-700" />
                     </div>
                   </div>
                   
-                  <div className="p-8">
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  <div className="p-10">
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                       {resource.title}
                     </h3>
-                    <p className="text-slate-600 dark:text-slate-400 mb-6">
+                    <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
                       {resource.description}
                     </p>
                     
                     <div className="flex items-center gap-6 text-sm text-slate-500 dark:text-slate-400">
                       {resource.duration && (
                         <div className="flex items-center gap-2">
-                          <ClockIcon className="h-4 w-4" />
+                          <ClockIcon className="h-5 w-5" />
                           {resource.duration}
                         </div>
                       )}
                       {resource.modules && (
                         <div className="flex items-center gap-2">
-                          <BookOpenIcon className="h-4 w-4" />
+                          <BookOpenIcon className="h-5 w-5" />
                           {resource.modules} modules
                         </div>
                       )}
                       {resource.students && (
                         <div className="flex items-center gap-2">
-                          <UserIcon className="h-4 w-4" />
+                          <UserIcon className="h-5 w-5" />
                           {resource.students} students
                         </div>
                       )}
                       {resource.certified && (
                         <div className="flex items-center gap-2">
-                          <AcademicCapIcon className="h-4 w-4" />
+                          <AcademicCapIcon className="h-5 w-5" />
                           {resource.certified} certified
                         </div>
                       )}
                     </div>
                     
-                    <div className="mt-6 flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-semibold group-hover:gap-3 transition-all">
+                    <div className="mt-8 flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-semibold group-hover:gap-3 transition-all">
                       Learn more
-                      <ArrowRightIcon className="h-4 w-4" />
+                      <ArrowRightIcon className="h-5 w-5" />
                     </div>
                   </div>
                 </Link>
@@ -392,48 +404,49 @@ export default function ResourcesPage() {
         </section>
 
         {/* Resource Categories */}
-        {resourceCategories.map((category) => {
+        {resourceCategories.map((category, categoryIndex) => {
           const Icon = category.icon;
           return (
-            <section key={category.id} className="py-20">
+            <section key={category.id} className={`py-24 ${categoryIndex % 2 === 0 ? '' : 'bg-gradient-to-b from-slate-50 to-white dark:from-slate-950/50 dark:to-black'}`}>
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className={`h-12 w-12 bg-gradient-to-br ${category.color} rounded-xl flex items-center justify-center`}>
-                    <Icon className="h-6 w-6 text-white" />
+                <div className="flex items-center gap-4 mb-12 fade-in">
+                  <div className={`h-14 w-14 bg-gradient-to-br ${category.color} rounded-2xl flex items-center justify-center shadow-lg`}>
+                    <Icon className="h-7 w-7 text-white" />
                   </div>
                   <div>
-                    <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+                    <h2 className="text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">
                       {category.title}
                     </h2>
-                    <p className="text-slate-600 dark:text-slate-400">
+                    <p className="text-slate-600 dark:text-slate-400 font-medium">
                       {category.description}
                     </p>
                   </div>
                 </div>
                 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {category.resources.map((resource) => (
+                  {category.resources.map((resource, index) => (
                     <Link
                       key={resource.title}
                       href={resource.link}
-                      className="group bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all duration-300"
+                      className="group glass-premium rounded-2xl p-8 border border-slate-200 dark:border-slate-800 hover-lift-premium transition-all duration-300 fade-in-up"
+                      style={{ animationDelay: `${0.1 + index * 0.1}s` }}
                     >
-                      <div className="flex items-start justify-between mb-4">
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200">
+                      <div className="flex items-start justify-between mb-6">
+                        <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200">
                           {resource.type}
                         </span>
                         {'level' in resource && resource.level && (
-                          <span className="text-xs text-slate-500 dark:text-slate-400">
+                          <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
                             {resource.level}
                           </span>
                         )}
                       </div>
                       
-                      <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                         {resource.title}
                       </h3>
                       
-                      <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+                      <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
                         {resource.description}
                       </p>
                       
@@ -472,32 +485,33 @@ export default function ResourcesPage() {
         })}
 
         {/* Blog Section */}
-        <section className="py-20 bg-slate-50 dark:bg-slate-800/30">
+        <section className="py-24 bg-gradient-to-b from-white to-slate-50 dark:from-black dark:to-slate-950/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+            <div className="flex items-center justify-between mb-12">
+              <h2 className="text-3xl lg:text-4xl font-black text-slate-900 dark:text-white fade-in">
                 Latest blog posts
               </h2>
               <Link
                 href="/blog"
-                className="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-semibold hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-semibold hover:gap-3 transition-all fade-in"
               >
                 View all
-                <ArrowRightIcon className="h-4 w-4" />
+                <ArrowRightIcon className="h-5 w-5" />
               </Link>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
-              {blogPosts.map((post) => (
+              {blogPosts.map((post, index) => (
                 <Link
                   key={post.title}
                   href={post.link}
-                  className="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300"
+                  className="group glass-premium rounded-2xl p-8 border border-slate-200 dark:border-slate-800 hover-lift-premium transition-all duration-300 fade-in-up"
+                  style={{ animationDelay: `${0.1 + index * 0.1}s` }}
                 >
-                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                     {post.title}
                   </h3>
-                  <p className="text-slate-600 dark:text-slate-400 mb-4">
+                  <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
                     {post.excerpt}
                   </p>
                   <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
@@ -514,36 +528,39 @@ export default function ResourcesPage() {
         </section>
 
         {/* Newsletter CTA */}
-        <section className="py-20">
+        <section className="py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-            <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-3xl p-12 text-center text-white">
-              <NewspaperIcon className="h-12 w-12 mx-auto mb-6 text-white/80" />
-              <h2 className="text-3xl font-bold mb-4">
-                Stay updated
-              </h2>
-              <p className="text-xl text-indigo-100 mb-8">
-                Get the latest guides, tutorials and best practices
-                delivered to your inbox every week
-              </p>
-              
-              <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  className="flex-1 px-4 py-3 rounded-lg text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-white"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="px-6 py-3 bg-white text-indigo-600 font-semibold rounded-lg hover:bg-indigo-50 transition-colors focus:outline-none focus:ring-2 focus:ring-white"
-                >
-                  Subscribe
-                </button>
-              </form>
-              
-              <p className="mt-4 text-sm text-indigo-200">
-                No spam. Unsubscribe anytime.
-              </p>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 blur-3xl" />
+              <div className="relative bg-gradient-to-br from-emerald-600 to-teal-600 rounded-3xl p-16 text-center text-white shadow-premium-lg">
+                <NewspaperIcon className="h-16 w-16 mx-auto mb-8 text-white/90" />
+                <h2 className="text-4xl lg:text-5xl font-black mb-6">
+                  Stay updated
+                </h2>
+                <p className="text-xl text-emerald-50 mb-10 font-medium max-w-2xl mx-auto">
+                  Get the latest guides, tutorials and best practices
+                  delivered to your inbox every week
+                </p>
+                
+                <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                  <input
+                    type="email"
+                    placeholder="your@email.com"
+                    className="flex-1 px-6 py-4 rounded-full text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-4 focus:ring-white/30 font-medium"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="px-8 py-4 bg-white text-emerald-600 font-semibold rounded-full hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-4 focus:ring-white/30 shadow-lg"
+                  >
+                    Subscribe
+                  </button>
+                </form>
+                
+                <p className="mt-6 text-sm text-emerald-100">
+                  No spam. Unsubscribe anytime.
+                </p>
+              </div>
             </div>
           </div>
         </section>

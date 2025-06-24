@@ -267,122 +267,127 @@ const blogPosts = [
 
 export default function RecursosPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-slate-900">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-black">
       <HeaderNew />
       
       <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="relative py-20 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800" />
-          <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-800 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+        {/* Hero Section - Premium Style */}
+        <section className="relative py-24 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-emerald-50/20 dark:from-black dark:via-slate-950 dark:to-emerald-950/10" />
+          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
           
           <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="text-center max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 mb-6">
-                <SparklesIcon className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
-                <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">
+            <div className="text-center max-w-4xl mx-auto">
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-premium mb-8 animate-fade-in">
+                <SparklesIcon className="h-5 w-5 text-emerald-500" />
+                <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">
                   Centro de aprendizaje
                 </span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white mb-6 animate-fade-in-up">
                 Recursos para dominar
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+                <span className="block gradient-text-emerald">
                   la infraestructura visual
                 </span>
               </h1>
               
-              <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
+              <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mb-10 font-medium animate-fade-in-up animation-delay-200">
                 Todo lo que necesitas para aprender, implementar y optimizar
                 tu infraestructura cloud con InfraUX
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-300">
                 <Link
-                  href="/docs"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                  href="/documentacion"
+                  className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-lg rounded-full shadow-premium hover:shadow-premium-lg transform hover:scale-[1.02] transition-all duration-300"
                 >
-                  <BookOpenIcon className="h-5 w-5" />
+                  <BookOpenIcon className="h-6 w-6" />
                   Explorar documentación
                 </Link>
                 <Link
                   href="#featured"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-lg rounded-full border-2 border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-xl hover-lift-premium transition-all duration-300"
                 >
                   Ver recursos destacados
-                  <ArrowRightIcon className="h-5 w-5" />
+                  <ArrowRightIcon className="h-6 w-6" />
                 </Link>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Featured Resources */}
-        <section id="featured" className="py-20 bg-slate-50 dark:bg-slate-800/30">
+        {/* Featured Resources - Premium Style */}
+        <section id="featured" className="py-24 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-black">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-white mb-12">
+            <h2 className="text-4xl sm:text-5xl font-bold text-center text-slate-900 dark:text-white mb-16">
               Recursos destacados
             </h2>
             
             <div className="grid md:grid-cols-2 gap-8">
-              {featuredResources.map((resource) => (
+              {featuredResources.map((resource, index) => (
                 <Link
                   key={resource.title}
                   href={resource.link}
-                  className="group relative bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="group relative hover-lift-premium animate-fade-in-up"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  {resource.badge && (
-                    <div className="absolute top-4 right-4 z-10">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-indigo-500 to-purple-500 text-white">
-                        {resource.badge}
-                      </span>
-                    </div>
-                  )}
-                  
-                  <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/20 dark:to-purple-900/20">
-                    <div className="flex items-center justify-center">
-                      <AcademicCapIcon className="h-24 w-24 text-indigo-300 dark:text-indigo-700" />
-                    </div>
-                  </div>
-                  
-                  <div className="p-8">
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                      {resource.title}
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400 mb-6">
-                      {resource.description}
-                    </p>
+                  <div className="h-full bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-premium border border-slate-200 dark:border-slate-800">
+                    {resource.badge && (
+                      <div className="absolute top-6 right-6 z-10">
+                        <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg">
+                          {resource.badge}
+                        </span>
+                      </div>
+                    )}
                     
-                    <div className="flex items-center gap-6 text-sm text-slate-500 dark:text-slate-400">
-                      {resource.duration && (
-                        <div className="flex items-center gap-2">
-                          <ClockIcon className="h-4 w-4" />
-                          {resource.duration}
+                    <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 p-12">
+                      <div className="flex items-center justify-center">
+                        <div className="p-8 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-3xl shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                          <AcademicCapIcon className="h-20 w-20 text-white" />
                         </div>
-                      )}
-                      {resource.modules && (
-                        <div className="flex items-center gap-2">
-                          <BookOpenIcon className="h-4 w-4" />
-                          {resource.modules} módulos
-                        </div>
-                      )}
-                      {resource.students && (
-                        <div className="flex items-center gap-2">
-                          <UserIcon className="h-4 w-4" />
-                          {resource.students} estudiantes
-                        </div>
-                      )}
-                      {resource.certified && (
-                        <div className="flex items-center gap-2">
-                          <AcademicCapIcon className="h-4 w-4" />
-                          {resource.certified} certificados
-                        </div>
-                      )}
+                      </div>
                     </div>
                     
-                    <div className="mt-6 flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-semibold group-hover:gap-3 transition-all">
-                      Más información
-                      <ArrowRightIcon className="h-4 w-4" />
+                    <div className="p-10">
+                      <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                        {resource.title}
+                      </h3>
+                      <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
+                        {resource.description}
+                      </p>
+                      
+                      <div className="flex items-center gap-6 text-sm text-slate-500 dark:text-slate-400 font-medium">
+                        {resource.duration && (
+                          <div className="flex items-center gap-2">
+                            <ClockIcon className="h-5 w-5 text-emerald-500" />
+                            {resource.duration}
+                          </div>
+                        )}
+                        {resource.modules && (
+                          <div className="flex items-center gap-2">
+                            <BookOpenIcon className="h-5 w-5 text-emerald-500" />
+                            {resource.modules} módulos
+                          </div>
+                        )}
+                        {resource.students && (
+                          <div className="flex items-center gap-2">
+                            <UserIcon className="h-5 w-5 text-emerald-500" />
+                            {resource.students} estudiantes
+                          </div>
+                        )}
+                        {resource.certified && (
+                          <div className="flex items-center gap-2">
+                            <AcademicCapIcon className="h-5 w-5 text-emerald-500" />
+                            {resource.certified} certificados
+                          </div>
+                        )}
+                      </div>
+                      
+                      <div className="mt-8 flex items-center gap-3 text-emerald-600 dark:text-emerald-400 font-bold text-lg group-hover:gap-4 transition-all">
+                        Más información
+                        <ArrowRightIcon className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      </div>
                     </div>
                   </div>
                 </Link>
@@ -391,77 +396,84 @@ export default function RecursosPage() {
           </div>
         </section>
 
-        {/* Resource Categories */}
-        {resourceCategories.map((category) => {
+        {/* Resource Categories - Premium Style */}
+        {resourceCategories.map((category, categoryIndex) => {
           const Icon = category.icon;
           return (
-            <section key={category.id} className="py-20">
+            <section key={category.id} className={`py-24 ${categoryIndex % 2 === 1 ? 'bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-black' : ''}`}>
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className={`h-12 w-12 bg-gradient-to-br ${category.color} rounded-xl flex items-center justify-center`}>
-                    <Icon className="h-6 w-6 text-white" />
+                <div className="flex items-center gap-6 mb-12">
+                  <div className="p-5 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl shadow-lg">
+                    <Icon className="h-8 w-8 text-white" />
                   </div>
                   <div>
-                    <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+                    <h2 className="text-4xl font-bold text-slate-900 dark:text-white">
                       {category.title}
                     </h2>
-                    <p className="text-slate-600 dark:text-slate-400">
+                    <p className="text-lg text-slate-600 dark:text-slate-400">
                       {category.description}
                     </p>
                   </div>
                 </div>
                 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {category.resources.map((resource) => (
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {category.resources.map((resource, index) => (
                     <Link
                       key={resource.title}
                       href={resource.link}
-                      className="group bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all duration-300"
+                      className="group hover-lift-premium animate-fade-in-up"
+                      style={{ animationDelay: `${index * 100}ms` }}
                     >
-                      <div className="flex items-start justify-between mb-4">
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200">
-                          {resource.type}
-                        </span>
-                        {'level' in resource && resource.level && (
-                          <span className="text-xs text-slate-500 dark:text-slate-400">
-                            {resource.level}
-                          </span>
-                        )}
-                      </div>
-                      
-                      <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                        {resource.title}
-                      </h3>
-                      
-                      <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
-                        {resource.description}
-                      </p>
-                      
-                      <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
-                        {'readTime' in resource && resource.readTime && (
-                          <div className="flex items-center gap-1">
-                            <ClockIcon className="h-4 w-4" />
-                            {resource.readTime}
+                      <div className="h-full bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-premium border border-slate-200 dark:border-slate-800 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        
+                        <div className="relative z-10">
+                          <div className="flex items-start justify-between mb-6">
+                            <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200">
+                              {resource.type}
+                            </span>
+                            {'level' in resource && resource.level && (
+                              <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                                {resource.level}
+                              </span>
+                            )}
                           </div>
-                        )}
-                        {'duration' in resource && resource.duration && (
-                          <div className="flex items-center gap-1">
-                            <PlayIcon className="h-4 w-4" />
-                            {resource.duration}
+                          
+                          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                            {resource.title}
+                          </h3>
+                          
+                          <p className="text-slate-600 dark:text-slate-400 mb-6">
+                            {resource.description}
+                          </p>
+                          
+                          <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 font-medium">
+                            {'readTime' in resource && resource.readTime && (
+                              <div className="flex items-center gap-2">
+                                <ClockIcon className="h-4 w-4" />
+                                {resource.readTime}
+                              </div>
+                            )}
+                            {'duration' in resource && resource.duration && (
+                              <div className="flex items-center gap-2">
+                                <PlayIcon className="h-4 w-4" />
+                                {resource.duration}
+                              </div>
+                            )}
+                            {'downloads' in resource && resource.downloads && (
+                              <div className="flex items-center gap-2">
+                                <ArrowDownTrayIcon className="h-4 w-4" />
+                                {resource.downloads}
+                              </div>
+                            )}
+                            {'date' in resource && resource.date && (
+                              <div className="flex items-center gap-2">
+                                <CalendarIcon className="h-4 w-4" />
+                                {resource.date}
+                              </div>
+                            )}
                           </div>
-                        )}
-                        {'downloads' in resource && resource.downloads && (
-                          <div className="flex items-center gap-1">
-                            <ArrowDownTrayIcon className="h-4 w-4" />
-                            {resource.downloads}
-                          </div>
-                        )}
-                        {'date' in resource && resource.date && (
-                          <div className="flex items-center gap-1">
-                            <CalendarIcon className="h-4 w-4" />
-                            {resource.date}
-                          </div>
-                        )}
+                        </div>
                       </div>
                     </Link>
                   ))}
@@ -471,41 +483,48 @@ export default function RecursosPage() {
           );
         })}
 
-        {/* Blog Section */}
-        <section className="py-20 bg-slate-50 dark:bg-slate-800/30">
+        {/* Blog Section - Premium Style */}
+        <section className="py-24 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-black">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+            <div className="flex items-center justify-between mb-12">
+              <h2 className="text-4xl font-bold text-slate-900 dark:text-white">
                 Últimos artículos del blog
               </h2>
               <Link
                 href="/blog"
-                className="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-semibold hover:gap-3 transition-all"
+                className="inline-flex items-center gap-3 text-emerald-600 dark:text-emerald-400 font-bold text-lg hover:gap-4 transition-all"
               >
                 Ver todos
-                <ArrowRightIcon className="h-4 w-4" />
+                <ArrowRightIcon className="h-5 w-5" />
               </Link>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
-              {blogPosts.map((post) => (
+              {blogPosts.map((post, index) => (
                 <Link
                   key={post.title}
                   href={post.link}
-                  className="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300"
+                  className="group hover-lift-premium animate-fade-in-up"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-slate-600 dark:text-slate-400 mb-4">
-                    {post.excerpt}
-                  </p>
-                  <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
-                    <span>{post.author}</span>
-                    <span>•</span>
-                    <span>{post.date}</span>
-                    <span>•</span>
-                    <span>{post.readTime}</span>
+                  <div className="h-full bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-premium border border-slate-200 dark:border-slate-800 overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    <div className="relative z-10">
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                        {post.title}
+                      </h3>
+                      <p className="text-slate-600 dark:text-slate-400 mb-6 line-clamp-3">
+                        {post.excerpt}
+                      </p>
+                      <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 font-medium">
+                        <span>{post.author}</span>
+                        <span className="text-emerald-500">•</span>
+                        <span>{post.date}</span>
+                        <span className="text-emerald-500">•</span>
+                        <span>{post.readTime}</span>
+                      </div>
+                    </div>
                   </div>
                 </Link>
               ))}
@@ -513,37 +532,51 @@ export default function RecursosPage() {
           </div>
         </section>
 
-        {/* Newsletter CTA */}
-        <section className="py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-            <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-3xl p-12 text-center text-white">
-              <NewspaperIcon className="h-12 w-12 mx-auto mb-6 text-white/80" />
-              <h2 className="text-3xl font-bold mb-4">
-                Mantente actualizado
-              </h2>
-              <p className="text-xl text-indigo-100 mb-8">
-                Recibe las últimas guías, tutoriales y mejores prácticas
-                directamente en tu inbox cada semana
-              </p>
+        {/* Newsletter CTA - Premium Style */}
+        <section className="py-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-teal-500/10" />
+          
+          <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <div className="relative">
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 blur-3xl" />
               
-              <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="tu@email.com"
-                  className="flex-1 px-4 py-3 rounded-lg text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-white"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="px-6 py-3 bg-white text-indigo-600 font-semibold rounded-lg hover:bg-indigo-50 transition-colors focus:outline-none focus:ring-2 focus:ring-white"
-                >
-                  Suscribirse
-                </button>
-              </form>
-              
-              <p className="mt-4 text-sm text-indigo-200">
-                Sin spam. Puedes cancelar cuando quieras.
-              </p>
+              <div className="relative bg-gradient-to-br from-emerald-500 to-teal-500 rounded-3xl p-16 text-center text-white shadow-premium-lg overflow-hidden">
+                <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10" />
+                
+                <div className="relative z-10">
+                  <div className="inline-flex p-4 bg-white/20 backdrop-blur-sm rounded-2xl mb-8">
+                    <NewspaperIcon className="h-12 w-12 text-white" />
+                  </div>
+                  
+                  <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+                    Mantente actualizado
+                  </h2>
+                  <p className="text-xl text-emerald-50 mb-10 max-w-2xl mx-auto">
+                    Recibe las últimas guías, tutoriales y mejores prácticas
+                    directamente en tu inbox cada semana
+                  </p>
+                  
+                  <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <input
+                      type="email"
+                      placeholder="tu@email.com"
+                      className="flex-1 px-6 py-4 rounded-2xl text-slate-900 placeholder-slate-500 font-medium focus:outline-none focus:ring-4 focus:ring-white/50 transition-all"
+                      required
+                    />
+                    <button
+                      type="submit"
+                      className="px-8 py-4 bg-white text-emerald-600 font-bold rounded-2xl hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-4 focus:ring-white/50 shadow-lg"
+                    >
+                      Suscribirse
+                    </button>
+                  </form>
+                  
+                  <p className="mt-6 text-sm text-emerald-100">
+                    Sin spam. Puedes cancelar cuando quieras.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>

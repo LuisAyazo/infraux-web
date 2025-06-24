@@ -102,7 +102,7 @@ export default function IntroPage() {
         <div className="border-b border-slate-200 dark:border-slate-800">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-4">
             <nav className="flex items-center gap-2 text-sm">
-              <Link href="/docs" className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400">
+              <Link href="/documentacion" className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400">
                 Documentación
               </Link>
               <span className="text-slate-400 dark:text-slate-600">/</span>
@@ -331,7 +331,7 @@ export default function IntroPage() {
               {/* Navigation */}
               <div className="flex items-center justify-between pt-8 mt-12 border-t border-slate-200 dark:border-slate-800">
                 <Link
-                  href="/docs"
+                  href="/documentacion"
                   className="flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 no-underline"
                 >
                   <ArrowLeftIcon className="h-4 w-4" />

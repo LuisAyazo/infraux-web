@@ -3,7 +3,8 @@
 import HeaderNew from '@/components/landing/HeaderNew';
 import FooterNew from '@/components/landing/FooterNew';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { useState } from 'react';
 import React from 'react';
 import { 
   CheckIcon,
@@ -18,29 +19,20 @@ import {
   UserGroupIcon,
   BuildingOfficeIcon,
   GlobeAltIcon,
-  CurrencyDollarIcon,
   DocumentArrowDownIcon,
   CodeBracketIcon,
-  CloudIcon,
   ShieldCheckIcon,
   ClockIcon,
   ChatBubbleLeftRightIcon,
-  CpuChipIcon,
-  ServerIcon,
-  KeyIcon,
-  ChartBarIcon,
-  ArrowPathIcon,
-  BoltIcon,
-  AcademicCapIcon,
   PhoneIcon,
   DocumentTextIcon,
   BeakerIcon,
   PuzzlePieceIcon,
   LockClosedIcon,
   GlobeAsiaAustraliaIcon,
-  WrenchScrewdriverIcon,
   FireIcon,
-  CubeIcon
+  CubeIcon,
+  ArrowPathIcon
 } from '@heroicons/react/24/outline';
 import { StarIcon } from '@heroicons/react/24/solid';
 
@@ -164,43 +156,6 @@ const plans = [
     badge: 'MÁS POPULAR'
   },
   {
-    name: 'Business',
-    price: 99,
-    period: '/usuario/mes',
-    description: 'Para empresas con necesidades avanzadas',
-    icon: BuildingOfficeIcon,
-    features: {
-      'Proyectos activos': { value: 'Ilimitados', included: true },
-      'Usuarios': { value: 'Ilimitados', included: true },
-      'Diagramas por proyecto': { value: 'Ilimitados', included: true },
-      'Exportar diagramas': { value: 'Todos + API', included: true },
-      'Templates': { value: 'Marketplace privado', included: true },
-      'Historial de versiones': { value: 'Ilimitado + archivo', included: true },
-      'Colaboración': { value: 'Avanzada', included: true },
-      'Ambientes': { value: 'Ilimitados', included: true },
-      'Integraciones': { value: 'Todas + custom', included: true },
-      'API': { value: 'Completa + GraphQL', included: true },
-      'Soporte': { value: '24/7 con SLA', included: true, tooltip: 'Tiempo de respuesta garantizado < 4 horas' },
-      'Backup': { value: 'Continuo + geo-redundante', included: true }
-    } as Record<string, FeatureValue>,
-    additionalFeatures: [
-      { name: 'SSO/SAML', tooltip: 'Inicio de sesión único con tu proveedor de identidad' },
-      { name: 'Audit logs avanzados', tooltip: 'Registro detallado de todas las acciones' },
-      { name: 'Políticas de seguridad custom' },
-      { name: 'Manager de cuenta dedicado' },
-      { name: 'Revisión trimestral de arquitectura' },
-      { name: 'Multi-región' }
-    ],
-    highlights: [
-      'SSO/SAML incluido',
-      'Manager de cuenta',
-      'SLA garantizado'
-    ],
-    cta: 'Prueba 30 días gratis',
-    ctaLink: '/register?plan=business',
-    featured: false
-  },
-  {
     name: 'Enterprise',
     price: 'Personalizado',
     period: '',
@@ -214,13 +169,19 @@ const plans = [
       'Templates': { value: 'Desarrollo personalizado', included: true },
       'Historial de versiones': { value: 'Políticas personalizadas', included: true },
       'Colaboración': { value: 'Enterprise', included: true },
-      'Ambientes': { value: 'Configuración custom', included: true },
-      'Integraciones': { value: 'API dedicada', included: true },
+      'Ambientes': { value: 'Ilimitados', included: true },
+      'Integraciones': { value: 'Todas + custom', included: true },
       'API': { value: 'Dedicada + SDK', included: true },
       'Soporte': { value: 'Dedicado 24/7', included: true },
       'Backup': { value: 'Custom + DR', included: true, tooltip: 'Disaster Recovery con RTO/RPO personalizado' }
     } as Record<string, FeatureValue>,
     additionalFeatures: [
+      { name: 'SSO/SAML', tooltip: 'Inicio de sesión único con tu proveedor de identidad' },
+      { name: 'Audit logs avanzados', tooltip: 'Registro detallado de todas las acciones' },
+      { name: 'Políticas de seguridad custom' },
+      { name: 'Manager de cuenta dedicado' },
+      { name: 'Revisión trimestral de arquitectura' },
+      { name: 'Multi-región' },
       { name: 'SLA 99.99%', tooltip: 'Menos de 4.38 minutos de downtime al mes' },
       { name: 'Capacitación personalizada' },
       { name: 'Desarrollo de features exclusivas' },
@@ -232,7 +193,7 @@ const plans = [
     ],
     highlights: [
       'SLA 99.99%',
-      'Features exclusivas',
+      'SSO/SAML incluido',
       'Soporte dedicado'
     ],
     cta: 'Contactar ventas',
@@ -292,11 +253,9 @@ const featureIcons: { [key: string]: any } = {
   'Backup': ArrowPathIcon
 };
 
-function PricingComparison() {
+export default function PricingPage() {
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-
-  const allFeatureKeys = Array.from(new Set(plans.flatMap(p => Object.keys(p.features))));
 
   const getPrice = (plan: typeof plans[0]) => {
     if (typeof plan.price === 'string') return plan.price;
@@ -312,395 +271,216 @@ function PricingComparison() {
   };
 
   return (
-    <div className="py-24 pt-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1400px]">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 mb-6">
-            <SparklesIcon className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
-            <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">
-              Precios simples, sin sorpresas
-            </span>
-          </div>
-          
-          <h1 className="text-5xl sm:text-6xl font-bold text-slate-900 dark:text-white mb-6">
-            Planes que escalan con tu equipo
-          </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-8">
-            Desde proyectos personales hasta infraestructuras enterprise. 
-            Sin costos ocultos, cancela cuando quieras.
-          </p>
-          
-          {/* Billing Toggle */}
-          <div className="inline-flex items-center gap-4 p-1.5 bg-slate-100 dark:bg-slate-800 rounded-xl">
-            <button
-              onClick={() => setBillingPeriod('monthly')}
-              className={`px-6 py-3 rounded-lg font-medium transition-all ${
-                billingPeriod === 'monthly'
-                  ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-              }`}
-            >
-              Mensual
-            </button>
-            <button
-              onClick={() => setBillingPeriod('yearly')}
-              className={`px-6 py-3 rounded-lg font-medium transition-all ${
-                billingPeriod === 'yearly'
-                  ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-              }`}
-            >
-              Anual
-              <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300">
-                -20%
-              </span>
-            </button>
-          </div>
-        </div>
-
-        {/* Plans Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 lg:gap-6 mb-24">
-            {plans.map((plan) => {
-              const Icon = plan.icon;
-              return (
-                <div
-                  key={plan.name}
-                  className={`relative flex flex-col rounded-2xl p-4 lg:p-5 xl:p-6 transition-all duration-300 ${
-                    plan.featured
-                      ? 'bg-gradient-to-b from-indigo-600 to-purple-600 text-white shadow-2xl scale-105 z-10'
-                      : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl'
+    <div className="flex flex-col min-h-screen bg-white dark:bg-slate-900">
+      <HeaderNew />
+      
+      <main className="flex-grow">
+        <div className="py-24 pt-32">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1400px]">
+            {/* Header */}
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 mb-6">
+                <SparklesIcon className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
+                <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">
+                  Precios simples, sin sorpresas
+                </span>
+              </div>
+              
+              <h1 className="text-5xl sm:text-6xl font-bold text-slate-900 dark:text-white mb-6">
+                Planes que escalan con tu equipo
+              </h1>
+              <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-8">
+                Desde proyectos personales hasta infraestructuras enterprise. 
+                Sin costos ocultos, cancela cuando quieras.
+              </p>
+              
+              {/* Billing Toggle */}
+              <div className="inline-flex items-center gap-4 p-1.5 bg-slate-100 dark:bg-slate-800 rounded-xl">
+                <button
+                  onClick={() => setBillingPeriod('monthly')}
+                  className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                    billingPeriod === 'monthly'
+                      ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                   }`}
                 >
-                  {plan.badge && (
-                    <div className="absolute -top-5 left-1/2 -translate-x-1/2">
-                      <span className="inline-flex items-center gap-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-slate-900 text-sm font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow-lg">
-                        <StarIcon className="h-4 w-4" />
-                        {plan.badge}
-                      </span>
-                    </div>
-                  )}
-                  
-                  <div className="flex-grow flex flex-col">
-                    {/* Plan Header */}
-                    <div className="text-center mb-4">
-                      <Icon className={`h-8 w-8 lg:h-10 lg:w-10 mx-auto mb-3 ${
-                        plan.featured ? 'text-white' : 'text-indigo-600 dark:text-indigo-400'
-                      }`} />
-                      <h3 className={`text-lg lg:text-xl font-bold mb-2 ${
-                        plan.featured ? 'text-white' : 'text-slate-900 dark:text-white'
-                      }`}>
-                        {plan.name}
-                      </h3>
-                      <div className="flex items-baseline justify-center gap-1 mb-3">
-                        <span className={`text-2xl lg:text-3xl xl:text-4xl font-bold ${
+                  Mensual
+                </button>
+                <button
+                  onClick={() => setBillingPeriod('yearly')}
+                  className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                    billingPeriod === 'yearly'
+                      ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                  }`}
+                >
+                  Anual
+                  <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300">
+                    -20%
+                  </span>
+                </button>
+            </div>
+
+            {/* Plans Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+                {plans.map((plan) => {
+                  const Icon = plan.icon;
+                  return (
+                    <div
+                      key={plan.name}
+                      className={`relative flex flex-col rounded-2xl p-4 lg:p-5 xl:p-6 transition-all duration-300 ${
+                        plan.featured
+                          ? 'bg-gradient-to-b from-indigo-600 to-purple-600 text-white shadow-2xl scale-105 z-10'
+                          : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl'
+                      }`}
+                    >
+                    {plan.badge && (
+                      <div className="absolute -top-5 left-1/2 -translate-x-1/2">
+                        <span className="inline-flex items-center gap-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-slate-900 text-sm font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow-lg">
+                          <StarIcon className="h-4 w-4" />
+                          {plan.badge}
+                        </span>
+                      </div>
+                    )}
+                    
+                    <div className="flex-grow flex flex-col">
+                      {/* Plan Header */}
+                      <div className="text-center mb-4">
+                        <Icon className={`h-8 w-8 lg:h-10 lg:w-10 mx-auto mb-3 ${
+                          plan.featured ? 'text-white' : 'text-indigo-600 dark:text-indigo-400'
+                        }`} />
+                        <h3 className={`text-lg lg:text-xl font-bold mb-2 ${
                           plan.featured ? 'text-white' : 'text-slate-900 dark:text-white'
                         }`}>
-                          {getPrice(plan)}
-                        </span>
-                        {getPeriod(plan) && (
-                          <span className={`text-sm ${
-                            plan.featured ? 'text-indigo-100' : 'text-slate-600 dark:text-slate-400'
+                          {plan.name}
+                        </h3>
+                        <div className="flex items-baseline justify-center gap-1 mb-3">
+                          <span className={`text-2xl lg:text-3xl xl:text-4xl font-bold ${
+                            plan.featured ? 'text-white' : 'text-slate-900 dark:text-white'
                           }`}>
-                            {getPeriod(plan)}
+                            {getPrice(plan)}
                           </span>
-                        )}
-                      </div>
-                      <p className={`text-sm h-12 ${
-                        plan.featured ? 'text-indigo-100' : 'text-slate-600 dark:text-slate-400'
-                      }`}>
-                        {plan.description}
-                      </p>
-                    </div>
-
-                    {/* Highlights */}
-                    <div className="mb-4 lg:mb-6">
-                    <div className={`text-xs font-semibold uppercase tracking-wider mb-2 ${
-                      plan.featured ? 'text-indigo-200' : 'text-slate-500 dark:text-slate-400'
-                    }`}>
-                      Lo destacado
-                    </div>
-                    <ul className="space-y-2">
-                      {plan.highlights.map((highlight) => (
-                        <li key={highlight} className="flex items-start gap-2">
-                          <CheckIcon className={`h-5 w-5 flex-shrink-0 ${
-                            plan.featured ? 'text-indigo-200' : 'text-green-600 dark:text-green-400'
-                          }`} />
-                          <span className={`text-sm ${
-                            plan.featured ? 'text-indigo-50' : 'text-slate-700 dark:text-slate-300'
-                          }`}>
-                            {highlight}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                    <div className="flex-grow" />
-
-                    {/* Features List */}
-                    <div className="space-y-2">
-                      <div className={`text-xs font-semibold uppercase tracking-wider mb-2 ${
-                        plan.featured ? 'text-indigo-200' : 'text-slate-500 dark:text-slate-400'
-                      }`}>
-                        Incluye
-                      </div>
-                      {Object.entries(plan.features).slice(0, 5).map(([key, feature]) => {
-                        const FeatureIcon = featureIcons[key] || CheckIcon;
-                        return (
-                          <div key={key} className="flex items-center gap-2">
-                            <FeatureIcon className={`h-3.5 w-3.5 flex-shrink-0 ${
-                              plan.featured ? 'text-indigo-200' : 'text-slate-400 dark:text-slate-500'
-                            }`} />
-                            <div className="flex-1 flex items-center gap-2">
-                              <span className={`text-sm ${
-                                plan.featured ? 'text-indigo-50' : 'text-slate-600 dark:text-slate-400'
-                              }`}>
-                                {key}:
-                              </span>
-                              <span className={`text-sm font-medium ${
-                                plan.featured ? 'text-white' : 'text-slate-900 dark:text-white'
-                              }`}>
-                                {typeof feature.value === 'boolean'
-                                  ? (feature.included ? 'Sí' : 'No')
-                                  : feature.value
-                                }
-                              </span>
-                              {feature.tooltip && (
-                                <Tooltip content={feature.tooltip}>
-                                  <InformationCircleIcon className={`h-4 w-4 ${
-                                    plan.featured ? 'text-indigo-200' : 'text-slate-400'
-                                  }`} />
-                                </Tooltip>
-                              )}
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-
-                    {/* Additional Features for Business/Enterprise */}
-                    {plan.additionalFeatures && (
-                      <div className="mt-4 lg:mt-6 pt-4 lg:pt-6 border-t border-slate-200 dark:border-slate-700">
-                        <div className={`text-xs font-semibold uppercase tracking-wider mb-3 ${
-                          plan.featured ? 'text-indigo-200' : 'text-slate-500 dark:text-slate-400'
-                        }`}>
-                          También incluye
-                        </div>
-                        <ul className="space-y-2">
-                          {plan.additionalFeatures.slice(0, 3).map((feature) => (
-                            <li key={feature.name} className="flex items-center gap-2">
-                              <CheckIcon className={`h-4 w-4 flex-shrink-0 ${
-                                plan.featured ? 'text-indigo-200' : 'text-green-600 dark:text-green-400'
-                              }`} />
-                              <span className={`text-sm ${
-                                plan.featured ? 'text-indigo-50' : 'text-slate-700 dark:text-slate-300'
-                              }`}>
-                                {feature.name}
-                              </span>
-                              {feature.tooltip && (
-                                <Tooltip content={feature.tooltip}>
-                                  <InformationCircleIcon className={`h-4 w-4 ${
-                                    plan.featured ? 'text-indigo-200' : 'text-slate-400'
-                                  }`} />
-                                </Tooltip>
-                              )}
-                            </li>
-                          ))}
-                          {plan.additionalFeatures.length > 3 && (
-                            <li className={`text-xs lg:text-sm ${
-                              plan.featured ? 'text-indigo-200' : 'text-slate-500 dark:text-slate-400'
+                          {getPeriod(plan) && (
+                            <span className={`text-sm ${
+                              plan.featured ? 'text-indigo-100' : 'text-slate-600 dark:text-slate-400'
                             }`}>
-                              + {plan.additionalFeatures.length - 3} más...
-                            </li>
+                              {getPeriod(plan)}
+                            </span>
                           )}
-                        </ul>
+                        </div>
+                        <p className={`text-sm h-12 ${
+                          plan.featured ? 'text-indigo-100' : 'text-slate-600 dark:text-slate-400'
+                        }`}>
+                          {plan.description}
+                        </p>
+                      </div>
+
+                      {/* Features List */}
+                      <div className="space-y-3 mb-6">
+                        {plan.highlights.map((highlight, idx) => (
+                          <div key={idx} className="flex items-start gap-2">
+                            <CheckIcon className={`h-5 w-5 flex-shrink-0 mt-0.5 ${
+                              plan.featured ? 'text-white' : 'text-green-500'
+                            }`} />
+                            <span className={`text-sm ${
+                              plan.featured ? 'text-indigo-100' : 'text-slate-600 dark:text-slate-400'
+                            }`}>
+                              {highlight}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* CTA Button */}
+                      <div className="mt-auto pt-4">
+                        <Link
+                          href={plan.ctaLink}
+                          className={`block w-full text-center py-2.5 px-4 rounded-xl font-semibold transition-all duration-200 text-sm ${
+                            plan.featured
+                              ? 'bg-white text-indigo-600 hover:bg-indigo-50 shadow-lg'
+                              : 'bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-lg'
+                          }`}
+                        >
+                          {plan.cta}
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* FAQs */}
+            <div className="max-w-4xl mx-auto mb-24">
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">
+                Preguntas frecuentes
+              </h2>
+              
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <div
+                    key={index}
+                    className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden"
+                  >
+                    <button
+                      onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                      className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
+                    >
+                      <span className="font-medium text-slate-900 dark:text-white pr-8">{faq.question}</span>
+                      {expandedFaq === index ? (
+                        <ChevronUpIcon className="h-5 w-5 text-slate-500 flex-shrink-0" />
+                      ) : (
+                        <ChevronDownIcon className="h-5 w-5 text-slate-500 flex-shrink-0" />
+                      )}
+                    </button>
+                    {expandedFaq === index && (
+                      <div className="px-6 pb-5">
+                        <p className="text-slate-600 dark:text-slate-400">{faq.answer}</p>
                       </div>
                     )}
                   </div>
-                  {/* CTA Button */}
-                  <div className="mt-auto pt-4">
-                    <Link
-                      href={plan.ctaLink}
-                      className={`block w-full text-center py-2.5 px-4 rounded-xl font-semibold transition-all duration-200 text-sm ${
-                        plan.featured
-                          ? 'bg-white text-indigo-600 hover:bg-indigo-50 shadow-lg'
-                          : 'bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-lg'
-                      }`}
-                    >
-                      {plan.cta}
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-        {/* Trust Badges */}
-        <div className="mt-24 mb-24 text-center">
-          <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-slate-600 dark:text-slate-400">
-            <div className="flex items-center gap-2">
-              <ShieldCheckIcon className="h-5 w-5 text-green-600 dark:text-green-400" />
-              <span>SOC2 Certificado</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <LockClosedIcon className="h-5 w-5 text-green-600 dark:text-green-400" />
-              <span>Encriptación 256-bit</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <GlobeAsiaAustraliaIcon className="h-5 w-5 text-green-600 dark:text-green-400" />
-              <span>GDPR Compliant</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <FireIcon className="h-5 w-5 text-green-600 dark:text-green-400" />
-              <span>99.9% Uptime</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Detailed Comparison Table */}
-        <div className="mb-24">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">
-            Comparación detallada de características
-          </h2>
-          
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b-2 border-slate-200 dark:border-slate-700">
-                  <th className="text-left py-4 px-6 text-sm font-semibold text-slate-900 dark:text-white">
-                    Características
-                  </th>
-                  {plans.map((plan) => (
-                    <th key={plan.name} className="text-center py-4 px-6 min-w-[140px]">
-                      <div className="text-sm font-semibold text-slate-900 dark:text-white">{plan.name}</div>
-                      <div className="text-xs text-slate-600 dark:text-slate-400 mt-1">
-                        {getPrice(plan)} {getPeriod(plan)}
-                      </div>
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                {allFeatureKeys.map((feature) => (
-                  <tr key={feature} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                    <td className="py-4 px-6 text-sm text-slate-700 dark:text-slate-300 font-medium">
-                      <div className="flex items-center gap-2">
-                        {featureIcons[feature] && React.createElement(featureIcons[feature], { className: "h-4 w-4 text-slate-400" })}
-                        {feature}
-                      </div>
-                    </td>
-                    {plans.map((plan) => (
-                      <td key={plan.name} className="text-center py-4 px-6">
-                        {plan.features[feature] ? (
-                          typeof plan.features[feature].value === 'boolean' ? (
-                            plan.features[feature].included ? (
-                              <CheckIcon className="h-5 w-5 text-green-600 dark:text-green-400 mx-auto" />
-                            ) : (
-                              <XMarkIcon className="h-5 w-5 text-slate-300 dark:text-slate-600 mx-auto" />
-                            )
-                          ) : (
-                            <div className="flex items-center justify-center gap-1">
-                              <span className="text-sm text-slate-600 dark:text-slate-400">
-                                {plan.features[feature].value}
-                              </span>
-                              {plan.features[feature].tooltip && (
-                                <Tooltip content={plan.features[feature].tooltip}>
-                                  <InformationCircleIcon className="h-4 w-4 text-slate-400" />
-                                </Tooltip>
-                              )}
-                            </div>
-                          )
-                        ) : (
-                          <XMarkIcon className="h-5 w-5 text-slate-300 dark:text-slate-600 mx-auto" />
-                        )}
-                      </td>
-                    ))}
-                  </tr>
                 ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* FAQs */}
-        <div className="max-w-4xl mx-auto mb-24">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">
-            Preguntas frecuentes
-          </h2>
-          
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden"
-              >
-                <button
-                  onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
-                >
-                  <span className="font-medium text-slate-900 dark:text-white pr-8">{faq.question}</span>
-                  {expandedFaq === index ? (
-                    <ChevronUpIcon className="h-5 w-5 text-slate-500 flex-shrink-0" />
-                  ) : (
-                    <ChevronDownIcon className="h-5 w-5 text-slate-500 flex-shrink-0" />
-                  )}
-                </button>
-                {expandedFaq === index && (
-                  <div className="px-6 pb-5">
-                    <p className="text-slate-600 dark:text-slate-400">{faq.answer}</p>
-                  </div>
-                )}
               </div>
-            ))}
+            </div>
+
+            {/* CTA */}
+            <div className="text-center">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 mb-8">
+                <SparklesIcon className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
+                <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">
+                  30 días de garantía de devolución
+                </span>
+              </div>
+              
+              <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
+                ¿Listo para transformar tu infraestructura?
+              </h2>
+              <p className="text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto">
+                Únete a miles de equipos que ya confían en InfraUX para gestionar su infraestructura cloud de forma visual
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Link
+                  href="/register"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                >
+                  Empezar prueba gratis
+                  <ArrowRightIcon className="h-5 w-5" />
+                </Link>
+                <Link
+                  href="/contacto"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
+                >
+                  <QuestionMarkCircleIcon className="h-5 w-5" />
+                  Hablar con ventas
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
-
-        {/* CTA */}
-        <div className="text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 mb-8">
-            <SparklesIcon className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
-            <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">
-              30 días de garantía de devolución
-            </span>
-          </div>
-          
-          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            ¿Listo para transformar tu infraestructura?
-          </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto">
-            Únete a miles de equipos que ya confían en InfraUX para gestionar su infraestructura cloud de forma visual
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              href="/register"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
-            >
-              Empezar prueba gratis
-              <ArrowRightIcon className="h-5 w-5" />
-            </Link>
-            <Link
-              href="/contacto"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
-            >
-              <QuestionMarkCircleIcon className="h-5 w-5" />
-              Hablar con ventas
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default function PricingPage() {
-  return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-slate-900">
-      <HeaderNew />
-      <main className="flex-grow">
-        <PricingComparison />
       </main>
+      
       <FooterNew />
     </div>
   );

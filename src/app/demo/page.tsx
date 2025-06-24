@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
-import Header from '@/components/landing/Header'
-import Footer from '@/components/landing/Footer'
+import HeaderNew from '@/components/landing/HeaderNew'
+import FooterNew from '@/components/landing/FooterNew'
 import DemoPlaceholder from '@/components/landing/DemoPlaceholder'
 
 export const metadata: Metadata = {
@@ -27,12 +27,12 @@ export const metadata: Metadata = {
 
 export default function DemoPage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
-      <Header />
-      <main className="pt-20">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-black">
+      <HeaderNew />
+      <main className="flex-grow">
         <DemoPlaceholder />
       </main>
-      <Footer />
+      <FooterNew />
     </div>
   )
 }

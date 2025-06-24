@@ -1,50 +1,14 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   EnvelopeIcon,
   MapPinIcon,
   PhoneIcon
 } from '@heroicons/react/24/outline'
 import { useState, useEffect } from 'react'
-
-const navigation = {
-  producto: [
-    { name: 'Editor Visual', href: '/producto/editor' },
-    { name: 'Generación IaC', href: '/producto/iac' },
-    { name: 'Deployment', href: '/producto/deployment' },
-    { name: 'Integraciones', href: '/producto/integraciones' },
-    { name: 'Seguridad', href: '/producto/seguridad' },
-  ],
-  soluciones: [
-    { name: 'Para Startups', href: '/soluciones/startups' },
-    { name: 'Para Empresas', href: '/soluciones/empresas' },
-    { name: 'Para DevOps', href: '/soluciones/devops' },
-    { name: 'Multi-Cloud', href: '/soluciones/multi-cloud' },
-    { name: 'Casos de Éxito', href: '/casos-exito' },
-  ],
-  recursos: [
-    { name: 'Documentación', href: '/docs' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Tutoriales', href: '/tutoriales' },
-    { name: 'API Reference', href: '/api' },
-    { name: 'Changelog', href: '/changelog' },
-  ],
-  empresa: [
-    { name: 'Sobre Nosotros', href: '/empresa' },
-    { name: 'Carreras', href: '/carreras' },
-    { name: 'Contacto', href: '/contacto' },
-    { name: 'Partners', href: '/partners' },
-    { name: 'Prensa', href: '/prensa' },
-  ],
-  legal: [
-    { name: 'Términos y Condiciones', href: '/terms-and-conditions' },
-    { name: 'Política de Privacidad', href: '/privacy-policy' },
-    { name: 'Política de Reembolsos', href: '/refund-policy' },
-    { name: 'Seguridad', href: '/seguridad' },
-    { name: 'SLA', href: '/sla' },
-  ],
-}
+import { useLanguage, useTranslatedRoute } from '@/contexts/LanguageContext'
 
 const socialLinks = [
   {
@@ -87,10 +51,50 @@ const socialLinks = [
 
 export default function FooterNew() {
   const [currentYear, setCurrentYear] = useState<number>(2025)
+  const { language, t } = useLanguage()
   
   useEffect(() => {
     setCurrentYear(new Date().getFullYear())
   }, [])
+
+  // Navigation with dynamic translations
+  const navigation = {
+    producto: [
+      { name: t('nav.editor_visual'), href: useTranslatedRoute('/producto/editor') },
+      { name: t('nav.generacion_iac'), href: useTranslatedRoute('/producto/iac') },
+      { name: t('nav.deployment'), href: useTranslatedRoute('/producto/deployment') },
+      { name: language === 'es' ? 'Integraciones' : 'Integrations', href: '/producto/integraciones' },
+      { name: language === 'es' ? 'Seguridad' : 'Security', href: '/producto/seguridad' },
+    ],
+    soluciones: [
+      { name: t('nav.para_startups'), href: useTranslatedRoute('/soluciones/startups') },
+      { name: t('nav.para_empresas'), href: useTranslatedRoute('/soluciones/empresas') },
+      { name: t('nav.para_devops'), href: useTranslatedRoute('/soluciones/devops') },
+      { name: t('nav.multi_cloud'), href: useTranslatedRoute('/soluciones/multi-cloud') },
+      { name: language === 'es' ? 'Casos de Éxito' : 'Success Stories', href: '/casos-exito' },
+    ],
+    recursos: [
+      { name: t('nav.documentacion'), href: useTranslatedRoute('/documentacion') },
+      { name: t('nav.blog'), href: useTranslatedRoute('/blog') },
+      { name: language === 'es' ? 'Tutoriales' : 'Tutorials', href: '/tutoriales' },
+      { name: 'API Reference', href: '/api' },
+      { name: t('nav.changelog'), href: useTranslatedRoute('/changelog') },
+    ],
+    empresa: [
+      { name: language === 'es' ? 'Sobre Nosotros' : 'About Us', href: useTranslatedRoute('/empresa') },
+      { name: language === 'es' ? 'Carreras' : 'Careers', href: '/carreras' },
+      { name: language === 'es' ? 'Contacto' : 'Contact', href: useTranslatedRoute('/contacto') },
+      { name: 'Partners', href: '/partners' },
+      { name: language === 'es' ? 'Prensa' : 'Press', href: '/prensa' },
+    ],
+    legal: [
+      { name: language === 'es' ? 'Términos y Condiciones' : 'Terms & Conditions', href: '/terms-and-conditions' },
+      { name: language === 'es' ? 'Política de Privacidad' : 'Privacy Policy', href: '/privacy-policy' },
+      { name: language === 'es' ? 'Política de Reembolsos' : 'Refund Policy', href: '/refund-policy' },
+      { name: language === 'es' ? 'Seguridad' : 'Security', href: '/seguridad' },
+      { name: 'SLA', href: '/sla' },
+    ],
+  }
   
   return (
     <footer className="bg-slate-50 dark:bg-slate-900" aria-labelledby="footer-heading">
@@ -101,19 +105,21 @@ export default function FooterNew() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           {/* Company Info */}
           <div className="space-y-8 xl:col-span-1">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg p-2">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.8"/>
-                  <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
+            <Link href="/" className="flex items-center gap-1.5">
+              <Image
+                src="/favicon-32x32.png"
+                alt="InfraUX Logo"
+                width={32}
+                height={32}
+                className="w-8 h-8"
+              />
               <span className="text-xl font-bold text-slate-900 dark:text-white">InfraUX</span>
             </Link>
             <p className="text-sm text-slate-600 dark:text-slate-400 max-w-xs">
-              La plataforma visual para diseñar, desplegar y gestionar infraestructura cloud. 
-              Simplifica la complejidad, acelera la innovación.
+              {language === 'es' 
+                ? 'La plataforma visual para diseñar, desplegar y gestionar infraestructura cloud. Simplifica la complejidad, acelera la innovación.'
+                : 'The visual platform to design, deploy, and manage cloud infrastructure. Simplify complexity, accelerate innovation.'
+              }
             </p>
             <div className="flex space-x-6">
               {socialLinks.map((item) => (
@@ -135,7 +141,7 @@ export default function FooterNew() {
           <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold text-slate-900 dark:text-white">Producto</h3>
+                <h3 className="text-sm font-semibold text-slate-900 dark:text-white">{t('nav.producto')}</h3>
                 <ul role="list" className="mt-4 space-y-3">
                   {navigation.producto.map((item) => (
                     <li key={item.name}>
@@ -147,7 +153,7 @@ export default function FooterNew() {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-slate-900 dark:text-white">Soluciones</h3>
+                <h3 className="text-sm font-semibold text-slate-900 dark:text-white">{t('nav.soluciones')}</h3>
                 <ul role="list" className="mt-4 space-y-3">
                   {navigation.soluciones.map((item) => (
                     <li key={item.name}>
@@ -161,7 +167,7 @@ export default function FooterNew() {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold text-slate-900 dark:text-white">Recursos</h3>
+                <h3 className="text-sm font-semibold text-slate-900 dark:text-white">{t('nav.recursos')}</h3>
                 <ul role="list" className="mt-4 space-y-3">
                   {navigation.recursos.map((item) => (
                     <li key={item.name}>
@@ -173,7 +179,7 @@ export default function FooterNew() {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-slate-900 dark:text-white">Empresa</h3>
+                <h3 className="text-sm font-semibold text-slate-900 dark:text-white">{t('nav.empresa')}</h3>
                 <ul role="list" className="mt-4 space-y-3">
                   {navigation.empresa.map((item) => (
                     <li key={item.name}>
@@ -193,10 +199,13 @@ export default function FooterNew() {
           <div className="lg:flex lg:items-center lg:justify-between">
             <div>
               <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
-                Suscríbete a nuestro newsletter
+                {language === 'es' ? 'Suscríbete a nuestro newsletter' : 'Subscribe to our newsletter'}
               </h3>
               <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-                Las últimas noticias, artículos y recursos, enviados a tu inbox semanalmente.
+                {language === 'es' 
+                  ? 'Las últimas noticias, artículos y recursos, enviados a tu inbox semanalmente.'
+                  : 'The latest news, articles, and resources, sent to your inbox weekly.'
+                }
               </p>
             </div>
             <form className="mt-4 sm:flex sm:max-w-md lg:mt-0">
@@ -210,14 +219,14 @@ export default function FooterNew() {
                 autoComplete="email"
                 required
                 className="w-full min-w-0 appearance-none rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-2 text-base text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-                placeholder="tu@email.com"
+                placeholder={language === 'es' ? 'tu@email.com' : 'you@email.com'}
               />
               <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                 <button
                   type="submit"
                   className="flex w-full items-center justify-center rounded-md bg-gradient-to-r from-indigo-600 to-purple-600 px-4 py-2 text-base font-medium text-white hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
-                  Suscribirse
+                  {language === 'es' ? 'Suscribirse' : 'Subscribe'}
                 </button>
               </div>
             </form>
@@ -239,7 +248,7 @@ export default function FooterNew() {
               ))}
             </div>
             <p className="mt-8 text-sm text-slate-600 dark:text-slate-400 md:order-1 md:mt-0">
-              &copy; {currentYear} InfraUX, Inc. Todos los derechos reservados.
+              &copy; {currentYear} InfraUX, Inc. {language === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}
             </p>
           </div>
         </div>

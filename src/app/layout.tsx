@@ -2,14 +2,17 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { Analytics } from "@/components/Analytics";
-import { 
-  organizationSchema, 
-  softwareApplicationSchema, 
-  websiteSchema,
-  breadcrumbSchema,
-  faqSchema 
-} from "@/lib/structured-data";
+import ClientOnly from "@/components/ClientOnly";
+import { PostHogProviderWrapper } from "@/providers/PostHogProvider";
+import { LanguageProvider } from "@/contexts/LanguageContext";
+// import { Analytics } from "@/components/Analytics";
+// import {
+//   organizationSchema,
+//   softwareApplicationSchema,
+//   websiteSchema,
+//   breadcrumbSchema,
+//   faqSchema
+// } from "@/lib/structured-data";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -88,17 +91,15 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
     ],
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
-    other: [
-      { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#a855f7' },
-    ],
   },
-  manifest: '/manifest.webmanifest',
+  manifest: '/manifest.json',
   alternates: {
     canonical: 'https://www.infraux.com',
     languages: {
@@ -146,8 +147,14 @@ export default function RootLayout({
   return (
     <html lang="es" className={inter.variable} suppressHydrationWarning>
       <head>
-        {/* Structured Data for SEO */}
-        <script
+        {/* Favicon for production */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        
+        {/* Structured Data for SEO - Temporarily commented */}
+        {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
@@ -176,7 +183,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(faqSchema),
           }}
-        />
+        /> */}
         
         {/* Additional SEO Meta Tags */}
         <meta name="geo.region" content="CO" />
@@ -199,8 +206,14 @@ export default function RootLayout({
           disableTransitionOnChange
           storageKey="infraux-theme"
         >
-          {children}
-          <Analytics />
+          <ClientOnly>
+            <PostHogProviderWrapper>
+              <LanguageProvider>
+                {children}
+              </LanguageProvider>
+            </PostHogProviderWrapper>
+          </ClientOnly>
+          {/* <Analytics /> */}
         </ThemeProvider>
       </body>
     </html>
