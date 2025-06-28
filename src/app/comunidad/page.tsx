@@ -175,7 +175,7 @@ export default function ComunidadPage() {
               </h1>
               
               <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
-                Únete a miles de DevOps engineers, SREs y cloud architects. 
+                Únete a miles de DevOps engineers, SREs y cloud architects.
                 Aprende, comparte conocimiento y crece profesionalmente.
               </p>
               
@@ -397,7 +397,7 @@ export default function ComunidadPage() {
                 Una comunidad verdaderamente global
               </h2>
               <p className="text-xl text-indigo-100 mb-8 max-w-3xl mx-auto">
-                Con miembros en más de 50 países, nuestra comunidad habla todos los idiomas 
+                Con miembros en más de 50 países, nuestra comunidad habla todos los idiomas
                 pero comparte la misma pasión: construir mejor infraestructura.
               </p>
               

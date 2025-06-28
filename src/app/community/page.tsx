@@ -175,13 +175,13 @@ export default function CommunityPage() {
               </h1>
               
               <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
-                Join thousands of DevOps engineers, SREs and cloud architects. 
+                Join thousands of DevOps engineers, SREs and cloud architects.
                 Learn, share knowledge and grow professionally.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  href="/registro"
+                  href="/register"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-emerald-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
                 >
                   <UserGroupIcon className="h-5 w-5" />
@@ -397,7 +397,7 @@ export default function CommunityPage() {
                 A truly global community
               </h2>
               <p className="text-xl text-indigo-100 mb-8 max-w-3xl mx-auto">
-                With members in over 50 countries, our community speaks all languages 
+                With members in over 50 countries, our community speaks all languages
                 but shares the same passion: building better infrastructure.
               </p>
               
@@ -443,7 +443,7 @@ export default function CommunityPage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/registro"
+                href="/register"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-emerald-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
               >
                 Join now

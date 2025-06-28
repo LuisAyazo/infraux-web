@@ -146,7 +146,7 @@ export default function PruebaGratisPage() {
         title={modalTitle}
         message={modalMessage}
         position={userPosition}
-        onRetry={modalType === 'error' ? handleSubmit : undefined}
+        onRetry={modalType === 'error' ? () => handleSubmit : undefined}
       />
       
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4 py-16">
