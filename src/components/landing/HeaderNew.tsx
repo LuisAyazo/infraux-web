@@ -18,55 +18,73 @@ export default function HeaderNew() {
   const { language, setLanguage, t } = useLanguage()
   const isClient = useIsClient()
 
+  const translatedRoutes = {
+    editor: useTranslatedRoute('/producto/editor'),
+    iac: useTranslatedRoute('/producto/iac'),
+    deployment: useTranslatedRoute('/producto/deployment'),
+    collaboration: useTranslatedRoute('/producto/colaboracion'),
+    startups: useTranslatedRoute('/soluciones/startups'),
+    enterprises: useTranslatedRoute('/soluciones/empresas'),
+    devops: useTranslatedRoute('/soluciones/devops'),
+    multiCloud: useTranslatedRoute('/soluciones/multi-cloud'),
+    documentation: useTranslatedRoute('/documentacion'),
+    blog: useTranslatedRoute('/blog'),
+    community: useTranslatedRoute('/comunidad'),
+    changelog: useTranslatedRoute('/changelog'),
+    pricing: useTranslatedRoute('/precios'),
+    company: useTranslatedRoute('/empresa'),
+    login: useTranslatedRoute('/login'),
+  };
+
   // Navegación con traducciones dinámicas
   const navigation = {
     producto: {
       name: t('nav.producto'),
       items: [
-        { 
-          name: t('nav.editor_visual'), 
-          href: useTranslatedRoute('/producto/editor'), 
-          description: t('nav.editor_visual_desc') 
+        {
+          name: t('nav.editor_visual'),
+          href: translatedRoutes.editor,
+          description: t('nav.editor_visual_desc')
         },
-        { 
-          name: t('nav.generacion_iac'), 
-          href: useTranslatedRoute('/producto/iac'), 
-          description: t('nav.generacion_iac_desc') 
+        {
+          name: t('nav.generacion_iac'),
+          href: translatedRoutes.iac,
+          description: t('nav.generacion_iac_desc')
         },
-        { 
-          name: t('nav.deployment'), 
-          href: useTranslatedRoute('/producto/deployment'), 
-          description: t('nav.deployment_desc') 
+        {
+          name: t('nav.deployment'),
+          href: translatedRoutes.deployment,
+          description: t('nav.deployment_desc')
         },
-        { 
-          name: t('nav.colaboracion'), 
-          href: useTranslatedRoute('/producto/colaboracion'), 
-          description: t('nav.colaboracion_desc') 
+        {
+          name: t('nav.colaboracion'),
+          href: translatedRoutes.collaboration,
+          description: t('nav.colaboracion_desc')
         },
       ]
     },
     soluciones: {
       name: t('nav.soluciones'),
       items: [
-        { 
-          name: t('nav.para_startups'), 
-          href: useTranslatedRoute('/soluciones/startups'), 
-          description: t('nav.para_startups_desc') 
+        {
+          name: t('nav.para_startups'),
+          href: translatedRoutes.startups,
+          description: t('nav.para_startups_desc')
         },
-        { 
-          name: t('nav.para_empresas'), 
-          href: useTranslatedRoute('/soluciones/empresas'), 
-          description: t('nav.para_empresas_desc') 
+        {
+          name: t('nav.para_empresas'),
+          href: translatedRoutes.enterprises,
+          description: t('nav.para_empresas_desc')
         },
-        { 
-          name: t('nav.para_devops'), 
-          href: useTranslatedRoute('/soluciones/devops'), 
-          description: t('nav.para_devops_desc') 
+        {
+          name: t('nav.para_devops'),
+          href: translatedRoutes.devops,
+          description: t('nav.para_devops_desc')
         },
-        { 
-          name: t('nav.multi_cloud'), 
-          href: useTranslatedRoute('/soluciones/multi-cloud'), 
-          description: t('nav.multi_cloud_desc') 
+        {
+          name: t('nav.multi_cloud'),
+          href: translatedRoutes.multiCloud,
+          description: t('nav.multi_cloud_desc')
         },
       ]
     },
@@ -75,12 +93,12 @@ export default function HeaderNew() {
       items: [
         {
           name: t('nav.documentacion'),
-          href: useTranslatedRoute('/documentacion'),
+          href: translatedRoutes.documentation,
           description: t('nav.documentacion_desc')
         },
         {
           name: t('nav.blog'),
-          href: useTranslatedRoute('/blog'),
+          href: translatedRoutes.blog,
           description: t('nav.blog_desc')
         },
         {
@@ -90,12 +108,12 @@ export default function HeaderNew() {
         },
         {
           name: t('nav.comunidad'),
-          href: useTranslatedRoute('/comunidad'),
+          href: translatedRoutes.community,
           description: t('nav.comunidad_desc')
         },
         {
           name: t('nav.changelog'),
-          href: useTranslatedRoute('/changelog'),
+          href: translatedRoutes.changelog,
           description: t('nav.changelog_desc')
         },
       ]
@@ -103,8 +121,8 @@ export default function HeaderNew() {
   }
 
   const simpleLinks = [
-    { name: t('nav.precios'), href: useTranslatedRoute('/precios') },
-    { name: t('nav.empresa'), href: useTranslatedRoute('/empresa') },
+    { name: t('nav.precios'), href: translatedRoutes.pricing },
+    { name: t('nav.empresa'), href: translatedRoutes.company },
   ]
 
   useEffect(() => {
@@ -271,9 +289,9 @@ export default function HeaderNew() {
             </div>
             
             <Link
-              href="/login"
+              href={translatedRoutes.login}
               className="rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-200"
-              onClick={() => trackLinkClick('header_login', '/login')}
+              onClick={() => trackLinkClick('header_login', translatedRoutes.login)}
             >
               {t('nav.iniciar_sesion')}
             </Link>
@@ -389,7 +407,7 @@ export default function HeaderNew() {
                   </div>
                   
                   <Link
-                    href="/login"
+                    href={translatedRoutes.login}
                     className="block w-full rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-3 py-2.5 text-center text-base font-semibold text-white shadow-sm"
                     onClick={() => setMobileMenuOpen(false)}
                   >

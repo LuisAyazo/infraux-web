@@ -1198,8 +1198,8 @@ function TestimonialsSection() {
                 </div>
               </div>
               
-              {/* Highlight badge */}
-              <div className="absolute top-8 right-8">
+              {/* Highlight badge - moved below author info */}
+              <div className="mt-6 flex justify-center">
                 <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${testimonials[activeTestimonial].bgColor} text-white text-sm font-bold shadow-lg`}>
                   <SparklesIcon className="h-4 w-4" />
                   {testimonials[activeTestimonial].highlight}

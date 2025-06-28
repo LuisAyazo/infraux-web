@@ -11,7 +11,7 @@ const testimonials = [
     avatar: '/placeholders/avatar-1.jpg',
     rating: 5,
     quote:
-      'InfraUX ha transformado la forma en que diseñamos y desplegamos infraestructura. Lo que antes tomaba días, ahora se hace en horas, ¡y con menos errores!',
+      'La colaboración en tiempo real ha revolucionado cómo nuestro equipo trabaja. Todos pueden contribuir a la infraestructura, no solo los expertos en DevOps.',
     initial: 'A',
     bgColor: 'from-electric-purple-500 to-electric-purple-600',
   },
@@ -23,7 +23,7 @@ const testimonials = [
     avatar: '/placeholders/avatar-2.jpg',
     rating: 5,
     quote:
-      'La capacidad de visualizar la infraestructura antes de desplegarla es invaluable. InfraUX nos ha ahorrado incontables horas de debugging y optimización.',
+      'Hemos reducido nuestros costos de infraestructura en un 40% gracias a las optimizaciones de InfraUX. El ROI fue inmediato.',
     initial: 'C',
     bgColor: 'from-cloud-blue-500 to-cloud-blue-600',
   },
@@ -105,9 +105,39 @@ export default function Testimonials() {
               className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:scale-105 transition-all duration-500 relative overflow-hidden animate-fade-in-up"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              {/* Background decoration */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gray-100/50 to-gray-200/50 dark:from-gray-700/50 dark:to-gray-800/50 rounded-full blur-3xl transform translate-x-16 -translate-y-16 group-hover:scale-150 transition-transform duration-700"></div>
               
+              {/* Badge positioned in top right corner */}
+              {testimonial.id === 1 && (
+                <span className="absolute top-4 right-4 bg-electric-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">
+                  colaboración en tiempo real
+                </span>
+              )}
+              {testimonial.id === 2 && (
+                <span className="absolute top-4 right-4 bg-emerald-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">
+                  40% reducción de costos
+                </span>
+              )}
+              {testimonial.id === 3 && (
+                <span className="absolute top-4 right-4 bg-emerald-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">
+                  visibilidad completa
+                </span>
+              )}
+              {testimonial.id === 4 && (
+                <span className="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">
+                  arrastrar y soltar
+                </span>
+              )}
+              {testimonial.id === 5 && (
+                <span className="absolute top-4 right-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">
+                  escalar con un click
+                </span>
+              )}
+              {testimonial.id === 6 && (
+                <span className="absolute top-4 right-4 bg-indigo-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">
+                  multi-cloud
+                </span>
+              )}
+
               <div className="relative z-10">
                 {/* Stars */}
                 <div className="flex mb-6">
@@ -115,8 +145,8 @@ export default function Testimonials() {
                     <StarIcon
                       key={i}
                       className={`w-5 h-5 ${
-                        i < testimonial.rating 
-                          ? 'text-yellow-400 drop-shadow-sm' 
+                        i < testimonial.rating
+                          ? 'text-yellow-400 drop-shadow-sm'
                           : 'text-gray-300 dark:text-gray-600'
                       }`}
                     />
