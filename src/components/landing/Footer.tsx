@@ -27,17 +27,19 @@ const footerNavigation = {
     { name: 'Casos de Uso', href: '/casos-de-uso' },
     { name: 'Precios', href: '/precios' },
   ],
-  support: [
+  resources: [
     { name: 'Documentación', href: '#' },
+    { name: 'Blog', href: '#' },
+    { name: 'Roadmap', href: '/roadmap' },
     { name: 'Tutoriales', href: '#' },
-    { name: 'Soporte Técnico', href: '#' },
-    { name: 'Estado del Servicio', href: '#' },
+    { name: 'Comunidad', href: '#' },
   ],
   company: [
     { name: 'Sobre Nosotros', href: '#' },
-    { name: 'Blog', href: '#' },
     { name: 'Carreras', href: '#' },
     { name: 'Contacto', href: '#' },
+    { name: 'Soporte Técnico', href: '#' },
+    { name: 'Estado del Servicio', href: '#' },
   ],
   legal: [
     { name: 'Privacidad', href: '#' },
@@ -65,8 +67,8 @@ export default function Footer() {
       <div className="relative max-w-7xl mx-auto py-12 lg:py-16 px-6 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1 animate-fade-in-up">
-            <div className="h-10 w-auto text-3xl font-bold">
-              <span className="text-electric-purple-400">Infra</span><span className="text-emerald-green-400">UX</span> {/* Logo con colores sólidos */}
+            <div className="h-10 w-auto text-3xl">
+              <span className="font-bold">Infra</span><span className="text-emerald-500">UX</span>
             </div>
             <p className="text-gray-400 text-base animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
               Transformando la complejidad de la nube en simplicidad visual.
@@ -96,9 +98,9 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-white mb-6">Soporte</h3>
+                <h3 className="text-sm font-semibold leading-6 text-white mb-6">Recursos</h3>
                 <ul role="list" className="space-y-4">
-                  {footerNavigation.support.map((item, index) => (
+                  {footerNavigation.resources.map((item, index) => (
                     <li key={item.name} className="animate-fade-in-up" style={{ animationDelay: `${0.8 + index * 0.1}s` }}>
                       <a href={item.href} className="text-sm leading-6 hover:text-white transition-colors duration-300 relative group"> {/* Hover a blanco */}
                         {item.name}
@@ -141,7 +143,7 @@ export default function Footer() {
         </div>
         <div className="mt-12 border-t border-white/10 pt-8 animate-fade-in-up" style={{ animationDelay: '2s' }}>
           <p className="text-xs leading-5 text-gray-400 text-center">
-            &copy; {new Date().getFullYear()} <span className="text-gray-300 font-semibold">Infra</span><span className="text-emerald-green-400 font-semibold">UX</span> Technologies. Todos los derechos reservados. {/* Copyright con colores sólidos */}
+            &copy; {new Date().getFullYear()} <span className="font-bold">Infra</span><span className="text-emerald-500">UX</span> Technologies. Todos los derechos reservados.
           </p>
         </div>
       </div>

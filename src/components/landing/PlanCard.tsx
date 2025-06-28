@@ -1,6 +1,7 @@
 'use client'
 
 import { CheckIcon, XMarkIcon, StarIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 
 // Definimos los tipos para las props del PlanCard
 // Es una buena práctica definir los tipos de los datos que se esperan.
@@ -91,19 +92,18 @@ export default function PlanCard({ plan, isYearly, planIdx }: PlanCardProps) {
         )}
       </div>
       
-      <button
-        // Podríamos usar Link de Next.js si cta es una URL, o un simple button para acciones.
-        // Por ahora, lo mantenemos como button. Si plan.ctaLink existe, podríamos usarlo.
+      <Link
+        href={plan.id === 'enterprise' ? '/contacto' : '/registro'}
         className={`mt-6 xl:mt-8 block w-full rounded-md px-3 py-2.5 text-center text-sm font-semibold leading-6 transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900 ${
           plan.popular
             ? 'bg-electric-purple-600 hover:bg-electric-purple-700 text-white shadow-lg hover:shadow-xl focus:ring-electric-purple-500' // CTA popular con color sólido
-            : plan.id === 'starter' 
+            : plan.id === 'starter'
             ? 'bg-gray-500 hover:bg-gray-600 text-white shadow-md hover:shadow-lg focus:ring-gray-500' // CTA starter ligeramente más claro
             : 'bg-electric-purple-500 hover:bg-electric-purple-600 text-white shadow-md hover:shadow-lg focus:ring-electric-purple-500' // Otros CTAs no populares con un tono de púrpura ligeramente menos intenso que el popular
         }`}
       >
         {plan.cta}
-      </button>
+      </Link>
 
       <ul role="list" className="mt-6 xl:mt-8 space-y-3 text-sm leading-6 text-gray-600 dark:text-gray-300">
         {plan.features.map((feature) => (

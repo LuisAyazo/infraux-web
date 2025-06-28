@@ -3,6 +3,9 @@ type RouteTranslations = {
 };
 
 export const routeTranslations: RouteTranslations = {
+  // Roadmap
+  '/roadmap': { es: '/roadmap', en: '/roadmap' },
+  '/roadmap-en': { es: '/roadmap', en: '/roadmap' },
   '/': { es: '/', en: '/' },
   '/precios': { es: '/precios', en: '/pricing' },
   '/pricing': { es: '/precios', en: '/pricing' },
@@ -41,4 +44,12 @@ export const routeTranslations: RouteTranslations = {
   '/solutions/devops': { es: '/soluciones/devops', en: '/solutions/devops' },
   '/soluciones/multi-cloud': { es: '/soluciones/multi-cloud', en: '/solutions/multi-cloud' },
   '/solutions/multi-cloud': { es: '/soluciones/multi-cloud', en: '/solutions/multi-cloud' },
+  '/terminos-y-condiciones': { es: '/terminos-y-condiciones', en: '/terms-and-conditions' },
+  '/terms-and-conditions': { es: '/terminos-y-condiciones', en: '/terms-and-conditions' },
+  '/politica-de-privacidad': { es: '/politica-de-privacidad', en: '/privacy-policy' },
+  '/privacy-policy': { es: '/politica-de-privacidad', en: '/privacy-policy' },
+  '/registro': { es: '/registro', en: '/register' },
+  '/register': { es: '/registro', en: '/register' },
+  '/login': { es: '/iniciar-sesion', en: '/login' },
+  '/iniciar-sesion': { es: '/iniciar-sesion', en: '/login' },
 };

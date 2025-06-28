@@ -30,8 +30,13 @@ import {
   XMarkIcon,
   ChatBubbleLeftRightIcon,
   FireIcon,
-  PuzzlePieceIcon
+  PuzzlePieceIcon,
+  QuestionMarkCircleIcon,
+  CalendarIcon,
+  ChevronDownIcon,
+  StarIcon
 } from '@heroicons/react/24/outline';
+import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid';
 import {
   FaAws,
   FaGoogle,
@@ -91,7 +96,10 @@ function HeroSection() {
           <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-premium mb-10 animate-fade-in">
             <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
             <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">
-              {language === 'es' ? 'Versión 1.0-beta • Lanzamiento oficial' : 'Version 1.0-beta • Official Launch'}
+              {language === 'es'
+                ? 'Versión 1.0-beta • Lanzamiento oficial: 27 de julio de 2025'
+                : 'Version 1.0-beta • Official Launch: July 27, 2025'
+              }
             </span>
           </div>
 
@@ -116,7 +124,7 @@ function HeroSection() {
           {/* Premium CTA Buttons - Mejorado para móviles */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center items-center mb-16 sm:mb-20 animate-fade-in-up animation-delay-400">
             <Link
-              href="https://app.infraux.com/register"
+              href="/registro"
               className="group relative inline-flex items-center gap-3 px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-bold text-base sm:text-lg rounded-2xl shadow-premium hover:shadow-premium-lg transform hover:scale-105 transition-all duration-300 btn-premium w-full sm:w-auto"
               onClick={() => trackButtonClick('hero_start_free', { location: 'hero' })}
             >
@@ -189,7 +197,7 @@ function HeroSection() {
                   </div>
                   <div className="flex-1 flex justify-center">
                     <div className="px-6 py-1.5 bg-slate-100/50 dark:bg-slate-800/50 rounded-lg">
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">editor.infraux.com</span>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">app.infraux.com</span>
                     </div>
                   </div>
                   <div className="flex gap-2">
@@ -748,7 +756,7 @@ function UseCasesSection() {
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
           <Link
-            href="/pricing"
+            href="/precios"
             className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-slate-900 to-slate-800 dark:from-white dark:to-slate-100 text-white dark:text-slate-900 font-bold rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
           >
             {language === 'es' ? 'Ver todos los planes y comparación detallada' : 'View all plans and detailed comparison'}
@@ -931,6 +939,498 @@ function IntegrationsSection() {
   );
 }
 
+// Sección de Testimonios mejorada
+function TestimonialsSection() {
+  const { language } = useLanguage();
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  
+  const testimonials = language === 'es' ? [
+    {
+      id: 1,
+      name: 'Ana Pérez',
+      role: 'Arquitecta Cloud Senior',
+      company: 'TechSolutions',
+      rating: 5,
+      quote: 'InfraUX ha transformado la forma en que diseñamos y desplegamos infraestructura. Lo que antes tomaba días, ahora se hace en horas, ¡y con menos errores!',
+      initial: 'A',
+      bgColor: 'from-purple-500 to-pink-500',
+      highlight: 'días → horas'
+    },
+    {
+      id: 2,
+      name: 'Carlos Vega',
+      role: 'Ingeniero DevOps Lead',
+      company: 'Innovatec',
+      rating: 5,
+      quote: 'La capacidad de visualizar la infraestructura antes de desplegarla es invaluable. InfraUX nos ha ahorrado incontables horas de debugging y optimización.',
+      initial: 'C',
+      bgColor: 'from-blue-500 to-cyan-500',
+      highlight: 'visualizar antes de desplegar'
+    },
+    {
+      id: 3,
+      name: 'Sofía Ramírez',
+      role: 'CTO',
+      company: 'CloudNine Co.',
+      rating: 5,
+      quote: 'Como CTO, InfraUX me permite tener visibilidad completa de nuestra infraestructura. La herramienta facilita la toma de decisiones estratégicas y reduce significativamente los riesgos.',
+      initial: 'S',
+      bgColor: 'from-emerald-500 to-teal-500',
+      highlight: 'visibilidad completa'
+    },
+    {
+      id: 4,
+      name: 'Miguel Torres',
+      role: 'Developer Full Stack',
+      company: 'StartupTech',
+      rating: 5,
+      quote: 'Como desarrollador, siempre me intimidaba la configuración de infraestructura. InfraUX hace que sea tan fácil como arrastrar y soltar. ¡Increíble!',
+      initial: 'M',
+      bgColor: 'from-orange-500 to-red-500',
+      highlight: 'arrastrar y soltar'
+    },
+    {
+      id: 5,
+      name: 'Laura Jiménez',
+      role: 'VP Engineering',
+      company: 'ScaleUp Inc.',
+      rating: 5,
+      quote: 'El pre-deploy y post-deploy automatizado nos ha dado una confianza increíble. Podemos escalar nuestra infraestructura con un click y estar seguros de que todo funcionará perfectamente.',
+      initial: 'L',
+      bgColor: 'from-pink-500 to-rose-500',
+      highlight: 'escalar con un click'
+    },
+    {
+      id: 6,
+      name: 'Roberto Silva',
+      role: 'Site Reliability Engineer',
+      company: 'MegaCorp',
+      rating: 5,
+      quote: 'La capacidad de InfraUX para manejar multi-cloud con validación en tiempo real es excepcional. Nuestros deployments son ahora 100% confiables.',
+      initial: 'R',
+      bgColor: 'from-indigo-500 to-purple-500',
+      highlight: '100% confiables'
+    },
+    {
+      id: 7,
+      name: 'Patricia González',
+      role: 'Head of Infrastructure',
+      company: 'FinTech Solutions',
+      rating: 5,
+      quote: 'La colaboración en tiempo real ha revolucionado cómo nuestro equipo trabaja. Todos pueden ver y entender la infraestructura, no solo los expertos en DevOps.',
+      initial: 'P',
+      bgColor: 'from-violet-500 to-purple-500',
+      highlight: 'colaboración en tiempo real'
+    },
+    {
+      id: 8,
+      name: 'Diego Martínez',
+      role: 'Platform Engineer',
+      company: 'E-commerce Giant',
+      rating: 5,
+      quote: 'Hemos reducido nuestros costos de infraestructura en un 40% gracias a las optimizaciones sugeridas por InfraUX. El ROI fue inmediato.',
+      initial: 'D',
+      bgColor: 'from-green-500 to-emerald-500',
+      highlight: '40% reducción de costos'
+    }
+  ] : [
+    {
+      id: 1,
+      name: 'Ana Pérez',
+      role: 'Senior Cloud Architect',
+      company: 'TechSolutions',
+      rating: 5,
+      quote: 'InfraUX has transformed how we design and deploy infrastructure. What used to take days now takes hours, with fewer errors!',
+      initial: 'A',
+      bgColor: 'from-purple-500 to-pink-500',
+      highlight: 'days → hours'
+    },
+    {
+      id: 2,
+      name: 'Carlos Vega',
+      role: 'Lead DevOps Engineer',
+      company: 'Innovatec',
+      rating: 5,
+      quote: 'The ability to visualize infrastructure before deploying is invaluable. InfraUX has saved us countless hours of debugging and optimization.',
+      initial: 'C',
+      bgColor: 'from-blue-500 to-cyan-500',
+      highlight: 'visualize before deploy'
+    },
+    {
+      id: 3,
+      name: 'Sofía Ramírez',
+      role: 'CTO',
+      company: 'CloudNine Co.',
+      rating: 5,
+      quote: 'As a CTO, InfraUX gives me complete visibility of our infrastructure. The tool facilitates strategic decision-making and significantly reduces risks.',
+      initial: 'S',
+      bgColor: 'from-emerald-500 to-teal-500',
+      highlight: 'complete visibility'
+    },
+    {
+      id: 4,
+      name: 'Miguel Torres',
+      role: 'Full Stack Developer',
+      company: 'StartupTech',
+      rating: 5,
+      quote: 'As a developer, infrastructure configuration always intimidated me. InfraUX makes it as easy as drag and drop. Amazing!',
+      initial: 'M',
+      bgColor: 'from-orange-500 to-red-500',
+      highlight: 'drag and drop'
+    },
+    {
+      id: 5,
+      name: 'Laura Jiménez',
+      role: 'VP Engineering',
+      company: 'ScaleUp Inc.',
+      rating: 5,
+      quote: 'Automated pre-deploy and post-deploy has given us incredible confidence. We can scale our infrastructure with one click and be sure everything will work perfectly.',
+      initial: 'L',
+      bgColor: 'from-pink-500 to-rose-500',
+      highlight: 'scale with one click'
+    },
+    {
+      id: 6,
+      name: 'Roberto Silva',
+      role: 'Site Reliability Engineer',
+      company: 'MegaCorp',
+      rating: 5,
+      quote: "InfraUX's ability to handle multi-cloud with real-time validation is exceptional. Our deployments are now 100% reliable.",
+      initial: 'R',
+      bgColor: 'from-indigo-500 to-purple-500',
+      highlight: '100% reliable'
+    },
+    {
+      id: 7,
+      name: 'Patricia González',
+      role: 'Head of Infrastructure',
+      company: 'FinTech Solutions',
+      rating: 5,
+      quote: 'Real-time collaboration has revolutionized how our team works. Everyone can see and understand the infrastructure, not just DevOps experts.',
+      initial: 'P',
+      bgColor: 'from-violet-500 to-purple-500',
+      highlight: 'real-time collaboration'
+    },
+    {
+      id: 8,
+      name: 'Diego Martínez',
+      role: 'Platform Engineer',
+      company: 'E-commerce Giant',
+      rating: 5,
+      quote: "We've reduced our infrastructure costs by 40% thanks to InfraUX's suggested optimizations. The ROI was immediate.",
+      initial: 'D',
+      bgColor: 'from-green-500 to-emerald-500',
+      highlight: '40% cost reduction'
+    }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
+  return (
+    <section className="py-32 bg-gradient-to-b from-white to-slate-50 dark:from-black dark:to-slate-950 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.01]" />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-premium mb-8">
+            <StarIcon className="h-5 w-5 text-emerald-500" />
+            <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">
+              {language === 'es' ? 'Testimonios de clientes' : 'Customer testimonials'}
+            </span>
+          </div>
+          
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white mb-6">
+            {language === 'es' ? 'Lo que dicen nuestros' : 'What our'}
+            <span className="block gradient-text-emerald">{language === 'es' ? 'usuarios' : 'users say'}</span>
+          </h2>
+          <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 max-w-4xl mx-auto font-medium">
+            {language === 'es'
+              ? 'Miles de equipos confían en InfraUX para gestionar su infraestructura cloud'
+              : 'Thousands of teams trust InfraUX to manage their cloud infrastructure'
+            }
+          </p>
+        </div>
+
+        {/* Featured testimonial - Carousel */}
+        <div className="max-w-4xl mx-auto mb-16">
+          <div className="relative bg-white dark:bg-slate-900 rounded-3xl p-8 lg:p-12 shadow-premium-lg border border-slate-200 dark:border-slate-800 overflow-hidden">
+            {/* Gradient overlay */}
+            <div className={`absolute inset-0 bg-gradient-to-br ${testimonials[activeTestimonial].bgColor} opacity-5`} />
+            
+            <div className="relative z-10">
+              {/* Quote */}
+              <blockquote className="text-2xl lg:text-3xl font-medium text-slate-800 dark:text-slate-200 mb-8 leading-relaxed">
+                "{testimonials[activeTestimonial].quote}"
+              </blockquote>
+              
+              {/* Author */}
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${testimonials[activeTestimonial].bgColor} flex items-center justify-center shadow-lg`}>
+                    <span className="text-2xl font-bold text-white">
+                      {testimonials[activeTestimonial].initial}
+                    </span>
+                  </div>
+                  <div>
+                    <p className="text-xl font-bold text-slate-900 dark:text-white">
+                      {testimonials[activeTestimonial].name}
+                    </p>
+                    <p className="text-slate-600 dark:text-slate-400">
+                      {testimonials[activeTestimonial].role} • {testimonials[activeTestimonial].company}
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Rating */}
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <StarIconSolid
+                      key={i}
+                      className="h-6 w-6 text-yellow-400"
+                    />
+                  ))}
+                </div>
+              </div>
+              
+              {/* Highlight badge */}
+              <div className="absolute top-8 right-8">
+                <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${testimonials[activeTestimonial].bgColor} text-white text-sm font-bold shadow-lg`}>
+                  <SparklesIcon className="h-4 w-4" />
+                  {testimonials[activeTestimonial].highlight}
+                </span>
+              </div>
+            </div>
+            
+            {/* Carousel indicators */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveTestimonial(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === activeTestimonial
+                      ? 'w-8 bg-emerald-500'
+                      : 'w-2 bg-slate-400/50 hover:bg-slate-400'
+                  }`}
+                  aria-label={`Ver testimonio ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Grid of testimonials */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {testimonials.slice(0, 4).map((testimonial, index) => (
+            <div
+              key={testimonial.id}
+              className="group bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-lg border border-slate-200 dark:border-slate-800 hover:shadow-xl hover:scale-105 transition-all duration-300"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <StarIconSolid
+                    key={i}
+                    className="h-4 w-4 text-yellow-400"
+                  />
+                ))}
+              </div>
+              
+              <p className="text-slate-700 dark:text-slate-300 mb-4 line-clamp-3">
+                "{testimonial.quote}"
+              </p>
+              
+              <div className="flex items-center gap-3">
+                <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${testimonial.bgColor} flex items-center justify-center`}>
+                  <span className="text-sm font-bold text-white">
+                    {testimonial.initial}
+                  </span>
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-900 dark:text-white text-sm">
+                    {testimonial.name}
+                  </p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">
+                    {testimonial.company}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Sección de FAQ
+function FAQSection() {
+  const { language } = useLanguage();
+  const [openQuestion, setOpenQuestion] = useState<number | null>(0);
+  
+  const faqs = language === 'es' ? [
+    {
+      question: '¿Qué es InfraUX y cómo funciona?',
+      answer: 'InfraUX es una plataforma visual para diseñar, desplegar y gestionar infraestructura cloud. Funciona permitiéndote arrastrar y soltar recursos cloud en un editor visual, que luego genera automáticamente código IaC (Terraform, CloudFormation, etc.) optimizado y listo para producción. Todo el proceso es colaborativo en tiempo real.',
+      category: 'general'
+    },
+    {
+      question: '¿Necesito conocimientos de DevOps para usar InfraUX?',
+      answer: 'No, InfraUX está diseñado para ser intuitivo y accesible para todos. Si bien los conocimientos de DevOps son útiles, nuestra interfaz visual y las mejores prácticas automáticas permiten que cualquier desarrollador pueda crear y gestionar infraestructura cloud profesional sin ser un experto.',
+      category: 'general'
+    },
+    {
+      question: '¿Qué proveedores cloud son compatibles?',
+      answer: 'Actualmente soportamos AWS, Google Cloud Platform (GCP) y Microsoft Azure. Puedes usar múltiples proveedores en el mismo proyecto (multi-cloud) y cambiar entre ellos fácilmente. Estamos trabajando en agregar más proveedores según la demanda de nuestros usuarios.',
+      category: 'technical'
+    },
+    {
+      question: '¿Cómo funciona la colaboración en tiempo real?',
+      answer: 'Múltiples miembros del equipo pueden trabajar en el mismo diagrama de infraestructura simultáneamente. Los cambios se sincronizan instantáneamente, puedes ver los cursores de otros usuarios, dejar comentarios, y todo el historial de cambios se guarda automáticamente. Es como Google Docs pero para infraestructura cloud.',
+      category: 'features'
+    },
+    {
+      question: '¿InfraUX es seguro para proyectos empresariales?',
+      answer: 'Absolutamente. InfraUX cuenta con certificación SOC2, encriptación end-to-end, y cumple con los estándares de seguridad más estrictos. Nunca almacenamos credenciales cloud, todo el código generado es tuyo, y puedes auditar cada cambio. Además, ofrecemos opciones de deployment on-premise para empresas con requisitos especiales.',
+      category: 'security'
+    },
+    {
+      question: '¿Cuánto cuesta InfraUX?',
+      answer: 'Ofrecemos un plan gratuito generoso que incluye hasta 3 proyectos y todas las características esenciales. Los planes de pago comienzan en $29/mes por usuario e incluyen proyectos ilimitados, soporte prioritario y características avanzadas. También tenemos planes especiales para startups y empresas.',
+      category: 'pricing'
+    }
+  ] : [
+    {
+      question: 'What is InfraUX and how does it work?',
+      answer: 'InfraUX is a visual platform for designing, deploying, and managing cloud infrastructure. It works by allowing you to drag and drop cloud resources in a visual editor, which then automatically generates optimized, production-ready IaC code (Terraform, CloudFormation, etc.). The entire process is collaborative in real-time.',
+      category: 'general'
+    },
+    {
+      question: 'Do I need DevOps knowledge to use InfraUX?',
+      answer: 'No, InfraUX is designed to be intuitive and accessible to everyone. While DevOps knowledge is helpful, our visual interface and automatic best practices allow any developer to create and manage professional cloud infrastructure without being an expert.',
+      category: 'general'
+    },
+    {
+      question: 'Which cloud providers are supported?',
+      answer: 'We currently support AWS, Google Cloud Platform (GCP), and Microsoft Azure. You can use multiple providers in the same project (multi-cloud) and switch between them easily. We are working on adding more providers based on user demand.',
+      category: 'technical'
+    },
+    {
+      question: 'How does real-time collaboration work?',
+      answer: 'Multiple team members can work on the same infrastructure diagram simultaneously. Changes sync instantly, you can see other users\' cursors, leave comments, and all change history is saved automatically. It\'s like Google Docs but for cloud infrastructure.',
+      category: 'features'
+    },
+    {
+      question: 'Is InfraUX secure for enterprise projects?',
+      answer: 'Absolutely. InfraUX is SOC2 certified, features end-to-end encryption, and meets the strictest security standards. We never store cloud credentials, all generated code is yours, and you can audit every change. We also offer on-premise deployment options for enterprises with special requirements.',
+      category: 'security'
+    },
+    {
+      question: 'How much does InfraUX cost?',
+      answer: 'We offer a generous free plan that includes up to 3 projects and all essential features. Paid plans start at $29/month per user and include unlimited projects, priority support, and advanced features. We also have special plans for startups and enterprises.',
+      category: 'pricing'
+    }
+  ];
+
+  return (
+    <section className="py-32 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-black relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.01]" />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-premium mb-8">
+            <QuestionMarkCircleIcon className="h-5 w-5 text-emerald-500" />
+            <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">
+              {language === 'es' ? 'Preguntas frecuentes' : 'Frequently asked questions'}
+            </span>
+          </div>
+          
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white mb-6">
+            {language === 'es' ? 'Resolvemos tus' : 'We answer your'}
+            <span className="block gradient-text-emerald">{language === 'es' ? 'dudas' : 'questions'}</span>
+          </h2>
+          <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 max-w-4xl mx-auto font-medium">
+            {language === 'es'
+              ? 'Todo lo que necesitas saber sobre InfraUX y cómo puede transformar tu infraestructura'
+              : 'Everything you need to know about InfraUX and how it can transform your infrastructure'
+            }
+          </p>
+        </div>
+
+        {/* FAQ Accordion */}
+        <div className="max-w-4xl mx-auto space-y-4">
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className="bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-800 overflow-hidden transition-all duration-300 hover:shadow-xl"
+            >
+              <button
+                onClick={() => setOpenQuestion(openQuestion === index ? null : index)}
+                className="w-full px-8 py-6 text-left flex items-center justify-between gap-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
+              >
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white pr-4">
+                  {faq.question}
+                </h3>
+                <ChevronDownIcon
+                  className={`h-5 w-5 text-emerald-500 flex-shrink-0 transition-transform duration-300 ${
+                    openQuestion === index ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+              
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  openQuestion === index ? 'max-h-96' : 'max-h-0'
+                }`}
+              >
+                <div className="px-8 pb-6">
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-20 text-center">
+          <p className="text-slate-600 dark:text-slate-400 mb-6 text-lg">
+            {language === 'es'
+              ? '¿No encuentras lo que buscas?'
+              : "Can't find what you're looking for?"
+            }
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link
+              href={language === 'es' ? '/documentacion' : '/documentation'}
+              className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
+            >
+              {language === 'es' ? 'Ver documentación completa' : 'View full documentation'}
+              <ArrowRightIcon className="h-5 w-5" />
+            </Link>
+            <span className="text-slate-400 hidden sm:inline">•</span>
+            <Link
+              href={language === 'es' ? '/contacto' : '/contact'}
+              className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
+            >
+              {language === 'es' ? 'Contactar soporte' : 'Contact support'}
+              <ChatBubbleLeftRightIcon className="h-5 w-5" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 // CTA Final premium
 function FinalCTA() {
@@ -975,7 +1475,7 @@ function FinalCTA() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-16">
           <Link
-            href="https://app.infraux.com/register"
+            href="/registro"
             className="group relative inline-flex items-center gap-3 px-10 py-5 bg-white text-emerald-600 font-bold text-lg rounded-2xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
             onClick={() => trackButtonClick('final_cta_create_account', { location: 'final_cta' })}
           >
@@ -1045,7 +1545,9 @@ export default function HomePageNew() {
         <MetricsSection />
         <FeaturesGrid />
         <UseCasesSection />
+        <TestimonialsSection />
         <IntegrationsSection />
+        <FAQSection />
         <FinalCTA />
       </main>
       <FooterNew />

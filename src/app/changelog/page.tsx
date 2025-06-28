@@ -168,7 +168,7 @@ export default function ChangelogPage() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in-up" style={{ animationDelay: '0.3s' }}>
                 <Link
-                  href="/register"
+                  href="/registro"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                 >
                   <RocketLaunchIcon className="h-5 w-5" />

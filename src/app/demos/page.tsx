@@ -204,7 +204,7 @@ export default function DemosPage() {
                   Ver todas las demos
                 </Link>
                 <Link
-                  href="/register"
+                  href="/registro"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
                 >
                   Prueba gratis
@@ -325,7 +325,7 @@ export default function DemosPage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/register"
+                href="/registro"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
               >
                 Empezar ahora

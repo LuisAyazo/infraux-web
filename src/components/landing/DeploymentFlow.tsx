@@ -13,7 +13,7 @@ const steps = [
   },
   {
     name: '2. Traducción a IaC',
-    description: '<span class="text-electric-purple-600 dark:text-electric-purple-400">Infra</span><span class="text-emerald-green-600 dark:text-emerald-green-400">UX</span> convierte automáticamente tu diagrama en código IaC optimizado (Terraform, Pulumi, etc.), listo para ser versionado y reutilizado.', // Logo actualizado
+    description: '<span class="font-bold">Infra</span><span class="text-emerald-500">UX</span> convierte automáticamente tu diagrama en código IaC optimizado (Terraform, Pulumi, etc.), listo para ser versionado y reutilizado.',
     icon: DocumentTextIcon,
     color: 'text-emerald-green-500',
     bgColor: 'bg-emerald-green-500/10',
@@ -29,7 +29,7 @@ const steps = [
   },
   {
     name: '4. Despliegue Automatizado',
-    description: 'Integra <span class="text-electric-purple-600 dark:text-electric-purple-400">Infra</span><span class="text-emerald-green-600 dark:text-emerald-green-400">UX</span> con tus pipelines de CI/CD para desplegar tu infraestructura directamente a GCP, AWS o Azure con un solo clic o comando.', // Logo actualizado
+    description: 'Integra <span class="font-bold">Infra</span><span class="text-emerald-500">UX</span> con tus pipelines de CI/CD para desplegar tu infraestructura directamente a GCP, AWS o Azure con un solo clic o comando.',
     icon: ArrowPathIcon,
     color: 'text-yellow-500',
     bgColor: 'bg-yellow-500/10',

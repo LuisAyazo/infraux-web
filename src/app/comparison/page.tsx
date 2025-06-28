@@ -238,7 +238,7 @@ export default function ComparisonPage() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in-up" style={{ animationDelay: '0.3s' }}>
                 <Link
-                  href="/register"
+                  href="/registro"
                   className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-full shadow-premium hover:shadow-premium-lg transform hover:scale-105 transition-all duration-300"
                 >
                   Try InfraUX free
@@ -451,7 +451,7 @@ export default function ComparisonPage() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
-                    href="/register"
+                    href="/registro"
                     className="inline-flex items-center gap-2 px-10 py-5 bg-white text-emerald-600 font-semibold rounded-full hover:bg-emerald-50 transition-colors shadow-lg"
                   >
                     Import my infrastructure
@@ -481,7 +481,7 @@ export default function ComparisonPage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in-up" style={{ animationDelay: '0.2s' }}>
               <Link
-                href="/register"
+                href="/registro"
                 className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-full shadow-premium hover:shadow-premium-lg transform hover:scale-105 transition-all duration-300"
               >
                 Start free trial

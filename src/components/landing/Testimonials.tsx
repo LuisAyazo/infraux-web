@@ -94,7 +94,7 @@ export default function Testimonials() {
             </span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Descubre cómo <span className="text-electric-purple-600 dark:text-electric-purple-400">Infra</span><span className="text-emerald-green-600 dark:text-emerald-green-400">UX</span> está ayudando a equipos como el tuyo a innovar más rápido y con mayor confianza. {/* Logo a colores sólidos */}
+            Descubre cómo <span className="font-bold">Infra</span><span className="text-emerald-500">UX</span> está ayudando a equipos como el tuyo a innovar más rápido y con mayor confianza.
           </p>
         </div>
 

@@ -406,7 +406,7 @@ export default function UseCasesPage() {
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
-                    href="/register"
+                    href="/registro"
                     className="inline-flex items-center gap-2 px-10 py-5 bg-white text-emerald-600 font-semibold rounded-full hover:bg-emerald-50 transition-colors shadow-lg"
                   >
                     Start free trial

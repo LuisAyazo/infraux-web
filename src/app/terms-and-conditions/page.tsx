@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Terms of Service - InfraUX',
-  description: 'Términos y condiciones de uso de InfraUX, la plataforma visual para infraestructura cloud.',
+  description: 'Terms and conditions of use for InfraUX, the visual platform for cloud infrastructure.',
 };
 
 export default function TermsAndConditionsPage() {
@@ -21,7 +21,7 @@ export default function TermsAndConditionsPage() {
                 Terms of Service
               </h1>
               <p className="text-lg text-slate-600 dark:text-slate-400">
-                Última actualización: {new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+                Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
               </p>
             </div>
 
@@ -29,136 +29,136 @@ export default function TermsAndConditionsPage() {
             <div className="prose prose-lg dark:prose-invert max-w-none">
               <section className="mb-12">
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                  1. Aceptación de los Términos
+                  1. Acceptance of Terms
                 </h2>
                 <p className="text-slate-600 dark:text-slate-400 mb-4">
-                  Al acceder y utilizar InfraUX ("el Servicio"), usted acepta estar sujeto a estos Términos de Servicio ("Términos"). 
-                  Si no está de acuerdo con estos términos, no debe utilizar el Servicio.
+                  By accessing and using InfraUX ("the Service"), you agree to be bound by these Terms of Service ("Terms"). 
+                  If you do not agree to these terms, you must not use the Service.
                 </p>
               </section>
 
               <section className="mb-12">
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                  2. ¿Qué es InfraUX?
+                  2. What is InfraUX?
                 </h2>
                 <p className="text-slate-600 dark:text-slate-400 mb-4">
-                  InfraUX es una plataforma visual para diseñar, desplegar y gestionar infraestructura cloud. 
-                  Nuestro servicio permite a los usuarios crear diagramas de infraestructura y generar código 
-                  Infrastructure as Code (IaC) automáticamente para múltiples proveedores cloud.
+                  InfraUX is a visual platform for designing, deploying, and managing cloud infrastructure. 
+                  Our service allows users to create infrastructure diagrams and automatically generate 
+                  Infrastructure as Code (IaC) for multiple cloud providers.
                 </p>
                 <ul className="list-disc pl-6 text-slate-600 dark:text-slate-400 space-y-2">
-                  <li>Diseño visual de infraestructura</li>
-                  <li>Generación automática de código Terraform, Pulumi, Ansible y CloudFormation</li>
-                  <li>Soporte para AWS, Google Cloud Platform y Microsoft Azure</li>
-                  <li>Colaboración en tiempo real entre equipos</li>
-                  <li>Gestión de múltiples entornos y proyectos</li>
+                  <li>Visual infrastructure design</li>
+                  <li>Automatic generation of Terraform, Pulumi, Ansible, and CloudFormation code</li>
+                  <li>Support for AWS, Google Cloud Platform, and Microsoft Azure</li>
+                  <li>Real-time collaboration between teams</li>
+                  <li>Management of multiple environments and projects</li>
                 </ul>
               </section>
 
               <section className="mb-12">
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                  3. Condiciones de Uso
+                  3. Conditions of Use
                 </h2>
                 <p className="text-slate-600 dark:text-slate-400 mb-4">
-                  Al utilizar InfraUX, usted se compromete a:
+                  By using InfraUX, you agree to:
                 </p>
                 <ul className="list-disc pl-6 text-slate-600 dark:text-slate-400 space-y-2">
-                  <li>Proporcionar información precisa y actualizada durante el registro</li>
-                  <li>Mantener la seguridad de su cuenta y contraseña</li>
-                  <li>No utilizar el servicio para actividades ilegales o no autorizadas</li>
-                  <li>No intentar acceder a áreas restringidas del servicio</li>
-                  <li>No interferir con el funcionamiento normal del servicio</li>
-                  <li>Cumplir con todas las leyes y regulaciones aplicables</li>
+                  <li>Provide accurate and up-to-date information during registration</li>
+                  <li>Maintain the security of your account and password</li>
+                  <li>Not use the service for illegal or unauthorized activities</li>
+                  <li>Not attempt to access restricted areas of the service</li>
+                  <li>Not interfere with the normal operation of the service</li>
+                  <li>Comply with all applicable laws and regulations</li>
                 </ul>
               </section>
 
               <section className="mb-12">
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                  4. Pagos y Facturación
+                  4. Payments and Billing
                 </h2>
                 <p className="text-slate-600 dark:text-slate-400 mb-4">
-                  Los planes de pago de InfraUX se facturan de forma mensual o anual, según su elección:
+                  InfraUX payment plans are billed on a monthly or annual basis, depending on your choice:
                 </p>
                 <ul className="list-disc pl-6 text-slate-600 dark:text-slate-400 space-y-2">
-                  <li>Los pagos se procesan automáticamente al inicio de cada período de facturación</li>
-                  <li>Los precios están sujetos a cambios con 30 días de aviso previo</li>
-                  <li>No se realizan reembolsos por períodos parciales</li>
-                  <li>Los planes anuales incluyen un descuento del 20%</li>
-                  <li>Aceptamos tarjetas de crédito, PayPal y transferencias bancarias</li>
+                  <li>Payments are processed automatically at the beginning of each billing period</li>
+                  <li>Prices are subject to change with 30 days prior notice</li>
+                  <li>No refunds are provided for partial periods</li>
+                  <li>Annual plans include a 20% discount</li>
+                  <li>We accept credit cards, PayPal, and bank transfers</li>
                 </ul>
               </section>
 
               <section className="mb-12">
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                  5. Cancelaciones
+                  5. Cancellations
                 </h2>
                 <p className="text-slate-600 dark:text-slate-400 mb-4">
-                  Puede cancelar su suscripción en cualquier momento:
+                  You can cancel your subscription at any time:
                 </p>
                 <ul className="list-disc pl-6 text-slate-600 dark:text-slate-400 space-y-2">
-                  <li>La cancelación será efectiva al final del período de facturación actual</li>
-                  <li>No se realizarán cargos adicionales después de la cancelación</li>
-                  <li>Mantendrá acceso al servicio hasta el final del período pagado</li>
-                  <li>Los datos se conservarán durante 30 días después de la cancelación</li>
-                  <li>Puede reactivar su cuenta en cualquier momento</li>
+                  <li>The cancellation will be effective at the end of the current billing period</li>
+                  <li>No additional charges will be made after cancellation</li>
+                  <li>You will maintain access to the service until the end of the paid period</li>
+                  <li>Data will be retained for 30 days after cancellation</li>
+                  <li>You can reactivate your account at any time</li>
                 </ul>
               </section>
 
               <section className="mb-12">
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                  6. Propiedad Intelectual
+                  6. Intellectual Property
                 </h2>
                 <p className="text-slate-600 dark:text-slate-400 mb-4">
-                  Todo el contenido y la tecnología de InfraUX están protegidos por derechos de autor:
+                  All content and technology of InfraUX are protected by copyright:
                 </p>
                 <ul className="list-disc pl-6 text-slate-600 dark:text-slate-400 space-y-2">
-                  <li>Usted mantiene todos los derechos sobre su contenido e infraestructura</li>
-                  <li>InfraUX mantiene los derechos sobre la plataforma y tecnología</li>
-                  <li>No puede copiar, modificar o distribuir el software de InfraUX</li>
-                  <li>Otorga a InfraUX licencia para usar su contenido solo para proporcionar el servicio</li>
+                  <li>You retain all rights to your content and infrastructure</li>
+                  <li>InfraUX retains the rights to the platform and technology</li>
+                  <li>You may not copy, modify, or distribute the InfraUX software</li>
+                  <li>You grant InfraUX a license to use your content only to provide the service</li>
                 </ul>
               </section>
 
               <section className="mb-12">
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                  7. Limitación de Responsabilidad
+                  7. Limitation of Liability
                 </h2>
                 <p className="text-slate-600 dark:text-slate-400 mb-4">
-                  InfraUX se proporciona "tal cual" sin garantías de ningún tipo. No seremos responsables por:
+                  InfraUX is provided "as is" without warranties of any kind. We will not be liable for:
                 </p>
                 <ul className="list-disc pl-6 text-slate-600 dark:text-slate-400 space-y-2">
-                  <li>Pérdidas o daños indirectos, incidentales o consecuentes</li>
-                  <li>Pérdida de datos o interrupciones del servicio</li>
-                  <li>Errores o inexactitudes en el contenido</li>
-                  <li>Acciones de terceros que utilicen el servicio</li>
+                  <li>Indirect, incidental, or consequential losses or damages</li>
+                  <li>Loss of data or service interruptions</li>
+                  <li>Errors or inaccuracies in the content</li>
+                  <li>Actions of third parties using the service</li>
                 </ul>
               </section>
 
               <section className="mb-12">
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                  8. Modificaciones a los Términos
+                  8. Modifications to the Terms
                 </h2>
                 <p className="text-slate-600 dark:text-slate-400 mb-4">
-                  Nos reservamos el derecho de modificar estos términos en cualquier momento:
+                  We reserve the right to modify these terms at any time:
                 </p>
                 <ul className="list-disc pl-6 text-slate-600 dark:text-slate-400 space-y-2">
-                  <li>Los cambios serán notificados con 30 días de anticipación</li>
-                  <li>El uso continuado del servicio constituye aceptación de los nuevos términos</li>
-                  <li>Si no acepta los cambios, puede cancelar su cuenta</li>
+                  <li>Changes will be notified 30 days in advance</li>
+                  <li>Continued use of the service constitutes acceptance of the new terms</li>
+                  <li>If you do not accept the changes, you may cancel your account</li>
                 </ul>
               </section>
 
               <section className="mb-12">
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                  9. Contacto Legal
+                  9. Legal Contact
                 </h2>
                 <p className="text-slate-600 dark:text-slate-400 mb-4">
-                  Para cualquier consulta legal o sobre estos términos, contáctenos en:
+                  For any legal inquiries or questions about these terms, contact us at:
                 </p>
                 <div className="bg-slate-100 dark:bg-slate-800 rounded-lg p-6">
                   <p className="text-slate-700 dark:text-slate-300">
                     <strong>Email:</strong> legal@infraux.com<br />
-                    <strong>Dirección:</strong> InfraUX Technologies<br />
+                    <strong>Address:</strong> InfraUX Technologies<br />
                     Cartagena, Colombia
                   </p>
                 </div>
@@ -166,7 +166,7 @@ export default function TermsAndConditionsPage() {
 
               <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700">
                 <p className="text-sm text-slate-600 dark:text-slate-400 text-center">
-                  Al utilizar InfraUX, usted reconoce que ha leído, entendido y acepta estar sujeto a estos Términos de Servicio.
+                  By using InfraUX, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
                 </p>
               </div>
             </div>

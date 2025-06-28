@@ -11,23 +11,24 @@ const navigation = [
   { name: 'Demo', href: '/demo' },
   { name: 'Blog', href: '/blog' },
   { name: 'Docs', href: '/documentacion' },
+  {
+    name: 'Recursos',
+    href: '#',
+    dropdown: [
+      { name: 'Documentación', href: '/documentacion' },
+      { name: 'Blog', href: '/blog' },
+      { name: 'Roadmap', href: '/roadmap' },
+      { name: 'Comunidad', href: '/comunidad' },
+    ]
+  },
 ]
 
-// Un logo SVG simple para InfraUX - puedes reemplazarlo con tu propio SVG
-const Logo = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-indigo-600 dark:text-indigo-400 h-8 w-auto">
-    <rect width="32" height="32" rx="8" fill="currentColor"/>
-    <path d="M10 10L16 4L22 10L16 16L10 10Z" fill="white" fillOpacity="0.5"/>
-    <path d="M10 22L16 16L22 22L16 28L10 22Z" fill="white" fillOpacity="0.5"/>
-    <path d="M4 16L10 10L16 16L10 22L4 16Z" fill="white" fillOpacity="0.5"/>
-    <path d="M22 10L28 16L22 22L16 16L22 10Z" fill="white" fillOpacity="0.5"/>
-  </svg>
-);
 
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,9 +58,9 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2 group focus:outline-none">
             <span className="sr-only">InfraUX</span>
-            <Logo />
-            <span className="text-xl font-bold text-slate-800 dark:text-slate-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-              InfraUX
+            <span className="text-xl">
+              <span className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Infra</span>
+              <span className="text-emerald-500">UX</span>
             </span>
           </Link>
         </div>
@@ -67,18 +68,48 @@ export default function Header() {
         {/* Navegación Desktop */}
         <div className="hidden lg:flex lg:gap-x-7">
           {navigation.map((item) => (
-            <Link key={item.name} href={item.href} className={`${navLinkBase} ${navLinkIdle}`}>
-              {item.name}
-            </Link>
+            item.dropdown ? (
+              <div
+                key={item.name}
+                className="relative"
+                onMouseEnter={() => setActiveDropdown(item.name)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <button className={`${navLinkBase} ${navLinkIdle} flex items-center gap-x-1`}>
+                  {item.name}
+                  <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''}`} aria-hidden="true" />
+                </button>
+                {activeDropdown === item.name && (
+                  <div className="absolute left-0 z-10 mt-2 w-48 origin-top-left rounded-md bg-white dark:bg-slate-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <div className="py-1">
+                      {item.dropdown.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          href={subItem.href}
+                          className="block px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                          onClick={() => setActiveDropdown(null)}
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link key={item.name} href={item.href} className={`${navLinkBase} ${navLinkIdle}`}>
+                {item.name}
+              </Link>
+            )
           ))}
         </div>
         
         {/* CTAs Desktop */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center space-x-4">
-          <Link href="https://app.infraux.com/login" className={`${navLinkBase} ${navLinkIdle} px-3 py-2`}>
+          <Link href="/login" className={`${navLinkBase} ${navLinkIdle} px-3 py-2`}>
             Iniciar Sesión
           </Link>
-          <Link href="https://app.infraux.com/register" className={primaryCtaClasses}>
+          <Link href="/registro" className={primaryCtaClasses}>
             Empezar Gratis
           </Link>
         </div>
@@ -105,8 +136,10 @@ export default function Header() {
           <div className="fixed inset-y-0 right-0 z-[101] w-full max-w-sm overflow-y-auto bg-white dark:bg-slate-900 p-6 shadow-xl">
             <div className="flex items-center justify-between mb-8">
               <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2 group" onClick={() => setMobileMenuOpen(false)}>
-                <Logo />
-                <span className="text-xl font-bold text-slate-800 dark:text-slate-100">InfraUX</span>
+                <span className="text-xl">
+                  <span className="font-bold text-slate-800 dark:text-slate-100">Infra</span>
+                  <span className="text-emerald-500">UX</span>
+                </span>
               </Link>
               <button
                 type="button"
@@ -121,26 +154,46 @@ export default function Header() {
               <div className="-my-6 divide-y divide-slate-200 dark:divide-slate-700">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={`block rounded-md px-3 py-2.5 text-base ${navLinkBase} ${navLinkIdle} hover:bg-slate-50 dark:hover:bg-slate-800`}
-                    >
-                      {item.name}
-                    </Link>
+                    item.dropdown ? (
+                      <div key={item.name}>
+                        <p className="px-3 py-2 text-sm font-semibold text-slate-900 dark:text-slate-100">
+                          {item.name}
+                        </p>
+                        <div className="ml-4 space-y-1">
+                          {item.dropdown.map((subItem) => (
+                            <Link
+                              key={subItem.name}
+                              href={subItem.href}
+                              onClick={() => setMobileMenuOpen(false)}
+                              className={`block rounded-md px-3 py-2 text-sm ${navLinkBase} ${navLinkIdle} hover:bg-slate-50 dark:hover:bg-slate-800`}
+                            >
+                              {subItem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={`block rounded-md px-3 py-2.5 text-base ${navLinkBase} ${navLinkIdle} hover:bg-slate-50 dark:hover:bg-slate-800`}
+                      >
+                        {item.name}
+                      </Link>
+                    )
                   ))}
                 </div>
                 <div className="py-6 space-y-3">
                   <Link
-                    href="https://app.infraux.com/login"
+                    href="/login"
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block w-full text-center rounded-md px-3 py-2.5 text-base ${secondaryCtaClasses}`}
                   >
                     Iniciar Sesión
                   </Link>
                   <Link
-                    href="https://app.infraux.com/register"
+                    href="/registro"
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block w-full text-center ${primaryCtaClasses}`}
                   >

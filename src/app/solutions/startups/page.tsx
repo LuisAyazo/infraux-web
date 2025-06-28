@@ -214,7 +214,7 @@ export default function StartupsPage() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in-up" style={{ animationDelay: '0.3s' }}>
                 <Link
-                  href="/register"
+                  href="/registro"
                   className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-full shadow-premium hover:shadow-premium-lg transform hover:scale-105 transition-all duration-300"
                 >
                   <SparklesIcon className="h-6 w-6" />
@@ -445,7 +445,7 @@ export default function StartupsPage() {
                   </ul>
                   
                   <Link
-                    href="/register"
+                    href="/registro"
                     className={`block text-center py-4 px-8 rounded-full font-semibold transition-all ${
                       tier.highlighted
                         ? 'bg-white text-emerald-600 hover:bg-emerald-50'
@@ -523,7 +523,7 @@ export default function StartupsPage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in-up" style={{ animationDelay: '0.2s' }}>
               <Link
-                href="/register"
+                href="/registro"
                 className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-full shadow-premium hover:shadow-premium-lg transform hover:scale-105 transition-all duration-300"
               >
                 Start free

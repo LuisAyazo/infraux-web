@@ -286,7 +286,7 @@ export default function TerraformGenerationDemo() {
                     Ver demo completa
                   </button>
                   <Link
-                    href="/register"
+                    href="/registro"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-200"
                   >
                     Probar ahora
@@ -526,7 +526,7 @@ export default function TerraformGenerationDemo() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/register"
+                href="/registro"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
               >
                 Empezar gratis

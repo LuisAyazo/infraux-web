@@ -276,7 +276,7 @@ export default function QuickstartPage() {
                       También puedes usar InfraUX directamente desde tu navegador sin instalar nada:
                     </p>
                     <Link
-                      href="https://app.infraux.com"
+                      href="/login"
                       className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors"
                     >
                       <PlayIcon className="h-5 w-5" />

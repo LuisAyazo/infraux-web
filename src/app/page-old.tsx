@@ -61,7 +61,7 @@ function HeroSection() {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link href="https://app.infraux.com/register" className={primaryCtaClasses}>
+          <Link href="/registro" className={primaryCtaClasses}>
             Comenzar Gratis
             <ArrowRightIcon className="inline-block ml-2 h-5 w-5" />
           </Link>
@@ -362,7 +362,7 @@ function FinalCTASection() {
           Únete a la revolución de la infraestructura visual. Comienza gratis hoy mismo y experimenta el poder de InfraUX.
         </p>
         <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
-          <Link href="https://app.infraux.com/register" className={primaryCtaClasses}>
+          <Link href="/registro" className={primaryCtaClasses}>
             Crear Cuenta Gratis
           </Link>
           <Link href="/contact" className={secondaryCtaClasses}> {/* Asumiendo una página de contacto o demo */}

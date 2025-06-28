@@ -37,6 +37,7 @@ type Feature = {
   plans: {
     free: string | boolean;
     pro: string | boolean;
+    business: string | boolean;
     enterprise: string | boolean;
   };
 };
@@ -60,6 +61,7 @@ type Translations = {
   plansMeta: {
     free: PlanMeta;
     pro: PlanMeta;
+    business: PlanMeta;
     enterprise: PlanMeta;
   };
   pricingData: FeatureCategory[];
@@ -105,7 +107,10 @@ function Tooltip({ children, content }: { children: React.ReactNode; content: st
   );
 }
 
-function FeatureCell({ value }: { value: string | boolean }) {
+function FeatureCell({ value }: { value: string | boolean | undefined }) {
+  if (value === undefined) {
+    return <span className="text-sm text-slate-400">-</span>;
+  }
   if (typeof value === 'boolean') {
     return value ? (
       <CheckIcon className="h-6 w-6 text-emerald-500" />
@@ -145,12 +150,12 @@ export default function NewPricingTable({ translations }: NewPricingTableProps) 
             {/* Table Header */}
             <thead>
               <tr>
-                <th className="sticky top-0 z-10 hidden lg:table-cell w-1/3 p-4 bg-white dark:bg-slate-900"></th>
+                <th className="sticky top-0 z-10 hidden lg:table-cell w-1/4 p-4 bg-white dark:bg-slate-900"></th>
                 {Object.values(plansMeta).map((plan) => (
                   <th
                     key={plan.name}
                     scope="col"
-                    className={`sticky top-0 z-10 w-1/4 p-4 lg:p-6 bg-white dark:bg-slate-900 ${
+                    className={`sticky top-0 z-10 w-1/5 p-4 lg:p-6 bg-white dark:bg-slate-900 ${
                       plan.featured ? 'border-2 border-emerald-500 rounded-t-2xl' : 'border-b border-slate-200 dark:border-slate-800'
                     }`}
                   >
@@ -181,7 +186,7 @@ export default function NewPricingTable({ translations }: NewPricingTableProps) 
                 <React.Fragment key={category}>
                   <tr>
                     <th
-                      colSpan={4}
+                      colSpan={5}
                       scope="colgroup"
                       className="py-4 px-4 text-left text-lg font-bold text-slate-900 dark:text-white bg-slate-50 dark:bg-slate-800/50"
                     >
@@ -200,33 +205,40 @@ export default function NewPricingTable({ translations }: NewPricingTableProps) 
                           )}
                         </div>
                       </td>
-                      {Object.keys(plansMeta).map((planKey) => (
-                        <td
-                          key={planKey}
-                          className={`p-4 text-center border-b border-slate-200 dark:border-slate-800 ${
-                            plansMeta[planKey as keyof typeof plansMeta].featured ? 'border-x-2 border-emerald-500 bg-emerald-50/30 dark:bg-emerald-900/10' : ''
-                          }`}
-                        >
-                          <div className="flex justify-center items-center">
-                            <FeatureCell value={feature.plans[planKey as keyof typeof feature.plans]} />
-                          </div>
-                        </td>
-                      ))}
+                      {Object.keys(plansMeta).map((planKey) => {
+                        const plan = plansMeta[planKey as keyof typeof plansMeta];
+                        if (!plan) return null;
+                        return (
+                          <td
+                            key={planKey}
+                            className={`p-4 text-center border-b border-slate-200 dark:border-slate-800 ${
+                              plan.featured ? 'border-x-2 border-emerald-500 bg-emerald-50/30 dark:bg-emerald-900/10' : ''
+                            }`}
+                          >
+                            <div className="flex justify-center items-center">
+                              <FeatureCell value={feature.plans[planKey as keyof typeof feature.plans]} />
+                            </div>
+                          </td>
+                        );
+                      })}
                     </tr>
                   ))}
                 </React.Fragment>
               ))}
                <tr>
                 <td className="p-4"></td>
-                {Object.values(plansMeta).map((plan) => (
-                  <td key={plan.name} className={`p-4 text-center ${plan.featured ? 'border-x-2 border-b-2 border-emerald-500 rounded-b-2xl' : ''}`}>
-                     <Link href={plan.ctaLink} className={`w-full py-3 px-4 rounded-lg font-semibold text-center transition-colors ${
-                        plan.featured ? 'bg-emerald-500 text-white hover:bg-emerald-600' : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white'
-                      }`}>
-                        {plan.cta}
-                      </Link>
-                  </td>
-                ))}
+                {Object.values(plansMeta).map((plan) => {
+                  if (!plan) return null;
+                  return (
+                    <td key={plan.name} className={`p-4 ${plan.featured ? 'border-x-2 border-b-2 border-emerald-500 rounded-b-2xl' : ''}`}>
+                      <Link href={plan.ctaLink} className={`block w-full py-3 px-6 rounded-lg font-semibold text-center transition-colors ${
+                         plan.featured ? 'bg-emerald-500 text-white hover:bg-emerald-600' : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white'
+                       }`}>
+                         {plan.cta}
+                       </Link>
+                   </td>
+                  );
+                })}
               </tr>
             </tbody>
           </table>
@@ -291,7 +303,7 @@ export default function NewPricingTable({ translations }: NewPricingTableProps) 
             {finalCta.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
-            <Link href="/register" className="group relative inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-bold text-lg rounded-2xl shadow-premium hover:shadow-premium-lg transform hover:scale-105 transition-all duration-300">
+            <Link href="/registro" className="group relative inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-bold text-lg rounded-2xl shadow-premium hover:shadow-premium-lg transform hover:scale-105 transition-all duration-300">
               <span className="relative z-10">{finalCta.cta_main}</span>
               <ArrowRightIcon className="relative z-10 h-6 w-6 group-hover:translate-x-1 transition-transform" />
             </Link>

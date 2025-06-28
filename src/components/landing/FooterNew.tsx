@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import {
   EnvelopeIcon,
   MapPinIcon,
@@ -76,6 +75,7 @@ export default function FooterNew() {
     recursos: [
       { name: t('nav.documentacion'), href: useTranslatedRoute('/documentacion') },
       { name: t('nav.blog'), href: useTranslatedRoute('/blog') },
+      { name: 'Roadmap', href: '/roadmap' },
       { name: language === 'es' ? 'Tutoriales' : 'Tutorials', href: '/tutoriales' },
       { name: 'API Reference', href: '/api' },
       { name: t('nav.changelog'), href: useTranslatedRoute('/changelog') },
@@ -106,14 +106,10 @@ export default function FooterNew() {
           {/* Company Info */}
           <div className="space-y-8 xl:col-span-1">
             <Link href="/" className="flex items-center gap-1.5">
-              <Image
-                src="/favicon-32x32.png"
-                alt="InfraUX Logo"
-                width={32}
-                height={32}
-                className="w-8 h-8"
-              />
-              <span className="text-xl font-bold text-slate-900 dark:text-white">InfraUX</span>
+              <span className="text-xl">
+                <span className="font-bold text-slate-900 dark:text-white">Infra</span>
+                <span className="text-emerald-500">UX</span>
+              </span>
             </Link>
             <p className="text-sm text-slate-600 dark:text-slate-400 max-w-xs">
               {language === 'es' 
@@ -248,7 +244,7 @@ export default function FooterNew() {
               ))}
             </div>
             <p className="mt-8 text-sm text-slate-600 dark:text-slate-400 md:order-1 md:mt-0">
-              &copy; {currentYear} InfraUX, Inc. {language === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}
+              &copy; {currentYear} <span className="font-bold">Infra</span><span className="text-emerald-500">UX</span>, Inc. {language === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}
             </p>
           </div>
         </div>

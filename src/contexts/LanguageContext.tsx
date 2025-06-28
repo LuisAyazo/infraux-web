@@ -19,6 +19,7 @@ import { routeTranslations } from '@/lib/route-translations';
 // Traducciones de UI
 const translations: { [key: string]: { es: string; en: string } } = {
   // Header
+  'nav.inicio': { es: 'Inicio', en: 'Home' },
   'nav.producto': { es: 'Producto', en: 'Product' },
   'nav.soluciones': { es: 'Soluciones', en: 'Solutions' },
   'nav.recursos': { es: 'Recursos', en: 'Resources' },
@@ -63,20 +64,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter()
   
   // Detectar idioma inicial basado en localStorage o ruta
-  const [language, setLanguageState] = useState<Language>(() => {
-    // Primero intentar obtener de localStorage
-    if (typeof window !== 'undefined') {
-      const savedLang = localStorage.getItem('infraux-language') as Language
-      if (savedLang && (savedLang === 'es' || savedLang === 'en')) {
-        return savedLang
-      }
-    }
-    
-    // Si no hay localStorage, detectar por la ruta
-    const englishRoutes = ['/pricing', '/documentation', '/contact', '/use-cases', '/company', '/resources', '/comparison', '/testimonials']
-    const isEnglishRoute = englishRoutes.some(route => pathname?.startsWith(route))
-    return isEnglishRoute ? 'en' : 'es'
-  })
+  const [language, setLanguageState] = useState<Language>('es')
   
   // Función para cambiar idioma
   const setLanguage = (newLang: Language) => {
@@ -104,23 +92,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     return translations[key]?.[language] || key
   }
   
-  // Sincronizar idioma con la ruta actual
   useEffect(() => {
-    if (!pathname) return
-    
-    // Detectar idioma por la ruta actual
-    const englishRoutes = ['/pricing', '/documentation', '/contact', '/use-cases', '/company', '/resources', '/comparison', '/testimonials', '/product', '/solutions']
-    const isEnglishRoute = englishRoutes.some(route => pathname.startsWith(route))
-    const routeLang = isEnglishRoute ? 'en' : 'es'
-    
-    // Si el idioma de la ruta no coincide con el estado, actualizar
-    if (routeLang !== language) {
-      setLanguageState(routeLang)
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('infraux-language', routeLang)
+    if (typeof window !== 'undefined') {
+      const savedLang = localStorage.getItem('infraux-language') as Language
+      if (savedLang && (savedLang === 'es' || savedLang === 'en')) {
+        setLanguageState(savedLang)
       }
     }
-  }, [pathname, language])
+  }, [])
   
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>
