@@ -1,7 +1,8 @@
+import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo-config';
 import HeaderNew from '@/components/landing/HeaderNew';
 import FooterNew from '@/components/landing/FooterNew';
 import Link from 'next/link';
-import { Metadata } from 'next';
 import { 
   CheckCircleIcon,
   XCircleIcon,
@@ -12,10 +13,7 @@ import {
   ShieldCheckIcon
 } from '@heroicons/react/24/outline';
 
-export const metadata: Metadata = {
-  title: 'Refund Policy - InfraUX',
-  description: 'Política de reembolsos de InfraUX. Conoce nuestros términos de devolución y garantía de satisfacción.',
-};
+export const metadata: Metadata = pageMetadata.legal.refundPolicy();
 
 export default function RefundPolicyPage() {
   return (

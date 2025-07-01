@@ -1,0 +1,353 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="700" fill="url(#gradient-bg)" rx="20"/>
+  
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="gradient-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#064e3b;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#0c4a6e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="gradient-emerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#14b8a6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="gradient-orange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="gradient-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow filters -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main deployment pipeline container -->
+  <rect x="50" y="50" width="1100" height="600" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="2" rx="16"/>
+  
+  <!-- Header -->
+  <rect x="70" y="70" width="1060" height="50" fill="rgba(255, 255, 255, 0.1)" rx="8"/>
+  <text x="90" y="100" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Pipeline de Despliegue - Producción</text>
+  
+  <!-- Environment selector -->
+  <g transform="translate(800, 80)">
+    <rect x="0" y="0" width="80" height="30" fill="rgba(16, 185, 129, 0.2)" stroke="rgba(16, 185, 129, 0.5)" stroke-width="1" rx="6"/>
+    <text x="40" y="20" fill="#10b981" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Production</text>
+  </g>
+  
+  <!-- Deploy button -->
+  <g transform="translate(900, 80)">
+    <rect x="0" y="0" width="80" height="30" fill="url(#gradient-emerald)" rx="6" filter="url(#glow)"/>
+    <text x="40" y="20" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Deploy Now</text>
+  </g>
+  
+  <!-- Status indicator -->
+  <g transform="translate(1000, 80)">
+    <circle cx="15" cy="15" r="8" fill="#22c55e">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="35" y="20" fill="#22c55e" font-family="Arial, sans-serif" font-size="10" font-weight="600">Active</text>
+  </g>
+  
+  <!-- Pipeline stages -->
+  <g transform="translate(80, 150)">
+    <!-- Stage 1: Build -->
+    <g>
+      <rect x="0" y="0" width="180" height="120" fill="rgba(16, 185, 129, 0.1)" stroke="rgba(16, 185, 129, 0.4)" stroke-width="2" rx="12"/>
+      
+      <!-- Stage header -->
+      <rect x="10" y="10" width="160" height="30" fill="rgba(16, 185, 129, 0.2)" rx="6"/>
+      <circle cx="25" cy="25" r="6" fill="#22c55e"/>
+      <text x="40" y="29" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="bold">BUILD</text>
+      <text x="140" y="29" fill="#22c55e" font-family="Arial, sans-serif" font-size="8" font-weight="600">✓ COMPLETED</text>
+      
+      <!-- Build steps -->
+      <g transform="translate(20, 50)">
+        <circle cx="0" cy="5" r="3" fill="#22c55e"/>
+        <text x="10" y="9" fill="rgba(255, 255, 255, 0.9)" font-family="Arial, sans-serif" font-size="9">Terraform validate</text>
+        <text x="130" y="9" fill="#22c55e" font-family="Arial, sans-serif" font-size="8">2.3s</text>
+        
+        <circle cx="0" cy="25" r="3" fill="#22c55e"/>
+        <text x="10" y="29" fill="rgba(255, 255, 255, 0.9)" font-family="Arial, sans-serif" font-size="9">Terraform plan</text>
+        <text x="130" y="29" fill="#22c55e" font-family="Arial, sans-serif" font-size="8">12.7s</text>
+        
+        <circle cx="0" cy="45" r="3" fill="#22c55e"/>
+        <text x="10" y="49" fill="rgba(255, 255, 255, 0.9)" font-family="Arial, sans-serif" font-size="9">Security scan</text>
+        <text x="130" y="49" fill="#22c55e" font-family="Arial, sans-serif" font-size="8">8.1s</text>
+      </g>
+    </g>
+    
+    <!-- Arrow 1 -->
+    <g transform="translate(190, 50)">
+      <line x1="0" y1="10" x2="40" y2="10" stroke="rgba(16, 185, 129, 0.8)" stroke-width="3" stroke-dasharray="5,5">
+        <animate attributeName="stroke-dashoffset" values="0;10" dur="1s" repeatCount="indefinite"/>
+      </line>
+      <polygon points="35,5 45,10 35,15" fill="rgba(16, 185, 129, 0.8)"/>
+    </g>
+    
+    <!-- Stage 2: Test -->
+    <g transform="translate(240, 0)">
+      <rect x="0" y="0" width="180" height="120" fill="rgba(59, 130, 246, 0.1)" stroke="rgba(59, 130, 246, 0.4)" stroke-width="2" rx="12"/>
+      
+      <!-- Stage header -->
+      <rect x="10" y="10" width="160" height="30" fill="rgba(59, 130, 246, 0.2)" rx="6"/>
+      <circle cx="25" cy="25" r="6" fill="#3b82f6">
+        <animate attributeName="r" values="6;8;6" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <text x="40" y="29" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="bold">TEST</text>
+      <text x="130" y="29" fill="#3b82f6" font-family="Arial, sans-serif" font-size="8" font-weight="600">⏳ RUNNING</text>
+      
+      <!-- Test steps -->
+      <g transform="translate(20, 50)">
+        <circle cx="0" cy="5" r="3" fill="#22c55e"/>
+        <text x="10" y="9" fill="rgba(255, 255, 255, 0.9)" font-family="Arial, sans-serif" font-size="9">Unit tests</text>
+        <text x="130" y="9" fill="#22c55e" font-family="Arial, sans-serif" font-size="8">✓ 4.2s</text>
+        
+        <circle cx="0" cy="25" r="3" fill="#3b82f6">
+          <animate attributeName="fill" values="#3b82f6;#60a5fa;#3b82f6" dur="1s" repeatCount="indefinite"/>
+        </circle>
+        <text x="10" y="29" fill="rgba(255, 255, 255, 0.9)" font-family="Arial, sans-serif" font-size="9">Integration tests</text>
+        <text x="130" y="29" fill="#3b82f6" font-family="Arial, sans-serif" font-size="8">⏳ 15.3s</text>
+        
+        <circle cx="0" cy="45" r="3" fill="rgba(255, 255, 255, 0.3)"/>
+        <text x="10" y="49" fill="rgba(255, 255, 255, 0.5)" font-family="Arial, sans-serif" font-size="9">E2E tests</text>
+        <text x="130" y="49" fill="rgba(255, 255, 255, 0.3)" font-family="Arial, sans-serif" font-size="8">⏳ --</text>
+      </g>
+    </g>
+    
+    <!-- Arrow 2 -->
+    <g transform="translate(430, 50)">
+      <line x1="0" y1="10" x2="40" y2="10" stroke="rgba(59, 130, 246, 0.4)" stroke-width="3" stroke-dasharray="5,5"/>
+      <polygon points="35,5 45,10 35,15" fill="rgba(59, 130, 246, 0.4)"/>
+    </g>
+    
+    <!-- Stage 3: Deploy -->
+    <g transform="translate(480, 0)">
+      <rect x="0" y="0" width="180" height="120" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="2" rx="12"/>
+      
+      <!-- Stage header -->
+      <rect x="10" y="10" width="160" height="30" fill="rgba(255, 255, 255, 0.1)" rx="6"/>
+      <circle cx="25" cy="25" r="6" fill="rgba(255, 255, 255, 0.3)"/>
+      <text x="40" y="29" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="11" font-weight="bold">DEPLOY</text>
+      <text x="130" y="29" fill="rgba(255, 255, 255, 0.5)" font-family="Arial, sans-serif" font-size="8" font-weight="600">⏳ PENDING</text>
+      
+      <!-- Deploy steps -->
+      <g transform="translate(20, 50)">
+        <circle cx="0" cy="5" r="3" fill="rgba(255, 255, 255, 0.3)"/>
+        <text x="10" y="9" fill="rgba(255, 255, 255, 0.5)" font-family="Arial, sans-serif" font-size="9">Pre-deploy checks</text>
+        
+        <circle cx="0" cy="25" r="3" fill="rgba(255, 255, 255, 0.3)"/>
+        <text x="10" y="29" fill="rgba(255, 255, 255, 0.5)" font-family="Arial, sans-serif" font-size="9">Terraform apply</text>
+        
+        <circle cx="0" cy="45" r="3" fill="rgba(255, 255, 255, 0.3)"/>
+        <text x="10" y="49" fill="rgba(255, 255, 255, 0.5)" font-family="Arial, sans-serif" font-size="9">Health checks</text>
+      </g>
+    </g>
+    
+    <!-- Arrow 3 -->
+    <g transform="translate(670, 50)">
+      <line x1="0" y1="10" x2="40" y2="10" stroke="rgba(255, 255, 255, 0.2)" stroke-width="3" stroke-dasharray="5,5"/>
+      <polygon points="35,5 45,10 35,15" fill="rgba(255, 255, 255, 0.2)"/>
+    </g>
+    
+    <!-- Stage 4: Monitor -->
+    <g transform="translate(720, 0)">
+      <rect x="0" y="0" width="180" height="120" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="2" rx="12"/>
+      
+      <!-- Stage header -->
+      <rect x="10" y="10" width="160" height="30" fill="rgba(255, 255, 255, 0.1)" rx="6"/>
+      <circle cx="25" cy="25" r="6" fill="rgba(255, 255, 255, 0.3)"/>
+      <text x="40" y="29" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="11" font-weight="bold">MONITOR</text>
+      <text x="130" y="29" fill="rgba(255, 255, 255, 0.5)" font-family="Arial, sans-serif" font-size="8" font-weight="600">⏳ PENDING</text>
+      
+      <!-- Monitor steps -->
+      <g transform="translate(20, 50)">
+        <circle cx="0" cy="5" r="3" fill="rgba(255, 255, 255, 0.3)"/>
+        <text x="10" y="9" fill="rgba(255, 255, 255, 0.5)" font-family="Arial, sans-serif" font-size="9">Metrics setup</text>
+        
+        <circle cx="0" cy="25" r="3" fill="rgba(255, 255, 255, 0.3)"/>
+        <text x="10" y="29" fill="rgba(255, 255, 255, 0.5)" font-family="Arial, sans-serif" font-size="9">Alerts config</text>
+        
+        <circle cx="0" cy="45" r="3" fill="rgba(255, 255, 255, 0.3)"/>
+        <text x="10" y="49" fill="rgba(255, 255, 255, 0.5)" font-family="Arial, sans-serif" font-size="9">Dashboard setup</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Real-time logs section -->
+  <rect x="80" y="300" width="520" height="320" fill="rgba(0, 0, 0, 0.4)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1" rx="12"/>
+  
+  <!-- Logs header -->
+  <rect x="100" y="320" width="480" height="30" fill="rgba(255, 255, 255, 0.1)" rx="6"/>
+  <text x="120" y="338" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Logs en Tiempo Real</text>
+  
+  <!-- Auto-scroll indicator -->
+  <g transform="translate(500, 325)">
+    <rect x="0" y="0" width="60" height="20" fill="rgba(16, 185, 129, 0.2)" stroke="rgba(16, 185, 129, 0.5)" stroke-width="1" rx="4"/>
+    <text x="30" y="13" fill="#10b981" font-family="Arial, sans-serif" font-size="8" font-weight="600" text-anchor="middle">Auto-scroll</text>
+  </g>
+  
+  <!-- Log entries -->
+  <g transform="translate(120, 360)" font-family="monospace" font-size="8">
+    <text x="0" y="15" fill="rgba(255, 255, 255, 0.6)">2024-01-15 14:32:15</text>
+    <text x="120" y="15" fill="#22c55e">[INFO]</text>
+    <text x="160" y="15" fill="white">Terraform validation completed successfully</text>
+    
+    <text x="0" y="30" fill="rgba(255, 255, 255, 0.6)">2024-01-15 14:32:18</text>
+    <text x="120" y="30" fill="#22c55e">[INFO]</text>
+    <text x="160" y="30" fill="white">Terraform plan: 12 to add, 0 to change, 0 to destroy</text>
+    
+    <text x="0" y="45" fill="rgba(255, 255, 255, 0.6)">2024-01-15 14:32:22</text>
+    <text x="120" y="45" fill="#3b82f6">[TEST]</text>
+    <text x="160" y="45" fill="white">Running unit tests...</text>
+    
+    <text x="0" y="60" fill="rgba(255, 255, 255, 0.6)">2024-01-15 14:32:26</text>
+    <text x="120" y="60" fill="#22c55e">[PASS]</text>
+    <text x="160" y="60" fill="white">All unit tests passed (42/42)</text>
+    
+    <text x="0" y="75" fill="rgba(255, 255, 255, 0.6)">2024-01-15 14:32:28</text>
+    <text x="120" y="75" fill="#3b82f6">[TEST]</text>
+    <text x="160" y="75" fill="white">Starting integration tests...</text>
+    
+    <text x="0" y="90" fill="rgba(255, 255, 255, 0.6)">2024-01-15 14:32:30</text>
+    <text x="120" y="90" fill="#3b82f6">[INFO]</text>
+    <text x="160" y="90" fill="white">Testing database connectivity... ✓</text>
+    
+    <text x="0" y="105" fill="rgba(255, 255, 255, 0.6)">2024-01-15 14:32:33</text>
+    <text x="120" y="105" fill="#3b82f6">[INFO]</text>
+    <text x="160" y="105" fill="white">Testing API endpoints... ✓</text>
+    
+    <text x="0" y="120" fill="rgba(255, 255, 255, 0.6)">2024-01-15 14:32:35</text>
+    <text x="120" y="120" fill="#3b82f6">[INFO]</text>
+    <text x="160" y="120" fill="white">Testing load balancer configuration... ✓</text>
+    
+    <text x="0" y="135" fill="rgba(255, 255, 255, 0.6)">2024-01-15 14:32:38</text>
+    <text x="120" y="135" fill="#f59e0b">[WARN]</text>
+    <text x="160" y="135" fill="#f59e0b">Integration test taking longer than expected...</text>
+    
+    <text x="0" y="150" fill="rgba(255, 255, 255, 0.6)">2024-01-15 14:32:42</text>
+    <text x="120" y="150" fill="#3b82f6">[INFO]</text>
+    <text x="160" y="150" fill="white">Testing network policies... ✓</text>
+    
+    <!-- Typing indicator -->
+    <g transform="translate(0, 165)">
+      <text x="0" y="0" fill="rgba(255, 255, 255, 0.6)">2024-01-15 14:32:45</text>
+      <text x="120" y="0" fill="#3b82f6">[TEST]</text>
+      <text x="160" y="0" fill="white">Running security scans</text>
+      <rect x="280" y="-8" width="2" height="10" fill="#3b82f6">
+        <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+  
+  <!-- Infrastructure status panel -->
+  <rect x="620" y="300" width="520" height="320" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1" rx="12"/>
+  
+  <!-- Status header -->
+  <rect x="640" y="320" width="480" height="30" fill="rgba(255, 255, 255, 0.1)" rx="6"/>
+  <text x="660" y="338" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Estado de Infraestructura</text>
+  
+  <!-- Infrastructure components status -->
+  <g transform="translate(660, 370)">
+    <!-- VPC -->
+    <g>
+      <rect x="0" y="0" width="200" height="40" fill="rgba(16, 185, 129, 0.1)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="1" rx="6"/>
+      <circle cx="20" cy="20" r="6" fill="#22c55e"/>
+      <text x="35" y="15" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="600">VPC (10.0.0.0/16)</text>
+      <text x="35" y="28" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="8">vpc-0a1b2c3d4e5f6g7h8</text>
+      <text x="160" y="25" fill="#22c55e" font-family="Arial, sans-serif" font-size="8" font-weight="600">ACTIVE</text>
+    </g>
+    
+    <!-- Load Balancer -->
+    <g transform="translate(0, 50)">
+      <rect x="0" y="0" width="200" height="40" fill="rgba(16, 185, 129, 0.1)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="1" rx="6"/>
+      <circle cx="20" cy="20" r="6" fill="#22c55e"/>
+      <text x="35" y="15" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="600">Application Load Balancer</text>
+      <text x="35" y="28" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="8">web-app-alb</text>
+      <text x="160" y="25" fill="#22c55e" font-family="Arial, sans-serif" font-size="8" font-weight="600">ACTIVE</text>
+    </g>
+    
+    <!-- EC2 Instances -->
+    <g transform="translate(0, 100)">
+      <rect x="0" y="0" width="200" height="40" fill="rgba(16, 185, 129, 0.1)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="1" rx="6"/>
+      <circle cx="20" cy="20" r="6" fill="#22c55e"/>
+      <text x="35" y="15" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="600">EC2 Instances (2)</text>
+      <text x="35" y="28" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="8">t3.medium (us-east-1a, us-east-1b)</text>
+      <text x="160" y="25" fill="#22c55e" font-family="Arial, sans-serif" font-size="8" font-weight="600">RUNNING</text>
+    </g>
+    
+    <!-- Database -->
+    <g transform="translate(0, 150)">
+      <rect x="0" y="0" width="200" height="40" fill="rgba(59, 130, 246, 0.1)" stroke="rgba(59, 130, 246, 0.3)" stroke-width="1" rx="6"/>
+      <circle cx="20" cy="20" r="6" fill="#3b82f6">
+        <animate attributeName="r" values="6;8;6" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="35" y="15" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="600">RDS MySQL</text>
+      <text x="35" y="28" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="8">db.t3.small (Multi-AZ)</text>
+      <text x="160" y="25" fill="#3b82f6" font-family="Arial, sans-serif" font-size="8" font-weight="600">CREATING</text>
+    </g>
+    
+    <!-- Right column -->
+    <g transform="translate(220, 0)">
+      <!-- Security Groups -->
+      <g>
+        <rect x="0" y="0" width="200" height="40" fill="rgba(16, 185, 129, 0.1)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="1" rx="6"/>
+        <circle cx="20" cy="20" r="6" fill="#22c55e"/>
+        <text x="35" y="15" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="600">Security Groups</text>
+        <text x="35" y="28" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="8">web-sg, db-sg, alb-sg</text>
+        <text x="160" y="25" fill="#22c55e" font-family="Arial, sans-serif" font-size="8" font-weight="600">ACTIVE</text>
+      </g>
+      
+      <!-- S3 Bucket -->
+      <g transform="translate(0, 50)">
+        <rect x="0" y="0" width="200" height="40" fill="rgba(16, 185, 129, 0.1)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="1" rx="6"/>
+        <circle cx="20" cy="20" r="6" fill="#22c55e"/>
+        <text x="35" y="15" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="600">S3 Bucket</text>
+        <text x="35" y="28" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="8">web-app-assets-bucket</text>
+        <text x="160" y="25" fill="#22c55e" font-family="Arial, sans-serif" font-size="8" font-weight="600">ACTIVE</text>
+      </g>
+      
+      <!-- Route 53 -->
+      <g transform="translate(0, 100)">
+        <rect x="0" y="0" width="200" height="40" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1" rx="6"/>
+        <circle cx="20" cy="20" r="6" fill="rgba(255, 255, 255, 0.3)"/>
+        <text x="35" y="15" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="10" font-weight="600">Route 53 DNS</text>
+        <text x="35" y="28" fill="rgba(255, 255, 255, 0.5)" font-family="Arial, sans-serif" font-size="8">web-app.infraux.com</text>
+        <text x="160" y="25" fill="rgba(255, 255, 255, 0.5)" font-family="Arial, sans-serif" font-size="8" font-weight="600">PENDING</text>
+      </g>
+      
+      <!-- CloudWatch -->
+      <g transform="translate(0, 150)">
+        <rect x="0" y="0" width="200" height="40" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1" rx="6"/>
+        <circle cx="20" cy="20" r="6" fill="rgba(255, 255, 255, 0.3)"/>
+        <text x="35" y="15" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="10" font-weight="600">CloudWatch</text>
+        <text x="35" y="28" fill="rgba(255, 255, 255, 0.5)" font-family="Arial, sans-serif" font-size="8">Dashboards & Alarms</text>
+        <text x="160" y="25" fill="rgba(255, 255, 255, 0.5)" font-family="Arial, sans-serif" font-size="8" font-weight="600">PENDING</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Progress bar at bottom -->
+  <g transform="translate(80, 650)">
+    <text x="0" y="0" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="600">Progreso del Despliegue</text>
+    <rect x="0" y="10" width="800" height="8" fill="rgba(255, 255, 255, 0.2)" rx="4"/>
+    <rect x="0" y="10" width="480" height="8" fill="url(#gradient-emerald)" rx="4">
+      <animate attributeName="width" values="320;480;480" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    <text x="810" y="17" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="600">60% completado</text>
+  </g>
+</svg>

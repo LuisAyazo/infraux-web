@@ -1,12 +1,10 @@
+import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo-config';
 import HeaderNew from '@/components/landing/HeaderNew';
 import FooterNew from '@/components/landing/FooterNew';
 import Link from 'next/link';
-import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy - InfraUX',
-  description: 'InfraUX privacy policy. Learn how we protect and manage your personal data.',
-};
+export const metadata: Metadata = pageMetadata.legal.privacyPolicy();
 
 export default function PrivacyPolicyPage() {
   return (

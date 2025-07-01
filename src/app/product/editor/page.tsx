@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo-config'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
 import Link from 'next/link'
@@ -19,43 +20,32 @@ import {
   DocumentCheckIcon
 } from '@heroicons/react/24/outline'
 
-export const metadata: Metadata = {
-  title: 'Visual Infrastructure Editor | InfraUX',
-  description: 'Design your cloud infrastructure with drag & drop. No code, no YAML, no complexity. Compatible with AWS, GCP and Azure.',
-  keywords: ['visual editor', 'drag and drop', 'visual infrastructure', 'no-code infrastructure', 'cloud design'],
-  openGraph: {
-    title: 'Visual Editor - InfraUX',
-    description: 'The most intuitive way to design cloud infrastructure',
-    url: 'https://infraux.com/product/editor',
-    siteName: 'InfraUX',
-    locale: 'en_US',
-    type: 'website',
-  },
-}
+// SEO Metadata optimizado para Product/Editor - Nivel Enterprise
+export const metadata: Metadata = pageMetadata.product.editor()
 
 const features = [
   {
     icon: CursorArrowRaysIcon,
     title: 'Intuitive Drag & Drop',
-    description: 'Drag cloud components and connect them visually. As easy as making a diagram.',
+    description: 'Drag cloud components and connect them visually. As easy as drawing a diagram.',
     color: 'from-blue-500 to-cyan-500'
   },
   {
     icon: CloudIcon,
     title: 'Native Multi-Cloud',
-    description: 'Pre-configured components for AWS, GCP and Azure. Switch providers with one click.',
+    description: 'Pre-configured components for AWS, GCP, and Azure. Switch providers with a single click.',
     color: 'from-purple-500 to-pink-500'
   },
   {
     icon: EyeIcon,
-    title: 'Real-Time Preview',
-    description: 'See exactly how your infrastructure will look before deploying.',
+    title: 'Real-time Preview',
+    description: 'See exactly what your infrastructure will look like before you deploy.',
     color: 'from-green-500 to-emerald-500'
   },
   {
     icon: BoltIcon,
     title: 'Instant Validation',
-    description: 'Detect configuration errors while designing. No surprises in production.',
+    description: 'Catch configuration errors as you design. No surprises in production.',
     color: 'from-orange-500 to-red-500'
   },
   {
@@ -76,7 +66,7 @@ const editorCapabilities = [
   'Over 200 pre-configured cloud components',
   'Smart connections between resources',
   'Visual grouping and organization',
-  'Smooth zoom and navigation',
+  'Smooth zooming and navigation',
   'Quick component search',
   'Unlimited undo/redo',
   'Export in multiple formats',
@@ -111,8 +101,8 @@ export default function EditorPage() {
               </h1>
               
               <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mb-8 font-medium animate-fade-in-up animation-delay-200">
-                The most powerful visual editor for creating and managing your cloud infrastructure. 
-                Drag, connect and deploy. It's that simple.
+                The most powerful visual editor to create and manage your cloud infrastructure. 
+                Drag, connect, and deploy. It's that simple.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -121,13 +111,13 @@ export default function EditorPage() {
                   className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-lg rounded-2xl shadow-premium hover:shadow-premium-lg transform hover:scale-[1.02] transition-all duration-300 animate-fade-in-up animation-delay-300"
                 >
                   <PlayIcon className="h-6 w-6" />
-                  Watch live demo
+                  Watch Live Demo
                 </Link>
                 <Link
-                  href="/registro"
+                  href="/register"
                   className="inline-flex items-center gap-3 px-10 py-5 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-lg rounded-2xl border-2 border-slate-200 dark:border-slate-700 shadow-premium hover:shadow-premium-lg hover-lift-premium transition-all duration-300 animate-fade-in-up animation-delay-400"
                 >
-                  Try free
+                  Try for Free
                   <ArrowRightIcon className="h-6 w-6" />
                 </Link>
               </div>
@@ -163,7 +153,7 @@ export default function EditorPage() {
                 <div className="aspect-video bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 flex items-center justify-center">
                   <div className="text-center">
                     <CubeIcon className="h-32 w-32 text-slate-300 dark:text-slate-600 mx-auto mb-6" />
-                    <p className="text-lg text-slate-600 dark:text-slate-400 font-medium">Interactive editor demo</p>
+                    <p className="text-lg text-slate-600 dark:text-slate-400 font-medium">Interactive Editor Demo</p>
                   </div>
                 </div>
               </div>
@@ -176,10 +166,10 @@ export default function EditorPage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-                Everything you need to design
+                Everything You Need to Design
               </h2>
               <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 font-medium">
-                Professional tools with the simplicity you deserve
+                Professional tools with the simplicity you deserve.
               </p>
             </div>
             
@@ -220,10 +210,10 @@ export default function EditorPage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-6">
-                  An editor that thinks like you
+                  An Editor That Thinks Like You
                 </h2>
                 <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 font-medium">
-                  Designed by engineers for engineers. Every detail is crafted 
+                  Designed by engineers, for engineers. Every detail is crafted 
                   to make your work more efficient and enjoyable.
                 </p>
                 
@@ -259,7 +249,7 @@ export default function EditorPage() {
               <div className="relative bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl p-16 text-white text-center shadow-premium-lg">
                 <ShieldCheckIcon className="h-20 w-20 mx-auto mb-8 text-white/90" />
                 <h2 className="text-4xl font-bold mb-6">
-                  Perfect integration with your workflow
+                  Seamless Integration with Your Workflow
                 </h2>
                 <p className="text-xl lg:text-2xl text-emerald-50 mb-10 max-w-3xl mx-auto font-medium">
                   The editor integrates with your favorite tools.
@@ -270,14 +260,14 @@ export default function EditorPage() {
                     href="/product/iac"
                     className="inline-flex items-center gap-3 px-10 py-5 bg-white text-emerald-600 font-bold text-lg rounded-2xl hover:bg-emerald-50 shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300"
                   >
-                    View code generation
+                    See Code Generation
                     <ArrowRightIcon className="h-6 w-6" />
                   </Link>
                   <Link
                     href="/product/deployment"
                     className="inline-flex items-center gap-3 px-10 py-5 bg-emerald-600 text-white font-bold text-lg rounded-2xl hover:bg-emerald-700 shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300"
                   >
-                    View deployment
+                    See Deployment
                   </Link>
                 </div>
               </div>
@@ -289,25 +279,25 @@ export default function EditorPage() {
         <section className="py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
             <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6 animate-fade-in">
-              Start designing visually today
+              Start Designing Visually Today
             </h2>
             <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mb-10 font-medium animate-fade-in-up">
-              Join thousands of teams already designing their infrastructure visually
+              Join thousands of teams who are already designing their infrastructure visually.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/registro"
+                href="/register"
                 className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-lg rounded-2xl shadow-premium hover:shadow-premium-lg transform hover:scale-[1.02] transition-all duration-300 animate-fade-in-up animation-delay-200"
               >
-                Start free
+                Start for Free
                 <ArrowRightIcon className="h-6 w-6" />
               </Link>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-3 px-10 py-5 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-lg rounded-2xl border-2 border-slate-200 dark:border-slate-700 shadow-premium hover:shadow-premium-lg hover-lift-premium transition-all duration-300 animate-fade-in-up animation-delay-300"
               >
-                Request demo
+                Request a Demo
               </Link>
             </div>
           </div>

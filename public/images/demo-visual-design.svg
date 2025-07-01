@@ -1,0 +1,120 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg-gradient)"/>
+  
+  <!-- Grid Pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#10b981" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+    
+    <!-- Gradients -->
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0fdfa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ecfdf5;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="card-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="primary-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#14b8a6;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="drop-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#00000020"/>
+    </filter>
+  </defs>
+  
+  <!-- Grid Background -->
+  <rect width="800" height="600" fill="url(#grid)"/>
+  
+  <!-- Main Canvas Area -->
+  <rect x="50" y="50" width="700" height="500" rx="16" fill="url(#card-gradient)" stroke="#e2e8f0" stroke-width="2" filter="url(#drop-shadow)"/>
+  
+  <!-- Toolbar -->
+  <rect x="70" y="70" width="660" height="60" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  
+  <!-- Tool Icons -->
+  <circle cx="100" cy="100" r="15" fill="url(#primary-gradient)"/>
+  <rect x="140" y="85" width="30" height="30" rx="6" fill="#6366f1"/>
+  <circle cx="200" cy="100" r="15" fill="#f59e0b"/>
+  <rect x="240" y="85" width="30" height="30" rx="15" fill="#ef4444"/>
+  
+  <!-- Cloud Resources -->
+  
+  <!-- EC2 Instance -->
+  <g transform="translate(150, 200)">
+    <rect width="120" height="80" rx="12" fill="url(#card-gradient)" stroke="#10b981" stroke-width="2" filter="url(#drop-shadow)"/>
+    <circle cx="20" cy="20" r="8" fill="#10b981"/>
+    <text x="35" y="25" fill="#374151" font-family="Arial, sans-serif" font-size="12" font-weight="bold">EC2 Instance</text>
+    <text x="20" y="45" fill="#6b7280" font-family="Arial, sans-serif" font-size="10">t3.medium</text>
+    <text x="20" y="60" fill="#6b7280" font-family="Arial, sans-serif" font-size="10">us-east-1a</text>
+  </g>
+  
+  <!-- RDS Database -->
+  <g transform="translate(350, 300)">
+    <rect width="120" height="80" rx="12" fill="url(#card-gradient)" stroke="#3b82f6" stroke-width="2" filter="url(#drop-shadow)"/>
+    <circle cx="20" cy="20" r="8" fill="#3b82f6"/>
+    <text x="35" y="25" fill="#374151" font-family="Arial, sans-serif" font-size="12" font-weight="bold">RDS MySQL</text>
+    <text x="20" y="45" fill="#6b7280" font-family="Arial, sans-serif" font-size="10">db.t3.micro</text>
+    <text x="20" y="60" fill="#6b7280" font-family="Arial, sans-serif" font-size="10">Multi-AZ</text>
+  </g>
+  
+  <!-- Load Balancer -->
+  <g transform="translate(500, 180)">
+    <rect width="120" height="80" rx="12" fill="url(#card-gradient)" stroke="#f59e0b" stroke-width="2" filter="url(#drop-shadow)"/>
+    <circle cx="20" cy="20" r="8" fill="#f59e0b"/>
+    <text x="35" y="25" fill="#374151" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Load Balancer</text>
+    <text x="20" y="45" fill="#6b7280" font-family="Arial, sans-serif" font-size="10">Application</text>
+    <text x="20" y="60" fill="#6b7280" font-family="Arial, sans-serif" font-size="10">Internet-facing</text>
+  </g>
+  
+  <!-- Connections -->
+  <path d="M 270 240 Q 310 240 350 340" stroke="#10b981" stroke-width="3" fill="none" stroke-dasharray="5,5">
+    <animate attributeName="stroke-dashoffset" values="0;10" dur="1s" repeatCount="indefinite"/>
+  </path>
+  
+  <path d="M 500 220 Q 400 220 270 240" stroke="#f59e0b" stroke-width="3" fill="none" stroke-dasharray="5,5">
+    <animate attributeName="stroke-dashoffset" values="0;10" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Floating Action Button -->
+  <circle cx="650" cy="450" r="30" fill="url(#primary-gradient)" filter="url(#drop-shadow)">
+    <animate attributeName="r" values="30;35;30" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="650" y="455" fill="white" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold">+</text>
+  
+  <!-- Side Panel -->
+  <rect x="50" y="350" width="250" height="200" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" opacity="0.9" filter="url(#drop-shadow)"/>
+  <text x="70" y="375" fill="#374151" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Recursos AWS</text>
+  
+  <!-- Resource Items -->
+  <g transform="translate(70, 390)">
+    <rect width="200" height="30" rx="6" fill="#f0f9ff" stroke="#3b82f6" stroke-width="1"/>
+    <circle cx="15" cy="15" r="6" fill="#3b82f6"/>
+    <text x="30" y="20" fill="#374151" font-family="Arial, sans-serif" font-size="11">Compute → EC2, Lambda</text>
+  </g>
+  
+  <g transform="translate(70, 430)">
+    <rect width="200" height="30" rx="6" fill="#f0fdf4" stroke="#10b981" stroke-width="1"/>
+    <circle cx="15" cy="15" r="6" fill="#10b981"/>
+    <text x="30" y="20" fill="#374151" font-family="Arial, sans-serif" font-size="11">Database → RDS, DynamoDB</text>
+  </g>
+  
+  <g transform="translate(70, 470)">
+    <rect width="200" height="30" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="1"/>
+    <circle cx="15" cy="15" r="6" fill="#f59e0b"/>
+    <text x="30" y="20" fill="#374151" font-family="Arial, sans-serif" font-size="11">Network → VPC, ALB</text>
+  </g>
+  
+  <!-- Cursor -->
+  <g transform="translate(400, 250)">
+    <path d="M0,0 L0,20 L5,15 L10,20 L15,15 L8,8 Z" fill="#374151">
+      <animateTransform attributeName="transform" type="translate" values="400,250; 450,200; 500,250; 400,250" dur="4s" repeatCount="indefinite"/>
+    </path>
+  </g>
+</svg>

@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo-config'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
 import Link from 'next/link'
@@ -20,19 +21,7 @@ import {
   SparklesIcon
 } from '@heroicons/react/24/outline'
 
-export const metadata: Metadata = {
-  title: 'InfraUX para Empresas | Infraestructura Enterprise Grade',
-  description: 'Solución de infraestructura cloud para empresas. Seguridad, compliance, escalabilidad y soporte dedicado.',
-  keywords: ['empresas', 'infraestructura enterprise', 'cloud empresarial', 'compliance', 'seguridad enterprise'],
-  openGraph: {
-    title: 'InfraUX para Empresas',
-    description: 'Infraestructura cloud de nivel enterprise',
-    url: 'https://infraux.com/soluciones/empresas',
-    siteName: 'InfraUX',
-    locale: 'es_ES',
-    type: 'website',
-  },
-}
+export const metadata: Metadata = pageMetadata.spanish.solutions.enterprises()
 
 const enterpriseFeatures = [
   {

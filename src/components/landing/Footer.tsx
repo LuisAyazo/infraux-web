@@ -1,5 +1,7 @@
 'use client'
 
+import BrandName from '@/components/BrandName';
+
 // Iconos personalizados con soporte para props
 const GitHubIcon = ({ className, ...props }: { className?: string; [key: string]: unknown }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24" {...props}>
@@ -68,7 +70,7 @@ export default function Footer() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1 animate-fade-in-up">
             <div className="h-10 w-auto text-3xl">
-              <span className="font-bold">Infra</span><span className="text-emerald-500">UX</span>
+              <BrandName infraClassName="font-bold text-[#374151]" uxClassName="font-bold text-emerald-500" />
             </div>
             <p className="text-gray-400 text-base animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
               Transformando la complejidad de la nube en simplicidad visual.
@@ -143,7 +145,7 @@ export default function Footer() {
         </div>
         <div className="mt-12 border-t border-white/10 pt-8 animate-fade-in-up" style={{ animationDelay: '2s' }}>
           <p className="text-xs leading-5 text-gray-400 text-center">
-            &copy; {new Date().getFullYear()} <span className="font-bold">Infra</span><span className="text-emerald-500">UX</span> Technologies. Todos los derechos reservados.
+            &copy; {new Date().getFullYear()} <BrandName infraClassName="font-bold text-[#374151]" uxClassName="font-bold text-emerald-500" /> Technologies. Todos los derechos reservados.
           </p>
         </div>
       </div>

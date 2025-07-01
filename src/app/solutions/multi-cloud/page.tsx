@@ -18,20 +18,9 @@ import {
   SparklesIcon,
   ArrowPathIcon
 } from '@heroicons/react/24/outline'
+import { pageMetadata } from '@/lib/seo-config'
 
-export const metadata: Metadata = {
-  title: 'Multi-Cloud Solution | InfraUX - Total Cloud Freedom',
-  description: 'Manage AWS, Google Cloud and Azure from a single platform. Avoid vendor lock-in, optimize costs and maximize availability.',
-  keywords: ['multi-cloud', 'aws', 'google cloud', 'azure', 'cloud agnostic', 'vendor lock-in'],
-  openGraph: {
-    title: 'Multi-Cloud with InfraUX',
-    description: 'One platform, all clouds',
-    url: 'https://infraux.com/solutions/multi-cloud',
-    siteName: 'InfraUX',
-    locale: 'en_US',
-    type: 'website',
-  },
-}
+export const metadata: Metadata = pageMetadata.solutions.multiCloud()
 
 const cloudProviders = [
   {

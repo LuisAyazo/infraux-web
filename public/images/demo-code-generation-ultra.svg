@@ -1,0 +1,230 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b"/>
+      <stop offset="50%" style="stop-color:#312e81"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+    <linearGradient id="codeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#ec4899"/>
+    </linearGradient>
+    <linearGradient id="terminalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="20" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgGradient)"/>
+  
+  <!-- Code Pattern Background -->
+  <pattern id="codePattern" width="60" height="40" patternUnits="userSpaceOnUse">
+    <rect width="20" height="4" x="5" y="10" fill="#6366f1" opacity="0.1"/>
+    <rect width="30" height="4" x="5" y="20" fill="#8b5cf6" opacity="0.1"/>
+    <rect width="15" height="4" x="5" y="30" fill="#ec4899" opacity="0.1"/>
+  </pattern>
+  <rect width="1200" height="800" fill="url(#codePattern)"/>
+  
+  <!-- Main IDE Window -->
+  <rect x="50" y="50" width="1100" height="700" rx="20" fill="#1e293b" stroke="#7c3aed" stroke-width="3" filter="url(#shadow)"/>
+  
+  <!-- IDE Header -->
+  <rect x="50" y="50" width="1100" height="60" rx="20" fill="#0f172a"/>
+  <circle cx="90" cy="80" r="8" fill="#ef4444"/>
+  <circle cx="120" cy="80" r="8" fill="#f59e0b"/>
+  <circle cx="150" cy="80" r="8" fill="#10b981"/>
+  
+  <!-- IDE Title -->
+  <text x="200" y="88" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="20" font-weight="bold">InfraUX Code Generator</text>
+  
+  <!-- Tab Bar -->
+  <rect x="80" y="130" width="150" height="40" rx="10" fill="url(#codeGradient)" filter="url(#glow)"/>
+  <text x="155" y="155" text-anchor="middle" fill="white" font-family="JetBrains Mono, monospace" font-size="14" font-weight="bold">main.tf</text>
+  
+  <rect x="250" y="130" width="150" height="40" rx="10" fill="#374151" stroke="#4b5563" stroke-width="1"/>
+  <text x="325" y="155" text-anchor="middle" fill="#9ca3af" font-family="JetBrains Mono, monospace" font-size="14">variables.tf</text>
+  
+  <rect x="420" y="130" width="150" height="40" rx="10" fill="#374151" stroke="#4b5563" stroke-width="1"/>
+  <text x="495" y="155" text-anchor="middle" fill="#9ca3af" font-family="JetBrains Mono, monospace" font-size="14">outputs.tf</text>
+  
+  <!-- Code Editor Area -->
+  <rect x="80" y="190" width="1040" height="500" rx="15" fill="url(#terminalGradient)" stroke="#374151" stroke-width="1"/>
+  
+  <!-- Line Numbers -->
+  <g id="lineNumbers" fill="#6b7280" font-family="JetBrains Mono, monospace" font-size="14">
+    <text x="100" y="220">1</text>
+    <text x="100" y="250">2</text>
+    <text x="100" y="280">3</text>
+    <text x="100" y="310">4</text>
+    <text x="100" y="340">5</text>
+    <text x="100" y="370">6</text>
+    <text x="100" y="400">7</text>
+    <text x="100" y="430">8</text>
+    <text x="100" y="460">9</text>
+    <text x="100" y="490">10</text>
+    <text x="100" y="520">11</text>
+    <text x="100" y="550">12</text>
+    <text x="100" y="580">13</text>
+    <text x="100" y="610">14</text>
+    <text x="100" y="640">15</text>
+  </g>
+  
+  <!-- Code Content -->
+  <g id="code" font-family="JetBrains Mono, monospace" font-size="14">
+    <!-- Terraform Provider -->
+    <text x="130" y="220" fill="#f59e0b">terraform</text>
+    <text x="210" y="220" fill="#e2e8f0">{</text>
+    
+    <text x="150" y="250" fill="#10b981">required_providers</text>
+    <text x="280" y="250" fill="#e2e8f0">= {</text>
+    
+    <text x="170" y="280" fill="#06b6d4">aws</text>
+    <text x="210" y="280" fill="#e2e8f0">= {</text>
+    
+    <text x="190" y="310" fill="#10b981">source</text>
+    <text x="250" y="310" fill="#e2e8f0">=</text>
+    <text x="270" y="310" fill="#f97316">"hashicorp/aws"</text>
+    
+    <text x="190" y="340" fill="#10b981">version</text>
+    <text x="250" y="340" fill="#e2e8f0">=</text>
+    <text x="270" y="340" fill="#f97316">"~> 5.0"</text>
+    
+    <text x="170" y="370" fill="#e2e8f0">}</text>
+    <text x="150" y="400" fill="#e2e8f0">}</text>
+    <text x="130" y="430" fill="#e2e8f0">}</text>
+    
+    <!-- AWS Resource -->
+    <text x="130" y="490" fill="#f59e0b">resource</text>
+    <text x="210" y="490" fill="#f97316">"aws_instance"</text>
+    <text x="340" y="490" fill="#f97316">"web_server"</text>
+    <text x="450" y="490" fill="#e2e8f0">{</text>
+    
+    <text x="150" y="520" fill="#10b981">ami</text>
+    <text x="190" y="520" fill="#e2e8f0">=</text>
+    <text x="210" y="520" fill="#f97316">"ami-0c02fb55956c7d316"</text>
+    
+    <text x="150" y="550" fill="#10b981">instance_type</text>
+    <text x="270" y="550" fill="#e2e8f0">=</text>
+    <text x="290" y="550" fill="#f97316">"t3.micro"</text>
+    
+    <text x="150" y="580" fill="#10b981">key_name</text>
+    <text x="230" y="580" fill="#e2e8f0">=</text>
+    <text x="250" y="580" fill="#06b6d4">var.key_name</text>
+    
+    <text x="150" y="610" fill="#10b981">vpc_security_group_ids</text>
+    <text x="350" y="610" fill="#e2e8f0">=</text>
+    <text x="370" y="610" fill="#e2e8f0">[</text>
+    <text x="390" y="610" fill="#06b6d4">aws_security_group.web.id</text>
+    <text x="590" y="610" fill="#e2e8f0">]</text>
+    
+    <text x="130" y="640" fill="#e2e8f0">}</text>
+  </g>
+  
+  <!-- Cursor -->
+  <rect x="600" y="625" width="2" height="18" fill="#06b6d4">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Sidebar with File Explorer -->
+  <rect x="850" y="190" width="250" height="280" rx="10" fill="#374151" stroke="#4b5563" stroke-width="1"/>
+  <text x="975" y="215" text-anchor="middle" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Generated Files</text>
+  
+  <!-- File List -->
+  <g id="fileList" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="12">
+    <rect x="870" y="235" width="210" height="25" rx="5" fill="#10b981" opacity="0.2"/>
+    <text x="880" y="252">📄 main.tf</text>
+    <text x="1050" y="252" fill="#10b981">✓</text>
+    
+    <rect x="870" y="270" width="210" height="25" rx="5" fill="#f59e0b" opacity="0.2"/>
+    <text x="880" y="287">📄 variables.tf</text>
+    <text x="1050" y="287" fill="#f59e0b">⏳</text>
+    
+    <text x="880" y="317">📄 outputs.tf</text>
+    <text x="1050" y="317" fill="#6b7280">⏸</text>
+    
+    <text x="880" y="347">📄 terraform.tfvars</text>
+    <text x="1050" y="347" fill="#6b7280">⏸</text>
+    
+    <text x="880" y="377">📁 modules/</text>
+    <text x="1050" y="377" fill="#06b6d4">📁</text>
+    
+    <text x="880" y="407">📄 README.md</text>
+    <text x="1050" y="407" fill="#6b7280">⏸</text>
+    
+    <text x="880" y="437">📄 .gitignore</text>
+    <text x="1050" y="437" fill="#6b7280">⏸</text>
+  </g>
+  
+  <!-- Terminal Section -->
+  <rect x="80" y="490" width="750" height="180" rx="10" fill="#0f172a" stroke="#374151" stroke-width="1"/>
+  <rect x="80" y="490" width="750" height="30" rx="10" fill="#1f2937"/>
+  <text x="100" y="510" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Terminal</text>
+  
+  <!-- Terminal Content -->
+  <g id="terminal" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12">
+    <text x="100" y="545">$ terraform init</text>
+    <text x="100" y="565" fill="#06b6d4">Initializing the backend...</text>
+    <text x="100" y="585" fill="#06b6d4">Initializing provider plugins...</text>
+    <text x="100" y="605" fill="#10b981">✓ Terraform has been successfully initialized!</text>
+    <text x="100" y="640">$ terraform plan</text>
+    <text x="100" y="655" fill="#f59e0b">Plan: 3 to add, 0 to change, 0 to destroy.</text>
+  </g>
+  
+  <!-- Progress Bar -->
+  <rect x="850" y="500" width="250" height="20" rx="10" fill="#374151" stroke="#4b5563" stroke-width="1"/>
+  <rect x="855" y="505" width="180" height="10" rx="5" fill="url(#codeGradient)">
+    <animate attributeName="width" values="0;180;240;180" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  <text x="975" y="535" text-anchor="middle" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="12">Generating Code... 75%</text>
+  
+  <!-- Action Buttons -->
+  <g id="actionButtons">
+    <rect x="850" y="580" width="110" height="40" rx="10" fill="url(#codeGradient)" filter="url(#shadow)"/>
+    <text x="905" y="605" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Deploy</text>
+    
+    <rect x="980" y="580" width="110" height="40" rx="10" fill="#374151" stroke="#4b5563" stroke-width="1"/>
+    <text x="1035" y="605" text-anchor="middle" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="14">Download</text>
+  </g>
+  
+  <!-- Status Indicators -->
+  <g id="statusIndicators">
+    <circle cx="1050" cy="220" r="6" fill="#10b981">
+      <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="1070" y="226" fill="#10b981" font-family="Arial, sans-serif" font-size="11">Generated</text>
+    
+    <circle cx="1050" cy="245" r="6" fill="#f59e0b">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="1070" y="251" fill="#f59e0b" font-family="Arial, sans-serif" font-size="11">Processing</text>
+  </g>
+  
+  <!-- Floating Code Snippets -->
+  <g id="floatingSnippets" opacity="0.7">
+    <rect x="200" y="150" width="80" height="20" rx="5" fill="#7c3aed" opacity="0.8">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 20,-10; 0,0" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <text x="240" y="165" text-anchor="middle" fill="white" font-family="JetBrains Mono, monospace" font-size="10">resource</text>
+    
+    <rect x="600" y="160" width="60" height="20" rx="5" fill="#ec4899" opacity="0.8">
+      <animateTransform attributeName="transform" type="translate" values="0,0; -15,8; 0,0" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    <text x="630" y="175" text-anchor="middle" fill="white" font-family="JetBrains Mono, monospace" font-size="10">output</text>
+    
+    <rect x="400" y="170" width="70" height="20" rx="5" fill="#06b6d4" opacity="0.8">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 12,15; 0,0" dur="3.5s" repeatCount="indefinite"/>
+    </rect>
+    <text x="435" y="185" text-anchor="middle" fill="white" font-family="JetBrains Mono, monospace" font-size="10">variable</text>
+  </g>
+</svg>

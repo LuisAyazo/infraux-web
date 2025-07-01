@@ -1,0 +1,296 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c4a6e"/>
+      <stop offset="50%" style="stop-color:#0369a1"/>
+      <stop offset="100%" style="stop-color:#0284c7"/>
+    </linearGradient>
+    <linearGradient id="pipelineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <linearGradient id="deployingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="successGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#065f46"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="20" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgGradient)"/>
+  
+  <!-- Cloud Pattern -->
+  <pattern id="cloudPattern" width="100" height="60" patternUnits="userSpaceOnUse">
+    <ellipse cx="30" cy="20" rx="12" ry="8" fill="#0ea5e9" opacity="0.1"/>
+    <ellipse cx="70" cy="40" rx="15" ry="10" fill="#0284c7" opacity="0.1"/>
+  </pattern>
+  <rect width="1200" height="800" fill="url(#cloudPattern)"/>
+  
+  <!-- Main Dashboard -->
+  <rect x="50" y="50" width="1100" height="700" rx="20" fill="#1e293b" stroke="#0ea5e9" stroke-width="3" filter="url(#shadow)"/>
+  
+  <!-- Header -->
+  <rect x="50" y="50" width="1100" height="80" rx="20" fill="#0f172a"/>
+  <circle cx="90" cy="90" r="8" fill="#ef4444"/>
+  <circle cx="120" cy="90" r="8" fill="#f59e0b"/>
+  <circle cx="150" cy="90" r="8" fill="#10b981"/>
+  
+  <text x="200" y="100" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="24" font-weight="bold">InfraUX Deployment Pipeline</text>
+  
+  <!-- Pipeline Status Bar -->
+  <rect x="600" y="70" width="400" height="40" rx="20" fill="#334155" stroke="#475569" stroke-width="1"/>
+  <text x="800" y="95" text-anchor="middle" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Pipeline #47 - Production Deploy</text>
+  
+  <!-- Main Pipeline Flow -->
+  <g id="pipelineFlow">
+    <!-- Stage 1: Source -->
+    <g id="stage1" transform="translate(100, 180)">
+      <rect width="140" height="100" rx="15" fill="url(#successGradient)" filter="url(#shadow)"/>
+      <circle cx="70" cy="30" r="15" fill="white"/>
+      <text x="70" y="36" text-anchor="middle" fill="#059669" font-family="Arial, sans-serif" font-size="16" font-weight="bold">✓</text>
+      <text x="70" y="60" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Source</text>
+      <text x="70" y="80" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12">GitHub</text>
+      <text x="70" y="95" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">2m 15s</text>
+    </g>
+    
+    <!-- Stage 2: Build -->
+    <g id="stage2" transform="translate(280, 180)">
+      <rect width="140" height="100" rx="15" fill="url(#successGradient)" filter="url(#shadow)"/>
+      <circle cx="70" cy="30" r="15" fill="white"/>
+      <text x="70" y="36" text-anchor="middle" fill="#059669" font-family="Arial, sans-serif" font-size="16" font-weight="bold">✓</text>
+      <text x="70" y="60" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Build</text>
+      <text x="70" y="80" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12">Docker</text>
+      <text x="70" y="95" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">4m 32s</text>
+    </g>
+    
+    <!-- Stage 3: Test -->
+    <g id="stage3" transform="translate(460, 180)">
+      <rect width="140" height="100" rx="15" fill="url(#successGradient)" filter="url(#shadow)"/>
+      <circle cx="70" cy="30" r="15" fill="white"/>
+      <text x="70" y="36" text-anchor="middle" fill="#059669" font-family="Arial, sans-serif" font-size="16" font-weight="bold">✓</text>
+      <text x="70" y="60" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Test</text>
+      <text x="70" y="80" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12">Automated</text>
+      <text x="70" y="95" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">1m 48s</text>
+    </g>
+    
+    <!-- Stage 4: Deploy (Active) -->
+    <g id="stage4" transform="translate(640, 180)">
+      <rect width="140" height="100" rx="15" fill="url(#deployingGradient)" filter="url(#shadow)">
+        <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+      </rect>
+      <circle cx="70" cy="30" r="15" fill="white">
+        <animateTransform attributeName="transform" type="rotate" values="0 70 30;360 70 30" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="70" y="36" text-anchor="middle" fill="#d97706" font-family="Arial, sans-serif" font-size="16" font-weight="bold">⟳</text>
+      <text x="70" y="60" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Deploy</text>
+      <text x="70" y="80" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12">AWS EKS</text>
+      <text x="70" y="95" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">3m 12s</text>
+    </g>
+    
+    <!-- Stage 5: Verify (Pending) -->
+    <g id="stage5" transform="translate(820, 180)">
+      <rect width="140" height="100" rx="15" fill="#475569" stroke="#64748b" stroke-width="2"/>
+      <circle cx="70" cy="30" r="15" fill="#64748b"/>
+      <text x="70" y="36" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">◯</text>
+      <text x="70" y="60" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Verify</text>
+      <text x="70" y="80" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Health Check</text>
+      <text x="70" y="95" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">Pending</text>
+    </g>
+    
+    <!-- Progress Arrows -->
+    <g id="arrows" stroke="#0ea5e9" stroke-width="3" fill="none" marker-end="url(#arrowhead)">
+      <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#0ea5e9"/>
+        </marker>
+      </defs>
+      <path d="M 240 230 L 280 230"/>
+      <path d="M 420 230 L 460 230"/>
+      <path d="M 600 230 L 640 230"/>
+      <path d="M 780 230 L 820 230" stroke-dasharray="5,5" opacity="0.5"/>
+    </g>
+  </g>
+  
+  <!-- Deployment Environment Cards -->
+  <g id="environments">
+    <!-- Development -->
+    <g transform="translate(100, 350)">
+      <rect width="180" height="120" rx="15" fill="#059669" filter="url(#shadow)"/>
+      <circle cx="30" cy="30" r="12" fill="white"/>
+      <text x="30" y="36" text-anchor="middle" fill="#059669" font-family="Arial, sans-serif" font-size="14" font-weight="bold">✓</text>
+      <text x="100" y="30" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Development</text>
+      <text x="20" y="55" fill="white" font-family="Arial, sans-serif" font-size="12">Status: Active</text>
+      <text x="20" y="75" fill="white" font-family="Arial, sans-serif" font-size="12">Instances: 2</text>
+      <text x="20" y="95" fill="white" font-family="Arial, sans-serif" font-size="12">Last Deploy: 2h ago</text>
+    </g>
+    
+    <!-- Staging -->
+    <g transform="translate(320, 350)">
+      <rect width="180" height="120" rx="15" fill="#0ea5e9" filter="url(#shadow)"/>
+      <circle cx="30" cy="30" r="12" fill="white"/>
+      <text x="30" y="36" text-anchor="middle" fill="#0ea5e9" font-family="Arial, sans-serif" font-size="14" font-weight="bold">✓</text>
+      <text x="100" y="30" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Staging</text>
+      <text x="20" y="55" fill="white" font-family="Arial, sans-serif" font-size="12">Status: Active</text>
+      <text x="20" y="75" fill="white" font-family="Arial, sans-serif" font-size="12">Instances: 3</text>
+      <text x="20" y="95" fill="white" font-family="Arial, sans-serif" font-size="12">Last Deploy: 1h ago</text>
+    </g>
+    
+    <!-- Production (Deploying) -->
+    <g transform="translate(540, 350)">
+      <rect width="180" height="120" rx="15" fill="url(#deployingGradient)" filter="url(#shadow)">
+        <animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite"/>
+      </rect>
+      <circle cx="30" cy="30" r="12" fill="white">
+        <animateTransform attributeName="transform" type="rotate" values="0 30 30;360 30 30" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <text x="30" y="36" text-anchor="middle" fill="#d97706" font-family="Arial, sans-serif" font-size="14" font-weight="bold">⟳</text>
+      <text x="100" y="30" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Production</text>
+      <text x="20" y="55" fill="white" font-family="Arial, sans-serif" font-size="12">Status: Deploying</text>
+      <text x="20" y="75" fill="white" font-family="Arial, sans-serif" font-size="12">Instances: 8</text>
+      <text x="20" y="95" fill="white" font-family="Arial, sans-serif" font-size="12">Progress: 68%</text>
+    </g>
+  </g>
+  
+  <!-- Real-time Metrics -->
+  <g id="metrics" transform="translate(800, 350)">
+    <rect width="280" height="280" rx="15" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    <text x="140" y="30" text-anchor="middle" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Live Metrics</text>
+    
+    <!-- CPU Usage Chart -->
+    <g transform="translate(20, 50)">
+      <text x="0" y="15" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">CPU Usage</text>
+      <rect x="0" y="20" width="240" height="40" rx="5" fill="#334155"/>
+      <rect x="5" y="25" width="180" height="30" rx="3" fill="url(#pipelineGradient)">
+        <animate attributeName="width" values="120;200;160;180" dur="3s" repeatCount="indefinite"/>
+      </rect>
+      <text x="200" y="45" fill="#10b981" font-family="Arial, sans-serif" font-size="14" font-weight="bold">75%</text>
+    </g>
+    
+    <!-- Memory Usage Chart -->
+    <g transform="translate(20, 110)">
+      <text x="0" y="15" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Memory Usage</text>
+      <rect x="0" y="20" width="240" height="40" rx="5" fill="#334155"/>
+      <rect x="5" y="25" width="144" height="30" rx="3" fill="#0ea5e9">
+        <animate attributeName="width" values="100;160;120;144" dur="2.5s" repeatCount="indefinite"/>
+      </rect>
+      <text x="200" y="45" fill="#0ea5e9" font-family="Arial, sans-serif" font-size="14" font-weight="bold">60%</text>
+    </g>
+    
+    <!-- Response Time -->
+    <g transform="translate(20, 170)">
+      <text x="0" y="15" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Response Time</text>
+      <rect x="0" y="20" width="240" height="40" rx="5" fill="#334155"/>
+      <rect x="5" y="25" width="60" height="30" rx="3" fill="#f59e0b">
+        <animate attributeName="width" values="40;80;50;60" dur="2s" repeatCount="indefinite"/>
+      </rect>
+      <text x="200" y="45" fill="#f59e0b" font-family="Arial, sans-serif" font-size="14" font-weight="bold">120ms</text>
+    </g>
+    
+    <!-- Active Requests -->
+    <g transform="translate(20, 230)">
+      <text x="0" y="15" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Active Requests</text>
+      <text x="0" y="35" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="24" font-weight="bold">1,247</text>
+      <text x="0" y="50" fill="#10b981" font-family="Arial, sans-serif" font-size="12">+15% from last hour</text>
+    </g>
+  </g>
+  
+  <!-- Console Output -->
+  <g id="console" transform="translate(100, 520)">
+    <rect width="600" height="150" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <rect width="600" height="30" rx="10" fill="#1f2937"/>
+    <text x="20" y="20" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Deployment Console</text>
+    
+    <!-- Console Text -->
+    <g fill="#10b981" font-family="JetBrains Mono, monospace" font-size="11">
+      <text x="20" y="50">[INFO] Starting deployment to production cluster...</text>
+      <text x="20" y="65">[INFO] Pulling Docker image: infraux/api:v2.1.4</text>
+      <text x="20" y="80">[INFO] Scaling replicas from 6 to 8...</text>
+      <text x="20" y="95" fill="#f59e0b">[WARN] Rolling update in progress...</text>
+      <text x="20" y="110">[INFO] Health checks passing: 5/6 pods ready</text>
+      <text x="20" y="125" fill="#0ea5e9">[INFO] Load balancer configuration updated</text>
+      <text x="20" y="140">▋</text>
+      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  
+  <!-- Action Buttons -->
+  <g id="actionButtons" transform="translate(750, 580)">
+    <rect width="120" height="40" rx="10" fill="url(#deployingGradient)" filter="url(#shadow)">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="60" y="25" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Cancel Deploy</text>
+    
+    <rect x="140" y="0" width="120" height="40" rx="10" fill="#475569" stroke="#64748b" stroke-width="1"/>
+    <text x="200" y="25" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14">View Logs</text>
+  </g>
+  
+  <!-- Status Notifications -->
+  <g id="notifications" transform="translate(900, 100)">
+    <rect width="250" height="200" rx="15" fill="#1e293b" stroke="#334155" stroke-width="2" filter="url(#shadow)"/>
+    <text x="125" y="25" text-anchor="middle" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Recent Activity</text>
+    
+    <!-- Notification Items -->
+    <g transform="translate(15, 40)">
+      <circle cx="12" cy="12" r="6" fill="#10b981">
+        <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="25" y="16" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="11">Production deploy started</text>
+      <text x="25" y="28" fill="#94a3b8" font-family="Arial, sans-serif" font-size="9">2 minutes ago</text>
+    </g>
+    
+    <g transform="translate(15, 70)">
+      <circle cx="12" cy="12" r="6" fill="#10b981"/>
+      <text x="25" y="16" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="11">Tests passed successfully</text>
+      <text x="25" y="28" fill="#94a3b8" font-family="Arial, sans-serif" font-size="9">5 minutes ago</text>
+    </g>
+    
+    <g transform="translate(15, 100)">
+      <circle cx="12" cy="12" r="6" fill="#10b981"/>
+      <text x="25" y="16" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="11">Build completed</text>
+      <text x="25" y="28" fill="#94a3b8" font-family="Arial, sans-serif" font-size="9">8 minutes ago</text>
+    </g>
+    
+    <g transform="translate(15, 130)">
+      <circle cx="12" cy="12" r="6" fill="#10b981"/>
+      <text x="25" y="16" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="11">Code pushed to main</text>
+      <text x="25" y="28" fill="#94a3b8" font-family="Arial, sans-serif" font-size="9">12 minutes ago</text>
+    </g>
+    
+    <g transform="translate(15, 160)">
+      <circle cx="12" cy="12" r="6" fill="#6b7280"/>
+      <text x="25" y="16" fill="#94a3b8" font-family="Arial, sans-serif" font-size="11">Staging deploy completed</text>
+      <text x="25" y="28" fill="#6b7280" font-family="Arial, sans-serif" font-size="9">1 hour ago</text>
+    </g>
+  </g>
+  
+  <!-- Floating Progress Indicators -->
+  <g id="floatingProgress" opacity="0.8">
+    <circle cx="300" cy="140" r="3" fill="#10b981">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-20; 0,0" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    
+    <circle cx="500" cy="130" r="4" fill="#0ea5e9">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-15; 0,0" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <circle cx="700" cy="140" r="5" fill="#f59e0b">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-25; 0,0" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

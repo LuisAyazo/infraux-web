@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo-config'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
 import Link from 'next/link'
@@ -19,19 +20,7 @@ import {
   DocumentCheckIcon
 } from '@heroicons/react/24/outline'
 
-export const metadata: Metadata = {
-  title: 'Editor Visual de Infraestructura | InfraUX',
-  description: 'Diseña tu infraestructura cloud con drag & drop. Sin código, sin YAML, sin complejidad. Compatible con AWS, GCP y Azure.',
-  keywords: ['editor visual', 'drag and drop', 'infraestructura visual', 'no-code infrastructure', 'diseño cloud'],
-  openGraph: {
-    title: 'Editor Visual - InfraUX',
-    description: 'La forma más intuitiva de diseñar infraestructura cloud',
-    url: 'https://infraux.com/producto/editor',
-    siteName: 'InfraUX',
-    locale: 'es_ES',
-    type: 'website',
-  },
-}
+export const metadata: Metadata = pageMetadata.spanish.product.editor()
 
 const features = [
   {

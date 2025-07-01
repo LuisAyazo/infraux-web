@@ -24,32 +24,9 @@ import {
   ChatBubbleLeftRightIcon,
   StarIcon
 } from '@heroicons/react/24/outline'
+import { pageMetadata } from '@/lib/seo-config'
 
-export const metadata: Metadata = {
-  title: 'InfraUX vs Terraform, Pulumi, AWS CDK | Comparación Detallada',
-  description: 'Compara InfraUX con Terraform, Pulumi, AWS CDK y otras herramientas IaC. Descubre por qué InfraUX es la mejor opción para gestionar tu infraestructura cloud visualmente.',
-  keywords: ['InfraUX vs Terraform', 'InfraUX vs Pulumi', 'InfraUX vs AWS CDK', 'comparación IaC', 'infraestructura como código', 'herramientas DevOps'],
-  openGraph: {
-    title: 'InfraUX vs Terraform, Pulumi, AWS CDK - Comparación',
-    description: 'Descubre las ventajas de InfraUX sobre otras herramientas de infraestructura como código.',
-    url: 'https://infraux.com/comparacion',
-    siteName: 'InfraUX',
-    locale: 'es_ES',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'InfraUX vs Terraform, Pulumi, AWS CDK',
-    description: 'La comparación definitiva de herramientas IaC',
-  },
-  alternates: {
-    canonical: 'https://infraux.com/comparacion',
-    languages: {
-      'es': 'https://infraux.com/comparacion',
-      'en': 'https://infraux.com/comparison'
-    }
-  },
-}
+export const metadata: Metadata = pageMetadata.utility.comparison()
 
 const competitors = [
   {

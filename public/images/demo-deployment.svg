@@ -1,0 +1,210 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg-gradient)"/>
+  
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#eff6ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dbeafe;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="terminal-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1f2937;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="success-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="drop-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#00000025"/>
+    </filter>
+  </defs>
+  
+  <!-- Main Terminal Window -->
+  <rect x="50" y="50" width="700" height="500" rx="12" fill="url(#terminal-gradient)" filter="url(#drop-shadow)"/>
+  
+  <!-- Terminal Header -->
+  <rect x="50" y="50" width="700" height="40" rx="12" fill="#374151"/>
+  <rect x="50" y="75" width="700" height="2" fill="#4b5563"/>
+  
+  <!-- Terminal Controls -->
+  <circle cx="75" cy="70" r="6" fill="#ef4444"/>
+  <circle cx="95" cy="70" r="6" fill="#f59e0b"/>
+  <circle cx="115" cy="70" r="6" fill="#10b981"/>
+  
+  <!-- Terminal Title -->
+  <text x="400" y="75" fill="#d1d5db" font-family="Monaco, monospace" font-size="12" text-anchor="middle">infraux-deploy</text>
+  
+  <!-- Terminal Content -->
+  <g font-family="Monaco, monospace" font-size="11" fill="#d1d5db">
+    <!-- Command prompt -->
+    <text x="70" y="115" fill="#10b981">➜</text>
+    <text x="90" y="115" fill="#3b82f6">infraux</text>
+    <text x="140" y="115">deploy --environment production</text>
+    
+    <!-- Output lines with animation -->
+    <g>
+      <text x="70" y="140" fill="#9ca3af">🚀 Starting deployment process...</text>
+      <rect x="65" y="130" width="300" height="15" fill="none" stroke="none">
+        <animate attributeName="opacity" values="0;1" begin="0s" dur="0.5s" fill="freeze"/>
+      </rect>
+    </g>
+    
+    <g>
+      <text x="70" y="165" fill="#fbbf24">⚙️  Validating infrastructure configuration...</text>
+      <rect x="65" y="155" width="350" height="15" fill="none" stroke="none">
+        <animate attributeName="opacity" values="0;1" begin="1s" dur="0.5s" fill="freeze"/>
+      </rect>
+    </g>
+    
+    <g>
+      <text x="70" y="190" fill="#10b981">✅ Configuration valid</text>
+      <rect x="65" y="180" width="200" height="15" fill="none" stroke="none">
+        <animate attributeName="opacity" values="0;1" begin="2s" dur="0.5s" fill="freeze"/>
+      </rect>
+    </g>
+    
+    <g>
+      <text x="70" y="215" fill="#fbbf24">📦 Building Terraform plan...</text>
+      <rect x="65" y="205" width="250" height="15" fill="none" stroke="none">
+        <animate attributeName="opacity" values="0;1" begin="3s" dur="0.5s" fill="freeze"/>
+      </rect>
+    </g>
+    
+    <g>
+      <text x="70" y="240" fill="#d1d5db">   Plan: 5 to add, 2 to change, 0 to destroy</text>
+      <rect x="65" y="230" width="350" height="15" fill="none" stroke="none">
+        <animate attributeName="opacity" values="0;1" begin="4s" dur="0.5s" fill="freeze"/>
+      </rect>
+    </g>
+    
+    <g>
+      <text x="70" y="265" fill="#3b82f6">🔄 Applying infrastructure changes...</text>
+      <rect x="65" y="255" width="300" height="15" fill="none" stroke="none">
+        <animate attributeName="opacity" values="0;1" begin="5s" dur="0.5s" fill="freeze"/>
+      </rect>
+    </g>
+    
+    <!-- Progress bar -->
+    <g>
+      <rect x="70" y="280" width="400" height="8" rx="4" fill="#374151"/>
+      <rect x="70" y="280" width="0" height="8" rx="4" fill="url(#success-gradient)">
+        <animate attributeName="width" values="0;400" begin="6s" dur="3s" fill="freeze"/>
+      </rect>
+      <rect x="65" y="275" width="410" height="18" fill="none" stroke="none">
+        <animate attributeName="opacity" values="0;1" begin="6s" dur="0.5s" fill="freeze"/>
+      </rect>
+    </g>
+    
+    <g>
+      <text x="70" y="315" fill="#10b981">✅ aws_instance.web_server: Creation complete</text>
+      <rect x="65" y="305" width="350" height="15" fill="none" stroke="none">
+        <animate attributeName="opacity" values="0;1" begin="7s" dur="0.5s" fill="freeze"/>
+      </rect>
+    </g>
+    
+    <g>
+      <text x="70" y="340" fill="#10b981">✅ aws_db_instance.main_database: Creation complete</text>
+      <rect x="65" y="330" width="380" height="15" fill="none" stroke="none">
+        <animate attributeName="opacity" values="0;1" begin="8s" dur="0.5s" fill="freeze"/>
+      </rect>
+    </g>
+    
+    <g>
+      <text x="70" y="365" fill="#10b981">✅ aws_lb.application: Creation complete</text>
+      <rect x="65" y="355" width="320" height="15" fill="none" stroke="none">
+        <animate attributeName="opacity" values="0;1" begin="9s" dur="0.5s" fill="freeze"/>
+      </rect>
+    </g>
+    
+    <g>
+      <text x="70" y="390" fill="#10b981">🎉 Deployment completed successfully!</text>
+      <rect x="65" y="380" width="320" height="15" fill="none" stroke="none">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="0.5s" fill="freeze"/>
+      </rect>
+    </g>
+    
+    <!-- Deployment summary -->
+    <g>
+      <rect x="70" y="410" width="500" height="100" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+      <rect x="65" y="405" width="510" height="110" fill="none" stroke="none">
+        <animate attributeName="opacity" values="0;1" begin="11s" dur="0.5s" fill="freeze"/>
+      </rect>
+      
+      <text x="85" y="430" fill="#10b981" font-weight="bold">Deployment Summary</text>
+      <text x="85" y="450" fill="#d1d5db">Resources created: 5</text>
+      <text x="85" y="470" fill="#d1d5db">Resources updated: 2</text>
+      <text x="85" y="490" fill="#d1d5db">Total time: 2m 34s</text>
+      
+      <!-- URLs -->
+      <text x="300" y="430" fill="#3b82f6">Live URLs:</text>
+      <text x="300" y="450" fill="#60a5fa">🌐 https://app.mycompany.com</text>
+      <text x="300" y="470" fill="#60a5fa">📊 https://admin.mycompany.com</text>
+      <text x="300" y="490" fill="#60a5fa">🔍 https://monitor.mycompany.com</text>
+    </g>
+    
+    <!-- New prompt -->
+    <g>
+      <text x="70" y="540" fill="#10b981">➜</text>
+      <text x="90" y="540" fill="#3b82f6">infraux</text>
+      <rect x="140" y="533" width="2" height="12" fill="#10b981">
+        <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" begin="12s"/>
+      </rect>
+      <rect x="65" y="525" width="200" height="20" fill="none" stroke="none">
+        <animate attributeName="opacity" values="0;1" begin="12s" dur="0.5s" fill="freeze"/>
+      </rect>
+    </g>
+  </g>
+  
+  <!-- Status indicators -->
+  
+  <!-- Success badge -->
+  <g transform="translate(650, 120)">
+    <circle cx="0" cy="0" r="25" fill="url(#success-gradient)" filter="url(#glow)">
+      <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      <animate attributeName="r" values="20;30;25" begin="10s" dur="1s" fill="freeze"/>
+    </circle>
+    <path d="M-10,-3 L-5,3 L10,-10" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+    </path>
+  </g>
+  
+  <!-- Floating notifications -->
+  <g transform="translate(500, 200)">
+    <rect x="0" y="0" width="200" height="60" rx="8" fill="#065f46" stroke="#10b981" stroke-width="1" filter="url(#drop-shadow)">
+      <animate attributeName="opacity" values="0;1;1;0" begin="11s" dur="4s" fill="freeze"/>
+      <animate attributeName="y" values="0;-10;-5" begin="11s" dur="4s" fill="freeze"/>
+    </rect>
+    <text x="15" y="25" fill="#10b981" font-family="Monaco, monospace" font-size="12">🚀 Deploy Success</text>
+    <text x="15" y="45" fill="#d1fae5" font-family="Monaco, monospace" font-size="10">Infrastructure is live!</text>
+  </g>
+  
+  <!-- Cloud icons floating -->
+  <g transform="translate(600, 300)">
+    <circle cx="0" cy="0" r="15" fill="#3b82f6" opacity="0.8">
+      <animate attributeName="cy" values="0;-20;0" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="5" fill="white" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">☁</text>
+  </g>
+  
+  <g transform="translate(650, 350)">
+    <circle cx="0" cy="0" r="12" fill="#10b981" opacity="0.7">
+      <animate attributeName="cy" values="0;-15;0" dur="3s" repeatCount="indefinite" begin="1s"/>
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <text x="0" y="4" fill="white" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">⚡</text>
+  </g>
+</svg>

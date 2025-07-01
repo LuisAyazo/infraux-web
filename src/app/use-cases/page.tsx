@@ -24,32 +24,9 @@ import {
   BeakerIcon,
   FireIcon
 } from '@heroicons/react/24/outline'
+import { pageMetadata } from '@/lib/seo-config'
 
-export const metadata: Metadata = {
-  title: 'Use Cases | How Teams Use InfraUX',
-  description: 'Discover how startups, enterprises, and DevOps teams use InfraUX to transform their cloud infrastructure management. Real examples and success stories.',
-  keywords: ['InfraUX use cases', 'cloud infrastructure examples', 'DevOps automation', 'multi-cloud management', 'infrastructure as code'],
-  openGraph: {
-    title: 'Use Cases - InfraUX for Every Team',
-    description: 'See how different teams use InfraUX to build, deploy, and manage cloud infrastructure visually.',
-    url: 'https://infraux.com/use-cases',
-    siteName: 'InfraUX',
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Use Cases - InfraUX',
-    description: 'Real examples of teams transforming their infrastructure',
-  },
-  alternates: {
-    canonical: 'https://infraux.com/use-cases',
-    languages: {
-      'en': 'https://infraux.com/use-cases',
-      'es': 'https://infraux.com/casos-de-uso'
-    }
-  },
-}
+export const metadata: Metadata = pageMetadata.content.useCases()
 
 const useCases = [
   {

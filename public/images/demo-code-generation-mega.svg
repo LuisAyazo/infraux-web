@@ -1,0 +1,294 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="700" fill="url(#gradient-bg)" rx="20"/>
+  
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="gradient-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#1e1b4b;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#581c87;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="gradient-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="gradient-emerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#14b8a6;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow filters -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Split Screen Layout -->
+  <!-- Left Side - Visual Diagram -->
+  <rect x="50" y="50" width="550" height="600" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="2" rx="16"/>
+  
+  <!-- Left side header -->
+  <rect x="70" y="70" width="510" height="40" fill="rgba(255, 255, 255, 0.1)" rx="8"/>
+  <text x="90" y="93" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Diseño Visual</text>
+  <circle cx="540" cy="90" r="8" fill="#22c55e">
+    <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="560" y="95" fill="#22c55e" font-family="Arial, sans-serif" font-size="10" font-weight="600">Sincronizado</text>
+  
+  <!-- Visual components -->
+  <g transform="translate(100, 140)">
+    <!-- Internet Gateway -->
+    <rect x="200" y="0" width="80" height="40" fill="url(#gradient-purple)" rx="6"/>
+    <text x="240" y="25" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">IGW</text>
+    
+    <!-- Load Balancer -->
+    <rect x="180" y="80" width="120" height="50" fill="url(#gradient-emerald)" rx="6"/>
+    <text x="240" y="100" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Load Balancer</text>
+    <text x="240" y="115" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">ALB</text>
+    
+    <!-- EC2 Instances -->
+    <rect x="100" y="180" width="80" height="60" fill="#FF9900" rx="6"/>
+    <text x="140" y="200" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">EC2</text>
+    <text x="140" y="215" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">t3.medium</text>
+    <text x="140" y="230" fill="rgba(255, 255, 255, 0.6)" font-family="Arial, sans-serif" font-size="6" text-anchor="middle">us-east-1a</text>
+    
+    <rect x="300" y="180" width="80" height="60" fill="#FF9900" rx="6"/>
+    <text x="340" y="200" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">EC2</text>
+    <text x="340" y="215" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">t3.medium</text>
+    <text x="340" y="230" fill="rgba(255, 255, 255, 0.6)" font-family="Arial, sans-serif" font-size="6" text-anchor="middle">us-east-1b</text>
+    
+    <!-- Database -->
+    <rect x="200" y="300" width="80" height="60" fill="url(#gradient-purple)" rx="6"/>
+    <text x="240" y="320" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">RDS</text>
+    <text x="240" y="335" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">MySQL</text>
+    <text x="240" y="350" fill="rgba(255, 255, 255, 0.6)" font-family="Arial, sans-serif" font-size="6" text-anchor="middle">Multi-AZ</text>
+    
+    <!-- Connection lines -->
+    <line x1="240" y1="40" x2="240" y2="80" stroke="rgba(139, 92, 246, 0.8)" stroke-width="2" stroke-dasharray="3,3">
+      <animate attributeName="stroke-dashoffset" values="0;6" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="220" y1="130" x2="140" y2="180" stroke="rgba(16, 185, 129, 0.8)" stroke-width="2" stroke-dasharray="4,4">
+      <animate attributeName="stroke-dashoffset" values="0;8" dur="1.2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="260" y1="130" x2="340" y2="180" stroke="rgba(16, 185, 129, 0.8)" stroke-width="2" stroke-dasharray="4,4">
+      <animate attributeName="stroke-dashoffset" values="0;8" dur="1.2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="180" y1="240" x2="220" y2="300" stroke="rgba(139, 92, 246, 0.8)" stroke-width="2" stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" values="0;10" dur="1.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="340" y1="240" x2="260" y2="300" stroke="rgba(139, 92, 246, 0.8)" stroke-width="2" stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" values="0;10" dur="1.5s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Transform Arrow -->
+  <g transform="translate(620, 350)">
+    <circle cx="0" cy="0" r="20" fill="url(#gradient-purple)" filter="url(#glow)">
+      <animate attributeName="r" values="20;25;20" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="5" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">→</text>
+    <text x="0" y="-35" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">GENERAR</text>
+    <text x="0" y="45" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="8" text-anchor="middle">IaC Code</text>
+  </g>
+  
+  <!-- Right Side - Generated Code -->
+  <rect x="680" y="50" width="470" height="600" fill="rgba(0, 0, 0, 0.4)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="2" rx="16"/>
+  
+  <!-- Code editor header -->
+  <rect x="700" y="70" width="430" height="40" fill="rgba(255, 255, 255, 0.1)" rx="8"/>
+  
+  <!-- Tab buttons -->
+  <rect x="720" y="80" width="80" height="20" fill="url(#gradient-purple)" rx="4"/>
+  <text x="760" y="92" fill="white" font-family="monospace" font-size="8" font-weight="bold" text-anchor="middle">main.tf</text>
+  
+  <rect x="810" y="80" width="80" height="20" fill="rgba(255, 255, 255, 0.1)" rx="4"/>
+  <text x="850" y="92" fill="rgba(255, 255, 255, 0.7)" font-family="monospace" font-size="8" text-anchor="middle">variables.tf</text>
+  
+  <rect x="900" y="80" width="80" height="20" fill="rgba(255, 255, 255, 0.1)" rx="4"/>
+  <text x="940" y="92" fill="rgba(255, 255, 255, 0.7)" font-family="monospace" font-size="8" text-anchor="middle">outputs.tf</text>
+  
+  <!-- Generate button -->
+  <rect x="1020" y="78" width="60" height="24" fill="url(#gradient-emerald)" rx="4"/>
+  <text x="1050" y="92" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Generar</text>
+  
+  <!-- Code content area -->
+  <rect x="700" y="120" width="430" height="510" fill="rgba(0, 0, 0, 0.6)" rx="8"/>
+  
+  <!-- Line numbers -->
+  <g transform="translate(710, 140)" fill="rgba(255, 255, 255, 0.3)" font-family="monospace" font-size="8">
+    <text x="0" y="15">1</text>
+    <text x="0" y="30">2</text>
+    <text x="0" y="45">3</text>
+    <text x="0" y="60">4</text>
+    <text x="0" y="75">5</text>
+    <text x="0" y="90">6</text>
+    <text x="0" y="105">7</text>
+    <text x="0" y="120">8</text>
+    <text x="0" y="135">9</text>
+    <text x="0" y="150">10</text>
+    <text x="0" y="165">11</text>
+    <text x="0" y="180">12</text>
+    <text x="0" y="195">13</text>
+    <text x="0" y="210">14</text>
+    <text x="0" y="225">15</text>
+    <text x="0" y="240">16</text>
+    <text x="0" y="255">17</text>
+    <text x="0" y="270">18</text>
+    <text x="0" y="285">19</text>
+    <text x="0" y="300">20</text>
+    <text x="0" y="315">21</text>
+    <text x="0" y="330">22</text>
+    <text x="0" y="345">23</text>
+    <text x="0" y="360">24</text>
+    <text x="0" y="375">25</text>
+    <text x="0" y="390">26</text>
+    <text x="0" y="405">27</text>
+    <text x="0" y="420">28</text>
+    <text x="0" y="435">29</text>
+    <text x="0" y="450">30</text>
+  </g>
+  
+  <!-- Terraform code -->
+  <g transform="translate(730, 140)" font-family="monospace" font-size="8">
+    <!-- Provider configuration -->
+    <text x="0" y="15" fill="#ff79c6">terraform</text>
+    <text x="60" y="15" fill="white">{</text>
+    
+    <text x="20" y="30" fill="#8be9fd">required_providers</text>
+    <text x="120" y="30" fill="white">=</text>
+    <text x="130" y="30" fill="white">{</text>
+    
+    <text x="40" y="45" fill="#f1fa8c">aws</text>
+    <text x="70" y="45" fill="white">=</text>
+    <text x="80" y="45" fill="white">{</text>
+    
+    <text x="60" y="60" fill="#8be9fd">source</text>
+    <text x="100" y="60" fill="white">=</text>
+    <text x="110" y="60" fill="#f1fa8c">"hashicorp/aws"</text>
+    
+    <text x="60" y="75" fill="#8be9fd">version</text>
+    <text x="100" y="75" fill="white">=</text>
+    <text x="110" y="75" fill="#f1fa8c">"~> 5.0"</text>
+    
+    <text x="40" y="90" fill="white">}</text>
+    <text x="20" y="105" fill="white">}</text>
+    <text x="0" y="120" fill="white">}</text>
+    
+    <!-- Provider block -->
+    <text x="0" y="150" fill="#ff79c6">provider</text>
+    <text x="60" y="150" fill="#f1fa8c">"aws"</text>
+    <text x="100" y="150" fill="white">{</text>
+    
+    <text x="20" y="165" fill="#8be9fd">region</text>
+    <text x="60" y="165" fill="white">=</text>
+    <text x="70" y="165" fill="#f1fa8c">"us-east-1"</text>
+    
+    <text x="0" y="180" fill="white">}</text>
+    
+    <!-- VPC -->
+    <text x="0" y="210" fill="#ff79c6">resource</text>
+    <text x="60" y="210" fill="#f1fa8c">"aws_vpc"</text>
+    <text x="120" y="210" fill="#f1fa8c">"main"</text>
+    <text x="160" y="210" fill="white">{</text>
+    
+    <text x="20" y="225" fill="#8be9fd">cidr_block</text>
+    <text x="90" y="225" fill="white">=</text>
+    <text x="100" y="225" fill="#f1fa8c">"10.0.0.0/16"</text>
+    
+    <text x="20" y="240" fill="#8be9fd">enable_dns_hostnames</text>
+    <text x="140" y="240" fill="white">=</text>
+    <text x="150" y="240" fill="#bd93f9">true</text>
+    
+    <text x="20" y="255" fill="#8be9fd">enable_dns_support</text>
+    <text x="130" y="255" fill="white">=</text>
+    <text x="140" y="255" fill="#bd93f9">true</text>
+    
+    <text x="0" y="270" fill="white">}</text>
+    
+    <!-- Internet Gateway -->
+    <text x="0" y="300" fill="#ff79c6">resource</text>
+    <text x="60" y="300" fill="#f1fa8c">"aws_internet_gateway"</text>
+    <text x="180" y="300" fill="#f1fa8c">"main"</text>
+    <text x="220" y="300" fill="white">{</text>
+    
+    <text x="20" y="315" fill="#8be9fd">vpc_id</text>
+    <text x="70" y="315" fill="white">=</text>
+    <text x="80" y="315" fill="#50fa7b">aws_vpc.main.id</text>
+    
+    <text x="0" y="330" fill="white">}</text>
+    
+    <!-- Load Balancer -->
+    <text x="0" y="360" fill="#ff79c6">resource</text>
+    <text x="60" y="360" fill="#f1fa8c">"aws_lb"</text>
+    <text x="110" y="360" fill="#f1fa8c">"main"</text>
+    <text x="150" y="360" fill="white">{</text>
+    
+    <text x="20" y="375" fill="#8be9fd">name</text>
+    <text x="50" y="375" fill="white">=</text>
+    <text x="60" y="375" fill="#f1fa8c">"web-app-alb"</text>
+    
+    <text x="20" y="390" fill="#8be9fd">load_balancer_type</text>
+    <text x="130" y="390" fill="white">=</text>
+    <text x="140" y="390" fill="#f1fa8c">"application"</text>
+    
+    <text x="20" y="405" fill="#8be9fd">internal</text>
+    <text x="70" y="405" fill="white">=</text>
+    <text x="80" y="405" fill="#bd93f9">false</text>
+    
+    <text x="20" y="420" fill="#8be9fd">subnets</text>
+    <text x="70" y="420" fill="white">=</text>
+    <text x="80" y="420" fill="white">[</text>
+    <text x="90" y="420" fill="#50fa7b">aws_subnet.public_1.id</text>
+    <text x="200" y="420" fill="white">,</text>
+    
+    <text x="200" y="435" fill="#50fa7b">aws_subnet.public_2.id</text>
+    <text x="310" y="435" fill="white">]</text>
+    
+    <text x="0" y="450" fill="white">}</text>
+  </g>
+  
+  <!-- Typing animation indicator -->
+  <g transform="translate(1000, 580)">
+    <rect x="0" y="0" width="2" height="12" fill="#50fa7b">
+      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Status indicators -->
+  <g transform="translate(720, 590)">
+    <circle cx="0" cy="0" r="4" fill="#22c55e"/>
+    <text x="15" y="4" fill="#22c55e" font-family="Arial, sans-serif" font-size="8" font-weight="600">Terraform</text>
+    
+    <circle cx="80" cy="0" r="4" fill="#3b82f6"/>
+    <text x="95" y="4" fill="#3b82f6" font-family="Arial, sans-serif" font-size="8" font-weight="600">AWS</text>
+    
+    <circle cx="140" cy="0" r="4" fill="#8b5cf6"/>
+    <text x="155" y="4" fill="#8b5cf6" font-family="Arial, sans-serif" font-size="8" font-weight="600">Valid</text>
+  </g>
+  
+  <!-- Download/Export buttons -->
+  <g transform="translate(1020, 620)">
+    <rect x="0" y="0" width="50" height="20" fill="url(#gradient-emerald)" rx="4"/>
+    <text x="25" y="13" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Deploy</text>
+    
+    <rect x="60" y="0" width="50" height="20" fill="rgba(255, 255, 255, 0.1)" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1" rx="4"/>
+    <text x="85" y="13" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Export</text>
+  </g>
+  
+  <!-- Progress indicator -->
+  <g transform="translate(50, 670)">
+    <text x="0" y="0" fill="rgba(255, 255, 255, 0.6)" font-family="Arial, sans-serif" font-size="10">Generando código...</text>
+    <rect x="120" y="-8" width="200" height="4" fill="rgba(255, 255, 255, 0.2)" rx="2"/>
+    <rect x="120" y="-8" width="160" height="4" fill="url(#gradient-purple)" rx="2">
+      <animate attributeName="width" values="0;200;200" dur="3s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>

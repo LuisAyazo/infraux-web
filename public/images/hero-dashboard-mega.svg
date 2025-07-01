@@ -1,0 +1,253 @@
+<svg width="1400" height="900" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1400" height="900" fill="url(#gradient-bg)" rx="24"/>
+  
+  <!-- Grid Pattern Background -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(16, 185, 129, 0.1)" stroke-width="1"/>
+    </pattern>
+    
+    <!-- Gradients -->
+    <linearGradient id="gradient-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="gradient-emerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#14b8a6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="gradient-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="gradient-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Animated glow filters -->
+    <filter id="glow-emerald" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="glow-blue" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Grid overlay -->
+  <rect width="1400" height="900" fill="url(#grid)"/>
+  
+  <!-- Main Dashboard Container -->
+  <rect x="80" y="80" width="1240" height="740" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="2" rx="16"/>
+  
+  <!-- Top Navigation Bar -->
+  <rect x="100" y="100" width="1200" height="60" fill="rgba(255, 255, 255, 0.08)" rx="12"/>
+  
+  <!-- Logo Area -->
+  <circle cx="140" cy="130" r="16" fill="url(#gradient-emerald)" filter="url(#glow-emerald)"/>
+  <text x="170" y="136" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">InfraUX</text>
+  
+  <!-- Navigation Items -->
+  <rect x="300" y="115" width="80" height="30" fill="rgba(16, 185, 129, 0.2)" rx="6"/>
+  <text x="335" y="132" fill="#10b981" font-family="Arial, sans-serif" font-size="12" font-weight="600">Diagramas</text>
+  
+  <text x="420" y="132" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="12">Credenciales</text>
+  <text x="520" y="132" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="12">Ambientes</text>
+  <text x="620" y="132" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="12">Despliegues</text>
+  
+  <!-- User Avatar -->
+  <circle cx="1220" cy="130" r="18" fill="url(#gradient-blue)"/>
+  <text x="1215" y="135" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">U</text>
+  
+  <!-- Main Content Area Split -->
+  <!-- Left Sidebar -->
+  <rect x="100" y="180" width="280" height="580" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" rx="12"/>
+  
+  <!-- Sidebar Title -->
+  <text x="120" y="210" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Recursos Cloud</text>
+  
+  <!-- Resource Categories -->
+  <g transform="translate(120, 240)">
+    <!-- AWS Section -->
+    <rect x="0" y="0" width="240" height="40" fill="rgba(255, 165, 0, 0.1)" stroke="rgba(255, 165, 0, 0.3)" stroke-width="1" rx="8"/>
+    <circle cx="16" cy="20" r="8" fill="#FF9900"/>
+    <text x="32" y="26" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="600">AWS</text>
+    
+    <!-- Services -->
+    <rect x="16" y="50" width="200" height="24" fill="rgba(255, 255, 255, 0.05)" rx="4"/>
+    <circle cx="26" cy="62" r="4" fill="#3b82f6"/>
+    <text x="36" y="66" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="10">EC2 Instance</text>
+    
+    <rect x="16" y="80" width="200" height="24" fill="rgba(255, 255, 255, 0.05)" rx="4"/>
+    <circle cx="26" cy="92" r="4" fill="#10b981"/>
+    <text x="36" y="96" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="10">S3 Bucket</text>
+    
+    <rect x="16" y="110" width="200" height="24" fill="rgba(255, 255, 255, 0.05)" rx="4"/>
+    <circle cx="26" cy="122" r="4" fill="#8b5cf6"/>
+    <text x="36" y="126" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="10">RDS Database</text>
+    
+    <!-- GCP Section -->
+    <rect x="0" y="150" width="240" height="40" fill="rgba(66, 133, 244, 0.1)" stroke="rgba(66, 133, 244, 0.3)" stroke-width="1" rx="8"/>
+    <circle cx="16" cy="170" r="8" fill="#4285F4"/>
+    <text x="32" y="176" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="600">Google Cloud</text>
+    
+    <!-- Azure Section -->
+    <rect x="0" y="200" width="240" height="40" fill="rgba(0, 120, 215, 0.1)" stroke="rgba(0, 120, 215, 0.3)" stroke-width="1" rx="8"/>
+    <circle cx="16" cy="220" r="8" fill="#0078D7"/>
+    <text x="32" y="226" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="600">Microsoft Azure</text>
+  </g>
+  
+  <!-- Main Canvas Area -->
+  <rect x="400" y="180" width="880" height="580" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" rx="12"/>
+  
+  <!-- Canvas Grid -->
+  <defs>
+    <pattern id="canvas-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255, 255, 255, 0.05)" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect x="400" y="180" width="880" height="580" fill="url(#canvas-grid)"/>
+  
+  <!-- Architecture Components -->
+  <!-- Load Balancer -->
+  <g transform="translate(500, 250)">
+    <rect x="0" y="0" width="120" height="60" fill="url(#gradient-emerald)" rx="8" filter="url(#glow-emerald)"/>
+    <text x="60" y="25" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Load Balancer</text>
+    <text x="60" y="40" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="8" text-anchor="middle">AWS ALB</text>
+  </g>
+  
+  <!-- Web Servers -->
+  <g transform="translate(450, 350)">
+    <rect x="0" y="0" width="80" height="60" fill="url(#gradient-blue)" rx="8" filter="url(#glow-blue)"/>
+    <text x="40" y="25" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Web Server</text>
+    <text x="40" y="38" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">EC2 t3.medium</text>
+    <text x="40" y="50" fill="rgba(255, 255, 255, 0.6)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">us-east-1a</text>
+  </g>
+  
+  <g transform="translate(570, 350)">
+    <rect x="0" y="0" width="80" height="60" fill="url(#gradient-blue)" rx="8" filter="url(#glow-blue)"/>
+    <text x="40" y="25" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Web Server</text>
+    <text x="40" y="38" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">EC2 t3.medium</text>
+    <text x="40" y="50" fill="rgba(255, 255, 255, 0.6)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">us-east-1b</text>
+  </g>
+  
+  <!-- Database -->
+  <g transform="translate(800, 350)">
+    <rect x="0" y="0" width="100" height="60" fill="url(#gradient-purple)" rx="8"/>
+    <text x="50" y="25" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Database</text>
+    <text x="50" y="38" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">RDS MySQL</text>
+    <text x="50" y="50" fill="rgba(255, 255, 255, 0.6)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">Multi-AZ</text>
+  </g>
+  
+  <!-- Cache -->
+  <g transform="translate(950, 250)">
+    <rect x="0" y="0" width="80" height="60" fill="#f59e0b" rx="8"/>
+    <text x="40" y="25" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Cache</text>
+    <text x="40" y="38" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">ElastiCache</text>
+    <text x="40" y="50" fill="rgba(255, 255, 255, 0.6)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">Redis</text>
+  </g>
+  
+  <!-- Storage -->
+  <g transform="translate(1100, 350)">
+    <rect x="0" y="0" width="80" height="60" fill="#22c55e" rx="8"/>
+    <text x="40" y="25" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Storage</text>
+    <text x="40" y="38" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">S3 Bucket</text>
+    <text x="40" y="50" fill="rgba(255, 255, 255, 0.6)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">Static Assets</text>
+  </g>
+  
+  <!-- Connection Lines -->
+  <!-- Load Balancer to Web Servers -->
+  <line x1="560" y1="310" x2="490" y2="350" stroke="rgba(16, 185, 129, 0.6)" stroke-width="3" stroke-dasharray="5,5">
+    <animate attributeName="stroke-dashoffset" values="0;10" dur="1s" repeatCount="indefinite"/>
+  </line>
+  <line x1="560" y1="310" x2="610" y2="350" stroke="rgba(16, 185, 129, 0.6)" stroke-width="3" stroke-dasharray="5,5">
+    <animate attributeName="stroke-dashoffset" values="0;10" dur="1s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Web Servers to Database -->
+  <line x1="530" y1="410" x2="800" y2="380" stroke="rgba(59, 130, 246, 0.6)" stroke-width="3" stroke-dasharray="5,5">
+    <animate attributeName="stroke-dashoffset" values="0;10" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  <line x1="610" y1="410" x2="800" y2="380" stroke="rgba(59, 130, 246, 0.6)" stroke-width="3" stroke-dasharray="5,5">
+    <animate attributeName="stroke-dashoffset" values="0;10" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Cache connection -->
+  <line x1="620" y1="310" x2="950" y2="280" stroke="rgba(245, 158, 11, 0.6)" stroke-width="3" stroke-dasharray="3,3">
+    <animate attributeName="stroke-dashoffset" values="0;6" dur="0.8s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Storage connection -->
+  <line x1="650" y1="410" x2="1100" y2="380" stroke="rgba(34, 197, 94, 0.6)" stroke-width="3" stroke-dasharray="4,4">
+    <animate attributeName="stroke-dashoffset" values="0;8" dur="1.2s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Floating Action Panel -->
+  <rect x="420" y="680" width="300" height="60" fill="rgba(255, 255, 255, 0.1)" stroke="rgba(16, 185, 129, 0.4)" stroke-width="1" rx="12"/>
+  
+  <!-- Action Buttons -->
+  <rect x="440" y="695" width="80" height="30" fill="url(#gradient-emerald)" rx="6"/>
+  <text x="480" y="712" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Generate</text>
+  
+  <rect x="530" y="695" width="80" height="30" fill="rgba(59, 130, 246, 0.8)" rx="6"/>
+  <text x="570" y="712" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Deploy</text>
+  
+  <rect x="620" y="695" width="80" height="30" fill="rgba(139, 92, 246, 0.8)" rx="6"/>
+  <text x="660" y="712" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Validate</text>
+  
+  <!-- Status Indicators -->
+  <g transform="translate(1150, 200)">
+    <rect x="0" y="0" width="120" height="100" fill="rgba(255, 255, 255, 0.08)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1" rx="8"/>
+    <text x="60" y="20" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Status</text>
+    
+    <!-- Active indicator -->
+    <circle cx="20" cy="40" r="4" fill="#22c55e">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="30" y="45" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="9">All services running</text>
+    
+    <!-- Cost indicator -->
+    <circle cx="20" cy="65" r="4" fill="#f59e0b"/>
+    <text x="30" y="70" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="9">Cost: $127.50/month</text>
+    
+    <!-- Performance indicator -->
+    <circle cx="20" cy="85" r="4" fill="#3b82f6"/>
+    <text x="30" y="90" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="9">Latency: 45ms avg</text>
+  </g>
+  
+  <!-- Floating particles for ambience -->
+  <g opacity="0.4">
+    <circle cx="300" cy="300" r="2" fill="#10b981">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 10,-5; 0,0" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="700" cy="250" r="1.5" fill="#3b82f6">
+      <animateTransform attributeName="transform" type="translate" values="0,0; -8,8; 0,0" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1000" cy="500" r="2.5" fill="#8b5cf6">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 5,10; 0,0" dur="5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Success notification popup -->
+  <g transform="translate(900, 100)" opacity="0.9">
+    <rect x="0" y="0" width="200" height="50" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.6)" stroke-width="1" rx="8"/>
+    <circle cx="20" cy="25" r="8" fill="#10b981"/>
+    <text x="25" y="28" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold">✓</text>
+    <text x="40" y="22" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="600">Deployment Successful</text>
+    <text x="40" y="35" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="8">Infrastructure is ready</text>
+  </g>
+</svg>

@@ -27,11 +27,9 @@ import {
   ClockIcon,
   SparklesIcon
 } from '@heroicons/react/24/outline'
+import { pageMetadata } from '@/lib/seo-config'
 
-export const metadata: Metadata = {
-  title: 'Documentation | InfraUX - Learning Center',
-  description: 'Complete InfraUX documentation. Learn to design, deploy and manage your cloud infrastructure visually.',
-}
+export const metadata: Metadata = pageMetadata.utility.documentation()
 
 // Sidebar navigation structure
 const navigation = [

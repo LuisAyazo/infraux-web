@@ -16,20 +16,9 @@ import {
   ShieldCheckIcon,
   BeakerIcon
 } from '@heroicons/react/24/outline'
+import { pageMetadata } from '@/lib/seo-config'
 
-export const metadata: Metadata = {
-  title: 'Changelog | InfraUX - Novedades y Actualizaciones',
-  description: 'Todas las nuevas funcionalidades, mejoras y correcciones de InfraUX. Mantente al día con nuestro desarrollo.',
-  keywords: ['changelog', 'actualizaciones', 'nuevas funcionalidades', 'release notes', 'infraux updates'],
-  openGraph: {
-    title: 'Changelog - InfraUX',
-    description: 'Últimas actualizaciones y mejoras',
-    url: 'https://infraux.com/changelog',
-    siteName: 'InfraUX',
-    locale: 'es_ES',
-    type: 'website',
-  },
-}
+export const metadata: Metadata = pageMetadata.utility.changelog()
 
 const releaseTypes = {
   feature: { icon: SparklesIcon, color: 'text-purple-600 dark:text-purple-400', bg: 'bg-purple-100 dark:bg-purple-900/30' },

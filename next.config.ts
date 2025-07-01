@@ -42,6 +42,15 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: '/:all*(svg|jpg|jpeg|png|gif|ico|css|js|woff|woff2|ttf|eot)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
         source: '/(.*)',
         headers: [
           // Security headers
@@ -61,11 +70,6 @@ const nextConfig: NextConfig = {
           {
             key: 'X-DNS-Prefetch-Control',
             value: 'on',
-          },
-          // Cache headers for static assets
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
           },
         ],
       },

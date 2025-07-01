@@ -1,0 +1,218 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-code" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c0a09"/>
+      <stop offset="50%" style="stop-color:#1c1917"/>
+      <stop offset="100%" style="stop-color:#0c0a09"/>
+    </linearGradient>
+    <linearGradient id="panel-code" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#292524"/>
+      <stop offset="100%" style="stop-color:#1c1917"/>
+    </linearGradient>
+    <linearGradient id="accent-code" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#ec4899"/>
+    </linearGradient>
+    <filter id="glow-code">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg-code)"/>
+  
+  <!-- Code pattern background -->
+  <defs>
+    <pattern id="code-grid" width="50" height="30" patternUnits="userSpaceOnUse">
+      <rect width="50" height="30" fill="none"/>
+      <text x="2" y="10" font-family="Monaco, monospace" font-size="6" fill="#44403c" opacity="0.3">resource "aws_instance"</text>
+      <text x="2" y="20" font-family="Monaco, monospace" font-size="6" fill="#44403c" opacity="0.3">  ami = var.ami_id</text>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#code-grid)"/>
+  
+  <!-- Header bar -->
+  <rect x="0" y="0" width="800" height="60" fill="#1c1917" opacity="0.95"/>
+  <rect x="20" y="20" width="180" height="20" rx="10" fill="url(#accent-code)" opacity="0.8"/>
+  <text x="30" y="35" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">InfraUX Code Generator</text>
+  
+  <!-- Navigation tabs -->
+  <g transform="translate(220, 15)">
+    <rect x="0" y="0" width="80" height="30" rx="6" fill="url(#accent-code)" opacity="0.9"/>
+    <text x="40" y="20" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="bold">Terraform</text>
+    
+    <rect x="90" y="0" width="60" height="30" rx="6" fill="#44403c" opacity="0.7"/>
+    <text x="120" y="20" font-family="Arial, sans-serif" font-size="10" fill="#a8a29e" text-anchor="middle">Pulumi</text>
+    
+    <rect x="160" y="0" width="80" height="30" rx="6" fill="#44403c" opacity="0.7"/>
+    <text x="200" y="20" font-family="Arial, sans-serif" font-size="10" fill="#a8a29e" text-anchor="middle">Ansible</text>
+  </g>
+  
+  <!-- Main split view -->
+  <!-- Left side: Visual diagram -->
+  <rect x="20" y="80" width="380" height="500" rx="15" fill="url(#panel-code)" opacity="0.9"/>
+  <text x="30" y="105" font-family="Arial, sans-serif" font-size="14" fill="#e7e5e4" font-weight="bold">Visual Architecture</text>
+  
+  <!-- Mini architecture -->
+  <g transform="translate(40, 120)">
+    <!-- VPC -->
+    <rect x="0" y="0" width="340" height="200" rx="12" fill="none" stroke="url(#accent-code)" stroke-width="2" stroke-dasharray="8,4" opacity="0.6"/>
+    <text x="10" y="20" font-family="Arial, sans-serif" font-size="10" fill="url(#accent-code)" font-weight="bold">VPC: 10.0.0.0/16</text>
+    
+    <!-- Subnets -->
+    <rect x="20" y="40" width="140" height="120" rx="8" fill="#44403c" opacity="0.3" stroke="#fbbf24" stroke-width="1"/>
+    <text x="25" y="55" font-family="Arial, sans-serif" font-size="8" fill="#fbbf24" font-weight="bold">Public Subnet</text>
+    
+    <rect x="180" y="40" width="140" height="120" rx="8" fill="#44403c" opacity="0.3" stroke="#34d399" stroke-width="1"/>
+    <text x="185" y="55" font-family="Arial, sans-serif" font-size="8" fill="#34d399" font-weight="bold">Private Subnet</text>
+    
+    <!-- Resources -->
+    <rect x="30" y="70" width="60" height="30" rx="6" fill="#fbbf24" filter="url(#glow-code)"/>
+    <text x="60" y="80" font-family="Arial, sans-serif" font-size="7" fill="black" text-anchor="middle" font-weight="bold">ALB</text>
+    <text x="60" y="90" font-family="Arial, sans-serif" font-size="7" fill="black" text-anchor="middle">Load Balancer</text>
+    
+    <rect x="100" y="70" width="50" height="30" rx="6" fill="#fbbf24" filter="url(#glow-code)"/>
+    <text x="125" y="80" font-family="Arial, sans-serif" font-size="7" fill="black" text-anchor="middle" font-weight="bold">NAT</text>
+    <text x="125" y="90" font-family="Arial, sans-serif" font-size="7" fill="black" text-anchor="middle">Gateway</text>
+    
+    <rect x="190" y="70" width="50" height="30" rx="6" fill="#34d399" filter="url(#glow-code)"/>
+    <text x="215" y="80" font-family="Arial, sans-serif" font-size="7" fill="black" text-anchor="middle" font-weight="bold">EC2</text>
+    <text x="215" y="90" font-family="Arial, sans-serif" font-size="7" fill="black" text-anchor="middle">Instance</text>
+    
+    <rect x="250" y="70" width="50" height="30" rx="6" fill="#34d399" filter="url(#glow-code)"/>
+    <text x="275" y="80" font-family="Arial, sans-serif" font-size="7" fill="black" text-anchor="middle" font-weight="bold">RDS</text>
+    <text x="275" y="90" font-family="Arial, sans-serif" font-size="7" fill="black" text-anchor="middle">Database</text>
+    
+    <!-- Connections -->
+    <line x1="90" y1="85" x2="190" y2="85" stroke="url(#accent-code)" stroke-width="2" opacity="0.8"/>
+    <line x1="240" y1="85" x2="250" y2="85" stroke="url(#accent-code)" stroke-width="2" opacity="0.8"/>
+  </g>
+  
+  <!-- Generation arrow -->
+  <g transform="translate(380, 300)">
+    <rect x="10" y="-15" width="60" height="30" rx="15" fill="url(#accent-code)" filter="url(#glow-code)"/>
+    <text x="40" y="5" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="bold">GENERATE</text>
+    <polygon points="70,0 90,0 85,10 90,20 70,20" fill="url(#accent-code)" filter="url(#glow-code)"/>
+  </g>
+  
+  <!-- Right side: Generated code -->
+  <rect x="420" y="80" width="360" height="500" rx="15" fill="#0c0a09" opacity="0.95" stroke="#44403c" stroke-width="1"/>
+  <text x="430" y="105" font-family="Arial, sans-serif" font-size="14" fill="#e7e5e4" font-weight="bold">Generated Terraform Code</text>
+  
+  <!-- Code editor interface -->
+  <g transform="translate(430, 115)">
+    <!-- Editor tabs -->
+    <rect x="0" y="0" width="60" height="20" rx="4" fill="url(#accent-code)" opacity="0.8"/>
+    <text x="30" y="13" font-family="Monaco, monospace" font-size="8" fill="white" text-anchor="middle" font-weight="bold">main.tf</text>
+    
+    <rect x="65" y="0" width="80" height="20" rx="4" fill="#44403c" opacity="0.6"/>
+    <text x="105" y="13" font-family="Monaco, monospace" font-size="8" fill="#a8a29e" text-anchor="middle">variables.tf</text>
+    
+    <rect x="150" y="0" width="70" height="20" rx="4" fill="#44403c" opacity="0.6"/>
+    <text x="185" y="13" font-family="Monaco, monospace" font-size="8" fill="#a8a29e" text-anchor="middle">outputs.tf</text>
+    
+    <!-- Line numbers -->
+    <g transform="translate(0, 30)">
+      <rect x="0" y="0" width="30" height="430" fill="#1c1917" opacity="0.8"/>
+      <text x="25" y="15" font-family="Monaco, monospace" font-size="8" fill="#78716c" text-anchor="end">1</text>
+      <text x="25" y="30" font-family="Monaco, monospace" font-size="8" fill="#78716c" text-anchor="end">2</text>
+      <text x="25" y="45" font-family="Monaco, monospace" font-size="8" fill="#78716c" text-anchor="end">3</text>
+      <text x="25" y="60" font-family="Monaco, monospace" font-size="8" fill="#78716c" text-anchor="end">4</text>
+      <text x="25" y="75" font-family="Monaco, monospace" font-size="8" fill="#78716c" text-anchor="end">5</text>
+      <text x="25" y="90" font-family="Monaco, monospace" font-size="8" fill="#78716c" text-anchor="end">6</text>
+      <text x="25" y="105" font-family="Monaco, monospace" font-size="8" fill="#78716c" text-anchor="end">7</text>
+      <text x="25" y="120" font-family="Monaco, monospace" font-size="8" fill="#78716c" text-anchor="end">8</text>
+      <text x="25" y="135" font-family="Monaco, monospace" font-size="8" fill="#78716c" text-anchor="end">9</text>
+      <text x="25" y="150" font-family="Monaco, monospace" font-size="8" fill="#78716c" text-anchor="end">10</text>
+      <text x="25" y="165" font-family="Monaco, monospace" font-size="8" fill="#78716c" text-anchor="end">11</text>
+      <text x="25" y="180" font-family="Monaco, monospace" font-size="8" fill="#78716c" text-anchor="end">12</text>
+    </g>
+    
+    <!-- Code content -->
+    <g transform="translate(35, 30)">
+      <!-- Terraform code with syntax highlighting -->
+      <text x="0" y="15" font-family="Monaco, monospace" font-size="9" fill="#a855f7" font-weight="bold">resource</text>
+      <text x="60" y="15" font-family="Monaco, monospace" font-size="9" fill="#fbbf24">"aws_vpc"</text>
+      <text x="120" y="15" font-family="Monaco, monospace" font-size="9" fill="#fbbf24">"main"</text>
+      <text x="160" y="15" font-family="Monaco, monospace" font-size="9" fill="#e7e5e4">{</text>
+      
+      <text x="10" y="30" font-family="Monaco, monospace" font-size="9" fill="#34d399">cidr_block</text>
+      <text x="80" y="30" font-family="Monaco, monospace" font-size="9" fill="#e7e5e4">=</text>
+      <text x="90" y="30" font-family="Monaco, monospace" font-size="9" fill="#fbbf24">"10.0.0.0/16"</text>
+      
+      <text x="10" y="45" font-family="Monaco, monospace" font-size="9" fill="#34d399">enable_dns_hostnames</text>
+      <text x="140" y="45" font-family="Monaco, monospace" font-size="9" fill="#e7e5e4">=</text>
+      <text x="150" y="45" font-family="Monaco, monospace" font-size="9" fill="#ec4899">true</text>
+      
+      <text x="10" y="60" font-family="Monaco, monospace" font-size="9" fill="#34d399">enable_dns_support</text>
+      <text x="120" y="60" font-family="Monaco, monospace" font-size="9" fill="#e7e5e4">=</text>
+      <text x="130" y="60" font-family="Monaco, monospace" font-size="9" fill="#ec4899">true</text>
+      
+      <text x="0" y="75" font-family="Monaco, monospace" font-size="9" fill="#e7e5e4">}</text>
+      
+      <text x="0" y="105" font-family="Monaco, monospace" font-size="9" fill="#a855f7" font-weight="bold">resource</text>
+      <text x="60" y="105" font-family="Monaco, monospace" font-size="9" fill="#fbbf24">"aws_subnet"</text>
+      <text x="130" y="105" font-family="Monaco, monospace" font-size="9" fill="#fbbf24">"public"</text>
+      <text x="180" y="105" font-family="Monaco, monospace" font-size="9" fill="#e7e5e4">{</text>
+      
+      <text x="10" y="120" font-family="Monaco, monospace" font-size="9" fill="#34d399">vpc_id</text>
+      <text x="60" y="120" font-family="Monaco, monospace" font-size="9" fill="#e7e5e4">=</text>
+      <text x="70" y="120" font-family="Monaco, monospace" font-size="9" fill="#06b6d4">aws_vpc.main.id</text>
+      
+      <text x="10" y="135" font-family="Monaco, monospace" font-size="9" fill="#34d399">cidr_block</text>
+      <text x="80" y="135" font-family="Monaco, monospace" font-size="9" fill="#e7e5e4">=</text>
+      <text x="90" y="135" font-family="Monaco, monospace" font-size="9" fill="#fbbf24">"10.0.1.0/24"</text>
+      
+      <text x="10" y="150" font-family="Monaco, monospace" font-size="9" fill="#34d399">availability_zone</text>
+      <text x="110" y="150" font-family="Monaco, monospace" font-size="9" fill="#e7e5e4">=</text>
+      <text x="120" y="150" font-family="Monaco, monospace" font-size="9" fill="#fbbf24">"us-east-1a"</text>
+      
+      <text x="0" y="165" font-family="Monaco, monospace" font-size="9" fill="#e7e5e4">}</text>
+      
+      <text x="0" y="195" font-family="Monaco, monospace" font-size="9" fill="#a855f7" font-weight="bold">resource</text>
+      <text x="60" y="195" font-family="Monaco, monospace" font-size="9" fill="#fbbf24">"aws_instance"</text>
+      <text x="140" y="195" font-family="Monaco, monospace" font-size="9" fill="#fbbf24">"web"</text>
+      <text x="170" y="195" font-family="Monaco, monospace" font-size="9" fill="#e7e5e4">{</text>
+      
+      <text x="10" y="210" font-family="Monaco, monospace" font-size="9" fill="#34d399">ami</text>
+      <text x="40" y="210" font-family="Monaco, monospace" font-size="9" fill="#e7e5e4">=</text>
+      <text x="50" y="210" font-family="Monaco, monospace" font-size="9" fill="#fbbf24">"ami-0abcdef1234567890"</text>
+      
+      <text x="10" y="225" font-family="Monaco, monospace" font-size="9" fill="#34d399">instance_type</text>
+      <text x="100" y="225" font-family="Monaco, monospace" font-size="9" fill="#e7e5e4">=</text>
+      <text x="110" y="225" font-family="Monaco, monospace" font-size="9" fill="#fbbf24">"t3.medium"</text>
+      
+      <text x="0" y="240" font-family="Monaco, monospace" font-size="9" fill="#e7e5e4">}</text>
+    </g>
+  </g>
+  
+  <!-- Bottom action bar -->
+  <rect x="20" y="520" width="760" height="60" rx="15" fill="url(#panel-code)" opacity="0.9"/>
+  <g transform="translate(40, 540)">
+    <rect x="0" y="0" width="100" height="30" rx="6" fill="url(#accent-code)" filter="url(#glow-code)"/>
+    <text x="50" y="20" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Download Code</text>
+    
+    <rect x="120" y="0" width="80" height="30" rx="6" fill="#10b981"/>
+    <text x="160" y="20" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Deploy</text>
+    
+    <rect x="220" y="0" width="80" height="30" rx="6" fill="#f59e0b"/>
+    <text x="260" y="20" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Validate</text>
+    
+    <rect x="320" y="0" width="80" height="30" rx="6" fill="#64748b"/>
+    <text x="360" y="20" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Export</text>
+  </g>
+  
+  <!-- Floating code particles -->
+  <g opacity="0.6">
+    <text x="150" y="400" font-family="Monaco, monospace" font-size="6" fill="url(#accent-code)">terraform apply</text>
+    <animateTransform attributeName="transform" attributeType="XML" type="translate" values="0,0; 20,-10; 0,0" dur="3s" repeatCount="indefinite"/>
+  </g>
+  <g opacity="0.4">
+    <text x="600" y="350" font-family="Monaco, monospace" font-size="6" fill="#10b981">aws_instance.web</text>
+    <animateTransform attributeName="transform" attributeType="XML" type="translate" values="0,0; -15,5; 0,0" dur="2.5s" repeatCount="indefinite"/>
+  </g>
+</svg>

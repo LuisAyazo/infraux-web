@@ -52,4 +52,25 @@ export const routeTranslations: RouteTranslations = {
   '/register': { es: '/registro', en: '/register' },
   '/login': { es: '/iniciar-sesion', en: '/login' },
   '/iniciar-sesion': { es: '/iniciar-sesion', en: '/login' },
+  
+  // Nuevas páginas de producto
+  '/producto/integraciones': { es: '/producto/integraciones', en: '/product/integrations' },
+  '/product/integrations': { es: '/producto/integraciones', en: '/product/integrations' },
+  '/producto/seguridad': { es: '/producto/seguridad', en: '/product/security' },
+  '/product/security': { es: '/producto/seguridad', en: '/product/security' },
+  
+  // Nuevas páginas principales
+  '/tutoriales': { es: '/tutoriales', en: '/tutorials' },
+  '/tutorials': { es: '/tutoriales', en: '/tutorials' },
+  '/api': { es: '/api', en: '/api' },
+  '/casos-exito': { es: '/casos-exito', en: '/success-stories' },
+  '/success-stories': { es: '/casos-exito', en: '/success-stories' },
+  '/carreras': { es: '/carreras', en: '/careers' },
+  '/careers': { es: '/carreras', en: '/careers' },
+  '/partners': { es: '/partners', en: '/partners' },
+  '/prensa': { es: '/prensa', en: '/press' },
+  '/press': { es: '/prensa', en: '/press' },
+  '/seguridad': { es: '/seguridad', en: '/security-center' },
+  '/security-center': { es: '/seguridad', en: '/security-center' },
+  '/sla': { es: '/sla', en: '/sla' },
 };

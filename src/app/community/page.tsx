@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo-config'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
 import Link from 'next/link'
@@ -20,19 +21,7 @@ import {
   ClockIcon
 } from '@heroicons/react/24/outline'
 
-export const metadata: Metadata = {
-  title: 'InfraUX Community | Join Thousands of DevOps Engineers',
-  description: 'Global community of infrastructure professionals. Learn, share and grow with cloud and DevOps experts.',
-  keywords: ['devops community', 'cloud infrastructure', 'devops networking', 'cloud events', 'learn infrastructure'],
-  openGraph: {
-    title: 'InfraUX Community',
-    description: 'Where infrastructure professionals connect',
-    url: 'https://infraux.com/community',
-    siteName: 'InfraUX',
-    locale: 'en_US',
-    type: 'website',
-  },
-}
+export const metadata: Metadata = pageMetadata.community()
 
 const communityStats = [
   { number: '10,000+', label: 'Active members' },

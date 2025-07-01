@@ -1,12 +1,10 @@
+import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo-config';
 import HeaderNew from '@/components/landing/HeaderNew';
 import FooterNew from '@/components/landing/FooterNew';
 import Link from 'next/link';
-import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Terms of Service - InfraUX',
-  description: 'Terms and conditions of use for InfraUX, the visual platform for cloud infrastructure.',
-};
+export const metadata: Metadata = pageMetadata.legal.termsConditions();
 
 export default function TermsAndConditionsPage() {
   return (

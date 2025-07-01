@@ -1,0 +1,156 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="50%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#334155"/>
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="buttonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="20" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgGradient)"/>
+  
+  <!-- Grid Pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="1" opacity="0.3"/>
+  </pattern>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  
+  <!-- Main Canvas Area -->
+  <rect x="50" y="50" width="1100" height="700" rx="20" fill="#1e293b" stroke="#06b6d4" stroke-width="2" filter="url(#shadow)"/>
+  
+  <!-- Header Bar -->
+  <rect x="50" y="50" width="1100" height="80" rx="20" fill="#0f172a"/>
+  <circle cx="90" cy="90" r="8" fill="#ef4444"/>
+  <circle cx="120" cy="90" r="8" fill="#f59e0b"/>
+  <circle cx="150" cy="90" r="8" fill="#10b981"/>
+  
+  <!-- Title -->
+  <text x="200" y="100" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Visual Infrastructure Designer</text>
+  
+  <!-- Sidebar -->
+  <rect x="80" y="150" width="250" height="550" rx="15" fill="#334155" stroke="#475569" stroke-width="1"/>
+  
+  <!-- Sidebar Items -->
+  <g id="sidebarItems">
+    <!-- AWS -->
+    <rect x="100" y="180" width="210" height="50" rx="10" fill="url(#cardGradient)" opacity="0.8" filter="url(#glow)"/>
+    <circle cx="125" cy="205" r="12" fill="#ff9900"/>
+    <text x="150" y="212" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">AWS Services</text>
+    
+    <!-- GCP -->
+    <rect x="100" y="250" width="210" height="50" rx="10" fill="#475569" stroke="#64748b" stroke-width="1"/>
+    <circle cx="125" cy="275" r="12" fill="#4285f4"/>
+    <text x="150" y="282" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="14">Google Cloud</text>
+    
+    <!-- Azure -->
+    <rect x="100" y="320" width="210" height="50" rx="10" fill="#475569" stroke="#64748b" stroke-width="1"/>
+    <circle cx="125" cy="345" r="12" fill="#0078d4"/>
+    <text x="150" y="352" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="14">Azure Resources</text>
+    
+    <!-- Kubernetes -->
+    <rect x="100" y="390" width="210" height="50" rx="10" fill="#475569" stroke="#64748b" stroke-width="1"/>
+    <circle cx="125" cy="415" r="12" fill="#326ce5"/>
+    <text x="150" y="422" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="14">Kubernetes</text>
+  </g>
+  
+  <!-- Main Canvas -->
+  <rect x="350" y="150" width="780" height="550" rx="15" fill="#1e293b" stroke="#374151" stroke-width="1"/>
+  
+  <!-- Draggable Components -->
+  <g id="components">
+    <!-- Database -->
+    <g transform="translate(450, 250)">
+      <rect width="120" height="80" rx="10" fill="url(#cardGradient)" filter="url(#shadow)"/>
+      <circle cx="60" cy="25" r="15" fill="white" opacity="0.9"/>
+      <text x="60" y="55" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Database</text>
+    </g>
+    
+    <!-- Load Balancer -->
+    <g transform="translate(650, 200)">
+      <rect width="120" height="80" rx="10" fill="#8b5cf6" filter="url(#shadow)"/>
+      <circle cx="60" cy="25" r="15" fill="white" opacity="0.9"/>
+      <text x="60" y="55" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Load Balancer</text>
+    </g>
+    
+    <!-- API Gateway -->
+    <g transform="translate(850, 300)">
+      <rect width="120" height="80" rx="10" fill="#f59e0b" filter="url(#shadow)"/>
+      <circle cx="60" cy="25" r="15" fill="white" opacity="0.9"/>
+      <text x="60" y="55" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">API Gateway</text>
+    </g>
+    
+    <!-- Server Instance -->
+    <g transform="translate(550, 400)">
+      <rect width="120" height="80" rx="10" fill="#10b981" filter="url(#shadow)"/>
+      <circle cx="60" cy="25" r="15" fill="white" opacity="0.9"/>
+      <text x="60" y="55" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Server</text>
+    </g>
+  </g>
+  
+  <!-- Connection Lines -->
+  <g id="connections" stroke="#06b6d4" stroke-width="3" fill="none" opacity="0.8">
+    <!-- Database to Server -->
+    <path d="M 570 290 L 610 440" stroke-dasharray="5,5" filter="url(#glow)"/>
+    
+    <!-- Load Balancer to API Gateway -->
+    <path d="M 770 240 L 850 340" stroke-dasharray="5,5" filter="url(#glow)"/>
+    
+    <!-- Server to Load Balancer -->
+    <path d="M 610 420 L 710 280" stroke-dasharray="5,5" filter="url(#glow)"/>
+  </g>
+  
+  <!-- Floating Action Button -->
+  <circle cx="1050" cy="650" r="30" fill="url(#buttonGradient)" filter="url(#shadow)"/>
+  <text x="1050" y="658" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="bold">+</text>
+  
+  <!-- Status Indicators -->
+  <g id="status">
+    <circle cx="1050" cy="200" r="6" fill="#10b981">
+      <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="1070" y="206" fill="#10b981" font-family="Arial, sans-serif" font-size="12">Connected</text>
+    
+    <circle cx="1050" cy="230" r="6" fill="#f59e0b">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="1070" y="236" fill="#f59e0b" font-family="Arial, sans-serif" font-size="12">Deploying</text>
+  </g>
+  
+  <!-- Floating Elements -->
+  <g id="floatingElements" opacity="0.6">
+    <circle cx="200" cy="300" r="4" fill="#06b6d4">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 10,-10; 0,0" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="900" cy="180" r="3" fill="#8b5cf6">
+      <animateTransform attributeName="transform" type="translate" values="0,0; -8,12; 0,0" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="400" cy="600" r="5" fill="#10b981">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 15,5; 0,0" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Tooltip -->
+  <g id="tooltip" transform="translate(720, 150)">
+    <rect width="150" height="40" rx="8" fill="#0f172a" stroke="#06b6d4" stroke-width="2" filter="url(#shadow)"/>
+    <text x="75" y="25" text-anchor="middle" fill="#06b6d4" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Drag to Connect</text>
+  </g>
+</svg>

@@ -1,5 +1,6 @@
 'use client'
 
+import BrandName from '@/components/BrandName'
 import { CloudIcon, CodeBracketSquareIcon, PuzzlePieceIcon, ShareIcon } from '@heroicons/react/24/outline'
 
 const features = [
@@ -45,16 +46,11 @@ export default function WhatIsInfraUX() {
         <div className="text-center mb-16 opacity-0 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
             ¿Qué es?{' '}
-            <span className="text-electric-purple-600 dark:text-electric-purple-400"> {/* Modificado */}
-              Infra
-            </span>
-            <span className="text-emerald-green-600 dark:text-emerald-green-400"> {/* Modificado */}
-              UX
-            </span>
+            <BrandName infraClassName="text-[#374151] font-bold" uxClassName="text-emerald-500 font-bold" />
             ?
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed opacity-0 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <span className="text-electric-purple-600 dark:text-electric-purple-400">Infra</span><span className="text-emerald-green-600 dark:text-emerald-green-400">UX</span> es la <span className="font-bold text-gray-800 dark:text-white">herramienta líder del mercado</span> para desplegar infraestructura cloud con un solo click. {/* Texto destacado a neutro */}
+            <BrandName infraClassName="text-[#374151] font-bold" uxClassName="text-emerald-500 font-bold" /> es la <span className="font-bold text-gray-800 dark:text-white">herramienta líder del mercado</span> para desplegar infraestructura cloud con un solo click.
             Simplifica la creación, el despliegue y la gestión de infraestructura en cualquier nube a través de una potente interfaz visual.
           </p>
           <div className="mt-8 flex justify-center animate-bounce-in" style={{ animationDelay: '0.3s' }}>

@@ -17,32 +17,9 @@ import {
   CheckCircleIcon
 } from '@heroicons/react/24/outline'
 import { StarIcon as StarSolid } from '@heroicons/react/24/solid'
+import { pageMetadata } from '@/lib/seo-config'
 
-export const metadata: Metadata = {
-  title: 'Testimonials | What Our Customers Say About InfraUX',
-  description: 'Discover how InfraUX is transforming the way teams around the world manage their cloud infrastructure. Read real success stories.',
-  keywords: ['InfraUX testimonials', 'success stories', 'customer reviews', 'InfraUX reviews', 'user experiences'],
-  openGraph: {
-    title: 'Testimonials - Satisfied InfraUX Customers',
-    description: 'Read experiences from teams that have transformed their infrastructure management with InfraUX.',
-    url: 'https://infraux.com/testimonials',
-    siteName: 'InfraUX',
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Testimonials - InfraUX',
-    description: 'Success stories from teams using InfraUX',
-  },
-  alternates: {
-    canonical: 'https://infraux.com/testimonials',
-    languages: {
-      'en': 'https://infraux.com/testimonials',
-      'es': 'https://infraux.com/testimonios'
-    }
-  },
-}
+export const metadata: Metadata = pageMetadata.content.testimonials()
 
 const testimonials = [
   {

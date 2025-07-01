@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo-config'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
 import Link from 'next/link'
@@ -19,19 +20,8 @@ import {
   CloudArrowUpIcon
 } from '@heroicons/react/24/outline'
 
-export const metadata: Metadata = {
-  title: 'InfraUX for Startups | Infrastructure that Scales with You',
-  description: 'Cloud infrastructure solution designed for startups. Start free, scale without limits. No cost surprises.',
-  keywords: ['startups', 'startup infrastructure', 'cloud for startups', 'scale infrastructure', 'aws startup'],
-  openGraph: {
-    title: 'InfraUX for Startups',
-    description: 'Infrastructure that grows with your startup',
-    url: 'https://infraux.com/solutions/startups',
-    siteName: 'InfraUX',
-    locale: 'en_US',
-    type: 'website',
-  },
-}
+// 🚀 SEO OPTIMIZADO USANDO CONFIGURACIÓN CENTRALIZADA
+export const metadata: Metadata = pageMetadata.solutions.startups()
 
 const startupBenefits = [
   {

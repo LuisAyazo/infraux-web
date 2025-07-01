@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo-config'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
 import Link from 'next/link'
@@ -22,31 +23,7 @@ import {
   ArrowDownTrayIcon
 } from '@heroicons/react/24/outline'
 
-export const metadata: Metadata = {
-  title: 'Recursos | Guías, Tutoriales y Documentación de InfraUX',
-  description: 'Centro de recursos de InfraUX: guías detalladas, tutoriales en video, plantillas descargables, webinars y mejores prácticas para gestionar tu infraestructura cloud.',
-  keywords: ['recursos InfraUX', 'guías DevOps', 'tutoriales infraestructura', 'plantillas IaC', 'documentación cloud', 'webinars', 'mejores prácticas'],
-  openGraph: {
-    title: 'Centro de Recursos - InfraUX',
-    description: 'Todo lo que necesitas para dominar la gestión visual de infraestructura cloud.',
-    url: 'https://infraux.com/recursos',
-    siteName: 'InfraUX',
-    locale: 'es_ES',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Recursos InfraUX - Guías y Tutoriales',
-    description: 'Aprende a gestionar tu infraestructura cloud de forma visual',
-  },
-  alternates: {
-    canonical: 'https://infraux.com/recursos',
-    languages: {
-      'es': 'https://infraux.com/recursos',
-      'en': 'https://infraux.com/resources'
-    }
-  },
-}
+export const metadata: Metadata = pageMetadata.resourcesSpanish()
 
 const resourceCategories = [
   {

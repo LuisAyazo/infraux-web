@@ -1,0 +1,296 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#064e3b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#065f46;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="deployGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="pipelineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="successGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="warningGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="bigShadow">
+      <feDropShadow dx="0" dy="12" stdDeviation="24" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+    <filter id="terminalGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1400" height="900" fill="url(#bgGradient)"/>
+  
+  <!-- Floating deployment particles -->
+  <g opacity="0.4">
+    <circle cx="200" cy="200" r="4" fill="#10b981">
+      <animate attributeName="cy" values="200;180;200" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1200" cy="300" r="3" fill="#3b82f6">
+      <animate attributeName="cy" values="300;280;300" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="400" cy="750" r="5" fill="#22c55e">
+      <animate attributeName="cy" values="750;730;750" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Main Deployment Dashboard -->
+  <rect x="100" y="80" width="1200" height="740" fill="url(#cardGradient)" rx="24" filter="url(#bigShadow)"/>
+  
+  <!-- Header -->
+  <rect x="100" y="80" width="1200" height="60" fill="#f8fafc" rx="24 24 0 0"/>
+  <text x="700" y="115" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b" text-anchor="middle">InfraUX Deployment Pipeline</text>
+  
+  <!-- Navigation Tabs -->
+  <rect x="120" y="160" width="1160" height="40" fill="#f1f5f9"/>
+  <rect x="140" y="170" width="120" height="20" fill="url(#deployGradient)" rx="4"/>
+  <text x="200" y="182" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Deployments</text>
+  
+  <rect x="280" y="170" width="100" height="20" fill="white" stroke="#e5e7eb" rx="4"/>
+  <text x="330" y="182" font-family="Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Pipelines</text>
+  
+  <rect x="400" y="170" width="100" height="20" fill="white" stroke="#e5e7eb" rx="4"/>
+  <text x="450" y="182" font-family="Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Environments</text>
+  
+  <!-- Pipeline Visualization -->
+  <rect x="140" y="220" width="1120" height="280" fill="white" stroke="#e5e7eb" rx="12"/>
+  <rect x="140" y="220" width="1120" height="40" fill="#f8fafc" rx="12 12 0 0"/>
+  <text x="700" y="245" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b" text-anchor="middle">Production Deployment - web-app-v2.1.0</text>
+  
+  <!-- Pipeline Steps -->
+  <g transform="translate(200, 300)">
+    <!-- Step 1: Source -->
+    <rect x="0" y="0" width="120" height="80" fill="url(#successGradient)" rx="12" filter="url(#glow)"/>
+    <circle cx="60" cy="25" r="8" fill="white"/>
+    <path d="M56,25 L59,28 L65,22" stroke="#22c55e" stroke-width="2" fill="none"/>
+    <text x="60" y="50" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Source</text>
+    <text x="60" y="65" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">✓ Completed</text>
+    
+    <!-- Arrow 1 -->
+    <path d="M130,40 L160,40" stroke="#10b981" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- Step 2: Build -->
+    <rect x="170" y="0" width="120" height="80" fill="url(#successGradient)" rx="12" filter="url(#glow)"/>
+    <circle cx="230" cy="25" r="8" fill="white"/>
+    <path d="M226,25 L229,28 L235,22" stroke="#22c55e" stroke-width="2" fill="none"/>
+    <text x="230" y="50" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Build</text>
+    <text x="230" y="65" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">✓ Completed</text>
+    
+    <!-- Arrow 2 -->
+    <path d="M300,40 L330,40" stroke="#10b981" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- Step 3: Test -->
+    <rect x="340" y="0" width="120" height="80" fill="url(#successGradient)" rx="12" filter="url(#glow)"/>
+    <circle cx="400" cy="25" r="8" fill="white"/>
+    <path d="M396,25 L399,28 L405,22" stroke="#22c55e" stroke-width="2" fill="none"/>
+    <text x="400" y="50" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Test</text>
+    <text x="400" y="65" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">✓ Completed</text>
+    
+    <!-- Arrow 3 -->
+    <path d="M470,40 L500,40" stroke="#f59e0b" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- Step 4: Deploy (In Progress) -->
+    <rect x="510" y="0" width="120" height="80" fill="url(#warningGradient)" rx="12" filter="url(#glow)"/>
+    <circle cx="570" cy="25" r="8" fill="white">
+      <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="570" cy="25" r="4" fill="#f59e0b">
+      <animate attributeName="r" values="4;6;4" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <text x="570" y="50" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Deploy</text>
+    <text x="570" y="65" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">⚡ In Progress</text>
+    
+    <!-- Arrow 4 -->
+    <path d="M640,40 L670,40" stroke="#6b7280" stroke-width="2" fill="none" stroke-dasharray="4,4" marker-end="url(#arrowhead)"/>
+    
+    <!-- Step 5: Verify (Pending) -->
+    <rect x="680" y="0" width="120" height="80" fill="#9ca3af" rx="12"/>
+    <circle cx="740" cy="25" r="8" fill="white"/>
+    <text x="740" y="50" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Verify</text>
+    <text x="740" y="65" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">⏳ Pending</text>
+    
+    <!-- Arrow 5 -->
+    <path d="M810,40 L840,40" stroke="#6b7280" stroke-width="2" fill="none" stroke-dasharray="4,4" marker-end="url(#arrowhead)"/>
+    
+    <!-- Step 6: Monitor (Pending) -->
+    <rect x="850" y="0" width="120" height="80" fill="#9ca3af" rx="12"/>
+    <circle cx="910" cy="25" r="8" fill="white"/>
+    <text x="910" y="50" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Monitor</text>
+    <text x="910" y="65" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">⏳ Pending</text>
+  </g>
+  
+  <!-- Progress Bar -->
+  <rect x="200" y="420" width="1000" height="8" fill="#e5e7eb" rx="4"/>
+  <rect x="200" y="420" width="600" height="8" fill="url(#deployGradient)" rx="4">
+    <animate attributeName="width" values="500;650;600" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  <text x="700" y="445" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#10b981" text-anchor="middle">60% Complete - Deploying to Production</text>
+  
+  <!-- Deployment Logs Terminal -->
+  <rect x="140" y="480" width="560" height="300" fill="#1f2937" rx="12" filter="url(#terminalGlow)"/>
+  <rect x="140" y="480" width="560" height="30" fill="#374151" rx="12 12 0 0"/>
+  <g transform="translate(155, 495)">
+    <circle cx="0" cy="0" r="4" fill="#ef4444"/>
+    <circle cx="16" cy="0" r="4" fill="#f59e0b"/>
+    <circle cx="32" cy="0" r="4" fill="#22c55e"/>
+  </g>
+  <text x="420" y="500" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#9ca3af" text-anchor="middle">Deployment Logs</text>
+  
+  <!-- Terminal Content -->
+  <g transform="translate(155, 525)" font-family="Monaco, monospace" font-size="11">
+    <text x="0" y="0" fill="#10b981">$ terraform apply -auto-approve</text>
+    <text x="0" y="18" fill="#9ca3af">
+      <tspan fill="#3b82f6">✓</tspan> Initializing Terraform workspace...
+    </text>
+    <text x="0" y="36" fill="#9ca3af">
+      <tspan fill="#3b82f6">✓</tspan> Planning infrastructure changes...
+    </text>
+    <text x="0" y="54" fill="#9ca3af">
+      <tspan fill="#3b82f6">✓</tspan> Validating configuration...
+    </text>
+    <text x="0" y="72" fill="#9ca3af">
+      <tspan fill="#f59e0b">⚡</tspan> Creating AWS resources...
+    </text>
+    <text x="0" y="90" fill="#9ca3af">  • aws_vpc.main: Creating...</text>
+    <text x="0" y="108" fill="#9ca3af">  • aws_subnet.public: Creating...</text>
+    <text x="0" y="126" fill="#9ca3af">  • aws_subnet.private: Creating...</text>
+    <text x="0" y="144" fill="#10b981">  • aws_instance.web: Created successfully</text>
+    <text x="0" y="162" fill="#f59e0b">  • aws_rds_instance.db: Creating... [2m30s elapsed]</text>
+    <text x="0" y="180" fill="#9ca3af">  • aws_security_group.web: Creating...</text>
+    <text x="0" y="198" fill="#9ca3af">  • aws_lb.main: Creating...</text>
+    <text x="0" y="216" fill="#10b981">
+      <tspan fill="#22c55e">✓</tspan> 5 resources created, 2 in progress
+    </text>
+    <text x="0" y="234" fill="#f59e0b">⚡ Estimated completion: 3m 45s</text>
+    <text x="0" y="252" fill="#9ca3af">───────────────────────────────────────</text>
+    <text x="0" y="270" fill="#10b981">$ _</text>
+    
+    <!-- Cursor -->
+    <rect x="12" y="260" width="8" height="12" fill="#10b981">
+      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Real-time Metrics Dashboard -->
+  <rect x="720" y="480" width="540" height="300" fill="white" stroke="#e5e7eb" rx="12"/>
+  <rect x="720" y="480" width="540" height="30" fill="#f8fafc" rx="12 12 0 0"/>
+  <text x="990" y="500" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b" text-anchor="middle">Live Metrics</text>
+  
+  <!-- Metrics Cards -->
+  <g transform="translate(740, 530)">
+    <!-- CPU Usage -->
+    <rect x="0" y="0" width="120" height="80" fill="#fef3c7" stroke="#f59e0b" rx="8"/>
+    <text x="60" y="20" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#92400e" text-anchor="middle">CPU Usage</text>
+    <text x="60" y="45" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#d97706" text-anchor="middle">45%</text>
+    <text x="60" y="65" font-family="Arial, sans-serif" font-size="10" fill="#92400e" text-anchor="middle">Normal</text>
+    
+    <!-- Memory -->
+    <rect x="140" y="0" width="120" height="80" fill="#dbeafe" stroke="#3b82f6" rx="8"/>
+    <text x="200" y="20" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e40af" text-anchor="middle">Memory</text>
+    <text x="200" y="45" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2563eb" text-anchor="middle">67%</text>
+    <text x="200" y="65" font-family="Arial, sans-serif" font-size="10" fill="#1e40af" text-anchor="middle">Healthy</text>
+    
+    <!-- Network -->
+    <rect x="280" y="0" width="120" height="80" fill="#d1fae5" stroke="#10b981" rx="8"/>
+    <text x="340" y="20" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#065f46" text-anchor="middle">Network I/O</text>
+    <text x="340" y="45" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#059669" text-anchor="middle">1.2GB/s</text>
+    <text x="340" y="65" font-family="Arial, sans-serif" font-size="10" fill="#065f46" text-anchor="middle">Optimal</text>
+    
+    <!-- Requests -->
+    <rect x="420" y="0" width="100" height="80" fill="#fce7f3" stroke="#ec4899" rx="8"/>
+    <text x="470" y="20" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#be185d" text-anchor="middle">Requests</text>
+    <text x="470" y="45" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#db2777" text-anchor="middle">2.4K/m</text>
+    <text x="470" y="65" font-family="Arial, sans-serif" font-size="10" fill="#be185d" text-anchor="middle">Peak</text>
+    
+    <!-- Health Status -->
+    <rect x="0" y="100" width="520" height="60" fill="#f0fdf4" stroke="#22c55e" rx="8"/>
+    <circle cx="30" cy="130" r="8" fill="#22c55e">
+      <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="50" y="125" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#15803d">System Health: Excellent</text>
+    <text x="50" y="145" font-family="Arial, sans-serif" font-size="12" fill="#16a34a">All services running optimally • 99.9% uptime</text>
+    
+    <!-- Auto-scaling indicator -->
+    <rect x="400" y="110" width="110" height="30" fill="#1e40af" rx="6"/>
+    <text x="455" y="130" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">🚀 Auto-scaling Active</text>
+  </g>
+  
+  <!-- Action Buttons -->
+  <g transform="translate(140, 800)">
+    <rect x="0" y="0" width="120" height="40" fill="url(#deployGradient)" rx="8" filter="url(#glow)"/>
+    <text x="60" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Deploy Now</text>
+    
+    <rect x="140" y="0" width="100" height="40" fill="#ef4444" rx="8"/>
+    <text x="190" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Stop</text>
+    
+    <rect x="260" y="0" width="100" height="40" fill="#3b82f6" rx="8"/>
+    <text x="310" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Monitor</text>
+    
+    <rect x="380" y="0" width="100" height="40" fill="white" stroke="#e5e7eb" stroke-width="2" rx="8"/>
+    <text x="430" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#374151" text-anchor="middle">Rollback</text>
+  </g>
+  
+  <!-- Status Bar -->
+  <rect x="100" y="800" width="1200" height="20" fill="#065f46" rx="0 0 24 24"/>
+  <g transform="translate(120, 805)">
+    <circle cx="0" cy="5" r="2" fill="#22c55e">
+      <animate attributeName="r" values="2;4;2" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="8" y="9" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#22c55e">Production Environment</text>
+    
+    <circle cx="200" cy="5" r="2" fill="#3b82f6"/>
+    <text x="208" y="9" font-family="Arial, sans-serif" font-size="10" fill="#60a5fa">AWS us-east-1</text>
+    
+    <circle cx="320" cy="5" r="2" fill="#f59e0b"/>
+    <text x="328" y="9" font-family="Arial, sans-serif" font-size="10" fill="#fbbf24">Deploying: 2/3 stages</text>
+    
+    <text x="1050" y="9" font-family="Arial, sans-serif" font-size="10" fill="#86efac">⚡ ETA: 2m 15s</text>
+  </g>
+  
+  <!-- Floating notifications -->
+  <g transform="translate(1100, 200)">
+    <rect x="0" y="0" width="180" height="60" fill="rgba(34, 197, 94, 0.95)" rx="8" filter="url(#glow)"/>
+    <circle cx="20" cy="30" r="6" fill="white"/>
+    <path d="M16,30 L19,33 L25,27" stroke="#22c55e" stroke-width="2" fill="none"/>
+    <text x="35" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">✓ Tests Passed</text>
+    <text x="35" y="40" font-family="Arial, sans-serif" font-size="10" fill="white">All 247 tests successful</text>
+    <text x="35" y="55" font-family="Arial, sans-serif" font-size="9" fill="rgba(255,255,255,0.8)">2 minutes ago</text>
+  </g>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+    </marker>
+  </defs>
+</svg>

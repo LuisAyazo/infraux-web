@@ -1,0 +1,204 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradientes modernos -->
+    <linearGradient id="nodeGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1D4ED8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="nodeGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="nodeGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5B21B6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="nodeGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D97706;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="nodeGradient5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EF4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DC2626;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="nodeGradient6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0891B2;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Filtros para brillos -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Animaciones -->
+    <animateTransform id="rotate" attributeName="transform" attributeType="XML" type="rotate" from="0 600 350" to="360 600 350" dur="20s" repeatCount="indefinite"/>
+    <animateTransform id="pulse" attributeName="transform" attributeType="XML" type="scale" values="1;1.1;1" dur="3s" repeatCount="indefinite"/>
+  </defs>
+  
+  <!-- Fondo con patrón -->
+  <rect width="1200" height="700" fill="url(#bgGradient)"/>
+  <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" style="stop-color:#0F172A;stop-opacity:1" />
+    <stop offset="50%" style="stop-color:#1E293B;stop-opacity:1" />
+    <stop offset="100%" style="stop-color:#0F172A;stop-opacity:1" />
+  </linearGradient>
+  
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="700" fill="url(#grid)"/>
+  
+  <!-- Conexiones animadas -->
+  <g opacity="0.7">
+    <!-- Conexión principal -->
+    <path d="M200,200 Q400,150 600,200 T1000,250" stroke="url(#nodeGradient2)" stroke-width="3" fill="none" opacity="0.8">
+      <animate attributeName="stroke-dasharray" values="0,1000;1000,0;0,1000" dur="4s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Red de conexiones -->
+    <path d="M300,300 L500,200" stroke="url(#nodeGradient1)" stroke-width="2" fill="none" opacity="0.6">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M500,200 L800,300" stroke="url(#nodeGradient3)" stroke-width="2" fill="none" opacity="0.6">
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M200,400 Q600,350 800,500" stroke="url(#nodeGradient4)" stroke-width="2" fill="none" opacity="0.6">
+      <animate attributeName="stroke-dasharray" values="0,500;500,0;0,500" dur="5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M800,300 L950,450" stroke="url(#nodeGradient5)" stroke-width="2" fill="none" opacity="0.6">
+      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Nodos principales -->
+  <g filter="url(#glow)">
+    <!-- Nodo Cloud Principal -->
+    <g>
+      <circle cx="600" cy="200" r="45" fill="url(#nodeGradient2)" opacity="0.9">
+        <animateTransform attributeName="transform" type="scale" values="1;1.15;1" dur="4s" repeatCount="indefinite"/>
+      </circle>
+      <text x="600" y="205" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">☁️ CLOUD</text>
+      <circle cx="600" cy="200" r="50" fill="none" stroke="url(#nodeGradient2)" stroke-width="2" opacity="0.5">
+        <animate attributeName="r" values="50;65;50" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.5;0.2;0.5" dur="3s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    
+    <!-- Nodo Database -->
+    <g>
+      <circle cx="200" cy="200" r="35" fill="url(#nodeGradient1)" opacity="0.8">
+        <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="3.5s" repeatCount="indefinite"/>
+      </circle>
+      <text x="200" y="205" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">💾 DB</text>
+    </g>
+    
+    <!-- Nodo API -->
+    <g>
+      <circle cx="1000" cy="250" r="35" fill="url(#nodeGradient3)" opacity="0.8">
+        <animateTransform attributeName="transform" type="scale" values="1;1.12;1" dur="2.8s" repeatCount="indefinite"/>
+      </circle>
+      <text x="1000" y="255" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">🔌 API</text>
+    </g>
+    
+    <!-- Nodo Mobile -->
+    <g>
+      <circle cx="300" cy="300" r="30" fill="url(#nodeGradient4)" opacity="0.8">
+        <animateTransform attributeName="transform" type="scale" values="1;1.08;1" dur="4.2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="300" y="305" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold">📱</text>
+    </g>
+    
+    <!-- Nodo Web -->
+    <g>
+      <circle cx="800" cy="300" r="30" fill="url(#nodeGradient5)" opacity="0.8">
+        <animateTransform attributeName="transform" type="scale" values="1;1.09;1" dur="3.7s" repeatCount="indefinite"/>
+      </circle>
+      <text x="800" y="305" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold">🌐</text>
+    </g>
+    
+    <!-- Nodo Analytics -->
+    <g>
+      <circle cx="500" cy="450" r="30" fill="url(#nodeGradient6)" opacity="0.8">
+        <animateTransform attributeName="transform" type="scale" values="1;1.07;1" dur="5s" repeatCount="indefinite"/>
+      </circle>
+      <text x="500" y="455" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold">📊</text>
+    </g>
+    
+    <!-- Nodo Security -->
+    <g>
+      <circle cx="950" cy="450" r="30" fill="url(#nodeGradient5)" opacity="0.8">
+        <animateTransform attributeName="transform" type="scale" values="1;1.06;1" dur="3.3s" repeatCount="indefinite"/>
+      </circle>
+      <text x="950" y="455" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold">🔒</text>
+    </g>
+  </g>
+  
+  <!-- Partículas flotantes -->
+  <g opacity="0.4">
+    <circle cx="150" cy="100" r="3" fill="#3B82F6">
+      <animateTransform attributeName="transform" type="translate" values="0,0;20,-10;0,0" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.2;0.7;0.2" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="350" cy="150" r="2" fill="#10B981">
+      <animateTransform attributeName="transform" type="translate" values="0,0;-15,15;0,0" dur="7s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="750" cy="120" r="4" fill="#8B5CF6">
+      <animateTransform attributeName="transform" type="translate" values="0,0;25,5;0,0" dur="5.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.1;0.6;0.1" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1050" cy="180" r="3" fill="#F59E0B">
+      <animateTransform attributeName="transform" type="translate" values="0,0;-20,20;0,0" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.2;0.7;0.2" dur="4.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Ondas de señal -->
+  <g opacity="0.3">
+    <circle cx="600" cy="200" r="80" fill="none" stroke="#10B981" stroke-width="1">
+      <animate attributeName="r" values="80;120;80" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.1;0.5" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="600" cy="200" r="100" fill="none" stroke="#3B82F6" stroke-width="1">
+      <animate attributeName="r" values="100;140;100" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.1;0.4" dur="5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Texto central animado -->
+  <g>
+    <text x="600" y="350" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="bold" opacity="0.9">
+      InfraUX Platform
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+    </text>
+    <text x="600" y="380" text-anchor="middle" fill="#64748B" font-family="Arial, sans-serif" font-size="14" font-weight="normal" opacity="0.8">
+      Conectando tu ecosistema tecnológico
+    </text>
+  </g>
+  
+  <!-- Indicadores de status -->
+  <g>
+    <circle cx="100" cy="50" r="8" fill="#10B981">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="120" y="55" fill="#10B981" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Active</text>
+    
+    <circle cx="100" cy="80" r="8" fill="#F59E0B">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="120" y="85" fill="#F59E0B" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Processing</text>
+    
+    <circle cx="100" cy="110" r="8" fill="#3B82F6">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="120" y="115" fill="#3B82F6" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Monitoring</text>
+  </g>
+</svg>

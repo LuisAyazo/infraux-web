@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo-config'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
 import Link from 'next/link'
@@ -20,19 +21,8 @@ import {
   SparklesIcon
 } from '@heroicons/react/24/outline'
 
-export const metadata: Metadata = {
-  title: 'InfraUX for Enterprises | Enterprise-Grade Infrastructure',
-  description: 'Cloud infrastructure solution for enterprises. Security, compliance, scalability and dedicated support.',
-  keywords: ['enterprises', 'enterprise infrastructure', 'enterprise cloud', 'compliance', 'enterprise security'],
-  openGraph: {
-    title: 'InfraUX for Enterprises',
-    description: 'Enterprise-level cloud infrastructure',
-    url: 'https://infraux.com/solutions/enterprises',
-    siteName: 'InfraUX',
-    locale: 'en_US',
-    type: 'website',
-  },
-}
+// SEO Metadata optimizado para Solutions/Enterprise - Nivel Enterprise
+export const metadata: Metadata = pageMetadata.solutions.enterprise()
 
 const enterpriseFeatures = [
   {

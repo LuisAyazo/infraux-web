@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo-config'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
 import Link from 'next/link'
@@ -19,19 +20,7 @@ import {
   ArrowPathIcon
 } from '@heroicons/react/24/outline'
 
-export const metadata: Metadata = {
-  title: 'Solución Multi-Cloud | InfraUX - Libertad Total en la Nube',
-  description: 'Gestiona AWS, Google Cloud y Azure desde una sola plataforma. Evita vendor lock-in, optimiza costos y maximiza disponibilidad.',
-  keywords: ['multi-cloud', 'aws', 'google cloud', 'azure', 'cloud agnostic', 'vendor lock-in'],
-  openGraph: {
-    title: 'Multi-Cloud con InfraUX',
-    description: 'Una plataforma, todas las nubes',
-    url: 'https://infraux.com/soluciones/multi-cloud',
-    siteName: 'InfraUX',
-    locale: 'es_ES',
-    type: 'website',
-  },
-}
+export const metadata: Metadata = pageMetadata.spanish.solutions.multiCloud()
 
 const cloudProviders = [
   {

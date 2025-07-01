@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo-config'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
 import Link from 'next/link'
@@ -20,19 +21,7 @@ import {
   ClockIcon
 } from '@heroicons/react/24/outline'
 
-export const metadata: Metadata = {
-  title: 'Comunidad InfraUX | Únete a Miles de DevOps Engineers',
-  description: 'Comunidad global de profesionales de infraestructura. Aprende, comparte y crece con expertos en cloud y DevOps.',
-  keywords: ['comunidad devops', 'infraestructura cloud', 'networking devops', 'eventos cloud', 'aprender infraestructura'],
-  openGraph: {
-    title: 'Comunidad InfraUX',
-    description: 'Donde los profesionales de infraestructura se conectan',
-    url: 'https://infraux.com/comunidad',
-    siteName: 'InfraUX',
-    locale: 'es_ES',
-    type: 'website',
-  },
-}
+export const metadata: Metadata = pageMetadata.communitySpanish()
 
 const communityStats = [
   { number: '10,000+', label: 'Miembros activos' },

@@ -1,0 +1,154 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-mega" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="50%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <linearGradient id="panel-mega" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#334155"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="accent-mega" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+    <filter id="glow-mega">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg-mega)"/>
+  
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid-mega" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="none"/>
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#475569" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#grid-mega)"/>
+  
+  <!-- Header bar -->
+  <rect x="0" y="0" width="800" height="60" fill="#1e293b" opacity="0.9"/>
+  <rect x="20" y="20" width="200" height="20" rx="10" fill="url(#accent-mega)" opacity="0.8"/>
+  <text x="30" y="35" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">InfraUX Visual Designer</text>
+  
+  <!-- Left panel (components) -->
+  <rect x="20" y="80" width="200" height="500" rx="15" fill="url(#panel-mega)" opacity="0.9"/>
+  <text x="30" y="105" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0" font-weight="bold">Components</text>
+  
+  <!-- Component items -->
+  <g transform="translate(30, 120)">
+    <!-- AWS components -->
+    <rect x="0" y="0" width="180" height="40" rx="8" fill="#ff9500" opacity="0.2"/>
+    <rect x="10" y="10" width="20" height="20" rx="4" fill="#ff9500"/>
+    <text x="35" y="25" font-family="Arial, sans-serif" font-size="10" fill="#e2e8f0">AWS EC2</text>
+    
+    <rect x="0" y="50" width="180" height="40" rx="8" fill="#ff9500" opacity="0.2"/>
+    <rect x="10" y="60" width="20" height="20" rx="4" fill="#ff9500"/>
+    <text x="35" y="75" font-family="Arial, sans-serif" font-size="10" fill="#e2e8f0">AWS RDS</text>
+    
+    <rect x="0" y="100" width="180" height="40" rx="8" fill="#4285f4" opacity="0.2"/>
+    <rect x="10" y="110" width="20" height="20" rx="4" fill="#4285f4"/>
+    <text x="35" y="125" font-family="Arial, sans-serif" font-size="10" fill="#e2e8f0">GCP VM</text>
+    
+    <rect x="0" y="150" width="180" height="40" rx="8" fill="#00bcf2" opacity="0.2"/>
+    <rect x="10" y="160" width="20" height="20" rx="4" fill="#00bcf2"/>
+    <text x="35" y="175" font-family="Arial, sans-serif" font-size="10" fill="#e2e8f0">Azure VM</text>
+  </g>
+  
+  <!-- Main canvas area -->
+  <rect x="240" y="80" width="520" height="420" rx="15" fill="#1e293b" opacity="0.9" stroke="#475569" stroke-width="2"/>
+  <text x="250" y="105" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0" font-weight="bold">Visual Architecture Designer</text>
+  
+  <!-- Architecture components on canvas -->
+  <g transform="translate(260, 120)">
+    <!-- Load balancer -->
+    <rect x="50" y="20" width="80" height="40" rx="8" fill="url(#accent-mega)" filter="url(#glow-mega)"/>
+    <text x="75" y="35" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Load</text>
+    <text x="75" y="48" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Balancer</text>
+    
+    <!-- Web servers -->
+    <rect x="20" y="100" width="60" height="40" rx="8" fill="#ff9500" filter="url(#glow-mega)"/>
+    <text x="50" y="115" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Web</text>
+    <text x="50" y="128" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Server</text>
+    
+    <rect x="120" y="100" width="60" height="40" rx="8" fill="#ff9500" filter="url(#glow-mega)"/>
+    <text x="150" y="115" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Web</text>
+    <text x="150" y="128" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Server</text>
+    
+    <!-- Database -->
+    <rect x="85" y="180" width="70" height="40" rx="8" fill="#10b981" filter="url(#glow-mega)"/>
+    <text x="120" y="195" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Database</text>
+    <text x="120" y="208" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">RDS</text>
+    
+    <!-- Cache -->
+    <rect x="200" y="100" width="60" height="40" rx="8" fill="#ef4444" filter="url(#glow-mega)"/>
+    <text x="230" y="115" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Redis</text>
+    <text x="230" y="128" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Cache</text>
+    
+    <!-- CDN -->
+    <rect x="350" y="20" width="80" height="40" rx="8" fill="#8b5cf6" filter="url(#glow-mega)"/>
+    <text x="390" y="35" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">CloudFront</text>
+    <text x="390" y="48" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">CDN</text>
+    
+    <!-- Connections -->
+    <line x1="90" y1="60" x2="90" y2="100" stroke="url(#accent-mega)" stroke-width="3" opacity="0.8"/>
+    <line x1="90" y1="60" x2="390" y2="40" stroke="url(#accent-mega)" stroke-width="3" opacity="0.8"/>
+    <line x1="80" y1="120" x2="120" y2="120" stroke="url(#accent-mega)" stroke-width="3" opacity="0.8"/>
+    <line x1="50" y1="140" x2="50" y2="170" stroke="url(#accent-mega)" stroke-width="3" opacity="0.8"/>
+    <line x1="150" y1="140" x2="150" y2="170" stroke="url(#accent-mega)" stroke-width="3" opacity="0.8"/>
+    <line x1="50" y1="180" x2="85" y2="195" stroke="url(#accent-mega)" stroke-width="3" opacity="0.8"/>
+    <line x1="150" y1="180" x2="155" y2="195" stroke="url(#accent-mega)" stroke-width="3" opacity="0.8"/>
+    <line x1="180" y1="120" x2="200" y2="120" stroke="url(#accent-mega)" stroke-width="3" opacity="0.8"/>
+  </g>
+  
+  <!-- Properties panel -->
+  <rect x="580" y="80" width="180" height="300" rx="15" fill="url(#panel-mega)" opacity="0.9"/>
+  <text x="590" y="105" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0" font-weight="bold">Properties</text>
+  
+  <!-- Property fields -->
+  <g transform="translate(590, 120)">
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Instance Type</text>
+    <rect x="0" y="20" width="160" height="25" rx="4" fill="#334155"/>
+    <text x="8" y="35" font-family="Arial, sans-serif" font-size="10" fill="#e2e8f0">t3.medium</text>
+    
+    <text x="0" y="65" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Region</text>
+    <rect x="0" y="70" width="160" height="25" rx="4" fill="#334155"/>
+    <text x="8" y="85" font-family="Arial, sans-serif" font-size="10" fill="#e2e8f0">us-east-1</text>
+    
+    <text x="0" y="115" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Security Group</text>
+    <rect x="0" y="120" width="160" height="25" rx="4" fill="#334155"/>
+    <text x="8" y="135" font-family="Arial, sans-serif" font-size="10" fill="#e2e8f0">web-sg</text>
+  </g>
+  
+  <!-- Bottom toolbar -->
+  <rect x="20" y="520" width="740" height="60" rx="15" fill="url(#panel-mega)" opacity="0.9"/>
+  <g transform="translate(40, 540)">
+    <rect x="0" y="0" width="100" height="30" rx="6" fill="url(#accent-mega)"/>
+    <text x="50" y="20" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Generate Code</text>
+    
+    <rect x="120" y="0" width="80" height="30" rx="6" fill="#10b981"/>
+    <text x="160" y="20" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Deploy</text>
+    
+    <rect x="220" y="0" width="80" height="30" rx="6" fill="#64748b"/>
+    <text x="260" y="20" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Validate</text>
+  </g>
+  
+  <!-- Floating elements for animation -->
+  <circle cx="650" cy="150" r="3" fill="url(#accent-mega)" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="700" cy="200" r="2" fill="#10b981" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="600" cy="180" r="2.5" fill="#ef4444" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+</svg>

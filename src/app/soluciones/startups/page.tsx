@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo-config'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
 import Link from 'next/link'
@@ -19,19 +20,7 @@ import {
   CloudArrowUpIcon
 } from '@heroicons/react/24/outline'
 
-export const metadata: Metadata = {
-  title: 'InfraUX para Startups | Infraestructura que Escala Contigo',
-  description: 'Solución de infraestructura cloud diseñada para startups. Empieza gratis, escala sin límites. Sin sorpresas en costos.',
-  keywords: ['startups', 'infraestructura startup', 'cloud para startups', 'escalar infraestructura', 'aws startup'],
-  openGraph: {
-    title: 'InfraUX para Startups',
-    description: 'La infraestructura que crece con tu startup',
-    url: 'https://infraux.com/soluciones/startups',
-    siteName: 'InfraUX',
-    locale: 'es_ES',
-    type: 'website',
-  },
-}
+export const metadata: Metadata = pageMetadata.spanish.solutions.startups()
 
 const startupBenefits = [
   {

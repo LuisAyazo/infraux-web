@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import ClientOnly from "@/components/ClientOnly";
 import { PostHogProviderWrapper } from "@/providers/PostHogProvider";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import PerformanceOptimizations from "@/components/PerformanceOptimizations";
 // import { Analytics } from "@/components/Analytics";
 // import {
 //   organizationSchema,
@@ -153,37 +153,78 @@ export default function RootLayout({
         <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         
-        {/* Structured Data for SEO - Temporarily commented */}
-        {/* <script
+        {/* Structured Data for SEO */}
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "InfraUX",
+              url: "https://www.infraux.com",
+              logo: "https://www.infraux.com/logo.png",
+              description: "Plataforma visual para diseñar, desplegar y gestionar infraestructura cloud en AWS, Azure y GCP. Genera código IaC automáticamente.",
+              sameAs: [
+                "https://twitter.com/infraux",
+                "https://linkedin.com/company/infraux",
+                "https://github.com/infraux"
+              ],
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "customer service",
+                email: "support@infraux.com",
+                availableLanguage: ["es", "en"]
+              }
+            }),
           }}
         />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(softwareApplicationSchema),
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "InfraUX",
+              description: "Plataforma visual para diseñar y desplegar infraestructura cloud. Compatible con AWS, Azure, GCP. Genera Terraform, Pulumi, CloudFormation automáticamente.",
+              url: "https://www.infraux.com",
+              applicationCategory: "DeveloperApplication",
+              operatingSystem: "Web Browser",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock"
+              },
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: 4.9,
+                reviewCount: 127,
+                bestRating: 5,
+                worstRating: 1
+              }
+            }),
           }}
         />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteSchema),
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "InfraUX",
+              url: "https://www.infraux.com",
+              description: "Plataforma visual para infraestructura cloud",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: "https://www.infraux.com/search?q={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+              }
+            }),
           }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(breadcrumbSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(faqSchema),
-          }}
-        /> */}
         
         {/* Additional SEO Meta Tags */}
         <meta name="geo.region" content="CO" />
@@ -193,10 +234,21 @@ export default function RootLayout({
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
         
         {/* DNS Prefetch for better performance */}
-        <link rel="dns-prefetch" href="//www.google-analytics.com" />
-        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+        <link rel="dns-prefetch" href="//unpkg.com" />
+        
+        {/* Preload critical fonts */}
+        <link
+          rel="preload"
+          href="/fonts/inter-var.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className={`${inter.className} antialiased`}> {/* Inter font class + antialiased */}
         <ThemeProvider
@@ -206,13 +258,12 @@ export default function RootLayout({
           disableTransitionOnChange
           storageKey="infraux-theme"
         >
-          <ClientOnly>
-            <PostHogProviderWrapper>
-              <LanguageProvider>
-                {children}
-              </LanguageProvider>
-            </PostHogProviderWrapper>
-          </ClientOnly>
+          <PostHogProviderWrapper>
+            <LanguageProvider>
+              <PerformanceOptimizations />
+              {children}
+            </LanguageProvider>
+          </PostHogProviderWrapper>
           {/* <Analytics /> */}
         </ThemeProvider>
       </body>

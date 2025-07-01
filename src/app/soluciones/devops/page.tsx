@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo-config'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
 import Link from 'next/link'
@@ -20,19 +21,7 @@ import {
   SparklesIcon
 } from '@heroicons/react/24/outline'
 
-export const metadata: Metadata = {
-  title: 'InfraUX para DevOps | Automatización Total de Infraestructura',
-  description: 'Plataforma DevOps completa. CI/CD, IaC, monitoreo y automatización en un solo lugar. Acelera tu pipeline 10x.',
-  keywords: ['devops', 'ci/cd', 'automatización', 'infrastructure as code', 'pipeline', 'kubernetes'],
-  openGraph: {
-    title: 'InfraUX para DevOps',
-    description: 'La plataforma DevOps que tu equipo necesita',
-    url: 'https://infraux.com/soluciones/devops',
-    siteName: 'InfraUX',
-    locale: 'es_ES',
-    type: 'website',
-  },
-}
+export const metadata: Metadata = pageMetadata.spanish.solutions.devops()
 
 const devopsFeatures = [
   {

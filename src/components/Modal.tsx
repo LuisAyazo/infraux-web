@@ -86,7 +86,7 @@ export default function Modal({
     es: {
       success: {
         defaultTitle: '¡Felicitaciones! 🎉',
-        defaultMessage: 'Te has registrado exitosamente en la lista de espera de <span className="font-bold">Infra</span><span className="text-emerald-500">UX</span>.',
+        defaultMessage: 'Te has registrado exitosamente en la lista de espera de InfraUX.',
         positionMessage: '¡Eres el número',
         positionMessageEnd: 'en la lista!',
         shareTitle: 'Comparte tu logro',
@@ -110,7 +110,7 @@ export default function Modal({
     en: {
       success: {
         defaultTitle: 'Congratulations! 🎉',
-        defaultMessage: 'You have successfully registered for the <span className="font-bold">Infra</span><span className="text-emerald-500">UX</span> waitlist.',
+        defaultMessage: 'You have successfully registered for the InfraUX waitlist.',
         positionMessage: "You're number",
         positionMessageEnd: 'on the list!',
         shareTitle: 'Share your achievement',

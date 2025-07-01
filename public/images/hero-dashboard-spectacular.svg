@@ -1,0 +1,176 @@
+<svg width="1400" height="900" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="emeraldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="1400" height="900" fill="url(#bgGradient)"/>
+  
+  <!-- Grid pattern -->
+  <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+    <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#1e293b" stroke-width="1" opacity="0.3"/>
+  </pattern>
+  <rect width="1400" height="900" fill="url(#grid)"/>
+  
+  <!-- Main dashboard window -->
+  <rect x="50" y="80" width="1300" height="740" rx="20" fill="rgba(255, 255, 255, 0.98)" stroke="url(#emeraldGradient)" stroke-width="4" filter="url(#glow)"/>
+  
+  <!-- Title bar -->
+  <rect x="50" y="80" width="1300" height="60" rx="20" fill="url(#emeraldGradient)" opacity="0.9"/>
+  <circle cx="85" cy="110" r="8" fill="#ef4444"/>
+  <circle cx="110" cy="110" r="8" fill="#f59e0b"/>
+  <circle cx="135" cy="110" r="8" fill="#10b981"/>
+  <text x="180" y="118" fill="white" font-family="Inter, sans-serif" font-size="18" font-weight="700">InfraUX - Cloud Infrastructure Platform</text>
+  
+  <!-- Sidebar -->
+  <rect x="70" y="160" width="220" height="640" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Navigation items -->
+  <rect x="90" y="180" width="180" height="40" rx="8" fill="url(#emeraldGradient)" opacity="0.9"/>
+  <text x="180" y="205" fill="white" font-family="Inter, sans-serif" font-size="14" font-weight="600" text-anchor="middle">🏗️ Infrastructure</text>
+  
+  <rect x="90" y="230" width="180" height="40" rx="8" fill="#f1f5f9" opacity="0.8"/>
+  <text x="180" y="255" fill="#64748b" font-family="Inter, sans-serif" font-size="14" font-weight="500" text-anchor="middle">📊 Analytics</text>
+  
+  <rect x="90" y="280" width="180" height="40" rx="8" fill="#f1f5f9" opacity="0.8"/>
+  <text x="180" y="305" fill="#64748b" font-family="Inter, sans-serif" font-size="14" font-weight="500" text-anchor="middle">🚀 Deployments</text>
+  
+  <rect x="90" y="330" width="180" height="40" rx="8" fill="#f1f5f9" opacity="0.8"/>
+  <text x="180" y="355" fill="#64748b" font-family="Inter, sans-serif" font-size="14" font-weight="500" text-anchor="middle">⚙️ Settings</text>
+  
+  <!-- Main content area -->
+  <rect x="310" y="160" width="1020" height="640" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Header stats -->
+  <rect x="330" y="180" width="980" height="80" rx="10" fill="#f8fafc"/>
+  
+  <!-- Stat cards -->
+  <rect x="350" y="200" width="200" height="60" rx="8" fill="white" stroke="url(#emeraldGradient)" stroke-width="2"/>
+  <text x="370" y="220" fill="#10b981" font-family="Inter, sans-serif" font-size="12" font-weight="700">ACTIVE RESOURCES</text>
+  <text x="370" y="245" fill="#1e293b" font-family="Inter, sans-serif" font-size="24" font-weight="900">247</text>
+  
+  <rect x="570" y="200" width="200" height="60" rx="8" fill="white" stroke="#3b82f6" stroke-width="2"/>
+  <text x="590" y="220" fill="#3b82f6" font-family="Inter, sans-serif" font-size="12" font-weight="700">DEPLOYMENTS</text>
+  <text x="590" y="245" fill="#1e293b" font-family="Inter, sans-serif" font-size="24" font-weight="900">42</text>
+  
+  <rect x="790" y="200" width="200" height="60" rx="8" fill="white" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="810" y="220" fill="#8b5cf6" font-family="Inter, sans-serif" font-size="12" font-weight="700">COST SAVINGS</text>
+  <text x="810" y="245" fill="#1e293b" font-family="Inter, sans-serif" font-size="24" font-weight="900">$12.4K</text>
+  
+  <rect x="1010" y="200" width="200" height="60" rx="8" fill="white" stroke="#f59e0b" stroke-width="2"/>
+  <text x="1030" y="220" fill="#f59e0b" font-family="Inter, sans-serif" font-size="12" font-weight="700">UPTIME</text>
+  <text x="1030" y="245" fill="#1e293b" font-family="Inter, sans-serif" font-size="24" font-weight="900">99.9%</text>
+  
+  <!-- Visual diagram area -->
+  <rect x="330" y="280" width="980" height="500" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Cloud provider regions -->
+  <rect x="360" y="310" width="300" height="200" rx="12" fill="white" stroke="#ff9500" stroke-width="2" opacity="0.9"/>
+  <text x="380" y="335" fill="#ff9500" font-family="Inter, sans-serif" font-size="14" font-weight="700">🌐 AWS us-east-1</text>
+  
+  <!-- AWS resources -->
+  <rect x="380" y="350" width="100" height="50" rx="6" fill="#ff9500" opacity="0.8"/>
+  <text x="430" y="370" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">EC2</text>
+  <text x="430" y="385" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">12 instances</text>
+  
+  <rect x="500" y="350" width="100" height="50" rx="6" fill="#ff9500" opacity="0.8"/>
+  <text x="550" y="370" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">RDS</text>
+  <text x="550" y="385" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">MySQL 8.0</text>
+  
+  <rect x="380" y="420" width="220" height="50" rx="6" fill="#ff9500" opacity="0.6"/>
+  <text x="490" y="440" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">S3 Buckets</text>
+  <text x="490" y="455" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">24 TB stored</text>
+  
+  <!-- Google Cloud -->
+  <rect x="680" y="310" width="300" height="200" rx="12" fill="white" stroke="#4285f4" stroke-width="2" opacity="0.9"/>
+  <text x="700" y="335" fill="#4285f4" font-family="Inter, sans-serif" font-size="14" font-weight="700">🌐 GCP us-central1</text>
+  
+  <rect x="700" y="350" width="100" height="50" rx="6" fill="#4285f4" opacity="0.8"/>
+  <text x="750" y="370" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">GKE</text>
+  <text x="750" y="385" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">3 nodes</text>
+  
+  <rect x="820" y="350" width="100" height="50" rx="6" fill="#4285f4" opacity="0.8"/>
+  <text x="870" y="370" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">BigQuery</text>
+  <text x="870" y="385" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">2.1 TB</text>
+  
+  <rect x="700" y="420" width="220" height="50" rx="6" fill="#4285f4" opacity="0.6"/>
+  <text x="810" y="440" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">Cloud Storage</text>
+  <text x="810" y="455" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">18 TB stored</text>
+  
+  <!-- Azure -->
+  <rect x="1000" y="310" width="280" height="200" rx="12" fill="white" stroke="#0078d4" stroke-width="2" opacity="0.9"/>
+  <text x="1020" y="335" fill="#0078d4" font-family="Inter, sans-serif" font-size="14" font-weight="700">🌐 Azure East US</text>
+  
+  <rect x="1020" y="350" width="100" height="50" rx="6" fill="#0078d4" opacity="0.8"/>
+  <text x="1070" y="370" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">AKS</text>
+  <text x="1070" y="385" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">5 nodes</text>
+  
+  <rect x="1140" y="350" width="100" height="50" rx="6" fill="#0078d4" opacity="0.8"/>
+  <text x="1190" y="370" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">SQL DB</text>
+  <text x="1190" y="385" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">Premium</text>
+  
+  <rect x="1020" y="420" width="220" height="50" rx="6" fill="#0078d4" opacity="0.6"/>
+  <text x="1130" y="440" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">Blob Storage</text>
+  <text x="1130" y="455" fill="white" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">32 TB stored</text>
+  
+  <!-- Connection lines -->
+  <line x1="660" y1="410" x2="680" y2="410" stroke="url(#emeraldGradient)" stroke-width="3" opacity="0.8"/>
+  <line x1="980" y1="410" x2="1000" y2="410" stroke="url(#emeraldGradient)" stroke-width="3" opacity="0.8"/>
+  
+  <!-- Monitoring section -->
+  <rect x="360" y="530" width="920" height="230" rx="10" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="380" y="555" fill="#1e293b" font-family="Inter, sans-serif" font-size="16" font-weight="700">📊 Real-time Monitoring & Analytics</text>
+  
+  <!-- Metrics charts -->
+  <rect x="380" y="570" width="280" height="160" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="400" y="595" fill="#64748b" font-family="Inter, sans-serif" font-size="12" font-weight="600">CPU Usage</text>
+  
+  <!-- CPU usage chart bars -->
+  <rect x="400" y="610" width="20" height="80" fill="url(#emeraldGradient)" opacity="0.8"/>
+  <rect x="430" y="620" width="20" height="70" fill="url(#emeraldGradient)" opacity="0.8"/>
+  <rect x="460" y="600" width="20" height="90" fill="url(#emeraldGradient)" opacity="0.8"/>
+  <rect x="490" y="615" width="20" height="75" fill="url(#emeraldGradient)" opacity="0.8"/>
+  <rect x="520" y="605" width="20" height="85" fill="url(#emeraldGradient)" opacity="0.8"/>
+  <rect x="550" y="625" width="20" height="65" fill="url(#emeraldGradient)" opacity="0.8"/>
+  <rect x="580" y="610" width="20" height="80" fill="url(#emeraldGradient)" opacity="0.8"/>
+  <rect x="610" y="595" width="20" height="95" fill="url(#emeraldGradient)" opacity="0.8"/>
+  
+  <!-- Network traffic -->
+  <rect x="680" y="570" width="280" height="160" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="700" y="595" fill="#64748b" font-family="Inter, sans-serif" font-size="12" font-weight="600">Network Traffic</text>
+  
+  <!-- Network traffic line chart -->
+  <polyline points="700,650 720,640 740,660 760,630 780,670 800,620 820,680 840,610 860,690 880,600 900,700 920,590 940,710" 
+            fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.8"/>
+  
+  <!-- Cost optimization -->
+  <rect x="980" y="570" width="280" height="160" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="1000" y="595" fill="#64748b" font-family="Inter, sans-serif" font-size="12" font-weight="600">Cost Optimization</text>
+  
+  <!-- Cost optimization pie chart -->
+  <circle cx="1120" cy="650" r="50" fill="none" stroke="#e2e8f0" stroke-width="8"/>
+  <circle cx="1120" cy="650" r="50" fill="none" stroke="url(#emeraldGradient)" stroke-width="8" 
+          stroke-dasharray="220 314" transform="rotate(-90 1120 650)"/>
+  <text x="1120" y="658" fill="#1e293b" font-family="Inter, sans-serif" font-size="14" font-weight="700" text-anchor="middle">70%</text>
+  <text x="1120" y="675" fill="#64748b" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Optimized</text>
+  
+  <!-- Floating notification -->
+  <rect x="1050" y="120" width="280" height="60" rx="12" fill="white" stroke="url(#emeraldGradient)" stroke-width="2" opacity="0.95" filter="url(#glow)"/>
+  <text x="1070" y="140" fill="#10b981" font-family="Inter, sans-serif" font-size="12" font-weight="700">✅ Deployment Successful</text>
+  <text x="1070" y="160" fill="#64748b" font-family="Inter, sans-serif" font-size="11">Infrastructure deployed in 3 regions</text>
+</svg>

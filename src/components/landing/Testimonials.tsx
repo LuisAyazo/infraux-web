@@ -1,5 +1,6 @@
 'use client'
 
+import BrandName from '@/components/BrandName'
 import { StarIcon } from '@heroicons/react/24/solid'
 
 const testimonials = [
@@ -22,8 +23,11 @@ const testimonials = [
     company: 'Innovatec',
     avatar: '/placeholders/avatar-2.jpg',
     rating: 5,
-    quote:
-      'Hemos reducido nuestros costos de infraestructura en un 40% gracias a las optimizaciones de InfraUX. El ROI fue inmediato.',
+    quote: (
+      <>
+        Hemos reducido nuestros costos de infraestructura en un 40% gracias a las optimizaciones de <BrandName infraClassName="font-bold text-[#374151]" uxClassName="font-bold text-emerald-500" />. El ROI fue inmediato.
+      </>
+    ),
     initial: 'C',
     bgColor: 'from-cloud-blue-500 to-cloud-blue-600',
   },
@@ -34,8 +38,11 @@ const testimonials = [
     company: 'CloudNine Co.',
     avatar: '/placeholders/avatar-3.jpg',
     rating: 5,
-    quote:
-      'Como CTO, InfraUX me permite tener visibilidad completa de nuestra infraestructura. La herramienta facilita la toma de decisiones estratégicas y reduce significativamente los riesgos.',
+    quote: (
+      <>
+        Como CTO, <BrandName infraClassName="font-bold text-[#374151]" uxClassName="font-bold text-emerald-500" /> me permite tener visibilidad completa de nuestra infraestructura. La herramienta facilita la toma de decisiones estratégicas y reduce significativamente los riesgos.
+      </>
+    ),
     initial: 'S',
     bgColor: 'from-emerald-green-500 to-emerald-green-600',
   },
@@ -46,8 +53,11 @@ const testimonials = [
     company: 'StartupTech',
     avatar: '/placeholders/avatar-4.jpg',
     rating: 5,
-    quote:
-      'Como desarrollador, siempre me intimidaba la configuración de infraestructura. InfraUX hace que sea tan fácil como arrastrar y soltar. ¡Increíble!',
+    quote: (
+      <>
+        Como desarrollador, siempre me intimidaba la configuración de infraestructura. <BrandName infraClassName="font-bold text-[#374151]" uxClassName="font-bold text-emerald-500" /> hace que sea tan fácil como arrastrar y soltar. ¡Increíble!
+      </>
+    ),
     initial: 'M',
     bgColor: 'from-yellow-500 to-orange-500',
   },
@@ -70,8 +80,11 @@ const testimonials = [
     company: 'MegaCorp',
     avatar: '/placeholders/avatar-6.jpg',
     rating: 5,
-    quote:
-      'La capacidad de InfraUX para manejar multi-cloud con validación en tiempo real es excepcional. Nuestros deployments son ahora 100% confiables.',
+    quote: (
+      <>
+        La capacidad de <BrandName infraClassName="font-bold text-[#374151]" uxClassName="font-bold text-emerald-500" /> para manejar multi-cloud con validación en tiempo real es excepcional. Nuestros deployments son ahora 100% confiables.
+      </>
+    ),
     initial: 'R',
     bgColor: 'from-indigo-500 to-purple-500',
   },
@@ -155,7 +168,7 @@ export default function Testimonials() {
 
                 {/* Quote */}
                 <blockquote className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed italic relative">
-                  {testimonial.quote}
+                  {typeof testimonial.quote === 'string' ? testimonial.quote : testimonial.quote}
                 </blockquote>
 
                 {/* Author */}

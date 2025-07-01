@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo-config'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
 import Link from 'next/link'
@@ -27,19 +28,7 @@ import {
   SparklesIcon
 } from '@heroicons/react/24/outline'
 
-export const metadata: Metadata = {
-  title: 'Deployment Automatizado | InfraUX',
-  description: 'Despliega tu infraestructura en cualquier cloud con un clic. CI/CD integrado, rollbacks automáticos y monitoreo en tiempo real.',
-  keywords: ['deployment', 'ci/cd', 'despliegue automático', 'devops', 'cloud deployment', 'infraestructura'],
-  openGraph: {
-    title: 'Deployment Inteligente - InfraUX',
-    description: 'Despliega con confianza en cualquier cloud',
-    url: 'https://infraux.com/producto/deployment',
-    siteName: 'InfraUX',
-    locale: 'es_ES',
-    type: 'website',
-  },
-}
+export const metadata: Metadata = pageMetadata.spanish.product.deployment()
 
 const deploymentFeatures = [
   {
@@ -783,11 +772,8 @@ export default function DeploymentPage() {
               </div>
               
               <div className="text-center animate-fade-in-up animation-delay-400">
-                <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-orange-500 to-red-500 rounded-3xl mb-6 shadow-premium">
-                  <ClockIcon className="h-12 w-12 text-white" />
-                </div>
                 <div className="text-5xl font-black text-slate-900 dark:text-white mb-3">
-                  &lt;30s
+                  {"<30s"}
                 </div>
                 <p className="text-xl text-slate-600 dark:text-slate-400 font-medium">
                   Tiempo promedio de rollback

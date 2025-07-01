@@ -1,0 +1,239 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="700" fill="url(#gradient-bg)" rx="20"/>
+  
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="gradient-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="gradient-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="gradient-emerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#14b8a6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="gradient-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow filters -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Dot pattern for canvas -->
+    <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1" fill="rgba(255, 255, 255, 0.1)"/>
+    </pattern>
+  </defs>
+  
+  <!-- Main Canvas Area -->
+  <rect x="50" y="50" width="1100" height="600" fill="rgba(255, 255, 255, 0.02)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="2" rx="16"/>
+  <rect x="50" y="50" width="1100" height="600" fill="url(#dots)"/>
+  
+  <!-- Toolbar -->
+  <rect x="70" y="70" width="1060" height="50" fill="rgba(255, 255, 255, 0.08)" rx="8"/>
+  
+  <!-- Tool icons -->
+  <g transform="translate(90, 85)">
+    <!-- Select tool -->
+    <rect x="0" y="0" width="30" height="20" fill="url(#gradient-blue)" rx="4"/>
+    <text x="15" y="13" fill="white" font-family="Arial, sans-serif" font-size="8" text-anchor="middle">⚹</text>
+    
+    <!-- Drag tool -->
+    <rect x="40" y="0" width="30" height="20" fill="rgba(255, 255, 255, 0.1)" rx="4"/>
+    <text x="55" y="13" fill="white" font-family="Arial, sans-serif" font-size="8" text-anchor="middle">✋</text>
+    
+    <!-- Connect tool -->
+    <rect x="80" y="0" width="30" height="20" fill="rgba(255, 255, 255, 0.1)" rx="4"/>
+    <text x="95" y="13" fill="white" font-family="Arial, sans-serif" font-size="8" text-anchor="middle">⟷</text>
+  </g>
+  
+  <!-- Action buttons on right -->
+  <g transform="translate(950, 85)">
+    <rect x="0" y="0" width="60" height="20" fill="url(#gradient-emerald)" rx="4"/>
+    <text x="30" y="13" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Deploy</text>
+    
+    <rect x="70" y="0" width="60" height="20" fill="url(#gradient-purple)" rx="4"/>
+    <text x="100" y="13" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Generate</text>
+  </g>
+  
+  <!-- Left Sidebar - Resource Library -->
+  <rect x="70" y="140" width="220" height="480" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" rx="12"/>
+  
+  <!-- Sidebar title -->
+  <text x="85" y="165" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Recursos AWS</text>
+  
+  <!-- Resource categories -->
+  <g transform="translate(85, 180)">
+    <!-- Compute section -->
+    <text x="0" y="20" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="10" font-weight="600">COMPUTE</text>
+    
+    <!-- EC2 -->
+    <rect x="0" y="30" width="180" height="30" fill="rgba(255, 165, 0, 0.1)" stroke="rgba(255, 165, 0, 0.3)" stroke-width="1" rx="6" cursor="pointer"/>
+    <rect x="8" y="37" width="16" height="16" fill="#FF9900" rx="2"/>
+    <text x="30" y="49" fill="white" font-family="Arial, sans-serif" font-size="10">EC2 Instance</text>
+    
+    <!-- Lambda -->
+    <rect x="0" y="70" width="180" height="30" fill="rgba(255, 165, 0, 0.1)" stroke="rgba(255, 165, 0, 0.3)" stroke-width="1" rx="6" cursor="pointer"/>
+    <rect x="8" y="77" width="16" height="16" fill="#FF9900" rx="2"/>
+    <text x="30" y="89" fill="white" font-family="Arial, sans-serif" font-size="10">Lambda Function</text>
+    
+    <!-- Storage section -->
+    <text x="0" y="120" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="10" font-weight="600">STORAGE</text>
+    
+    <!-- S3 -->
+    <rect x="0" y="130" width="180" height="30" fill="rgba(34, 197, 94, 0.1)" stroke="rgba(34, 197, 94, 0.3)" stroke-width="1" rx="6" cursor="pointer"/>
+    <rect x="8" y="137" width="16" height="16" fill="#22c55e" rx="2"/>
+    <text x="30" y="149" fill="white" font-family="Arial, sans-serif" font-size="10">S3 Bucket</text>
+    
+    <!-- Database section -->
+    <text x="0" y="180" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="10" font-weight="600">DATABASE</text>
+    
+    <!-- RDS -->
+    <rect x="0" y="190" width="180" height="30" fill="rgba(139, 92, 246, 0.1)" stroke="rgba(139, 92, 246, 0.3)" stroke-width="1" rx="6" cursor="pointer"/>
+    <rect x="8" y="197" width="16" height="16" fill="#8b5cf6" rx="2"/>
+    <text x="30" y="209" fill="white" font-family="Arial, sans-serif" font-size="10">RDS Database</text>
+    
+    <!-- DynamoDB -->
+    <rect x="0" y="230" width="180" height="30" fill="rgba(139, 92, 246, 0.1)" stroke="rgba(139, 92, 246, 0.3)" stroke-width="1" rx="6" cursor="pointer"/>
+    <rect x="8" y="237" width="16" height="16" fill="#8b5cf6" rx="2"/>
+    <text x="30" y="249" fill="white" font-family="Arial, sans-serif" font-size="10">DynamoDB Table</text>
+  </g>
+  
+  <!-- Main Canvas - Visual Architecture -->
+  <g transform="translate(320, 160)">
+    <!-- Internet Gateway -->
+    <g>
+      <rect x="0" y="0" width="100" height="50" fill="url(#gradient-blue)" rx="8" filter="url(#glow)"/>
+      <text x="50" y="22" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Internet</text>
+      <text x="50" y="35" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="8" text-anchor="middle">Gateway</text>
+    </g>
+    
+    <!-- Load Balancer -->
+    <g transform="translate(0, 100)">
+      <rect x="0" y="0" width="140" height="60" fill="url(#gradient-emerald)" rx="8" filter="url(#glow)"/>
+      <text x="70" y="25" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Application</text>
+      <text x="70" y="40" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="9" text-anchor="middle">Load Balancer</text>
+      <text x="70" y="52" fill="rgba(255, 255, 255, 0.6)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">ALB</text>
+    </g>
+    
+    <!-- EC2 Instances -->
+    <g transform="translate(-80, 220)">
+      <rect x="0" y="0" width="90" height="70" fill="#FF9900" rx="8"/>
+      <text x="45" y="20" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Web Server</text>
+      <text x="45" y="35" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="8" text-anchor="middle">EC2 Instance</text>
+      <text x="45" y="48" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">t3.medium</text>
+      <text x="45" y="60" fill="rgba(255, 255, 255, 0.6)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">us-east-1a</text>
+    </g>
+    
+    <g transform="translate(130, 220)">
+      <rect x="0" y="0" width="90" height="70" fill="#FF9900" rx="8"/>
+      <text x="45" y="20" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Web Server</text>
+      <text x="45" y="35" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="8" text-anchor="middle">EC2 Instance</text>
+      <text x="45" y="48" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">t3.medium</text>
+      <text x="45" y="60" fill="rgba(255, 255, 255, 0.6)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">us-east-1b</text>
+    </g>
+    
+    <!-- Database -->
+    <g transform="translate(300, 220)">
+      <rect x="0" y="0" width="110" height="70" fill="url(#gradient-purple)" rx="8"/>
+      <text x="55" y="20" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Database</text>
+      <text x="55" y="35" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="8" text-anchor="middle">RDS MySQL</text>
+      <text x="55" y="48" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">db.t3.small</text>
+      <text x="55" y="60" fill="rgba(255, 255, 255, 0.6)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">Multi-AZ</text>
+    </g>
+    
+    <!-- S3 Bucket -->
+    <g transform="translate(460, 160)">
+      <rect x="0" y="0" width="90" height="60" fill="#22c55e" rx="8"/>
+      <text x="45" y="25" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">S3 Bucket</text>
+      <text x="45" y="40" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="8" text-anchor="middle">Static Assets</text>
+      <text x="45" y="52" fill="rgba(255, 255, 255, 0.6)" font-family="Arial, sans-serif" font-size="7" text-anchor="middle">CDN Ready</text>
+    </g>
+    
+    <!-- Connection lines with animation -->
+    <!-- Internet to ALB -->
+    <line x1="50" y1="50" x2="70" y2="100" stroke="rgba(59, 130, 246, 0.8)" stroke-width="3" stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" values="0;10" dur="1s" repeatCount="indefinite"/>
+    </line>
+    
+    <!-- ALB to EC2s -->
+    <line x1="50" y1="160" x2="-35" y2="220" stroke="rgba(16, 185, 129, 0.8)" stroke-width="3" stroke-dasharray="4,4">
+      <animate attributeName="stroke-dashoffset" values="0;8" dur="1.2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="90" y1="160" x2="175" y2="220" stroke="rgba(16, 185, 129, 0.8)" stroke-width="3" stroke-dasharray="4,4">
+      <animate attributeName="stroke-dashoffset" values="0;8" dur="1.2s" repeatCount="indefinite"/>
+    </line>
+    
+    <!-- EC2s to Database -->
+    <line x1="10" y1="290" x2="300" y2="255" stroke="rgba(139, 92, 246, 0.8)" stroke-width="3" stroke-dasharray="6,3">
+      <animate attributeName="stroke-dashoffset" values="0;9" dur="1.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="220" y1="290" x2="300" y2="255" stroke="rgba(139, 92, 246, 0.8)" stroke-width="3" stroke-dasharray="6,3">
+      <animate attributeName="stroke-dashoffset" values="0;9" dur="1.5s" repeatCount="indefinite"/>
+    </line>
+    
+    <!-- ALB to S3 -->
+    <line x1="140" y1="130" x2="460" y2="190" stroke="rgba(34, 197, 94, 0.8)" stroke-width="3" stroke-dasharray="3,3">
+      <animate attributeName="stroke-dashoffset" values="0;6" dur="0.8s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Right Panel - Properties -->
+  <rect x="930" y="140" width="200" height="480" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" rx="12"/>
+  
+  <text x="945" y="165" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Propiedades</text>
+  
+  <!-- Selected component properties -->
+  <g transform="translate(945, 180)">
+    <text x="0" y="20" fill="rgba(255, 255, 255, 0.7)" font-family="Arial, sans-serif" font-size="10" font-weight="600">ALB SELECCIONADO</text>
+    
+    <rect x="0" y="30" width="170" height="200" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" rx="8"/>
+    
+    <g transform="translate(10, 40)">
+      <text x="0" y="15" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="600">Nombre:</text>
+      <rect x="0" y="20" width="150" height="20" fill="rgba(255, 255, 255, 0.1)" rx="4"/>
+      <text x="5" y="33" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="8">web-app-alb</text>
+      
+      <text x="0" y="55" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="600">Esquema:</text>
+      <rect x="0" y="60" width="150" height="20" fill="rgba(255, 255, 255, 0.1)" rx="4"/>
+      <text x="5" y="73" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="8">internet-facing</text>
+      
+      <text x="0" y="95" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="600">Tipo:</text>
+      <rect x="0" y="100" width="150" height="20" fill="rgba(255, 255, 255, 0.1)" rx="4"/>
+      <text x="5" y="113" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="8">application</text>
+      
+      <text x="0" y="135" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="600">Subredes:</text>
+      <rect x="0" y="140" width="150" height="20" fill="rgba(255, 255, 255, 0.1)" rx="4"/>
+      <text x="5" y="153" fill="rgba(255, 255, 255, 0.8)" font-family="Arial, sans-serif" font-size="8">subnet-1a, subnet-1b</text>
+    </g>
+  </g>
+  
+  <!-- Drag indicator -->
+  <g transform="translate(400, 350)" opacity="0.6">
+    <circle cx="0" cy="0" r="30" fill="none" stroke="rgba(16, 185, 129, 0.5)" stroke-width="2" stroke-dasharray="4,4">
+      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="5" fill="rgba(16, 185, 129, 0.8)" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" font-weight="bold">ARRASTRA</text>
+  </g>
+  
+  <!-- Floating action hint -->
+  <g transform="translate(600, 550)" opacity="0.8">
+    <rect x="0" y="0" width="150" height="30" fill="rgba(16, 185, 129, 0.2)" stroke="rgba(16, 185, 129, 0.6)" stroke-width="1" rx="6"/>
+    <text x="75" y="20" fill="#10b981" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Conecta componentes</text>
+  </g>
+</svg>

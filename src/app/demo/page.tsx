@@ -2,28 +2,9 @@ import { Metadata } from 'next'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
 import DemoPlaceholder from '@/components/landing/DemoPlaceholder'
+import { pageMetadata } from '@/lib/seo-config'
 
-export const metadata: Metadata = {
-  title: 'Demo - Ve InfraUX en Acción | Editor Visual de Infraestructura',
-  description: 'Mira cómo funciona InfraUX en acción. Demostración del editor visual de infraestructura cloud más intuitivo del mercado.',
-  keywords: ['demo', 'demostración', 'editor visual', 'infraestructura cloud', 'tutorial', 'preview'],
-  openGraph: {
-    title: 'Demo - Ve InfraUX en Acción',
-    description: 'Demostración del editor visual de infraestructura cloud más intuitivo.',
-    url: 'https://infraux.com/demo',
-    siteName: 'InfraUX',
-    locale: 'es_ES',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Demo - Ve InfraUX en Acción',
-    description: 'Demostración del editor visual de infraestructura cloud.',
-  },
-  alternates: {
-    canonical: 'https://infraux.com/demo',
-  },
-}
+export const metadata: Metadata = pageMetadata.content.demo()
 
 export default function DemoPage() {
   return (

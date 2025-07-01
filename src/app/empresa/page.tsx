@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo-config'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
 import Link from 'next/link'
@@ -20,31 +21,7 @@ import {
   CheckCircleIcon
 } from '@heroicons/react/24/outline'
 
-export const metadata: Metadata = {
-  title: 'Sobre InfraUX | Nuestra Misión, Visión y Equipo',
-  description: 'Conoce la historia de InfraUX, nuestra misión de democratizar la gestión de infraestructura cloud y el equipo apasionado que lo hace posible.',
-  keywords: ['sobre InfraUX', 'empresa', 'misión', 'visión', 'equipo', 'historia', 'valores'],
-  openGraph: {
-    title: 'Sobre InfraUX - Transformando la Infraestructura Cloud',
-    description: 'Conoce nuestra misión de hacer la infraestructura cloud accesible para todos.',
-    url: 'https://infraux.com/empresa',
-    siteName: 'InfraUX',
-    locale: 'es_ES',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Sobre InfraUX',
-    description: 'La empresa que está democratizando la infraestructura cloud',
-  },
-  alternates: {
-    canonical: 'https://infraux.com/empresa',
-    languages: {
-      'es': 'https://infraux.com/empresa',
-      'en': 'https://infraux.com/about'
-    }
-  },
-}
+export const metadata: Metadata = pageMetadata.spanish.business.company()
 
 const values = [
   {

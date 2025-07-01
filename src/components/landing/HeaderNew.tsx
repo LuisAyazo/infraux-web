@@ -18,23 +18,29 @@ export default function HeaderNew() {
   const { language, setLanguage, t } = useLanguage()
   const isClient = useIsClient()
 
-  const translatedRoutes = {
-    editor: useTranslatedRoute('/producto/editor'),
-    iac: useTranslatedRoute('/producto/iac'),
-    deployment: useTranslatedRoute('/producto/deployment'),
-    collaboration: useTranslatedRoute('/producto/colaboracion'),
-    startups: useTranslatedRoute('/soluciones/startups'),
-    enterprises: useTranslatedRoute('/soluciones/empresas'),
-    devops: useTranslatedRoute('/soluciones/devops'),
-    multiCloud: useTranslatedRoute('/soluciones/multi-cloud'),
-    documentation: useTranslatedRoute('/documentacion'),
-    blog: useTranslatedRoute('/blog'),
-    community: useTranslatedRoute('/comunidad'),
-    changelog: useTranslatedRoute('/changelog'),
-    pricing: useTranslatedRoute('/precios'),
-    company: useTranslatedRoute('/empresa'),
-    login: useTranslatedRoute('/login'),
-  };
+  const editorRoute = useTranslatedRoute('/producto/editor');
+  const iacRoute = useTranslatedRoute('/producto/iac');
+  const deploymentRoute = useTranslatedRoute('/producto/deployment');
+  const collaborationRoute = useTranslatedRoute('/producto/colaboracion');
+  const startupsRoute = useTranslatedRoute('/soluciones/startups');
+  const enterprisesRoute = useTranslatedRoute('/soluciones/empresas');
+  const devopsRoute = useTranslatedRoute('/soluciones/devops');
+  const multiCloudRoute = useTranslatedRoute('/soluciones/multi-cloud');
+  const documentationRoute = useTranslatedRoute('/documentacion');
+  const blogRoute = useTranslatedRoute('/blog');
+  const communityRoute = useTranslatedRoute('/comunidad');
+  const changelogRoute = useTranslatedRoute('/changelog');
+  const pricingRoute = useTranslatedRoute('/precios');
+  const companyRoute = useTranslatedRoute('/empresa');
+  const loginRoute = useTranslatedRoute('/login');
+  const integrationsRoute = useTranslatedRoute('/producto/integraciones');
+  const securityRoute = useTranslatedRoute('/producto/seguridad');
+  const tutorialsRoute = useTranslatedRoute('/tutoriales');
+  const apiRoute = useTranslatedRoute('/api');
+  const successStoriesRoute = useTranslatedRoute('/casos-exito');
+  const careersRoute = useTranslatedRoute('/carreras');
+  const partnersRoute = useTranslatedRoute('/partners');
+  const pressRoute = useTranslatedRoute('/prensa');
 
   // Navegación con traducciones dinámicas
   const navigation = {
@@ -43,23 +49,33 @@ export default function HeaderNew() {
       items: [
         {
           name: t('nav.editor_visual'),
-          href: translatedRoutes.editor,
+          href: editorRoute,
           description: t('nav.editor_visual_desc')
         },
         {
           name: t('nav.generacion_iac'),
-          href: translatedRoutes.iac,
+          href: iacRoute,
           description: t('nav.generacion_iac_desc')
         },
         {
           name: t('nav.deployment'),
-          href: translatedRoutes.deployment,
+          href: deploymentRoute,
           description: t('nav.deployment_desc')
         },
         {
           name: t('nav.colaboracion'),
-          href: translatedRoutes.collaboration,
+          href: collaborationRoute,
           description: t('nav.colaboracion_desc')
+        },
+        {
+          name: t('integrations.title'),
+          href: integrationsRoute,
+          description: t('nav.integraciones_desc')
+        },
+        {
+          name: t('security.title'),
+          href: securityRoute,
+          description: t('nav.seguridad_desc')
         },
       ]
     },
@@ -68,23 +84,28 @@ export default function HeaderNew() {
       items: [
         {
           name: t('nav.para_startups'),
-          href: translatedRoutes.startups,
+          href: startupsRoute,
           description: t('nav.para_startups_desc')
         },
         {
           name: t('nav.para_empresas'),
-          href: translatedRoutes.enterprises,
+          href: enterprisesRoute,
           description: t('nav.para_empresas_desc')
         },
         {
           name: t('nav.para_devops'),
-          href: translatedRoutes.devops,
+          href: devopsRoute,
           description: t('nav.para_devops_desc')
         },
         {
           name: t('nav.multi_cloud'),
-          href: translatedRoutes.multiCloud,
+          href: multiCloudRoute,
           description: t('nav.multi_cloud_desc')
+        },
+        {
+          name: t('nav.casos_exito'),
+          href: successStoriesRoute,
+          description: t('nav.casos_exito_desc')
         },
       ]
     },
@@ -93,36 +114,70 @@ export default function HeaderNew() {
       items: [
         {
           name: t('nav.documentacion'),
-          href: translatedRoutes.documentation,
+          href: documentationRoute,
           description: t('nav.documentacion_desc')
         },
         {
           name: t('nav.blog'),
-          href: translatedRoutes.blog,
+          href: blogRoute,
           description: t('nav.blog_desc')
         },
         {
-          name: 'Roadmap',
+          name: t('nav.tutoriales'),
+          href: tutorialsRoute,
+          description: t('nav.tutoriales_desc')
+        },
+        {
+          name: t('nav.api'),
+          href: apiRoute,
+          description: t('nav.api_desc')
+        },
+        {
+          name: t('nav.roadmap'),
           href: '/roadmap',
-          description: language === 'es' ? 'Nuestros planes y próximas funcionalidades' : 'Our plans and upcoming features'
+          description: t('nav.roadmap_desc')
         },
         {
           name: t('nav.comunidad'),
-          href: translatedRoutes.community,
+          href: communityRoute,
           description: t('nav.comunidad_desc')
         },
         {
           name: t('nav.changelog'),
-          href: translatedRoutes.changelog,
+          href: changelogRoute,
           description: t('nav.changelog_desc')
+        },
+      ]
+    },
+    empresa: {
+      name: t('nav.empresa'),
+      items: [
+        {
+          name: t('nav.sobre_nosotros'),
+          href: companyRoute,
+          description: t('nav.sobre_nosotros_desc')
+        },
+        {
+          name: t('nav.carreras'),
+          href: careersRoute,
+          description: t('nav.carreras_desc')
+        },
+        {
+          name: t('nav.partners'),
+          href: partnersRoute,
+          description: t('nav.partners_desc')
+        },
+        {
+          name: t('nav.prensa'),
+          href: pressRoute,
+          description: t('nav.prensa_desc')
         },
       ]
     }
   }
 
   const simpleLinks = [
-    { name: t('nav.precios'), href: translatedRoutes.pricing },
-    { name: t('nav.empresa'), href: translatedRoutes.company },
+    { name: t('nav.precios'), href: pricingRoute },
   ]
 
   useEffect(() => {
@@ -162,8 +217,8 @@ export default function HeaderNew() {
   return (
     <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${
       isScrolled
-        ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-700 shadow-sm'
-        : 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/20 dark:border-slate-700/20'
+        ? 'bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 shadow-sm'
+        : 'bg-white dark:bg-slate-900 border-b border-slate-200/50 dark:border-slate-700/50'
     }`}>
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Global">
         <div className="flex h-16 items-center justify-between">
@@ -171,8 +226,8 @@ export default function HeaderNew() {
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-1.5 group">
               <span className="text-xl">
-                <span className="font-bold text-slate-900 dark:text-white">Infra</span>
-                <span className="text-emerald-500">UX</span>
+                <span className="font-bold text-[#374151]">Infra</span>
+                <span className="font-bold text-emerald-500">UX</span>
               </span>
             </Link>
           </div>
@@ -289,9 +344,9 @@ export default function HeaderNew() {
             </div>
             
             <Link
-              href={translatedRoutes.login}
+              href={loginRoute}
               className="rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-200"
-              onClick={() => trackLinkClick('header_login', translatedRoutes.login)}
+              onClick={() => trackLinkClick('header_login', loginRoute)}
             >
               {t('nav.iniciar_sesion')}
             </Link>
@@ -318,12 +373,12 @@ export default function HeaderNew() {
             className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm lg:hidden"
             onClick={() => setMobileMenuOpen(false)}
           />
-          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-slate-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-slate-200/50 dark:sm:ring-slate-700/50 lg:hidden transform transition-transform duration-300 ease-out">
+          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-slate-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-slate-200/50 dark:sm:ring-slate-700/50 lg:hidden h-screen transition-transform duration-300 ease-out">
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-1.5">
                 <span className="text-xl">
-                  <span className="font-bold text-slate-900 dark:text-white">Infra</span>
-                  <span className="text-emerald-500">UX</span>
+                  <span className="font-bold text-[#374151]">Infra</span>
+                  <span className="font-bold text-emerald-500">UX</span>
                 </span>
               </Link>
               <button
@@ -407,7 +462,7 @@ export default function HeaderNew() {
                   </div>
                   
                   <Link
-                    href={translatedRoutes.login}
+                    href={loginRoute}
                     className="block w-full rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-3 py-2.5 text-center text-base font-semibold text-white shadow-sm"
                     onClick={() => setMobileMenuOpen(false)}
                   >

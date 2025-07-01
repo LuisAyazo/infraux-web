@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo-config'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
 import Link from 'next/link'
@@ -20,31 +21,8 @@ import {
   StarIcon
 } from '@heroicons/react/24/outline'
 
-export const metadata: Metadata = {
-  title: 'Company | About InfraUX',
-  description: 'Learn about InfraUX\'s mission to democratize cloud infrastructure. Meet our team, our values, and our vision for the future of DevOps.',
-  keywords: ['about InfraUX', 'company', 'team', 'mission', 'values', 'cloud infrastructure company'],
-  openGraph: {
-    title: 'About InfraUX - Our Mission & Team',
-    description: 'We\'re building the future of cloud infrastructure management. Learn about our journey, team, and values.',
-    url: 'https://infraux.com/company',
-    siteName: 'InfraUX',
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Company - InfraUX',
-    description: 'Building the future of cloud infrastructure',
-  },
-  alternates: {
-    canonical: 'https://infraux.com/company',
-    languages: {
-      'en': 'https://infraux.com/company',
-      'es': 'https://infraux.com/empresa'
-    }
-  },
-}
+// 🚀 SEO OPTIMIZADO - COMPANY PAGE
+export const metadata: Metadata = pageMetadata.company()
 
 const values = [
   {

@@ -1,0 +1,234 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-deploy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23"/>
+      <stop offset="50%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0f0f23"/>
+    </linearGradient>
+    <linearGradient id="panel-deploy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#252530"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="accent-deploy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="warning-deploy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#f97316"/>
+    </linearGradient>
+    <filter id="glow-deploy">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg-deploy)"/>
+  
+  <!-- Terminal pattern -->
+  <defs>
+    <pattern id="terminal-pattern" width="60" height="20" patternUnits="userSpaceOnUse">
+      <rect width="60" height="20" fill="none"/>
+      <text x="2" y="12" font-family="Monaco, monospace" font-size="6" fill="#4ade80" opacity="0.2">$ terraform apply</text>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#terminal-pattern)"/>
+  
+  <!-- Header bar -->
+  <rect x="0" y="0" width="800" height="60" fill="#1a1a2e" opacity="0.95"/>
+  <rect x="20" y="20" width="200" height="20" rx="10" fill="url(#accent-deploy)" opacity="0.8"/>
+  <text x="30" y="35" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">InfraUX Deployment Center</text>
+  
+  <!-- Status indicators -->
+  <g transform="translate(600, 15)">
+    <circle cx="15" cy="15" r="8" fill="#10b981" filter="url(#glow-deploy)"/>
+    <text x="15" y="20" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle" font-weight="bold">✓</text>
+    <text x="15" y="40" font-family="Arial, sans-serif" font-size="8" fill="#10b981" text-anchor="middle">Connected</text>
+    
+    <circle cx="70" cy="15" r="8" fill="#f59e0b" filter="url(#glow-deploy)">
+      <animate attributeName="opacity" values="1;0.5;1" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <text x="70" y="20" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle" font-weight="bold">!</text>
+    <text x="70" y="40" font-family="Arial, sans-serif" font-size="8" fill="#f59e0b" text-anchor="middle">Deploying</text>
+    
+    <circle cx="125" cy="15" r="8" fill="#64748b"/>
+    <text x="125" y="20" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle" font-weight="bold">⏸</text>
+    <text x="125" y="40" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Staged</text>
+  </g>
+  
+  <!-- Main deployment dashboard -->
+  <rect x="20" y="80" width="760" height="500" rx="15" fill="url(#panel-deploy)" opacity="0.9"/>
+  
+  <!-- Left panel: Environment selection -->
+  <rect x="40" y="100" width="200" height="460" rx="10" fill="#1a1a2e" opacity="0.8"/>
+  <text x="50" y="125" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0" font-weight="bold">Environments</text>
+  
+  <g transform="translate(50, 140)">
+    <!-- Production -->
+    <rect x="0" y="0" width="180" height="50" rx="8" fill="#dc2626" opacity="0.2" stroke="#dc2626" stroke-width="1"/>
+    <circle cx="15" cy="25" r="6" fill="#dc2626"/>
+    <text x="30" y="20" font-family="Arial, sans-serif" font-size="11" fill="#e2e8f0" font-weight="bold">Production</text>
+    <text x="30" y="35" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">us-east-1 • 12 resources</text>
+    <rect x="145" y="15" width="25" height="20" rx="4" fill="#10b981"/>
+    <text x="157" y="27" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle" font-weight="bold">✓</text>
+    
+    <!-- Staging -->
+    <rect x="0" y="60" width="180" height="50" rx="8" fill="url(#warning-deploy)" opacity="0.3" stroke="#f59e0b" stroke-width="2"/>
+    <circle cx="15" cy="85" r="6" fill="#f59e0b">
+      <animate attributeName="opacity" values="1;0.5;1" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <text x="30" y="80" font-family="Arial, sans-serif" font-size="11" fill="#e2e8f0" font-weight="bold">Staging</text>
+    <text x="30" y="95" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">us-west-2 • 8 resources</text>
+    <rect x="145" y="75" width="25" height="20" rx="4" fill="#f59e0b"/>
+    <text x="157" y="87" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle" font-weight="bold">⏳</text>
+    
+    <!-- Development -->
+    <rect x="0" y="120" width="180" height="50" rx="8" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="1"/>
+    <circle cx="15" cy="145" r="6" fill="#10b981"/>
+    <text x="30" y="140" font-family="Arial, sans-serif" font-size="11" fill="#e2e8f0" font-weight="bold">Development</text>
+    <text x="30" y="155" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">eu-west-1 • 5 resources</text>
+    <rect x="145" y="135" width="25" height="20" rx="4" fill="#10b981"/>
+    <text x="157" y="147" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle" font-weight="bold">✓</text>
+  </g>
+  
+  <!-- Center panel: Deployment progress -->
+  <rect x="260" y="100" width="300" height="460" rx="10" fill="#0f0f23" opacity="0.9"/>
+  <text x="270" y="125" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0" font-weight="bold">Deployment Progress</text>
+  
+  <!-- Progress steps -->
+  <g transform="translate(270, 150)">
+    <!-- Step 1: Completed -->
+    <circle cx="20" cy="20" r="12" fill="#10b981" filter="url(#glow-deploy)"/>
+    <text x="20" y="26" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="bold">✓</text>
+    <text x="40" y="15" font-family="Arial, sans-serif" font-size="11" fill="#10b981" font-weight="bold">Validation Complete</text>
+    <text x="40" y="30" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Plan validated successfully</text>
+    
+    <!-- Connection line -->
+    <line x1="20" y1="35" x2="20" y2="55" stroke="#10b981" stroke-width="2"/>
+    
+    <!-- Step 2: In progress -->
+    <circle cx="20" cy="70" r="12" fill="#f59e0b" filter="url(#glow-deploy)">
+      <animate attributeName="opacity" values="1;0.6;1" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="20" y="76" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="bold">2</text>
+    <text x="40" y="65" font-family="Arial, sans-serif" font-size="11" fill="#f59e0b" font-weight="bold">Creating Resources</text>
+    <text x="40" y="80" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">aws_vpc.main (3/8 complete)</text>
+    
+    <!-- Progress bar -->
+    <rect x="40" y="85" width="200" height="8" rx="4" fill="#374151"/>
+    <rect x="40" y="85" width="75" height="8" rx="4" fill="url(#warning-deploy)">
+      <animate attributeName="width" values="75;100;75" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Connection line -->
+    <line x1="20" y1="85" x2="20" y2="105" stroke="#64748b" stroke-width="2" stroke-dasharray="4,4"/>
+    
+    <!-- Step 3: Pending -->
+    <circle cx="20" cy="120" r="12" fill="#64748b"/>
+    <text x="20" y="126" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="bold">3</text>
+    <text x="40" y="115" font-family="Arial, sans-serif" font-size="11" fill="#64748b" font-weight="bold">Configure Services</text>
+    <text x="40" y="130" font-family="Arial, sans-serif" font-size="9" fill="#64748b">Waiting for resources...</text>
+    
+    <!-- Connection line -->
+    <line x1="20" y1="135" x2="20" y2="155" stroke="#64748b" stroke-width="2" stroke-dasharray="4,4"/>
+    
+    <!-- Step 4: Pending -->
+    <circle cx="20" cy="170" r="12" fill="#64748b"/>
+    <text x="20" y="176" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="bold">4</text>
+    <text x="40" y="165" font-family="Arial, sans-serif" font-size="11" fill="#64748b" font-weight="bold">Health Checks</text>
+    <text x="40" y="180" font-family="Arial, sans-serif" font-size="9" fill="#64748b">Pending validation</text>
+  </g>
+  
+  <!-- Terminal output -->
+  <rect x="270" y="350" width="280" height="180" rx="8" fill="#000000" opacity="0.9"/>
+  <text x="280" y="370" font-family="Arial, sans-serif" font-size="10" fill="#4ade80" font-weight="bold">Deployment Log</text>
+  
+  <g transform="translate(280, 380)">
+    <text x="0" y="15" font-family="Monaco, monospace" font-size="8" fill="#4ade80">$ terraform apply -auto-approve</text>
+    <text x="0" y="30" font-family="Monaco, monospace" font-size="8" fill="#94a3b8">aws_vpc.main: Creating...</text>
+    <text x="0" y="45" font-family="Monaco, monospace" font-size="8" fill="#10b981">aws_vpc.main: Creation complete [id=vpc-12345]</text>
+    <text x="0" y="60" font-family="Monaco, monospace" font-size="8" fill="#94a3b8">aws_subnet.public: Creating...</text>
+    <text x="0" y="75" font-family="Monaco, monospace" font-size="8" fill="#f59e0b">aws_subnet.public: Still creating... [10s elapsed]</text>
+    <text x="0" y="90" font-family="Monaco, monospace" font-size="8" fill="#94a3b8">aws_subnet.private: Creating...</text>
+    <text x="0" y="105" font-family="Monaco, monospace" font-size="8" fill="#94a3b8">aws_internet_gateway.main: Creating...</text>
+    <text x="0" y="120" font-family="Monaco, monospace" font-size="8" fill="#4ade80">▋</text>
+    
+    <!-- Blinking cursor -->
+    <rect x="0" y="110" width="8" height="12" fill="#4ade80">
+      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Right panel: Resource monitoring -->
+  <rect x="580" y="100" width="180" height="460" rx="10" fill="#1a1a2e" opacity="0.8"/>
+  <text x="590" y="125" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0" font-weight="bold">Resources</text>
+  
+  <g transform="translate(590, 140)">
+    <!-- VPC -->
+    <rect x="0" y="0" width="160" height="35" rx="6" fill="#10b981" opacity="0.2"/>
+    <circle cx="15" cy="18" r="5" fill="#10b981"/>
+    <text x="25" y="15" font-family="Arial, sans-serif" font-size="9" fill="#e2e8f0" font-weight="bold">aws_vpc.main</text>
+    <text x="25" y="27" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">vpc-12345678</text>
+    
+    <!-- Subnets -->
+    <rect x="0" y="45" width="160" height="35" rx="6" fill="#f59e0b" opacity="0.2"/>
+    <circle cx="15" cy="63" r="5" fill="#f59e0b">
+      <animate attributeName="opacity" values="1;0.5;1" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <text x="25" y="60" font-family="Arial, sans-serif" font-size="9" fill="#e2e8f0" font-weight="bold">aws_subnet.public</text>
+    <text x="25" y="72" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">Creating...</text>
+    
+    <rect x="0" y="90" width="160" height="35" rx="6" fill="#64748b" opacity="0.2"/>
+    <circle cx="15" cy="108" r="5" fill="#64748b"/>
+    <text x="25" y="105" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" font-weight="bold">aws_subnet.private</text>
+    <text x="25" y="117" font-family="Arial, sans-serif" font-size="8" fill="#64748b">Waiting...</text>
+    
+    <!-- Internet Gateway -->
+    <rect x="0" y="135" width="160" height="35" rx="6" fill="#64748b" opacity="0.2"/>
+    <circle cx="15" cy="153" r="5" fill="#64748b"/>
+    <text x="25" y="150" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" font-weight="bold">aws_internet_gateway</text>
+    <text x="25" y="162" font-family="Arial, sans-serif" font-size="8" fill="#64748b">Pending...</text>
+    
+    <!-- EC2 Instances -->
+    <rect x="0" y="180" width="160" height="35" rx="6" fill="#64748b" opacity="0.2"/>
+    <circle cx="15" cy="198" r="5" fill="#64748b"/>
+    <text x="25" y="195" font-family="Arial, sans-serif" font-size="9" fill="#64748b" font-weight="bold">aws_instance.web</text>
+    <text x="25" y="207" font-family="Arial, sans-serif" font-size="8" fill="#64748b">Not started</text>
+  </g>
+  
+  <!-- Bottom action bar -->
+  <rect x="40" y="480" width="720" height="60" rx="10" fill="url(#panel-deploy)" opacity="0.9"/>
+  <g transform="translate(60, 500)">
+    <rect x="0" y="0" width="80" height="30" rx="6" fill="#ef4444"/>
+    <text x="40" y="20" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Stop</text>
+    
+    <rect x="100" y="0" width="100" height="30" rx="6" fill="url(#accent-deploy)" filter="url(#glow-deploy)"/>
+    <text x="150" y="20" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Continue</text>
+    
+    <rect x="220" y="0" width="80" height="30" rx="6" fill="#64748b"/>
+    <text x="260" y="20" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Rollback</text>
+    
+    <rect x="320" y="0" width="80" height="30" rx="6" fill="#8b5cf6"/>
+    <text x="360" y="20" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Logs</text>
+  </g>
+  
+  <!-- Floating deployment status particles -->
+  <g opacity="0.7">
+    <circle cx="400" cy="200" r="3" fill="#10b981">
+      <animate attributeName="cy" values="200;190;200" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="450" cy="250" r="2" fill="#f59e0b">
+      <animate attributeName="cy" values="250;240;250" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="350" cy="300" r="2.5" fill="#06b6d4">
+      <animate attributeName="cy" values="300;290;300" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
