@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
+import BrandName from '@/components/BrandName'
 import Link from 'next/link'
 import Image from 'next/image'
 import { 
@@ -184,13 +185,13 @@ export default function TestimonialsPage() {
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white mb-8 tracking-tight fade-in-up" style={{ animationDelay: '0.1s' }}>
                 Teams that trust
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 mt-2">
-                  InfraUX every day
+                  <BrandName /> every day
                 </span>
               </h1>
               
               <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mb-10 font-medium leading-relaxed fade-in-up" style={{ animationDelay: '0.2s' }}>
                 Discover how companies of all sizes are transforming
-                their cloud infrastructure management with InfraUX
+                their cloud infrastructure management with <BrandName />
               </p>
               
               <div className="flex items-center justify-center gap-8 mb-8 fade-in-up" style={{ animationDelay: '0.3s' }}>
@@ -339,7 +340,7 @@ export default function TestimonialsPage() {
                 Trusted across all industries
               </h2>
               <p className="text-xl text-slate-600 dark:text-slate-400 font-medium fade-in-up" style={{ animationDelay: '0.1s' }}>
-                InfraUX is the choice of leading companies in various sectors
+                <BrandName /> is the choice of leading companies in various sectors
               </p>
             </div>
             
@@ -365,7 +366,7 @@ export default function TestimonialsPage() {
                 </h2>
                 <p className="text-xl text-emerald-50 mb-10 font-medium max-w-2xl mx-auto">
                   Start your free trial today and discover why so many companies
-                  trust InfraUX for their cloud infrastructure
+                  trust <BrandName /> for their cloud infrastructure
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
+import BrandName from '@/components/BrandName'
 import Link from 'next/link'
 import React from 'react'
 import {
@@ -232,7 +233,7 @@ export default function UseCasesPage() {
               </h1>
               
               <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mb-10 font-medium leading-relaxed fade-in-up" style={{ animationDelay: '0.2s' }}>
-                From startups to Fortune 500, see how teams use InfraUX
+                From startups to Fortune 500, see how teams use <BrandName />
                 to transform their cloud infrastructure management
               </p>
             </div>
@@ -346,7 +347,7 @@ export default function UseCasesPage() {
                 Trusted across industries
               </h2>
               <p className="text-xl text-slate-600 dark:text-slate-400 font-medium fade-in-up" style={{ animationDelay: '0.1s' }}>
-                Companies in every sector rely on InfraUX
+                Companies in every sector rely on <BrandName />
               </p>
             </div>
             

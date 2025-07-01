@@ -252,41 +252,42 @@ function HeroSection() {
           </div>
           
           {/* COLUMNA DERECHA: CONTENIDO TEXTUAL IMPACTANTE */}
-          <div className="order-1 lg:order-2 space-y-8">
-            {/* Badge de introducción */}
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-emerald-50 dark:bg-white/10 backdrop-blur-sm border border-emerald-200 dark:border-white/20 mb-6">
-              <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse" />
-              <span className="text-emerald-700 dark:text-emerald-200 font-semibold">
-                {language === 'es' ? '🚀 Visualiza tu Infraestructura Cloud en Tiempo Real' : '🚀 Visualize Your Cloud Infrastructure in Real-Time'}
+          <div className="order-1 lg:order-2 space-y-8 pt-8 sm:pt-12 lg:pt-0">
+            {/* Badge de introducción - CONTRASTE MEJORADO Y ESPACIADO MÓVIL */}
+            <div className="inline-flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 rounded-full bg-white backdrop-blur-sm border-2 border-emerald-300 shadow-xl mt-4 sm:mt-6 lg:mt-0">
+              <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse shadow-lg shadow-emerald-500/50" />
+              <span className="text-emerald-800 font-bold text-sm sm:text-base leading-tight">
+                <span className="block sm:hidden">🚀 Infraestructura Cloud</span>
+                <span className="hidden sm:block">{language === 'es' ? '🚀 Visualiza tu Infraestructura Cloud en Tiempo Real' : '🚀 Visualize Your Cloud Infrastructure in Real-Time'}</span>
               </span>
             </div>
 
-            {/* Badge de lanzamiento beta */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 dark:bg-gradient-to-r dark:from-purple-500/20 dark:to-pink-500/20 backdrop-blur-sm border border-purple-200 dark:border-purple-400/30 mb-8">
-              <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" />
-              <span className="text-purple-700 dark:text-purple-200 text-sm font-medium">
-                {language === 'es' ? '🎉 Lanzamiento Beta: 27 de Julio 2025' : '🎉 Beta Launch: July 27, 2025'}
+            {/* Badge de lanzamiento beta - CONTRASTE MEJORADO Y RESPONSIVO */}
+            <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white backdrop-blur-sm border-2 border-purple-300 shadow-xl">
+              <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse shadow-lg shadow-purple-500/50" />
+              <span className="text-purple-800 text-sm font-bold">
+                {language === 'es' ? '🎉 Beta: 27 Julio 2025' : '🎉 Beta: July 27, 2025'}
               </span>
             </div>
 
-            {/* TÍTULO PRINCIPAL ÉPICO */}
+            {/* TÍTULO PRINCIPAL ÉPICO - DISEÑO LIMPIO Y PREMIUM */}
             <h1
               id="hero-title"
               className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-tight"
             >
-              <span className="block text-slate-900 dark:text-white mb-4">
+              <span className="block text-white mb-4" style={{textShadow: '0px 2px 8px rgba(0,0,0,0.4), 0px 1px 4px rgba(0,0,0,0.2)'}}>
                 {language === 'es' ? 'Infraestructura' : 'Infrastructure'}
               </span>
-              <span className="block bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-emerald-200 via-teal-100 to-cyan-100 bg-clip-text text-transparent" style={{filter: 'drop-shadow(0px 2px 6px rgba(0,0,0,0.4))'}}>
                 {language === 'es' ? 'Cloud Moderna' : 'Modern Cloud'}
               </span>
-              <span className="block text-slate-800 dark:text-emerald-100 text-4xl sm:text-5xl lg:text-6xl mt-4">
+              <span className="block text-emerald-50 text-4xl sm:text-5xl lg:text-6xl mt-4" style={{textShadow: '0px 2px 8px rgba(0,0,0,0.4), 0px 1px 4px rgba(0,0,0,0.2)'}}>
                 {language === 'es' ? 'Visualmente Simple' : 'Visually Simple'}
               </span>
             </h1>
 
-            {/* SUBTÍTULO IMPACTANTE */}
-            <p className="text-xl sm:text-2xl text-slate-700 dark:text-emerald-100 leading-relaxed max-w-2xl">
+            {/* SUBTÍTULO IMPACTANTE - DISEÑO LIMPIO Y PREMIUM */}
+            <p className="text-xl sm:text-2xl text-white leading-relaxed max-w-2xl font-medium" style={{textShadow: '0px 2px 6px rgba(0,0,0,0.4), 0px 1px 3px rgba(0,0,0,0.2)'}}>
               {language === 'es'
                 ? 'Diseña arquitecturas cloud complejas de forma visual. Arrastra componentes, conecta servicios y genera código IaC listo para producción en AWS, GCP y Azure.'
                 : 'Design complex cloud architectures visually. Drag components, connect services and generate production-ready IaC code for AWS, GCP and Azure.'
@@ -318,25 +319,25 @@ function HeroSection() {
               </div>
             </div>
 
-            {/* CTA BUTTONS MEGA */}
+            {/* CTA BUTTONS MEGA - CONTRASTE MEJORADO */}
             <div className="flex flex-col sm:flex-row gap-6">
               <Link
                 href="/register"
                 onClick={() => trackButtonClick('hero_get_started')}
-                className="group relative px-12 py-6 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xl rounded-2xl shadow-2xl hover:shadow-emerald-500/50 transform hover:scale-105 transition-all duration-300 flex items-center gap-4 justify-center overflow-hidden"
+                className="group relative px-12 py-6 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xl rounded-2xl shadow-2xl hover:shadow-emerald-400/50 transform hover:scale-105 transition-all duration-300 flex items-center gap-4 justify-center overflow-hidden border-2 border-white/20 hover:border-white/40"
               >
                 <RocketLaunchIcon className="h-8 w-8 group-hover:animate-bounce" />
                 {language === 'es' ? 'Comenzar Gratis' : 'Start Free'}
                 <ArrowRightIcon className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
                 
-                {/* Efecto de brillo */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                {/* Efecto de brillo mejorado */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
               </Link>
               
               <Link
                 href="/demo"
                 onClick={() => trackButtonClick('hero_watch_demo')}
-                className="group px-12 py-6 bg-white dark:bg-white/10 hover:bg-slate-50 dark:hover:bg-white/20 text-emerald-600 dark:text-white border-2 border-emerald-600 dark:border-white/30 hover:border-emerald-700 dark:hover:border-white/50 font-bold text-xl rounded-2xl backdrop-blur-sm transition-all duration-300 flex items-center gap-4 justify-center shadow-lg hover:shadow-xl"
+                className="group px-12 py-6 bg-white/95 hover:bg-white text-emerald-700 hover:text-emerald-800 border-2 border-emerald-600 hover:border-emerald-700 font-bold text-xl rounded-2xl backdrop-blur-sm transition-all duration-300 flex items-center gap-4 justify-center shadow-xl hover:shadow-2xl transform hover:scale-105"
               >
                 <PlayCircleIcon className="h-8 w-8" />
                 {language === 'es' ? 'Ver Demo' : 'Watch Demo'}

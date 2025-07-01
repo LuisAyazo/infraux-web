@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { pageMetadata } from '@/lib/seo-config'
 import HeaderNew from '@/components/landing/HeaderNew'
 import FooterNew from '@/components/landing/FooterNew'
+import BrandName from '@/components/BrandName'
 import Link from 'next/link'
 import Image from 'next/image'
 import { 
@@ -133,7 +134,7 @@ export default function CompanyPage() {
               
               <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mb-10 font-medium leading-relaxed fade-in-up" style={{ animationDelay: '0.2s' }}>
                 We believe infrastructure should be visual, collaborative, and accessible to everyone.
-                That's why we're building InfraUX.
+                That's why we're building <BrandName />.
               </p>
               
               <div className="flex items-center justify-center gap-8 fade-in-up" style={{ animationDelay: '0.3s' }}>
@@ -245,7 +246,7 @@ export default function CompanyPage() {
                 Meet the Team
               </h2>
               <p className="text-xl text-slate-600 dark:text-slate-400 font-medium fade-in-up" style={{ animationDelay: '0.1s' }}>
-                The passionate people building InfraUX
+                The passionate people building <BrandName />
               </p>
             </div>
             

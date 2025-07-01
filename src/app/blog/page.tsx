@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllPosts, getFeaturedPosts } from '@/lib/blog';
 import { pageMetadata } from '@/lib/seo-config';
+import BrandName from '@/components/BrandName';
 
 export const metadata: Metadata = pageMetadata.content.blog();
 
@@ -16,8 +17,7 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <nav className="flex items-center justify-between">
             <Link href="/" className="text-2xl font-bold">
-              <span className="text-[#374151]">Infra</span>
-              <span className="text-emerald-500">UX</span>
+              <BrandName />
             </Link>
             <div className="flex items-center gap-6">
               <Link href="/producto" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
@@ -39,7 +39,7 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Blog de InfraUX
+              Blog de <BrandName />
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
               Artículos técnicos, mejores prácticas y actualizaciones sobre el futuro de la infraestructura como código
@@ -159,7 +159,7 @@ export default function BlogPage() {
             No te pierdas ningún artículo
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Suscríbete a nuestro newsletter y recibe las últimas novedades sobre InfraUX y el mundo de la infraestructura como código
+            Suscríbete a nuestro newsletter y recibe las últimas novedades sobre <BrandName /> y el mundo de la infraestructura como código
           </p>
           <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input
