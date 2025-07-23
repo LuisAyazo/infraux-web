@@ -18,7 +18,7 @@ function validateWaitlistData(data: any): { valid: boolean; error?: string } {
     return { valid: false, error: 'El formato del email no es válido' };
   }
 
-  if (!data.source || !['registro', 'login', 'prueba-gratis', 'iniciar-sesion'].includes(data.source)) {
+  if (!data.source || !['registro', 'login', 'prueba-gratis', 'iniciar-sesion', 'register'].includes(data.source)) {
     return { valid: false, error: 'La fuente no es válida' };
   }
 
