@@ -7,6 +7,7 @@ import { usePostHog } from '@/hooks/usePostHog'
 import { useIsClient } from '@/hooks/useIsClient'
 import { useLanguage, useTranslatedRoute } from '@/contexts/LanguageContext'
 import { Bars3Icon, XMarkIcon, ChevronDownIcon, GlobeAltIcon } from '@heroicons/react/24/outline'
+// import GitHubStarsButton from './GitHubStarsButton'
 
 export default function HeaderNew() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -17,6 +18,9 @@ export default function HeaderNew() {
   const { trackLinkClick, trackEvent } = usePostHog()
   const { language, setLanguage, t } = useLanguage()
   const isClient = useIsClient()
+  
+  // Use a safe default for SSR
+  const currentLang = isClient ? language : 'es'
 
   const editorRoute = useTranslatedRoute('/producto/editor');
   const iacRoute = useTranslatedRoute('/producto/iac');
@@ -28,9 +32,11 @@ export default function HeaderNew() {
   const multiCloudRoute = useTranslatedRoute('/soluciones/multi-cloud');
   const documentationRoute = useTranslatedRoute('/documentacion');
   const blogRoute = useTranslatedRoute('/blog');
-  const communityRoute = useTranslatedRoute('/comunidad');
+  const communityRoute = useTranslatedRoute('/community');
   const changelogRoute = useTranslatedRoute('/changelog');
-  const pricingRoute = useTranslatedRoute('/precios');
+  const pricingRoute = useTranslatedRoute('/pricing');
+  const openSourceRoute = useTranslatedRoute('/open-source');
+  const selfHostingRoute = useTranslatedRoute('/self-hosting');
   const companyRoute = useTranslatedRoute('/empresa');
   const loginRoute = useTranslatedRoute('/login');
   const integrationsRoute = useTranslatedRoute('/producto/integraciones');
@@ -41,144 +47,84 @@ export default function HeaderNew() {
   const careersRoute = useTranslatedRoute('/carreras');
   const partnersRoute = useTranslatedRoute('/partners');
   const pressRoute = useTranslatedRoute('/prensa');
+  const communityEditionRoute = useTranslatedRoute('/community-edition');
 
-  // Navegación con traducciones dinámicas
+  // Navegación simplificada
   const navigation = {
     producto: {
-      name: t('nav.producto'),
+      name: currentLang === 'es' ? 'Producto' : 'Product',
       items: [
         {
-          name: t('nav.editor_visual'),
+          name: currentLang === 'es' ? 'Editor Visual' : 'Visual Editor',
           href: editorRoute,
-          description: t('nav.editor_visual_desc')
+          description: currentLang === 'es' ? 'Diseña infraestructura sin código' : 'Design infrastructure without code'
         },
         {
-          name: t('nav.generacion_iac'),
+          name: currentLang === 'es' ? 'Generación IaC' : 'IaC Generation',
           href: iacRoute,
-          description: t('nav.generacion_iac_desc')
+          description: currentLang === 'es' ? 'Terraform, Pulumi, CloudFormation' : 'Terraform, Pulumi, CloudFormation'
         },
         {
-          name: t('nav.deployment'),
+          name: currentLang === 'es' ? 'Deployment' : 'Deployment',
           href: deploymentRoute,
-          description: t('nav.deployment_desc')
+          description: currentLang === 'es' ? 'CI/CD visual y automatizado' : 'Visual and automated CI/CD'
         },
         {
-          name: t('nav.colaboracion'),
-          href: collaborationRoute,
-          description: t('nav.colaboracion_desc')
-        },
-        {
-          name: t('integrations.title'),
+          name: currentLang === 'es' ? 'Integraciones' : 'Integrations',
           href: integrationsRoute,
-          description: t('nav.integraciones_desc')
-        },
-        {
-          name: t('security.title'),
-          href: securityRoute,
-          description: t('nav.seguridad_desc')
+          description: currentLang === 'es' ? 'Conecta tus herramientas favoritas' : 'Connect your favorite tools'
         },
       ]
     },
     soluciones: {
-      name: t('nav.soluciones'),
+      name: currentLang === 'es' ? 'Soluciones' : 'Solutions',
       items: [
         {
-          name: t('nav.para_startups'),
+          name: currentLang === 'es' ? 'Para Startups' : 'For Startups',
           href: startupsRoute,
-          description: t('nav.para_startups_desc')
+          description: currentLang === 'es' ? 'Escala rápido sin deuda técnica' : 'Scale fast without technical debt'
         },
         {
-          name: t('nav.para_empresas'),
+          name: currentLang === 'es' ? 'Para Empresas' : 'For Enterprises',
           href: enterprisesRoute,
-          description: t('nav.para_empresas_desc')
+          description: currentLang === 'es' ? 'Gobierna tu infraestructura' : 'Govern your infrastructure'
         },
         {
-          name: t('nav.para_devops'),
-          href: devopsRoute,
-          description: t('nav.para_devops_desc')
-        },
-        {
-          name: t('nav.multi_cloud'),
+          name: currentLang === 'es' ? 'Multi-Cloud' : 'Multi-Cloud',
           href: multiCloudRoute,
-          description: t('nav.multi_cloud_desc')
-        },
-        {
-          name: t('nav.casos_exito'),
-          href: successStoriesRoute,
-          description: t('nav.casos_exito_desc')
+          description: currentLang === 'es' ? 'AWS, GCP y Azure unificados' : 'Unified AWS, GCP and Azure'
         },
       ]
     },
     recursos: {
-      name: t('nav.recursos'),
+      name: currentLang === 'es' ? 'Recursos' : 'Resources',
       items: [
         {
-          name: t('nav.documentacion'),
+          name: currentLang === 'es' ? 'Documentación' : 'Documentation',
           href: documentationRoute,
-          description: t('nav.documentacion_desc')
+          description: currentLang === 'es' ? 'Guías y referencias completas' : 'Complete guides and references'
         },
         {
-          name: t('nav.blog'),
-          href: blogRoute,
-          description: t('nav.blog_desc')
-        },
-        {
-          name: t('nav.tutoriales'),
-          href: tutorialsRoute,
-          description: t('nav.tutoriales_desc')
-        },
-        {
-          name: t('nav.api'),
-          href: apiRoute,
-          description: t('nav.api_desc')
-        },
-        {
-          name: t('nav.roadmap'),
-          href: '/roadmap',
-          description: t('nav.roadmap_desc')
-        },
-        {
-          name: t('nav.comunidad'),
+          name: currentLang === 'es' ? 'Comunidad' : 'Community',
           href: communityRoute,
-          description: t('nav.comunidad_desc')
+          description: currentLang === 'es'
+            ? 'Únete a nuestra comunidad global'
+            : 'Join our global community'
         },
         {
-          name: t('nav.changelog'),
-          href: changelogRoute,
-          description: t('nav.changelog_desc')
+          name: currentLang === 'es' ? 'Blog' : 'Blog',
+          href: blogRoute,
+          description: currentLang === 'es' ? 'Últimas noticias y tutoriales' : 'Latest news and tutorials'
+        },
+        {
+          name: currentLang === 'es' ? 'Tutoriales' : 'Tutorials',
+          href: tutorialsRoute,
+          description: currentLang === 'es' ? 'Aprende a dominar InfraUX' : 'Learn to master InfraUX'
         },
       ]
     },
-    empresa: {
-      name: t('nav.empresa'),
-      items: [
-        {
-          name: t('nav.sobre_nosotros'),
-          href: companyRoute,
-          description: t('nav.sobre_nosotros_desc')
-        },
-        {
-          name: t('nav.carreras'),
-          href: careersRoute,
-          description: t('nav.carreras_desc')
-        },
-        {
-          name: t('nav.partners'),
-          href: partnersRoute,
-          description: t('nav.partners_desc')
-        },
-        {
-          name: t('nav.prensa'),
-          href: pressRoute,
-          description: t('nav.prensa_desc')
-        },
-      ]
-    }
   }
 
-  const simpleLinks = [
-    { name: t('nav.precios'), href: pricingRoute },
-  ]
 
   useEffect(() => {
     if (!isClient) return
@@ -215,11 +161,7 @@ export default function HeaderNew() {
   }
 
   return (
-    <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-      isScrolled
-        ? 'bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 shadow-sm'
-        : 'bg-white dark:bg-slate-900 border-b border-slate-200/50 dark:border-slate-700/50'
-    }`}>
+    <header className="fixed top-0 z-50 w-full transition-all duration-300 bg-white border-b border-slate-200 shadow-sm">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Global">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -233,16 +175,7 @@ export default function HeaderNew() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex lg:gap-x-8">
-            {/* Home Link */}
-            <Link
-              href="/"
-              className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors py-2"
-              onClick={() => trackLinkClick('nav_home', '/')}
-            >
-              {t('nav.inicio')}
-            </Link>
-            
+          <div className="hidden lg:flex lg:gap-x-10 lg:items-center">
             {/* Dropdown Menus */}
             {Object.entries(navigation).map(([key, section]) => (
               <div
@@ -252,7 +185,7 @@ export default function HeaderNew() {
                 onMouseLeave={handleMouseLeave}
               >
                 <button
-                  className="flex items-center gap-x-1 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors py-2"
+                  className="flex items-center gap-x-1 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors py-2 px-1"
                 >
                   {section.name}
                   <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === key ? 'rotate-180' : ''}`} aria-hidden="true" />
@@ -260,15 +193,15 @@ export default function HeaderNew() {
 
                 {activeDropdown === key && (
                   <div
-                    className="absolute left-1/2 z-10 pt-2 w-80 -translate-x-1/2 transform transition-all duration-200 ease-out"
+                    className="absolute left-1/2 z-10 pt-3 w-80 -translate-x-1/2 transform transition-all duration-200 ease-out"
                   >
-                    <div className="overflow-hidden rounded-2xl bg-white dark:bg-slate-800 shadow-xl ring-1 ring-slate-200/50 dark:ring-slate-700/50">
-                      <div className="p-4">
+                    <div className="overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-slate-200">
+                      <div className="p-2">
                         {section.items.map((item) => (
                           <Link
                             key={item.name}
                             href={item.href}
-                            className="group flex gap-x-4 rounded-lg p-3 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
+                            className="group flex gap-x-4 rounded-lg p-3 hover:bg-slate-50 transition-colors"
                             onClick={() => {
                               setActiveDropdown(null)
                               trackLinkClick(`nav_${section.name}_${item.name}`, item.href, {
@@ -278,10 +211,10 @@ export default function HeaderNew() {
                             }}
                           >
                             <div>
-                              <p className="font-semibold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
+                              <p className="font-medium text-slate-900 group-hover:text-emerald-600 transition-colors">
                                 {item.name}
                               </p>
-                              <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                              <p className="mt-0.5 text-sm text-slate-600">
                                 {item.description}
                               </p>
                             </div>
@@ -294,21 +227,21 @@ export default function HeaderNew() {
               </div>
             ))}
 
-            {/* Simple Links */}
-            {simpleLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors py-2"
-                onClick={() => trackLinkClick(`nav_${link.name}`, link.href)}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {/* Pricing Link */}
+            <Link
+              href={pricingRoute}
+              className="text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors py-2 px-1"
+              onClick={() => trackLinkClick('nav_pricing', pricingRoute)}
+            >
+              {currentLang === 'es' ? 'Precios' : 'Pricing'}
+            </Link>
           </div>
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4 lg:items-center">
+            {/* GitHub Stars Button */}
+            {/* <GitHubStarsButton /> */}
+            
             {/* Language Switcher */}
             <div
               className="relative"
@@ -316,10 +249,10 @@ export default function HeaderNew() {
               onMouseLeave={handleMouseLeave}
             >
               <button
-                className="flex items-center gap-x-1 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors py-2"
+                className="flex items-center gap-x-1 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors py-2 px-1"
               >
                 <GlobeAltIcon className="h-5 w-5" />
-                <span>{language === 'es' ? 'ES' : 'EN'}</span>
+                <span>{currentLang === 'es' ? 'ES' : 'EN'}</span>
                 <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === 'lang' ? 'rotate-180' : ''}`} />
               </button>
               
@@ -328,13 +261,13 @@ export default function HeaderNew() {
                   <div className="py-1">
                     <button
                       onClick={() => handleLanguageChange('es')}
-                      className={`block w-full text-left px-4 py-2 text-sm ${language === 'es' ? 'bg-slate-50 dark:bg-slate-700/50 text-indigo-600 dark:text-indigo-400' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50'}`}
+                      className={`block w-full text-left px-4 py-2 text-sm ${currentLang === 'es' ? 'bg-slate-50 dark:bg-slate-700/50 text-indigo-600 dark:text-indigo-400' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50'}`}
                     >
                       Español
                     </button>
                     <button
                       onClick={() => handleLanguageChange('en')}
-                      className={`block w-full text-left px-4 py-2 text-sm ${language === 'en' ? 'bg-slate-50 dark:bg-slate-700/50 text-indigo-600 dark:text-indigo-400' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50'}`}
+                      className={`block w-full text-left px-4 py-2 text-sm ${currentLang === 'en' ? 'bg-slate-50 dark:bg-slate-700/50 text-indigo-600 dark:text-indigo-400' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50'}`}
                     >
                       English
                     </button>
@@ -345,10 +278,10 @@ export default function HeaderNew() {
             
             <Link
               href={loginRoute}
-              className="rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-200"
+              className="rounded-full bg-emerald-500 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-600 hover:shadow-lg hover:scale-105 transition-all duration-200"
               onClick={() => trackLinkClick('header_login', loginRoute)}
             >
-              {t('nav.iniciar_sesion')}
+              {currentLang === 'es' ? 'Iniciar Sesión' : 'Sign In'}
             </Link>
           </div>
 
@@ -356,7 +289,7 @@ export default function HeaderNew() {
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-700 dark:text-slate-300"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-900"
               onClick={() => setMobileMenuOpen(true)}
             >
               <span className="sr-only">Abrir menú principal</span>
@@ -373,7 +306,7 @@ export default function HeaderNew() {
             className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm lg:hidden"
             onClick={() => setMobileMenuOpen(false)}
           />
-          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-slate-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-slate-200/50 dark:sm:ring-slate-700/50 lg:hidden h-screen transition-transform duration-300 ease-out">
+          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-slate-200/50 lg:hidden h-screen transition-transform duration-300 ease-out">
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-1.5">
                 <span className="text-xl">
@@ -383,7 +316,7 @@ export default function HeaderNew() {
               </Link>
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-slate-700 dark:text-slate-300"
+                className="-m-2.5 rounded-md p-2.5 text-slate-900"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="sr-only">Cerrar menú</span>
@@ -393,18 +326,6 @@ export default function HeaderNew() {
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-slate-200 dark:divide-slate-700">
                 <div className="space-y-2 py-6">
-                  {/* Home Link Mobile */}
-                  <Link
-                    href="/"
-                    className="block rounded-lg px-3 py-2 text-base font-medium text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800"
-                    onClick={() => {
-                      setMobileMenuOpen(false)
-                      trackLinkClick('nav_home_mobile', '/')
-                    }}
-                  >
-                    {t('nav.inicio')}
-                  </Link>
-                  
                   {Object.entries(navigation).map(([key, section]) => (
                     <div key={key} className="mb-4">
                       <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
@@ -414,7 +335,7 @@ export default function HeaderNew() {
                         <Link
                           key={item.name}
                           href={item.href}
-                          className="block rounded-lg px-3 py-2 text-base font-medium text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800"
+                          className="block rounded-lg px-3 py-2 text-base font-medium text-slate-900 hover:bg-slate-50"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {item.name}
@@ -422,16 +343,14 @@ export default function HeaderNew() {
                       ))}
                     </div>
                   ))}
-                  {simpleLinks.map((link) => (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      className="block rounded-lg px-3 py-2 text-base font-medium text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
+                  {/* Pricing Link Mobile */}
+                  <Link
+                    href={pricingRoute}
+                    className="block rounded-lg px-3 py-2 text-base font-medium text-slate-900 hover:bg-slate-50"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {currentLang === 'es' ? 'Precios' : 'Pricing'}
+                  </Link>
                 </div>
                 <div className="py-6 space-y-3">
                   {/* Language Switcher Mobile */}
@@ -445,7 +364,7 @@ export default function HeaderNew() {
                           handleLanguageChange('es')
                           setMobileMenuOpen(false)
                         }}
-                        className={`flex-1 rounded-lg px-3 py-2 text-center text-sm font-medium ${language === 'es' ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400' : 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300'}`}
+                        className={`flex-1 rounded-lg px-3 py-2 text-center text-sm font-medium ${currentLang === 'es' ? 'bg-indigo-50 text-indigo-600' : 'bg-slate-50 text-slate-900'}`}
                       >
                         ES
                       </button>
@@ -454,7 +373,7 @@ export default function HeaderNew() {
                           handleLanguageChange('en')
                           setMobileMenuOpen(false)
                         }}
-                        className={`flex-1 rounded-lg px-3 py-2 text-center text-sm font-medium ${language === 'en' ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400' : 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300'}`}
+                        className={`flex-1 rounded-lg px-3 py-2 text-center text-sm font-medium ${currentLang === 'en' ? 'bg-indigo-50 text-indigo-600' : 'bg-slate-50 text-slate-900'}`}
                       >
                         EN
                       </button>
@@ -463,10 +382,10 @@ export default function HeaderNew() {
                   
                   <Link
                     href={loginRoute}
-                    className="block w-full rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-3 py-2.5 text-center text-base font-semibold text-white shadow-sm"
+                    className="block w-full rounded-full bg-emerald-500 px-3 py-2.5 text-center text-base font-semibold text-white shadow-sm hover:bg-emerald-600 transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    {t('nav.iniciar_sesion')}
+                    {currentLang === 'es' ? 'Iniciar Sesión' : 'Sign In'}
                   </Link>
                 </div>
               </div>

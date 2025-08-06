@@ -1,0 +1,381 @@
+{
+  "common": {
+    "brand": "InfraUX",
+    "tagline": "Visual Platform Engineering",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "startFree": "Start Free",
+    "tryFree": "Try Free",
+    "viewDemo": "View Demo",
+    "watchDemo": "Watch Demo",
+    "bookDemo": "Book Demo",
+    "contact": "Contact",
+    "contactUs": "Contact Us",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "dashboard": "Dashboard",
+    "documentation": "Documentation",
+    "pricing": "Pricing",
+    "features": "Features",
+    "solutions": "Solutions",
+    "resources": "Resources",
+    "company": "Company",
+    "blog": "Blog",
+    "support": "Support",
+    "community": "Community",
+    "openSource": "Open Source",
+    "selfHost": "Self-Host",
+    "cloud": "Cloud",
+    "enterprise": "Enterprise",
+    "free": "Free",
+    "pro": "Pro",
+    "business": "Business",
+    "custom": "Custom",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "perUser": "per user",
+    "perMonth": "per month",
+    "perYear": "per year",
+    "unlimited": "Unlimited",
+    "included": "Included",
+    "notIncluded": "Not included",
+    "comingSoon": "Coming Soon",
+    "new": "New",
+    "beta": "Beta",
+    "recommended": "Recommended",
+    "mostPopular": "Most Popular",
+    "save": "Save",
+    "off": "off"
+  },
+  "nav": {
+    "home": "Home",
+    "producto": "Product",
+    "soluciones": "Solutions",
+    "recursos": "Resources",
+    "pricing": "Pricing",
+    "company": "Company",
+    "docs": "Docs",
+    "signIn": "Sign In",
+    "tryFree": "Try Free",
+    "iniciar_sesion": "Sign In",
+    "editor_visual": "Visual Editor",
+    "editor_visual_desc": "Design infrastructure without code",
+    "generacion_iac": "IaC Generation",
+    "generacion_iac_desc": "Terraform, Pulumi, CloudFormation",
+    "deployment": "Deployment",
+    "deployment_desc": "Visual and automated CI/CD",
+    "integraciones_desc": "Connect your favorite tools",
+    "para_startups": "For Startups",
+    "para_startups_desc": "Scale fast without technical debt",
+    "para_empresas": "For Enterprises",
+    "para_empresas_desc": "Govern your infrastructure",
+    "multi_cloud": "Multi-Cloud",
+    "multi_cloud_desc": "Unified AWS, GCP and Azure",
+    "documentacion": "Documentation",
+    "documentacion_desc": "Complete guides and references",
+    "blog": "Blog",
+    "blog_desc": "Latest news and tutorials",
+    "tutoriales": "Tutorials",
+    "tutoriales_desc": "Learn to master InfraUX",
+    "product_menu": {
+      "visualEditor": "Visual Editor",
+      "visualEditorDesc": "Design infrastructure without code",
+      "iacGeneration": "IaC Generation",
+      "iacGenerationDesc": "Terraform, Pulumi, CloudFormation",
+      "deployment": "Deployment",
+      "deploymentDesc": "Visual and automated CI/CD",
+      "collaboration": "Collaboration",
+      "collaborationDesc": "Work as a team in real time",
+      "integrations": "Integrations",
+      "integrationsDesc": "Connect your favorite tools",
+      "security": "Security",
+      "securityDesc": "Our security practices"
+    },
+    "solutions_menu": {
+      "forStartups": "For Startups",
+      "forStartupsDesc": "Scale fast without technical debt",
+      "forEnterprises": "For Enterprises",
+      "forEnterprisesDesc": "Govern your infrastructure",
+      "forDevOps": "For DevOps",
+      "forDevOpsDesc": "Automate your entire workflow",
+      "multiCloud": "Multi-Cloud",
+      "multiCloudDesc": "AWS, GCP and Azure unified",
+      "successStories": "Success Stories",
+      "successStoriesDesc": "Real results from our customers"
+    },
+    "resources_menu": {
+      "documentation": "Documentation",
+      "documentationDesc": "Complete guides and references",
+      "blog": "Blog",
+      "blogDesc": "Latest news and tutorials",
+      "tutorials": "Tutorials",
+      "tutorialsDesc": "Learn to master InfraUX",
+      "api": "API Reference",
+      "apiDesc": "Automate and extend InfraUX",
+      "community": "Community",
+      "communityDesc": "Join thousands of users",
+      "roadmap": "Roadmap",
+      "roadmapDesc": "Our plans and upcoming features",
+      "changelog": "Changelog",
+      "changelogDesc": "New features"
+    },
+    "company_menu": {
+      "about": "About Us",
+      "aboutDesc": "Our mission, vision, and team",
+      "careers": "Careers",
+      "careersDesc": "Join our team",
+      "partners": "Partners",
+      "partnersDesc": "Grow with us",
+      "press": "Press",
+      "pressDesc": "Resources for media",
+      "contact": "Contact"
+    }
+  },
+  "hero": {
+    "badge": "Visual Platform Engineering",
+    "title": "Platform Engineering",
+    "titleHighlight": "Visual & Powerful",
+    "subtitle": "Design cloud architectures visually. Generate IaC code automatically. Deploy with confidence.",
+    "cta": {
+      "primary": "Start Free"
+    },
+    "trustIndicators": {
+      "noCreditCard": "No credit card",
+      "freeProjects": "Free plan available",
+      "zenixAI": "Zenix AI included"
+    },
+    "techStackTitle": "✨ Integrated with the best cloud technologies"
+  },
+  "demos": {
+    "badge": "🚀 LIVE INTERACTIVE DEMOS",
+    "preTitle": "The future of",
+    "title": "Cloud Infrastructure",
+    "titleHighlight": "is Visual",
+    "description": "Discover how InfraUX transforms the way you work with cloud infrastructure. From visual design to automated deployment in seconds.",
+    "stats": {
+      "architectures": "Architectures Created",
+      "codeLines": "IaC Code Lines",
+      "successRate": "Success Rate"
+    },
+    "items": [
+      {
+        "title": "Visual Infrastructure Design",
+        "description": "Model complex AWS, GCP and Azure architectures by dragging and dropping components. No code, maximum power.",
+        "badge": "Visual",
+        "stats": "10K+ architectures"
+      },
+      {
+        "title": "Automatic IaC Generation",
+        "description": "Convert your designs into production-ready Terraform, CloudFormation or Pulumi code instantly.",
+        "badge": "Smart",
+        "stats": "50K+ lines generated"
+      },
+      {
+        "title": "Multi-Environment Deploy",
+        "description": "Manage development, staging and production with automatic validation and intelligent rollback.",
+        "badge": "Pro",
+        "stats": "99.9% success"
+      }
+    ],
+    "viewDemo": "View Demo",
+    "cta": "Try Interactive Demos"
+  },
+  "features": {
+    "title": "Power that",
+    "titleHighlight": "Transforms",
+    "subtitle": "Advanced technology that revolutionizes how you design, deploy and manage your modern cloud infrastructure.",
+    "items": [
+      {
+        "title": "Visual Architecture Design",
+        "description": "Model complex infrastructures with our drag-and-drop interface. Connect AWS, GCP and Azure services visually, without writing code.",
+        "badge": "New"
+      },
+      {
+        "title": "Automatic IaC Generation",
+        "description": "Convert your designs into production-ready Terraform, CloudFormation or Pulumi code. Clean, optimized code following best practices."
+      },
+      {
+        "title": "Multi-Environment Management",
+        "description": "Manage development, staging and production from a single platform. Secure deployment with automatic validation and intelligent rollback.",
+        "badge": "New"
+      }
+    ],
+    "cta": "View Demo"
+  },
+  "howItWorks": {
+    "title": "From Design to",
+    "titleHighlight": "Real Infrastructure",
+    "subtitle": "A revolutionary workflow that transforms your ideas into functional and scalable cloud infrastructure.",
+    "steps": [
+      {
+        "title": "1. Design Visually",
+        "description": "Drag and connect cloud resources from AWS, GCP and Azure. Model VPCs, subnets, instances, load balancers and databases visually."
+      },
+      {
+        "title": "2. Generate IaC",
+        "description": "Convert your visual design into optimized, production-ready Terraform, CloudFormation or Pulumi code with one click."
+      },
+      {
+        "title": "3. Deploy Safely",
+        "description": "Validate, test and deploy your infrastructure across multiple environments with automatic security and compliance checks."
+      }
+    ],
+    "cta": "See in Action",
+    "badges": {
+      "simplified": "Simplified Process",
+      "fastDeploy": "Fast Deploy"
+    }
+  },
+  "testimonials": {
+    "title": "Trusted by Innovative Companies",
+    "stats": {
+      "developers": "Developers",
+      "deployments": "Deployments",
+      "countries": "Countries"
+    },
+    "items": [
+      {
+        "quote": "InfraUX has revolutionized our infrastructure management. What used to take days now completes in minutes. It's intuitive, powerful and essential.",
+        "author": "Elena Rivas",
+        "role": "Lead DevOps Architect, NovaTech Solutions"
+      },
+      {
+        "quote": "The ability to visualize and generate IaC code instantly has saved us countless hours and minimized critical errors. A game changer!",
+        "author": "Javier Morales",
+        "role": "CTO, Quantum Leap AI"
+      },
+      {
+        "quote": "Since implementing InfraUX, collaboration between our development and operations teams has improved dramatically. Highly recommended.",
+        "author": "Sofia Chen",
+        "role": "Cloud Operations Manager, Apex Digital"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions about InfraUX",
+    "subtitle": "Everything you need to know to start transforming your cloud infrastructure",
+    "badge": "FAQs",
+    "items": [
+      {
+        "question": "What is InfraUX and what makes it special?",
+        "answer": "InfraUX is a revolutionary visual platform for designing, generating, and deploying cloud infrastructure. It combines the power of visual design with advanced AI (Zenix AI) to transform how you work with infrastructure. We offer a generous free plan and premium plans with advanced features."
+      },
+      {
+        "question": "What's the difference between the free and paid plans?",
+        "answer": "Free Plan: Perfect for personal projects with 1 project, 3 diagrams, 20 resources, and 5 Zenix AI trials. Paid Plans: Starting at $299/user/month with unlimited projects, unlimited Zenix AI, team collaboration, priority support, and enterprise features."
+      },
+      {
+        "question": "What does Zenix AI include?",
+        "answer": "Zenix AI is our integrated AI assistant that helps you design optimal architectures, generate perfect IaC code, detect security issues, and optimize costs. The free plan includes 5 trial uses, and paid plans include unlimited usage."
+      },
+      {
+        "question": "Which cloud providers does InfraUX support?",
+        "answer": "InfraUX supports the three major cloud providers: Amazon Web Services (AWS), Google Cloud Platform (GCP), and Microsoft Azure. You can design multi-cloud architectures and generate Terraform, CloudFormation, or Pulumi code."
+      },
+      {
+        "question": "Can I change plans anytime?",
+        "answer": "Absolutely! You can upgrade or change your plan anytime from your dashboard. Changes apply immediately and are prorated. If you cancel, you maintain access until the end of your current billing period."
+      },
+      {
+        "question": "Is it safe to use InfraUX with my infrastructure?",
+        "answer": "Absolutely. Our cloud version complies with SOC 2, GDPR, and the highest security standards. We never store your cloud credentials."
+      }
+    ]
+  },
+  "finalCta": {
+    "title": "Ready to Transform Your Infrastructure?",
+    "subtitle": "Join thousands of developers building better infrastructure with InfraUX. Visual, powerful, and AI-powered.",
+    "cta": {
+      "cloud": "Try Cloud"
+    },
+    "trustBadges": [
+      "Enterprise-Level Security",
+      "Dedicated Expert Support",
+      "Compliance & Privacy",
+      "SOC 2 Compliant",
+      "99.9% SLA",
+      "GDPR Ready"
+    ]
+  },
+  "footer": {
+    "description": "The visual platform to design, deploy, and manage cloud infrastructure. Simplify complexity, accelerate innovation.",
+    "newsletter": {
+      "title": "Subscribe to our newsletter",
+      "description": "The latest news, articles, and resources, sent to your inbox weekly.",
+      "placeholder": "you@email.com",
+      "cta": "Subscribe"
+    },
+    "links": {
+      "product": "Product",
+      "solutions": "Solutions",
+      "resources": "Resources",
+      "company": "Company",
+      "legal": "Legal"
+    },
+    "legal": {
+      "terms": "Terms & Conditions",
+      "privacy": "Privacy Policy",
+      "refund": "Refund Policy",
+      "security": "Security",
+      "sla": "SLA"
+    },
+    "copyright": "All rights reserved."
+  },
+  "pricing": {
+    "header": {
+      "badge": "Transparent Pricing • No Hidden Costs",
+      "title": "Plans that <span class='text-emerald-600'>Scale With You</span>",
+      "subtitle": "From startups to enterprises, we have the perfect plan for your team"
+    },
+    "plans": {
+      "free": {
+        "name": "Free",
+        "price": "$0",
+        "period": "forever",
+        "description": "Perfect for personal projects and exploring InfraUX",
+        "cta": "Start Free"
+      },
+      "startup": {
+        "name": "Startup",
+        "price": "$299",
+        "period": "per user/month",
+        "description": "For growing teams that need more power",
+        "cta": "Start Trial"
+      },
+      "business": {
+        "name": "Business",
+        "price": "$999",
+        "period": "per user/month",
+        "description": "For companies with advanced needs",
+        "cta": "Contact Sales"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "price": "Custom",
+        "period": "contact sales",
+        "description": "Tailored solutions for large organizations",
+        "cta": "Talk to Sales"
+      }
+    },
+    "features": {
+      "infrastructure": "Infrastructure",
+      "collaboration": "Collaboration",
+      "deployment": "Deployment & CI/CD",
+      "security": "Security & Compliance",
+      "support": "Support & SLA",
+      "advanced": "Advanced Features"
+    },
+    "faq": {
+      "badge": "Frequently Asked Questions",
+      "title": "Everything about our <span class='text-emerald-600'>Plans and Pricing</span>",
+      "subtitle": "Clear answers to the most common questions about pricing"
+    },
+    "finalCta": {
+      "badge": "Risk-Free • Cancel Anytime",
+      "title": "Start Your <span class='text-emerald-600'>Cloud Transformation</span> Today",
+      "subtitle": "Join thousands of teams already building better infrastructure with InfraUX",
+      "primary": "Start Free Trial",
+      "secondary": "Talk to an Expert"
+    }
+  }
+}

@@ -37,7 +37,7 @@ type Feature = {
   tooltip?: string;
   plans: {
     free: string | boolean;
-    pro: string | boolean;
+    startup: string | boolean;
     business: string | boolean;
     enterprise: string | boolean;
   };
@@ -61,7 +61,7 @@ type Translations = {
   };
   plansMeta: {
     free: PlanMeta;
-    pro: PlanMeta;
+    startup: PlanMeta;
     business: PlanMeta;
     enterprise: PlanMeta;
   };
@@ -131,7 +131,7 @@ export default function NewPricingTable({ translations }: NewPricingTableProps) 
     <div className="w-full max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="text-center mb-16">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 mb-6">
+        <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 mb-6">
           <SparklesIcon className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
           <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">
             {header.badge}

@@ -28,235 +28,86 @@ export default function LoginClient() {
   const [modalType, setModalType] = useState<'success' | 'error' | 'info'>('info');
   const [modalTitle, setModalTitle] = useState('');
   const [modalMessage, setModalMessage] = useState('');
+  
+  const launchDate = new Date('2025-08-20');
+  const today = new Date();
+  const daysUntilLaunch = Math.ceil((launchDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 
   useEffect(() => {
-    // Show beta message automatically after 5 seconds if not submitted
-    const timer = setTimeout(() => {
-      if (!isSubmitted) {
-        setShowBetaMessage(true);
-      }
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, [isSubmitted]);
+    setTimeout(() => setShowBetaMessage(true), 500);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!email || !name) {
-      setModalType('error');
-      setModalTitle(language === 'es' ? 'Campos requeridos' : 'Required fields');
-      setModalMessage(language === 'es' ? 'Por favor, completa todos los campos.' : 'Please fill in all fields.');
-      setShowModal(true);
-      return;
-    }
-
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      setIsSubmitted(true);
-      setModalType('success');
-      setModalTitle(language === 'es' ? '¡Registro exitoso!' : 'Registration successful!');
-      setModalMessage(language === 'es' 
-        ? 'Te hemos enviado un email con las instrucciones para acceder.' 
-        : 'We\'ve sent you an email with instructions to access.');
-      setShowModal(true);
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          name: name,
+          source: 'login',
+          lang: 'en'
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+        setModalType('success');
+        setModalTitle('We got you covered! 🎉');
+        setModalMessage('We will notify you as soon as your access is available. In the meantime, explore our documentation and join the community.');
+        setShowModal(true);
+      } else {
+        setModalType('error');
+        setModalTitle('Error processing your request');
+        setModalMessage(result.error || 'Please try again.');
+        setShowModal(true);
+      }
     } catch (error) {
+      console.error('Error:', error);
       setModalType('error');
-      setModalTitle(language === 'es' ? 'Error' : 'Error');
-      setModalMessage(language === 'es' 
-        ? 'Hubo un problema al procesar tu solicitud.' 
-        : 'There was a problem processing your request.');
+      setModalTitle('Connection Error');
+      setModalMessage('We could not connect to our servers. Please check your connection and try again.');
       setShowModal(true);
     }
   };
 
+  const t = {
+    title: "Welcome back",
+    betaTitle: "We're finishing the beta!",
+    betaSubtitle: "Beta access starts on August 20th",
+    description: "Join our waiting list to be the first to know when we open the doors. Get ready to transform your infrastructure!",
+    launchLabel: "Beta Launch",
+    daysLeft: "days",
+    whyWaitTitle: "Why the wait?",
+    whyWaitItems: [
+      "We are implementing enterprise-level security measures",
+      "Optimizing the platform to handle thousands of concurrent users",
+      "Finalizing integrations with AWS, GCP, and Azure",
+      "Preparing comprehensive documentation and tutorials"
+    ],
+    namePlaceholder: "John Doe",
+    emailPlaceholder: "you@email.com",
+    submitButton: "Notify me when it's ready",
+    successTitle: "We got you covered!",
+    successMessage: "We will notify you as soon as your access is available. In the meantime, explore our documentation and join the community.",
+    backToHome: "Back to home",
+    exploreDemo: "View demo",
+    joinCommunity: "Join the community"
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        {/* Header */}
-        <div className="text-center">
-          <Link href="/" className="inline-flex items-center">
-            <Image 
-              src="/logo.svg" 
-              alt="InfraUX" 
-              width={40} 
-              height={40}
-              className="mr-3"
-            />
-            <span className="text-2xl font-bold text-gray-900">InfraUX</span>
-          </Link>
-          
-          <h2 className="mt-6 text-3xl font-bold text-gray-900">
-            {language === 'es' ? 'Accede a tu cuenta' : 'Sign in to your account'}
-          </h2>
-          <p className="mt-2 text-sm text-gray-600">
-            {language === 'es' ? 'O' : 'Or'}{' '}
-            <Link href="/register" className="font-medium text-blue-600 hover:text-blue-500">
-              {language === 'es' ? 'crea una cuenta nueva' : 'create a new account'}
-            </Link>
-          </p>
-        </div>
-
-        {/* Login Form */}
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="space-y-4">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                {language === 'es' ? 'Nombre completo' : 'Full name'}
-              </label>
-              <div className="mt-1 relative">
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="appearance-none relative block w-full px-3 py-2 pl-10 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                  placeholder={language === 'es' ? 'Tu nombre completo' : 'Your full name'}
-                />
-                <UserIcon className="h-5 w-5 text-gray-400 absolute left-3 top-2.5" />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                {language === 'es' ? 'Correo electrónico' : 'Email address'}
-              </label>
-              <div className="mt-1 relative">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="appearance-none relative block w-full px-3 py-2 pl-10 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                  placeholder={language === 'es' ? 'tu@email.com' : 'your@email.com'}
-                />
-                <EnvelopeIcon className="h-5 w-5 text-gray-400 absolute left-3 top-2.5" />
-              </div>
-            </div>
-          </div>
-
-          {/* Beta Notice */}
-          {showBetaMessage && (
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <div className="flex">
-                <SparklesIcon className="h-5 w-5 text-blue-400 mr-2 mt-0.5" />
-                <div className="text-sm">
-                  <p className="font-medium text-blue-800">
-                    {language === 'es' ? '¡Versión Beta!' : 'Beta Version!'}
-                  </p>
-                  <p className="text-blue-700 mt-1">
-                    {language === 'es' 
-                      ? 'InfraUX está en fase beta. Regístrate para acceso anticipado y ayúdanos a mejorar.' 
-                      : 'InfraUX is in beta phase. Sign up for early access and help us improve.'}
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          <div>
-            <button
-              type="submit"
-              disabled={isSubmitted}
-              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-            >
-              {isSubmitted ? (
-                <>
-                  <CheckCircleIcon className="h-5 w-5 mr-2" />
-                  {language === 'es' ? 'Registrado' : 'Registered'}
-                </>
-              ) : (
-                <>
-                  <RocketLaunchIcon className="h-5 w-5 mr-2" />
-                  {language === 'es' ? 'Solicitar acceso' : 'Request access'}
-                </>
-              )}
-            </button>
-          </div>
-
-          {/* Success Message */}
-          {isSubmitted && (
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-              <div className="flex">
-                <CheckCircleIcon className="h-5 w-5 text-green-400 mr-2 mt-0.5" />
-                <div className="text-sm">
-                  <p className="font-medium text-green-800">
-                    {language === 'es' ? '¡Solicitud enviada!' : 'Request submitted!'}
-                  </p>
-                  <p className="text-green-700 mt-1">
-                    {language === 'es' 
-                      ? 'Te contactaremos pronto con los detalles de acceso a la beta.' 
-                      : 'We\'ll contact you soon with beta access details.'}
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Features */}
-          <div className="mt-8">
-            <div className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
-                {language === 'es' ? 'Lo que obtienes con InfraUX:' : 'What you get with InfraUX:'}
-              </p>
-            </div>
-            
-            <div className="space-y-3">
-              <div className="flex items-center">
-                <CheckCircleIcon className="h-5 w-5 text-green-500 mr-3" />
-                <span className="text-sm text-gray-700">
-                  {language === 'es' ? 'Editor visual drag & drop' : 'Visual drag & drop editor'}
-                </span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircleIcon className="h-5 w-5 text-green-500 mr-3" />
-                <span className="text-sm text-gray-700">
-                  {language === 'es' ? 'Generación automática de código' : 'Automatic code generation'}
-                </span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircleIcon className="h-5 w-5 text-green-500 mr-3" />
-                <span className="text-sm text-gray-700">
-                  {language === 'es' ? 'Soporte multi-cloud (AWS, Azure, GCP)' : 'Multi-cloud support (AWS, Azure, GCP)'}
-                </span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircleIcon className="h-5 w-5 text-green-500 mr-3" />
-                <span className="text-sm text-gray-700">
-                  {language === 'es' ? 'Colaboración en tiempo real' : 'Real-time collaboration'}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Back to Home */}
-          <div className="text-center">
-            <Link 
-              href="/" 
-              className="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <ArrowLeftIcon className="h-4 w-4 mr-1" />
-              {language === 'es' ? 'Volver al inicio' : 'Back to home'}
-            </Link>
-          </div>
-        </form>
-
-        {/* Security */}
-        <div className="text-center">
-          <div className="flex items-center justify-center text-sm text-gray-500">
-            <ShieldCheckIcon className="h-4 w-4 mr-1" />
-            {language === 'es' ? 'Tus datos están seguros y protegidos' : 'Your data is secure and protected'}
-          </div>
-        </div>
-      </div>
-
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-emerald-50/20 dark:from-black dark:via-slate-950 dark:to-emerald-950/10 relative overflow-hidden">
+      {/* Elementos decorativos de fondo */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-emerald-400/10 to-cyan-400/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-3xl animate-pulse animation-delay-2000" />
+      
       {/* Modal */}
       <Modal
         isOpen={showModal}
@@ -265,6 +116,196 @@ export default function LoginClient() {
         title={modalTitle}
         message={modalMessage}
       />
+      
+      <div className="relative z-10 flex min-h-screen">
+        {/* Lado izquierdo - Mensaje temporal */}
+        <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+          <div className="max-w-md w-full space-y-8">
+            {/* Logo y título */}
+            <div className="text-center">
+              <Link href="/" className="inline-block mb-8">
+                <span className="text-4xl">
+                  <span className="font-bold">Infra</span>
+                  <span className="text-emerald-500">UX</span>
+                </span>
+              </Link>
+              
+              <h1 className="text-4xl font-black text-slate-900 dark:text-white mb-2">
+                {t.title}
+              </h1>
+            </div>
+
+            {/* Mensaje de Beta animado */}
+            <div className={`transform transition-all duration-1000 ${showBetaMessage ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}>
+              <div className="relative bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl p-6 text-white shadow-xl overflow-hidden">
+                <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" />
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-3">
+                    <RocketLaunchIcon className="h-8 w-8" />
+                    <h3 className="text-xl font-bold">{t.betaTitle}</h3>
+                  </div>
+                  <p className="text-emerald-50 mb-4">
+                    {t.betaSubtitle}
+                  </p>
+                  <p className="text-emerald-50 mb-4">
+                    {t.description}
+                  </p>
+                  <div className="flex items-center gap-4 text-sm">
+                    <div className="flex items-center gap-2">
+                      <CalendarDaysIcon className="h-5 w-5" />
+                      <span className="font-semibold">{t.launchLabel}: August 20, 2025</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <ClockIcon className="h-5 w-5" />
+                      <span className="font-semibold">{daysUntilLaunch} {t.daysLeft}</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Decoración animada */}
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-white/20 rounded-full blur-2xl animate-pulse" />
+              </div>
+            </div>
+
+            {/* Formulario de notificación o mensaje de éxito */}
+            {!isSubmitted ? (
+              <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                    Full name
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <UserIcon className="h-5 w-5 text-slate-400" />
+                    </div>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      autoComplete="name"
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="appearance-none relative block w-full pl-10 pr-3 py-3 border border-slate-300 dark:border-slate-700 placeholder-slate-400 text-slate-900 dark:text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 dark:bg-slate-800/50 backdrop-blur-sm transition-all"
+                      placeholder={t.namePlaceholder}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                    Email address
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <EnvelopeIcon className="h-5 w-5 text-slate-400" />
+                    </div>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="appearance-none relative block w-full pl-10 pr-3 py-3 border border-slate-300 dark:border-slate-700 placeholder-slate-400 text-slate-900 dark:text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 dark:bg-slate-800/50 backdrop-blur-sm transition-all"
+                      placeholder={t.emailPlaceholder}
+                    />
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  className="group relative w-full flex justify-center items-center gap-3 py-3 px-4 border border-transparent text-sm font-bold rounded-xl text-white bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-all duration-300"
+                >
+                  {t.submitButton}
+                </button>
+              </form>
+            ) : (
+              <div className="mt-8">
+                <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-6 text-center">
+                  <CheckCircleIcon className="h-12 w-12 text-emerald-600 dark:text-emerald-400 mx-auto mb-4" />
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                    {t.successTitle}
+                  </h3>
+                  <p className="text-slate-600 dark:text-slate-400">
+                    {t.successMessage}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Enlaces adicionales */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link 
+                href="/demo" 
+                className="text-center text-sm font-medium text-emerald-600 hover:text-emerald-500 dark:text-emerald-400 dark:hover:text-emerald-300"
+              >
+                {t.exploreDemo} →
+              </Link>
+              <Link 
+                href="/community" 
+                className="text-center text-sm font-medium text-emerald-600 hover:text-emerald-500 dark:text-emerald-400 dark:hover:text-emerald-300"
+              >
+                {t.joinCommunity} →
+              </Link>
+            </div>
+
+            {/* Botón de regreso */}
+            <div className="text-center">
+              <Link 
+                href="/" 
+                className="inline-flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+              >
+                <ArrowLeftIcon className="h-4 w-4" />
+                <span>{t.backToHome}</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Lado derecho - Ilustración con Zenix */}
+        <div className="hidden lg:block relative flex-1 bg-gradient-to-br from-emerald-500 to-teal-600">
+          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+          <div className="relative h-full flex items-center justify-center p-12">
+            <div className="text-center text-white max-w-lg">
+              {/* Zenix animado */}
+              <div className="mb-8 relative">
+                <Image
+                  src="/images/zenix-hero.png"
+                  alt="Zenix waiting"
+                  width={300}
+                  height={353}
+                  className="mx-auto drop-shadow-2xl"
+                />
+              </div>
+              
+              <h2 className="text-4xl font-black mb-4">
+                {t.whyWaitTitle}
+              </h2>
+              
+              {/* Lista de razones */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <ul className="space-y-3 text-left">
+                  {t.whyWaitItems.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <ShieldCheckIcon className="h-6 w-6 text-emerald-300 flex-shrink-0 mt-0.5" />
+                      <span className="text-emerald-50">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Badge de seguridad */}
+              <div className="mt-8 inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm">
+                <LockClosedIcon className="h-5 w-5" />
+                <span className="font-semibold">
+                  Enterprise-level security
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

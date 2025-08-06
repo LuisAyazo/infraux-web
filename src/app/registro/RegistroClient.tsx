@@ -39,7 +39,7 @@ export default function RegistroClient() {
   const [userPosition, setUserPosition] = useState<number | undefined>();
   
   // Calcular días hasta el lanzamiento
-  const launchDate = new Date('2025-07-27');
+  const launchDate = new Date('2025-08-20');
   const today = new Date();
   const daysUntilLaunch = Math.ceil((launchDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 
@@ -153,7 +153,7 @@ export default function RegistroClient() {
                   alt="Zenix celebrando"
                   width={240}
                   height={240}
-                  className="relative mx-auto drop-shadow-2xl transform hover:scale-105 transition-transform duration-500"
+                  className="relative mx-auto drop-shadow-2xl"
                 />
               </div>
               
@@ -178,7 +178,7 @@ export default function RegistroClient() {
                 </div>
                 <div className="flex items-center justify-center gap-2 mt-4">
                   <CalendarDaysIcon className="h-5 w-5" />
-                  <span className="font-semibold">{daysUntilLaunch} días para el lanzamiento</span>
+                  <span className="font-semibold">{daysUntilLaunch} días para el lanzamiento beta</span>
                 </div>
               </div>
               

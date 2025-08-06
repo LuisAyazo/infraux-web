@@ -34,7 +34,7 @@ export default function RegisterPage() {
   const [modalMessage, setModalMessage] = useState('');
   const [userPosition, setUserPosition] = useState<number | undefined>();
   
-  const launchDate = new Date('2025-07-27');
+  const launchDate = new Date('2025-08-20');
   const today = new Date();
   const daysUntilLaunch = Math.ceil((launchDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 
@@ -145,7 +145,7 @@ export default function RegisterPage() {
                   alt="Zenix celebrating"
                   width={240}
                   height={240}
-                  className="relative mx-auto drop-shadow-2xl transform hover:scale-105 transition-transform duration-500"
+                  className="relative mx-auto drop-shadow-2xl"
                 />
               </div>
               
@@ -170,7 +170,7 @@ export default function RegisterPage() {
                 </div>
                 <div className="flex items-center justify-center gap-2 mt-4">
                   <CalendarDaysIcon className="h-5 w-5" />
-                  <span className="font-semibold">{daysUntilLaunch} days until launch</span>
+                  <span className="font-semibold">{daysUntilLaunch} days until beta launch</span>
                 </div>
               </div>
               

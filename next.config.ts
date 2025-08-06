@@ -5,17 +5,42 @@ const nextConfig: NextConfig = {
   
   // Experimental features for better performance
   experimental: {
-    optimizePackageImports: ['@heroicons/react'],
+    // Optimizar importaciones de paquetes grandes
+    optimizePackageImports: [
+      '@heroicons/react',
+      'lucide-react',
+      'framer-motion',
+      'react-icons',
+    ],
+    // Habilitar React Server Components optimizados
+    serverActions: {
+      bodySizeLimit: '2mb',
+    },
+    // Mejorar el tree-shaking
+    optimizeCss: false,
   },
 
-  // Turbopack configuration (now stable)
+  // Turbopack configuration (now stable in Next.js 15)
   turbopack: {
-    // Configuración mínima de Turbopack para evitar warnings
-    // Turbopack maneja automáticamente la optimización de chunks
-    // No requiere configuración explícita como Webpack
+    // Alias para resolver módulos más rápido
     resolveAlias: {
       // Fix para styled-jsx con Turbopack
       'styled-jsx': 'styled-jsx/dist/index.js',
+      // Alias para componentes comunes
+      '@/components': './src/components',
+      '@/lib': './src/lib',
+      '@/styles': './src/styles',
+      '@/types': './src/types',
+      '@/utils': './src/utils',
+      '@/config': './src/config',
+    },
+    // Optimizaciones adicionales de Turbopack
+    rules: {
+      // Optimizar importaciones de CSS
+      '*.module.css': {
+        loaders: ['css-loader'],
+        as: '*.css',
+      },
     },
   },
 

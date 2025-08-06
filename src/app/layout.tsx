@@ -144,9 +144,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Por defecto español, pero el LanguageProvider actualizará el atributo lang dinámicamente
   return (
     <html lang="es" className={inter.variable} suppressHydrationWarning>
       <head>
+        {/* Hreflang tags para SEO multiidioma */}
+        <link rel="alternate" hrefLang="es" href="https://www.infraux.com" />
+        <link rel="alternate" hrefLang="en" href="https://www.infraux.com/en" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.infraux.com" />
+        
         {/* Favicon for production */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />

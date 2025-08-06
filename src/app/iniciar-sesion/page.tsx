@@ -29,7 +29,7 @@ export default function IniciarSesionPage() {
   const [modalTitle, setModalTitle] = useState('');
   const [modalMessage, setModalMessage] = useState('');
   
-  const launchDate = new Date('2025-07-27');
+  const launchDate = new Date('2025-08-20');
   const today = new Date();
   const daysUntilLaunch = Math.ceil((launchDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 
@@ -80,9 +80,9 @@ export default function IniciarSesionPage() {
   const t = {
     title: "Bienvenido de vuelta",
     betaTitle: "¡Estamos terminando la beta!",
-    betaSubtitle: "Tu acceso estará disponible muy pronto",
-    description: "Mientras finalizamos los últimos detalles de InfraUX, únete a nuestra lista de espera para ser notificado cuando tu cuenta esté lista.",
-    launchLabel: "Lanzamiento",
+    betaSubtitle: "El acceso a la beta comienza el 20 de agosto",
+    description: "Únete a nuestra lista de espera para ser el primero en saber cuándo abrimos las puertas. ¡Prepárate para transformar tu infraestructura!",
+    launchLabel: "Lanzamiento Beta",
     daysLeft: "días",
     whyWaitTitle: "¿Por qué la espera?",
     whyWaitItems: [
@@ -153,7 +153,7 @@ export default function IniciarSesionPage() {
                   <div className="flex items-center gap-4 text-sm">
                     <div className="flex items-center gap-2">
                       <CalendarDaysIcon className="h-5 w-5" />
-                      <span className="font-semibold">{t.launchLabel}: 27 de julio, 2025</span>
+                      <span className="font-semibold">{t.launchLabel}: 20 de agosto, 2025</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <ClockIcon className="h-5 w-5" />
@@ -275,10 +275,8 @@ export default function IniciarSesionPage() {
                   alt="Zenix esperando"
                   width={300}
                   height={353}
-                  className="mx-auto drop-shadow-2xl animate-bounce"
-                  style={{ animationDuration: '3s' }}
+                  className="mx-auto drop-shadow-2xl"
                 />
-                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-48 h-8 bg-black/20 rounded-full blur-xl" />
               </div>
               
               <h2 className="text-4xl font-black mb-4">
